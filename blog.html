@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Blog</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link nav__link--active" href="./blog.html">Blog</a>
+          <a class="nav__link" href="./gesuche.html">Gesuche</a>
+          <a class="nav__link" href="./account.html">Account</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Blog</h2>
+            <div class="sub">Neuigkeiten, Aktionen, Weiterbildungen und Community-Updates.</div>
+          </div>
+        </div>
+
+        <div class="blog__layout">
+          <!-- MAIN -->
+          <div class="blog__main">
+            <div class="blog__toolbar">
+              <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Ort…" />
+              <button class="nav__link blog__searchBtn" type="button">Suchen</button>
+            </div>
+
+            <div class="blog__list">
+              <article class="blog__post">
+                <div class="blog__img" aria-hidden="true"></div>
+                <div class="blog__body">
+                  <div class="blog__meta">Heute • Berlin • Aktion</div>
+                  <div class="blog__title">Anstehendes Fest</div>
+                  <div class="blog__text">
+                    Kurzer Teasertext: Was passiert, warum ist es wichtig, wer kann mitmachen?
+                  </div>
+                  <div class="blog__footer">
+                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
+                    <div class="blog__tags">
+                      <span class="blog__tag">Community</span>
+                      <span class="blog__tag">Vor Ort</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog__post">
+                <div class="blog__img" aria-hidden="true"></div>
+                <div class="blog__body">
+                  <div class="blog__meta">Gestern • Online • Weiterbildung</div>
+                  <div class="blog__title">Online Kurs: Erste Hilfe Basics</div>
+                  <div class="blog__text">
+                    Teaser: Inhalte, Dauer, Zielgruppe. Später kann hier ein Anmelde-Link stehen.
+                  </div>
+                  <div class="blog__footer">
+                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
+                    <div class="blog__tags">
+                      <span class="blog__tag">Kurs</span>
+                      <span class="blog__tag">Online</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog__post">
+                <div class="blog__img" aria-hidden="true"></div>
+                <div class="blog__body">
+                  <div class="blog__meta">Letzte Woche • Hamburg • Verein</div>
+                  <div class="blog__title">Neuer Verein ist dabei</div>
+                  <div class="blog__text">
+                    Teaser: kurzer Überblick und CTA, wie man den Verein findet / unterstützt.
+                  </div>
+                  <div class="blog__footer">
+                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
+                    <div class="blog__tags">
+                      <span class="blog__tag">Update</span>
+                      <span class="blog__tag">Verein</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog__post">
+                <div class="blog__img" aria-hidden="true"></div>
+                <div class="blog__body">
+                  <div class="blog__meta">Platzhalter • Ort • Kategorie</div>
+                  <div class="blog__title">Beitrag Platzhalter</div>
+                  <div class="blog__text">Teasertext / Kurzbeschreibung.</div>
+                  <div class="blog__footer">
+                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
+                    <div class="blog__tags">
+                      <span class="blog__tag">Tag 1</span>
+                      <span class="blog__tag">Tag 2</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="blog__more">
+              <button class="nav__link blog__moreBtn" type="button">Weitere…</button>
+            </div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="blog__sidebar">
+            <div class="blog__sideTitle">Filter</div>
+
+            <details class="blog__filter" open>
+              <summary>Kategorie</summary>
+              <div class="blog__filterBody">
+                <label class="blog__chk"><input type="checkbox" /> Aktion</label>
+                <label class="blog__chk"><input type="checkbox" /> Verein</label>
+                <label class="blog__chk"><input type="checkbox" /> Weiterbildung</label>
+                <label class="blog__chk"><input type="checkbox" /> Community</label>
+              </div>
+            </details>
+
+            <details class="blog__filter">
+              <summary>Modus</summary>
+              <div class="blog__filterBody">
+                <label class="blog__chk"><input type="checkbox" /> Online</label>
+                <label class="blog__chk"><input type="checkbox" /> Vor Ort</label>
+              </div>
+            </details>
+
+            <details class="blog__filter">
+              <summary>Ort</summary>
+              <div class="blog__filterBody">
+                <label class="blog__chk"><input type="checkbox" /> In der Nähe</label>
+                <label class="blog__chk"><input type="checkbox" /> In Deutschland</label>
+                <label class="blog__chk"><input type="checkbox" /> Im Ausland</label>
+              </div>
+            </details>
+
+            <div class="blog__sideActions">
+              <button class="nav__link blog__apply" type="button">Anwenden</button>
+              <button class="nav__link blog__reset" type="button">Zurücksetzen</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>
