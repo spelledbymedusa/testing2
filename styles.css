@@ -1,12 +1,11 @@
 :root{
-  /* Vanilla + Hunter Green (matte, higher contrast) */
-  --bg:#fbfbf4;
-  --panel:#ffffff;
-  --border:rgba(17,24,39,.14);
-  --text:#111827;
-  --muted:#4b5563;
-  --accent:#1b4d3e;             /* hunter green */
-  --accentSoft:rgba(27,77,62,.10);
+  --bg:#f2e8cf;                  /* vanilla/cream */
+  --panel:#ffffff;               /* clean white cards on cream */
+  --border:rgba(17,24,39,.16);   /* a bit stronger for contrast */
+  --text:#1a1a1a;                /* high contrast */
+  --muted:#374151;               /* still readable */
+  --accent:#386641;              /* hunter green */
+  --accentSoft:rgba(56,102,65,.12);
   --container:1100px;
   --radius:16px;
 }
