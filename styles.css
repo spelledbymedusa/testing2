@@ -653,6 +653,63 @@ body{
   border-color:rgba(47,95,59,.42);
   background:var(--accentSoft);
 }
+.helfen__guide{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:14px;
+}
+.helfen__steps{
+  display:grid;
+  gap:12px;
+}
+.helfen__step{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:12px 14px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:12px;
+  align-items:center;
+}
+.helfen__stepNumber{
+  width:32px;
+  height:32px;
+  border-radius:999px;
+  border:1px solid rgba(47,95,59,.35);
+  background:rgba(47,95,59,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+.helfen__stepTitle{font-weight:750;margin-bottom:4px}
+.helfen__stepText{color:var(--muted);font-size:13px;line-height:1.5}
+.helfen__summary{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:14px;
+  display:grid;
+  gap:10px;
+}
+.helfen__summaryTitle{font-weight:750}
+.helfen__summaryText{color:var(--muted);font-size:13px;line-height:1.5}
+.helfen__summaryMeta{display:flex;flex-wrap:wrap;gap:8px}
+.helfen__badge{
+  border:1px solid rgba(47,95,59,.35);
+  background:rgba(47,95,59,.08);
+  color:var(--text);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+.helfen__badge--muted{
+  border-color:var(--border);
+  background:#fff;
+  color:var(--muted);
+}
 
 /* Layout similar to other pages */
 .helfen__layout{
@@ -686,8 +743,73 @@ body{
   background:rgba(47,95,59,.04);
 }
 .helfen__hint{margin-top:12px;color:var(--muted);font-size:13px}
+.helfen__filterPanel{margin-top:16px;display:grid;gap:10px}
+.helfen__filterTitle{font-weight:750}
+.helfen__filter{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:8px 12px;
+  background:#fff;
+}
+.helfen__filter summary{cursor:pointer;font-weight:600}
+.helfen__filterBody{
+  display:grid;
+  gap:8px;
+  padding:10px 4px 6px 4px;
+}
+.helfen__chk{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.helfen__sideActions{
+  display:grid;
+  gap:8px;
+  margin-top:6px;
+}
+.helfen__sideActions .nav__link{
+  justify-content:center;
+  text-align:center;
+}
 
 .helfen__main{min-width:0;display:grid;gap:12px}
+.helfen__resultsHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:12px 14px;
+}
+.helfen__resultsTitle{font-weight:750;margin-bottom:4px}
+.helfen__resultsText{color:var(--muted);font-size:13px}
+.helfen__resultsGrid{display:grid;gap:12px}
+.helfen__card{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:14px;
+  display:grid;
+  gap:10px;
+}
+.helfen__cardHeader{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+.helfen__cardTitle{font-weight:750;margin-bottom:4px}
+.helfen__cardMeta{color:var(--muted);font-size:13px}
+.helfen__cardText{color:var(--muted);font-size:14px;line-height:1.5}
+.helfen__cardActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.helfen__more{display:flex;justify-content:center}
+.helfen__divider{
+  height:1px;
+  background:var(--border);
+  margin:8px 0 2px;
+}
 
 .helfen__section,
 .helfen__onlineCard{
@@ -719,6 +841,32 @@ body{
 }
 .helfen__onlineTitle{font-weight:750;margin-bottom:6px}
 .helfen__onlineText{color:var(--muted)}
+.helfen__onlineFilters{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:14px;
+  display:grid;
+  gap:12px;
+}
+.helfen__filterRow{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.helfen__input{
+  display:grid;
+  gap:6px;
+  color:var(--muted);
+  font-size:13px;
+}
+.helfen__input select{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px 12px;
+  background:#fff;
+  color:var(--text);
+}
 
 .helfen__onlineGrid{
   display:grid;
@@ -729,7 +877,10 @@ body{
 @media (max-width: 1100px){
   .helfen__layout{grid-template-columns:1fr}
   .helfen__sidebar{position:static;top:auto}
+  .helfen__guide{grid-template-columns:1fr}
 }
 @media (max-width: 720px){
   .helfen__onlineGrid{grid-template-columns:1fr}
+  .helfen__filterRow{grid-template-columns:1fr}
+  .helfen__resultsHeader{flex-direction:column;align-items:flex-start}
 }

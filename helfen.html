@@ -39,6 +39,42 @@
             Helfen online
           </button>
         </div>
+
+        <div class="helfen__guide">
+          <div class="helfen__steps">
+            <div class="helfen__step">
+              <div class="helfen__stepNumber">1</div>
+              <div>
+                <div class="helfen__stepTitle">Modus wählen</div>
+                <div class="helfen__stepText">Vor Ort oder online – je nach Zeit, Ort und Motivation.</div>
+              </div>
+            </div>
+            <div class="helfen__step">
+              <div class="helfen__stepNumber">2</div>
+              <div>
+                <div class="helfen__stepTitle">Filter setzen</div>
+                <div class="helfen__stepText">Themen, Zeitaufwand, Entfernung und Barrierefreiheit eingrenzen.</div>
+              </div>
+            </div>
+            <div class="helfen__step">
+              <div class="helfen__stepNumber">3</div>
+              <div>
+                <div class="helfen__stepTitle">Kontakt aufnehmen</div>
+                <div class="helfen__stepText">Kurze Anfrage stellen und direkt ins Engagement starten.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="helfen__summary">
+            <div class="helfen__summaryTitle">Schnellüberblick</div>
+            <div class="helfen__summaryText">Diese Seite ist ein Skeleton: visuelle Führung, echte Filter folgen später.</div>
+            <div class="helfen__summaryMeta">
+              <span class="helfen__badge">36 Gesuche</span>
+              <span class="helfen__badge helfen__badge--muted">12 Organisationen aktiv</span>
+              <span class="helfen__badge helfen__badge--muted">8 Online-Angebote</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -63,10 +99,139 @@
           <div class="helfen__hint">
             Tipp: Klick links auf eine Rolle – rechts springst du direkt zum Abschnitt.
           </div>
+
+          <div class="helfen__filterPanel">
+            <div class="helfen__filterTitle">Filter</div>
+
+            <details class="helfen__filter" open>
+              <summary>Themengebiet</summary>
+              <div class="helfen__filterBody">
+                <label class="helfen__chk"><input type="checkbox" /> Kinder &amp; Jugend</label>
+                <label class="helfen__chk"><input type="checkbox" /> Senior:innen</label>
+                <label class="helfen__chk"><input type="checkbox" /> Natur &amp; Tiere</label>
+                <label class="helfen__chk"><input type="checkbox" /> Sport &amp; Kultur</label>
+              </div>
+            </details>
+
+            <details class="helfen__filter">
+              <summary>Entfernung</summary>
+              <div class="helfen__filterBody">
+                <label class="helfen__chk"><input type="checkbox" /> Umkreis 5 km</label>
+                <label class="helfen__chk"><input type="checkbox" /> Umkreis 20 km</label>
+                <label class="helfen__chk"><input type="checkbox" /> Überregional</label>
+              </div>
+            </details>
+
+            <details class="helfen__filter">
+              <summary>Zeit &amp; Verfügbarkeit</summary>
+              <div class="helfen__filterBody">
+                <label class="helfen__chk"><input type="checkbox" /> 1–2 Std/Woche</label>
+                <label class="helfen__chk"><input type="checkbox" /> Wochenenden</label>
+                <label class="helfen__chk"><input type="checkbox" /> Abends</label>
+                <label class="helfen__chk"><input type="checkbox" /> Projektbasiert</label>
+              </div>
+            </details>
+
+            <details class="helfen__filter">
+              <summary>Rahmen</summary>
+              <div class="helfen__filterBody">
+                <label class="helfen__chk"><input type="checkbox" /> Barrierefrei</label>
+                <label class="helfen__chk"><input type="checkbox" /> ÖPNV erreichbar</label>
+                <label class="helfen__chk"><input type="checkbox" /> Aufwandsentschädigung</label>
+              </div>
+            </details>
+
+            <div class="helfen__sideActions">
+              <button class="nav__link helfen__apply" type="button">Anwenden</button>
+              <button class="nav__link helfen__reset" type="button">Zurücksetzen</button>
+            </div>
+          </div>
         </aside>
 
         <!-- Right: content sections -->
         <main class="helfen__main">
+          <div class="helfen__resultsHeader">
+            <div>
+              <div class="helfen__resultsTitle">Passende Einsätze vor Ort</div>
+              <div class="helfen__resultsText">3–6 Stunden pro Woche · Nähe: Köln · Kinder/Jugend</div>
+            </div>
+            <button class="nav__link helfen__saveSearch" type="button">Suche merken</button>
+          </div>
+
+          <div class="helfen__resultsGrid">
+            <article class="helfen__card">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Begleitung im Hausaufgaben-Club</div>
+                  <div class="helfen__cardMeta">Verein Sonnenweg · Köln-Ehrenfeld</div>
+                </div>
+                <span class="helfen__badge">Vor Ort</span>
+              </div>
+              <div class="helfen__cardText">
+                Unterstützung von Schüler:innen (8–12 Jahre), 1–2 Nachmittage pro Woche, kleine Gruppen.
+              </div>
+              <div class="helfen__tags">
+                <span class="helfen__tag">Kinder</span>
+                <span class="helfen__tag">Nachmittags</span>
+                <span class="helfen__tag">Barrierefrei</span>
+              </div>
+              <div class="helfen__cardActions">
+                <button class="nav__link helfen__open" type="button">Details</button>
+                <button class="nav__link helfen__contact" type="button">Kontakt</button>
+              </div>
+            </article>
+
+            <article class="helfen__card">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Fahrdienst zu Arztterminen</div>
+                  <div class="helfen__cardMeta">Seniorenhilfe Köln · Innenstadt</div>
+                </div>
+                <span class="helfen__badge helfen__badge--muted">Planbar</span>
+              </div>
+              <div class="helfen__cardText">
+                Fahrten für Senior:innen mit eigenem PKW, flexible Zeitslots, klare Routenplanung.
+              </div>
+              <div class="helfen__tags">
+                <span class="helfen__tag">Senior:innen</span>
+                <span class="helfen__tag">Flexibel</span>
+                <span class="helfen__tag">ÖPNV</span>
+              </div>
+              <div class="helfen__cardActions">
+                <button class="nav__link helfen__open" type="button">Details</button>
+                <button class="nav__link helfen__contact" type="button">Kontakt</button>
+              </div>
+            </article>
+
+            <article class="helfen__card">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Gartenprojekt im Stadtteil</div>
+                  <div class="helfen__cardMeta">Grün &amp; Gut · Köln-Nippes</div>
+                </div>
+                <span class="helfen__badge">Samstags</span>
+              </div>
+              <div class="helfen__cardText">
+                Pflege von Hochbeeten, gemeinsames Gärtnern, Familien willkommen, Werkzeuge vorhanden.
+              </div>
+              <div class="helfen__tags">
+                <span class="helfen__tag">Natur</span>
+                <span class="helfen__tag">Team</span>
+                <span class="helfen__tag">Projekt</span>
+              </div>
+              <div class="helfen__cardActions">
+                <button class="nav__link helfen__open" type="button">Details</button>
+                <button class="nav__link helfen__contact" type="button">Kontakt</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="helfen__more">
+            <button class="nav__link helfen__moreBtn" type="button">Weitere anzeigen</button>
+          </div>
+
+          <div class="helfen__divider"></div>
+
           <article class="helfen__section" id="aushilfe">
             <div class="helfen__title">Als Aushilfe/Gast</div>
             <div class="helfen__text">
@@ -150,36 +315,88 @@
           </div>
         </div>
 
+        <div class="helfen__onlineFilters">
+          <div class="helfen__filterTitle">Online-Filter</div>
+          <div class="helfen__filterRow">
+            <label class="helfen__input">
+              <span>Skills</span>
+              <select>
+                <option>Beliebig</option>
+                <option>Design &amp; Social</option>
+                <option>IT &amp; Tools</option>
+                <option>Sprache</option>
+              </select>
+            </label>
+            <label class="helfen__input">
+              <span>Zeitrahmen</span>
+              <select>
+                <option>Flexibel</option>
+                <option>1–2 Std/Woche</option>
+                <option>Projekt (4–6 Wochen)</option>
+                <option>Langfristig</option>
+              </select>
+            </label>
+            <label class="helfen__input">
+              <span>Start</span>
+              <select>
+                <option>Sofort</option>
+                <option>In 2 Wochen</option>
+                <option>Nächster Monat</option>
+              </select>
+            </label>
+          </div>
+          <div class="helfen__sideActions">
+            <button class="nav__link helfen__apply" type="button">Filtern</button>
+            <button class="nav__link helfen__reset" type="button">Zurücksetzen</button>
+          </div>
+        </div>
+
         <div class="helfen__onlineGrid">
           <div class="helfen__onlineCard">
-            <div class="helfen__title">Social Media & Design</div>
+            <div class="helfen__title">Social Media &amp; Design</div>
             <div class="helfen__text">Posts, Flyer, Canva, kleine Kampagnen, Bildauswahl.</div>
             <div class="helfen__tags">
               <span class="helfen__tag">Kreativ</span><span class="helfen__tag">Remote</span>
             </div>
+            <div class="helfen__cardActions">
+              <button class="nav__link helfen__open" type="button">Details</button>
+              <button class="nav__link helfen__contact" type="button">Kontakt</button>
+            </div>
           </div>
 
           <div class="helfen__onlineCard">
-            <div class="helfen__title">Texte & Übersetzung</div>
+            <div class="helfen__title">Texte &amp; Übersetzung</div>
             <div class="helfen__text">Webseiten-Texte, einfache Übersetzungen, Korrekturlesen.</div>
             <div class="helfen__tags">
               <span class="helfen__tag">Sprache</span><span class="helfen__tag">Remote</span>
             </div>
-          </div>
-
-          <div class="helfen__onlineCard">
-            <div class="helfen__title">IT & Support</div>
-            <div class="helfen__text">Webpflege, E-Mail-Struktur, Tools einrichten, kleine Automationen.</div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">IT</span><span class="helfen__tag">Remote</span>
+            <div class="helfen__cardActions">
+              <button class="nav__link helfen__open" type="button">Details</button>
+              <button class="nav__link helfen__contact" type="button">Kontakt</button>
             </div>
           </div>
 
           <div class="helfen__onlineCard">
-            <div class="helfen__title">Mentoring & Lernen</div>
+            <div class="helfen__title">IT &amp; Support</div>
+            <div class="helfen__text">Webpflege, E-Mail-Struktur, Tools einrichten, kleine Automationen.</div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">IT</span><span class="helfen__tag">Remote</span>
+            </div>
+            <div class="helfen__cardActions">
+              <button class="nav__link helfen__open" type="button">Details</button>
+              <button class="nav__link helfen__contact" type="button">Kontakt</button>
+            </div>
+          </div>
+
+          <div class="helfen__onlineCard">
+            <div class="helfen__title">Mentoring &amp; Lernen</div>
             <div class="helfen__text">Online-Nachhilfe, Bewerbungschecks, Lernbegleitung.</div>
             <div class="helfen__tags">
               <span class="helfen__tag">Co-Learning</span><span class="helfen__tag">Remote</span>
+            </div>
+            <div class="helfen__cardActions">
+              <button class="nav__link helfen__open" type="button">Details</button>
+              <button class="nav__link helfen__contact" type="button">Kontakt</button>
             </div>
           </div>
         </div>
