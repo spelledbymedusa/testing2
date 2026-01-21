@@ -147,9 +147,9 @@ body{
    Slider
    ========================================================= */
 .slider{
-  padding:16px 0;
-  border-bottom:1px solid var(--border);
-  background:var(--bg);
+  padding:10px 0; /* not too long */
+  background:var(--accentDark);        /* same as header */
+  border-bottom:1px solid rgba(0,0,0,.15);
 }
 .slider__frame{
   display:grid;
@@ -159,29 +159,35 @@ body{
 }
 .slider__btn{
   border-radius:14px;
-  border:1px solid var(--border);
-  background:var(--panel);
+  border:1px solid rgba(247,244,236,.45);
+  background:rgba(247,244,236,.08);
   cursor:pointer;
   font-size:18px;
-  color:var(--text);
-  min-height:44px;                /* touch target */
+  color:#f7f4ec;
+  min-height:44px;
 }
 .slider__btn:hover{
-  border-color:rgba(47,95,59,.35);
-  background:rgba(47,95,59,.04);
+  border-color:rgba(247,244,236,.70);
+  background:rgba(247,244,236,.14);
 }
+
 .slider__content{
-  border:1px solid var(--border);
-  background:var(--panel);
+  border:1px solid rgba(247,244,236,.25);
+  background:rgba(247,244,236,.06);
   border-radius:var(--radius);
   overflow:hidden;
-  min-height:180px;
+  min-height:120px;   /* shorter than before */
   display:flex;
 }
+
 .slider__img{
   width:100%;
-  background:#f1f2ee; /* placeholder */
+  /* still placeholder but now fits header area */
+  background:
+    linear-gradient(90deg, rgba(247,244,236,.10), rgba(247,244,236,.03)),
+    radial-gradient(600px 220px at 20% 40%, rgba(47,95,59,.55), transparent 60%);
 }
+
 
 /* =========================================================
    Welcome
