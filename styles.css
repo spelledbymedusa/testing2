@@ -712,3 +712,137 @@ body{
   .auth__layout{grid-template-columns:1fr}
   .account__grid{grid-template-columns:1fr}
 }
+/* ===== Blog page (matte) ===== */
+.blog__layout{
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  gap:14px;
+  align-items:start;
+}
+
+.blog__main{min-width:0}
+
+.blog__toolbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.blog__search{
+  flex:1;
+  min-width:180px;
+  padding:11px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  outline:none;
+}
+
+.blog__search::placeholder{color:var(--muted)}
+
+.blog__list{display:grid;gap:10px}
+
+.blog__post{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns: 180px 1fr;
+}
+
+.blog__img{
+  background:#f1f2ee;
+  border-right:1px solid var(--border);
+  min-height:140px;
+}
+
+.blog__body{
+  padding:14px;
+  display:grid;
+  gap:8px;
+  min-width:0;
+}
+
+.blog__meta{color:var(--muted);font-size:13px}
+.blog__title{font-weight:750}
+.blog__text{color:var(--muted);font-size:13px;line-height:1.45}
+
+.blog__footer{
+  margin-top:6px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.blog__tags{display:flex;gap:8px;flex-wrap:wrap}
+
+.blog__tag{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--muted);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+.blog__more{margin-top:14px;display:flex;justify-content:center}
+
+.blog__sidebar{
+  position:sticky;
+  top:74px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:14px;
+}
+
+.blog__sideTitle{font-weight:750;margin-bottom:10px}
+
+.blog__filter{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--panel);
+  margin-bottom:10px;
+  overflow:hidden;
+}
+
+.blog__filter summary{
+  cursor:pointer;
+  padding:10px 12px;
+  font-weight:650;
+}
+
+.blog__filterBody{
+  padding:10px 12px 12px;
+  display:grid;
+  gap:8px;
+}
+
+.blog__chk{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color:var(--text);
+}
+
+.blog__sideActions{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+@media (max-width: 1100px){
+  .blog__layout{grid-template-columns:1fr}
+  .blog__sidebar{position:static;top:auto}
+}
+
+@media (max-width: 820px){
+  .blog__post{grid-template-columns:1fr}
+  .blog__img{border-right:0;border-bottom:1px solid var(--border)}
+}
