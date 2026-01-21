@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Gesuche</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./blog.html">Blog</a>
+          <a class="nav__link nav__link--active" href="./gesuche.html">Gesuche</a>
+          <a class="nav__link" href="./account.html">Account</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Gesuche</h2>
+            <div class="sub">Konkrete Hilfsanfragen – lokal oder online, kurz- oder langfristig.</div>
+          </div>
+        </div>
+
+        <div class="gesuche__layout">
+          <!-- MAIN -->
+          <div class="gesuche__main">
+            <div class="gesuche__toolbar">
+              <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" />
+              <button class="nav__link gesuche__searchBtn" type="button">Suchen</button>
+            </div>
+
+            <div class="gesuche__list">
+              <!-- Gesuch row 1 -->
+              <article class="gesuche__row">
+                <div class="gesuche__left">
+                  <div class="gesuche__title">Begleitung zum Arzt gesucht</div>
+                  <div class="gesuche__meta">Berlin • 2 km • 30–90 Min • Vor Ort</div>
+
+                  <div class="gesuche__tags">
+                    <span class="gesuche__tag">Ältere</span>
+                    <span class="gesuche__tag">Begleitung</span>
+                    <span class="gesuche__tag">Kurzfristig</span>
+                  </div>
+
+                  <div class="gesuche__text">
+                    Kurzer Teaser: Worum geht es? Was ist wichtig? Welche Zeiten? Was sollte man mitbringen?
+                  </div>
+                </div>
+
+                <div class="gesuche__right">
+                  <button class="nav__link gesuche__open" type="button">Öffnen</button>
+                  <button class="nav__link gesuche__save" type="button">Merken</button>
+                </div>
+              </article>
+
+              <!-- Gesuch row 2 -->
+              <article class="gesuche__row">
+                <div class="gesuche__left">
+                  <div class="gesuche__title">Online Nachhilfe (Mathe) für Schüler</div>
+                  <div class="gesuche__meta">Online • flexibel • 1–2 Std/Woche</div>
+
+                  <div class="gesuche__tags">
+                    <span class="gesuche__tag">Kinder</span>
+                    <span class="gesuche__tag">Online</span>
+                    <span class="gesuche__tag">Wissen</span>
+                  </div>
+
+                  <div class="gesuche__text">
+                    Kurzer Teaser: Zielgruppe, Zeitslots, Level und gewünschte Skills.
+                  </div>
+                </div>
+
+                <div class="gesuche__right">
+                  <button class="nav__link gesuche__open" type="button">Öffnen</button>
+                  <button class="nav__link gesuche__save" type="button">Merken</button>
+                </div>
+              </article>
+
+              <!-- Gesuch row 3 -->
+              <article class="gesuche__row">
+                <div class="gesuche__left">
+                  <div class="gesuche__title">Hilfe im Tierheim am Wochenende</div>
+                  <div class="gesuche__meta">Hamburg • 5 km • halber Tag • Offline</div>
+
+                  <div class="gesuche__tags">
+                    <span class="gesuche__tag">Tiere</span>
+                    <span class="gesuche__tag">Wochenende</span>
+                    <span class="gesuche__tag">Offline</span>
+                  </div>
+
+                  <div class="gesuche__text">
+                    Kurzer Teaser: Aufgaben (Füttern, Reinigen, Spaziergänge), Kleidung, Treffpunkt.
+                  </div>
+                </div>
+
+                <div class="gesuche__right">
+                  <button class="nav__link gesuche__open" type="button">Öffnen</button>
+                  <button class="nav__link gesuche__save" type="button">Merken</button>
+                </div>
+              </article>
+
+              <!-- More placeholders -->
+              <article class="gesuche__row">
+                <div class="gesuche__left">
+                  <div class="gesuche__title">Gesuch Platzhalter</div>
+                  <div class="gesuche__meta">Ort • Nähe • Aufwand • Modus</div>
+                  <div class="gesuche__tags">
+                    <span class="gesuche__tag">Tag 1</span>
+                    <span class="gesuche__tag">Tag 2</span>
+                    <span class="gesuche__tag">Tag 3</span>
+                  </div>
+                  <div class="gesuche__text">Kurzbeschreibung / Teasertext.</div>
+                </div>
+                <div class="gesuche__right">
+                  <button class="nav__link gesuche__open" type="button">Öffnen</button>
+                  <button class="nav__link gesuche__save" type="button">Merken</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="gesuche__more">
+              <button class="nav__link gesuche__moreBtn" type="button">Weitere…</button>
+            </div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="gesuche__sidebar">
+            <div class="gesuche__sideTitle">Filter</div>
+
+            <details class="gesuche__filter" open>
+              <summary>Themengebiet</summary>
+              <div class="gesuche__filterBody">
+                <label class="gesuche__chk"><input type="checkbox" /> Kinder</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Geflüchtete</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Inklusiv</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Ältere</label>
+
+                <div class="gesuche__sep"></div>
+
+                <label class="gesuche__chk"><input type="checkbox" /> Tiere</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Natur</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Sport</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Kreativ</label>
+              </div>
+            </details>
+
+            <details class="gesuche__filter">
+              <summary>Ort</summary>
+              <div class="gesuche__filterBody">
+                <label class="gesuche__chk"><input type="checkbox" /> In der Nähe</label>
+                <label class="gesuche__chk"><input type="checkbox" /> In Deutschland</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Im Ausland</label>
+              </div>
+            </details>
+
+            <details class="gesuche__filter">
+              <summary>Modus</summary>
+              <div class="gesuche__filterBody">
+                <label class="gesuche__chk"><input type="checkbox" /> Online</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Offline</label>
+              </div>
+            </details>
+
+            <details class="gesuche__filter">
+              <summary>Aufwand</summary>
+              <div class="gesuche__filterBody">
+                <label class="gesuche__chk"><input type="checkbox" /> kurzfristig (3–30 Min)</label>
+                <label class="gesuche__chk"><input type="checkbox" /> mittelfristig (halber Tag)</label>
+                <label class="gesuche__chk"><input type="checkbox" /> langfristig (mehrere Tage)</label>
+                <label class="gesuche__chk"><input type="checkbox" /> FSJ o.ä.</label>
+              </div>
+            </details>
+
+            <details class="gesuche__filter">
+              <summary>Rahmen</summary>
+              <div class="gesuche__filterBody">
+                <label class="gesuche__chk"><input type="checkbox" /> Mit ÖPNV erreichbar</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Geld (Aufwandsentschädigung)</label>
+                <label class="gesuche__chk"><input type="checkbox" /> Barrierefrei</label>
+              </div>
+            </details>
+
+            <div class="gesuche__sideActions">
+              <button class="nav__link gesuche__apply" type="button">Anwenden</button>
+              <button class="nav__link gesuche__reset" type="button">Zurücksetzen</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>
