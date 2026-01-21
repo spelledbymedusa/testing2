@@ -86,9 +86,10 @@ body{
   position:sticky;
   top:0;
   z-index:10;
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
+  background:var(--accentDark);   /* solid hunter green */
+  border-bottom:1px solid rgba(0,0,0,.15);
 }
+
 .header__inner{
   display:flex;
   align-items:center;
@@ -96,31 +97,29 @@ body{
   padding:14px 0;
   gap:14px;
 }
-.brand{font-weight:750;letter-spacing:.2px}
-
-.nav{display:flex;gap:10px;flex-wrap:wrap}
-.nav__link{
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid transparent;
-  color:var(--text);
-  text-decoration:none;
-  opacity:.92;
-  background:transparent;
-  min-height:44px;                /* touch target */
-  display:inline-flex;
-  align-items:center;
+.brand{
+  font-weight:750;
+  letter-spacing:.2px;
+  color:#f7f4ec; /* vanilla on green */
 }
+
+.nav__link{
+  color:#f7f4ec;
+  opacity:.9;
+}
+
 .nav__link:hover{
   opacity:1;
-  border-color:rgba(47,95,59,.28);
-  background:rgba(47,95,59,.06);
+  border-color:rgba(247,244,236,.55);
+  background:rgba(247,244,236,.12);
 }
+
 .nav__link--active{
   opacity:1;
-  border-color:rgba(47,95,59,.42);
-  background:var(--accentSoft);
+  border-color:rgba(247,244,236,.75);
+  background:rgba(247,244,236,.18);
 }
+
 
 /* Typography / Sections */
 .section{padding:26px 0}
