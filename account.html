@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Account</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./blog.html">Blog</a>
+          <a class="nav__link" href="./gesuche.html">Gesuche</a>
+          <a class="nav__link nav__link--active" href="./account.html">Account</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Vereins-Dashboard</h2>
+            <div class="sub">Übersicht über Profil, Gesuche und Aktivitäten (Design-only).</div>
+          </div>
+        </div>
+
+        <div class="account__grid">
+          <div class="account__panel">
+            <div class="account__panelTitle">Profilstatus</div>
+            <div class="account__kv">
+              <div class="account__k">Verein</div>
+              <div class="account__v">Verein XY (Demo)</div>
+              <div class="account__k">Ort</div>
+              <div class="account__v">Berlin</div>
+              <div class="account__k">Kontakt</div>
+              <div class="account__v">verein@email.de</div>
+              <div class="account__k">Status</div>
+              <div class="account__v">Unverifiziert (Demo)</div>
+            </div>
+            <div class="account__panelActions">
+              <button class="account__btnPrimary" type="button">Profil bearbeiten</button>
+              <button class="account__btn" type="button">Verifizierung starten</button>
+            </div>
+          </div>
+
+          <div class="account__panel">
+            <div class="account__panelTitle">Gesuche</div>
+
+            <div class="account__cards">
+              <div class="account__card">
+                <div class="account__cardTitle">Begleitung zum Arzt</div>
+                <div class="account__cardMeta">Aktiv • Berlin • Vor Ort</div>
+              </div>
+              <div class="account__card">
+                <div class="account__cardTitle">Online Nachhilfe Mathe</div>
+                <div class="account__cardMeta">Entwurf • Online</div>
+              </div>
+              <div class="account__card">
+                <div class="account__cardTitle">Hilfe am Wochenende</div>
+                <div class="account__cardMeta">Aktiv • Hamburg</div>
+              </div>
+            </div>
+
+            <div class="account__panelActions">
+              <button class="account__btnPrimary" type="button">Neues Gesuch</button>
+              <a class="nav__link" href="./gesuche.html">Zur Liste</a>
+            </div>
+          </div>
+
+          <div class="account__panel">
+            <div class="account__panelTitle">Aktivität</div>
+            <div class="account__activity">
+              <div class="account__activityRow">
+                <div class="account__dot"></div>
+                <div>
+                  <div class="account__activityTitle">Neues Interesse (Demo)</div>
+                  <div class="account__activityMeta">Heute • 12:20</div>
+                </div>
+              </div>
+
+              <div class="account__activityRow">
+                <div class="account__dot"></div>
+                <div>
+                  <div class="account__activityTitle">Profil aktualisiert (Demo)</div>
+                  <div class="account__activityMeta">Gestern • 18:04</div>
+                </div>
+              </div>
+
+              <div class="account__activityRow">
+                <div class="account__dot"></div>
+                <div>
+                  <div class="account__activityTitle">Gesuch veröffentlicht (Demo)</div>
+                  <div class="account__activityMeta">Letzte Woche</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="account__panel">
+            <div class="account__panelTitle">Einstellungen</div>
+            <div class="account__settings">
+              <label class="account__setting">
+                <span>Benachrichtigungen</span>
+                <input type="checkbox" />
+              </label>
+              <label class="account__setting">
+                <span>Öffentliches Profil</span>
+                <input type="checkbox" checked />
+              </label>
+              <label class="account__setting">
+                <span>Datenschutz: Kontakt verbergen</span>
+                <input type="checkbox" />
+              </label>
+            </div>
+
+            <div class="account__panelActions">
+              <button class="account__btn" type="button">Speichern</button>
+              <a class="nav__link" href="./login.html">Abmelden (Demo)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>
