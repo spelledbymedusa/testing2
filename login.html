@@ -25,15 +25,17 @@
       <div class="container">
         <div class="section__header">
           <div>
-            <h2 class="h2">Vereine • Zugang</h2>
-            <div class="sub">Anmelden oder registrieren, um Gesuche zu erstellen und euer Profil zu verwalten.</div>
+            <h2 class="h2">Zugang</h2>
+            <div class="sub">
+              Anmelden oder registrieren – für Privatpersonen oder Vereine/Organisationen.
+            </div>
           </div>
         </div>
 
         <div class="auth__layout">
           <!-- Left info (design-only) -->
           <div class="auth__info">
-            <div class="auth__infoTitle">Warum ein Vereins-Account?</div>
+            <div class="auth__infoTitle">Warum ein Account?</div>
             <ul class="auth__list">
               <li>Gesuche erstellen und verwalten</li>
               <li>Profil & Kontaktinfos pflegen</li>
@@ -48,15 +50,34 @@
 
           <!-- Right form card -->
           <div class="auth__card">
+            <!-- Role switch (design-only) -->
+            <div class="auth__role">
+              <span class="auth__roleLabel">Ich bin:</span>
+              <div class="auth__roleSwitch" role="tablist" aria-label="Account-Typ wählen">
+                <button
+                  class="auth__roleBtn auth__roleBtn--active"
+                  type="button"
+                  aria-selected="true"
+                >
+                  Privatperson
+                </button>
+                <button class="auth__roleBtn" type="button" aria-selected="false">
+                  Verein/Organisation
+                </button>
+              </div>
+            </div>
+
+            <!-- Tabs -->
             <div class="auth__tabs">
               <button class="auth__tab auth__tab--active" type="button">Anmelden</button>
               <button class="auth__tab" type="button">Registrieren</button>
             </div>
 
+            <!-- Form -->
             <div class="auth__form">
               <label class="auth__label">
                 E-Mail
-                <input class="auth__input" type="email" placeholder="verein@email.de" />
+                <input class="auth__input" type="email" placeholder="name@email.de" />
               </label>
 
               <label class="auth__label">
