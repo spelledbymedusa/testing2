@@ -1,1 +1,199 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Vereine</title></head><body>OK</body></html>
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Vereine</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./blog.html">Blog</a>
+          <a class="nav__link" href="./gesuche.html">Gesuche</a>
+          <a class="nav__link" href="./account.html">Account</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Vereine</h2>
+            <div class="sub">Organisationen entdecken – nach Thema, Ort, Aufwand und Rahmenbedingungen.</div>
+          </div>
+        </div>
+
+        <div class="vereine__layout">
+          <!-- MAIN -->
+          <div class="vereine__main">
+            <div class="vereine__toolbar">
+              <input class="vereine__search" placeholder="Suche nach Verein, Thema, Ort…" />
+              <button class="nav__link vereine__searchBtn" type="button">Suchen</button>
+            </div>
+
+            <div class="vereine__grid">
+              <article class="vereine__card">
+                <div class="vereine__cardImg" aria-hidden="true"></div>
+                <div class="vereine__cardBody">
+                  <div class="vereine__cardTitle">Verein XY</div>
+                  <div class="vereine__tags">
+                    <span class="vereine__tag">Kinder</span>
+                    <span class="vereine__tag">Sport</span>
+                    <span class="vereine__tag">Vor Ort</span>
+                  </div>
+                  <div class="vereine__meta">Berlin • 2 km • 1–2 Std/Woche</div>
+                </div>
+              </article>
+
+              <article class="vereine__card">
+                <div class="vereine__cardImg" aria-hidden="true"></div>
+                <div class="vereine__cardBody">
+                  <div class="vereine__cardTitle">Tierschutz ABC</div>
+                  <div class="vereine__tags">
+                    <span class="vereine__tag">Katzen</span>
+                    <span class="vereine__tag">Pflegestelle</span>
+                    <span class="vereine__tag">Offline</span>
+                  </div>
+                  <div class="vereine__meta">Hamburg • 5 km • flexibel</div>
+                </div>
+              </article>
+
+              <article class="vereine__card">
+                <div class="vereine__cardImg" aria-hidden="true"></div>
+                <div class="vereine__cardBody">
+                  <div class="vereine__cardTitle">Seniorenhilfe 24</div>
+                  <div class="vereine__tags">
+                    <span class="vereine__tag">Ältere</span>
+                    <span class="vereine__tag">Besuche</span>
+                    <span class="vereine__tag">ÖPNV</span>
+                  </div>
+                  <div class="vereine__meta">München • 3 km • 30–90 Min</div>
+                </div>
+              </article>
+
+              <article class="vereine__card">
+                <div class="vereine__cardImg" aria-hidden="true"></div>
+                <div class="vereine__cardBody">
+                  <div class="vereine__cardTitle">Verein Platzhalter</div>
+                  <div class="vereine__tags">
+                    <span class="vereine__tag">Tag 1</span>
+                    <span class="vereine__tag">Tag 2</span>
+                    <span class="vereine__tag">Tag 3</span>
+                  </div>
+                  <div class="vereine__meta">Ort • Nähe • Aufwand</div>
+                </div>
+              </article>
+
+              <article class="vereine__card">
+                <div class="vereine__cardImg" aria-hidden="true"></div>
+                <div class="vereine__cardBody">
+                  <div class="vereine__cardTitle">Verein Platzhalter</div>
+                  <div class="vereine__tags">
+                    <span class="vereine__tag">Tag 1</span>
+                    <span class="vereine__tag">Tag 2</span>
+                    <span class="vereine__tag">Tag 3</span>
+                  </div>
+                  <div class="vereine__meta">Ort • Nähe • Aufwand</div>
+                </div>
+              </article>
+
+              <article class="vereine__card">
+                <div class="vereine__cardImg" aria-hidden="true"></div>
+                <div class="vereine__cardBody">
+                  <div class="vereine__cardTitle">Verein Platzhalter</div>
+                  <div class="vereine__tags">
+                    <span class="vereine__tag">Tag 1</span>
+                    <span class="vereine__tag">Tag 2</span>
+                    <span class="vereine__tag">Tag 3</span>
+                  </div>
+                  <div class="vereine__meta">Ort • Nähe • Aufwand</div>
+                </div>
+              </article>
+            </div>
+
+            <div class="vereine__more">
+              <button class="nav__link vereine__moreBtn" type="button">Weitere…</button>
+            </div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="vereine__sidebar">
+            <div class="vereine__sideTitle">Filter</div>
+
+            <details class="vereine__filter" open>
+              <summary>Themengebiet</summary>
+              <div class="vereine__filterBody">
+                <label class="vereine__chk"><input type="checkbox" /> Kinder</label>
+                <label class="vereine__chk"><input type="checkbox" /> Geflüchtete</label>
+                <label class="vereine__chk"><input type="checkbox" /> Inklusiv</label>
+                <label class="vereine__chk"><input type="checkbox" /> Ältere</label>
+
+                <div class="vereine__sep"></div>
+
+                <label class="vereine__chk"><input type="checkbox" /> Kleintiere</label>
+                <label class="vereine__chk"><input type="checkbox" /> Großtiere</label>
+
+                <div class="vereine__sep"></div>
+
+                <label class="vereine__chk"><input type="checkbox" /> Sport</label>
+                <label class="vereine__chk"><input type="checkbox" /> Kreativ</label>
+                <label class="vereine__chk"><input type="checkbox" /> Natur</label>
+                <label class="vereine__chk"><input type="checkbox" /> Digitales</label>
+              </div>
+            </details>
+
+            <details class="vereine__filter">
+              <summary>Ort</summary>
+              <div class="vereine__filterBody">
+                <label class="vereine__chk"><input type="checkbox" /> In der Nähe</label>
+                <label class="vereine__chk"><input type="checkbox" /> In Deutschland</label>
+                <label class="vereine__chk"><input type="checkbox" /> Im Ausland</label>
+              </div>
+            </details>
+
+            <details class="vereine__filter">
+              <summary>Aufwand</summary>
+              <div class="vereine__filterBody">
+                <label class="vereine__chk"><input type="checkbox" /> kurzfristig (3–30 Min)</label>
+                <label class="vereine__chk"><input type="checkbox" /> mittelfristig (halber Tag)</label>
+                <label class="vereine__chk"><input type="checkbox" /> langfristig (mehrere Tage)</label>
+                <label class="vereine__chk"><input type="checkbox" /> FSJ o.ä.</label>
+              </div>
+            </details>
+
+            <details class="vereine__filter">
+              <summary>Rahmen</summary>
+              <div class="vereine__filterBody">
+                <label class="vereine__chk"><input type="checkbox" /> Mit ÖPNV erreichbar</label>
+                <label class="vereine__chk"><input type="checkbox" /> Übernachtung möglich</label>
+                <label class="vereine__chk"><input type="checkbox" /> Vegetarisch/Vegan möglich</label>
+                <label class="vereine__chk"><input type="checkbox" /> Geld (Aufwandsentschädigung)</label>
+                <label class="vereine__chk"><input type="checkbox" /> Online</label>
+                <label class="vereine__chk"><input type="checkbox" /> Offline</label>
+                <label class="vereine__chk"><input type="checkbox" /> Barrierefrei</label>
+              </div>
+            </details>
+
+            <div class="vereine__sideActions">
+              <button class="nav__link vereine__apply" type="button">Anwenden</button>
+              <button class="nav__link vereine__reset" type="button">Zurücksetzen</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>
