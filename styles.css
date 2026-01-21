@@ -524,3 +524,191 @@ body{
   .gesuche__row{flex-direction:column}
   .gesuche__right{flex-direction:row}
 }
+/* ===== Auth (login/signup) ===== */
+.auth__layout{
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:14px;
+  align-items:start;
+}
+
+.auth__info{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:16px;
+}
+
+.auth__infoTitle{font-weight:750;margin-bottom:10px}
+.auth__list{margin:0;padding-left:18px;color:var(--muted);line-height:1.6}
+.auth__hint{margin-top:12px;color:var(--muted);font-size:13px}
+
+.auth__card{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:16px;
+}
+
+.auth__tabs{
+  display:flex;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.auth__tab{
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:999px;
+  padding:8px 12px;
+  cursor:pointer;
+}
+
+.auth__tab--active{
+  border-color: rgba(31,122,74,.28);
+  background: rgba(31,122,74,.08);
+}
+
+.auth__form{display:grid;gap:10px}
+.auth__label{display:grid;gap:6px;font-size:13px;color:var(--muted)}
+.auth__input{
+  padding:11px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  outline:none;
+}
+
+.auth__row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.auth__chk{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px}
+
+.auth__link{color:var(--accent);text-decoration:none}
+.auth__link:hover{text-decoration:underline}
+
+.auth__submit{
+  border:1px solid rgba(31,122,74,.28);
+  background: rgba(31,122,74,.10);
+  color:var(--text);
+  border-radius:12px;
+  padding:11px 12px;
+  cursor:pointer;
+  font-weight:650;
+}
+
+.auth__small{color:var(--muted);font-size:13px}
+
+.auth__divider{
+  height:1px;
+  background:var(--border);
+  margin:14px 0;
+}
+
+.auth__alt{display:grid;gap:10px}
+.auth__altBtn{
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:12px;
+  padding:11px 12px;
+  cursor:pointer;
+}
+
+.auth__next{margin-top:14px;display:flex;justify-content:center}
+.auth__fakeNext{padding:8px 12px}
+
+/* ===== Account dashboard ===== */
+.account__grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:12px;
+}
+
+.account__panel{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:16px;
+  min-width:0;
+}
+
+.account__panelTitle{font-weight:750;margin-bottom:12px}
+
+.account__kv{
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap:10px 12px;
+  color:var(--muted);
+  font-size:13px;
+}
+.account__k{color:var(--muted)}
+.account__v{color:var(--text)}
+
+.account__panelActions{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.account__btnPrimary{
+  border:1px solid rgba(31,122,74,.28);
+  background: rgba(31,122,74,.10);
+  color:var(--text);
+  border-radius:12px;
+  padding:10px 12px;
+  cursor:pointer;
+  font-weight:650;
+}
+.account__btn{
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:12px;
+  padding:10px 12px;
+  cursor:pointer;
+}
+
+.account__cards{display:grid;gap:10px}
+.account__card{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  background:#fff;
+}
+.account__cardTitle{font-weight:700}
+.account__cardMeta{margin-top:4px;color:var(--muted);font-size:13px}
+
+.account__activity{display:grid;gap:10px}
+.account__activityRow{display:flex;gap:10px;align-items:flex-start}
+.account__dot{
+  width:10px;height:10px;border-radius:999px;
+  background: rgba(31,122,74,.35);
+  margin-top:5px;
+  border:1px solid rgba(31,122,74,.25);
+}
+.account__activityTitle{font-weight:650}
+.account__activityMeta{margin-top:2px;color:var(--muted);font-size:13px}
+
+.account__settings{display:grid;gap:10px}
+.account__setting{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  color:var(--muted);
+  font-size:13px;
+}
+
+@media (max-width: 1100px){
+  .auth__layout{grid-template-columns:1fr}
+  .account__grid{grid-template-columns:1fr}
+}
