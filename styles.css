@@ -564,3 +564,105 @@ body{
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important; animation:none !important;}
 }
+
+/* ===== Palette + Accessibility Patch (vanilla cream + darker hunter green) ===== */
+
+/* Stronger vanilla + darker hunter green */
+:root{
+  --bg:#f2e8cf;                 /* vanilla/cream */
+  --panel:#ffffff;              /* clean cards */
+  --border:rgba(17,24,39,.16);  /* clearer borders (contrast) */
+  --text:#111827;               /* high-contrast text */
+  --muted:#374151;              /* readable muted */
+  --accent:#2f5f3b;             /* darker hunter green */
+}
+
+/* Reduce "gloss": ensure header isn't translucent/blurred */
+.header{
+  background:var(--bg) !important;
+  backdrop-filter:none !important;
+}
+
+/* Make interactive states more hunter-green */
+.nav__link:hover{
+  border-color:rgba(47,95,59,.28) !important;
+  background:rgba(47,95,59,.06) !important;
+  opacity:1 !important;
+}
+
+.nav__link--active{
+  border-color:rgba(47,95,59,.42) !important;
+  background:rgba(47,95,59,.12) !important;
+}
+
+/* Better focus visibility (keyboard accessibility) */
+:focus-visible{
+  outline:3px solid rgba(47,95,59,.55) !important;
+  outline-offset:2px !important;
+}
+
+/* Make cards read as cream/vanilla system, not grey film */
+.choice,
+.vereine__card,
+.gesuche__row,
+.blog__post,
+.auth__info,
+.auth__card,
+.vereine__sidebar,
+.gesuche__sidebar,
+.blog__sidebar,
+.account__panel{
+  background:var(--panel) !important;
+}
+
+/* Slight hunter-green emphasis on hover */
+.choice:hover,
+.vereine__card:hover,
+.gesuche__row:hover,
+.blog__post:hover{
+  border-color:rgba(47,95,59,.40) !important;
+}
+
+/* ===== Icons inside Choice cards (index) ===== */
+.choice{
+  display:grid;
+  grid-template-columns: 40px 1fr;
+  column-gap:12px;
+  row-gap:6px;
+  align-items:start;
+}
+
+.choice__icon{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--accent);
+  background:rgba(47,95,59,.10);
+  border:1px solid rgba(47,95,59,.22);
+}
+
+.choice__title,
+.choice__text{
+  grid-column:2;
+}
+
+/* Ensure readable sizes */
+.choice__text{font-size:14px !important}
+
+/* Touch targets (mobile accessibility) */
+.nav__link,
+.slider__btn,
+.auth__submit,
+.auth__altBtn,
+.account__btn,
+.account__btnPrimary{
+  min-height:44px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; animation:none !important;}
+}
