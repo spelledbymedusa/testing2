@@ -237,3 +237,135 @@ body{
   .choices{grid-template-columns:1fr}
 }
 
+/* ===== Vereine page  ===== */
+.vereine__layout{
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  gap:14px;
+  align-items:start;
+}
+
+.vereine__main{min-width:0}
+
+.vereine__toolbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.vereine__search{
+  flex:1;
+  min-width:180px;
+  padding:11px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  outline:none;
+}
+
+.vereine__search::placeholder{color:var(--muted)}
+
+.vereine__grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:12px;
+}
+
+.vereine__card{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+
+.vereine__cardImg{
+  height:110px;
+  background:#f1f2ee;
+  border-bottom:1px solid var(--border);
+}
+
+.vereine__cardBody{
+  padding:12px;
+  display:grid;
+  gap:8px;
+}
+
+.vereine__cardTitle{font-weight:750}
+
+.vereine__tags{display:flex;gap:8px;flex-wrap:wrap}
+
+.vereine__tag{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--muted);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+.vereine__meta{color:var(--muted);font-size:13px}
+
+.vereine__more{margin-top:14px;display:flex;justify-content:center}
+
+.vereine__sidebar{
+  position:sticky;
+  top:74px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:14px;
+}
+
+.vereine__sideTitle{font-weight:750;margin-bottom:10px}
+
+.vereine__filter{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--panel);
+  margin-bottom:10px;
+  overflow:hidden;
+}
+
+.vereine__filter summary{
+  cursor:pointer;
+  padding:10px 12px;
+  font-weight:650;
+}
+
+.vereine__filterBody{
+  padding:10px 12px 12px;
+  display:grid;
+  gap:8px;
+}
+
+.vereine__chk{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color:var(--text);
+}
+
+.vereine__sep{
+  height:1px;
+  background:var(--border);
+  margin:6px 0;
+}
+
+.vereine__sideActions{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+@media (max-width: 1100px){
+  .vereine__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .vereine__layout{grid-template-columns:1fr}
+  .vereine__sidebar{position:static;top:auto}
+}
+
+@media (max-width: 720px){
+  .vereine__grid{grid-template-columns:1fr}
+}
