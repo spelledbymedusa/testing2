@@ -522,7 +522,7 @@ body{
   border-color:rgba(47,95,59,.42);
   background:var(--accentSoft);
 }
-
+.auth__section[hidden]{display:none !important;}
 /* =========================================================
    Account dashboard
    ========================================================= */
