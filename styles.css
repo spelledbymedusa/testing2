@@ -1,9 +1,10 @@
 :root {
-  --bg: #0b1220;
-  --border: rgba(255, 255, 255, 0.12);
-  --text: rgba(255, 255, 255, 0.92);
-  --muted: rgba(255, 255, 255, 0.65);
-  --accent: #4d90fe;
+  --bg: #fbfbf7;                 /* vanilla background */
+  --panel: rgba(17, 24, 39, 0.03);
+  --border: rgba(17, 24, 39, 0.10);
+  --text: rgba(17, 24, 39, 0.92); /* dark text */
+  --muted: rgba(17, 24, 39, 0.62);
+  --accent: #1f7a4a;             /* elegant green */
   --container: 1200px;
 }
 
@@ -23,10 +24,11 @@ a:hover { opacity: 1; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(11, 18, 32, 0.72);
+  background: rgba(251, 251, 247, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
+
 .header__inner {
   display: flex;
   align-items: center;
@@ -52,9 +54,10 @@ a:hover { opacity: 1; }
   padding: 44px 0 22px;
   border-bottom: 1px solid var(--border);
   background:
-    radial-gradient(900px 280px at 20% 10%, rgba(77,144,254,0.22), transparent 60%),
-    radial-gradient(900px 320px at 80% 20%, rgba(255,255,255,0.06), transparent 60%);
+    radial-gradient(900px 280px at 20% 10%, rgba(31, 122, 74, 0.14), transparent 60%),
+    radial-gradient(900px 320px at 80% 20%, rgba(17, 24, 39, 0.06), transparent 60%);
 }
+
 .badge {
   display: inline-flex;
   padding: 8px 12px;
@@ -81,12 +84,19 @@ a:hover { opacity: 1; }
 .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.06); }
 
 .btn--primary {
-  background: rgba(77,144,254,0.18);
-  border-color: rgba(77,144,254,0.35);
+  background: rgba(31, 122, 74, 0.14);
+  border-color: rgba(31, 122, 74, 0.28);
   font-weight: 600;
 }
+
 .btn--secondary { background: rgba(255,255,255,0.04); }
-.btn--mini { padding: 8px 12px; font-weight: 600; border-color: rgba(77,144,254,0.35); background: rgba(77,144,254,0.14); }
+.btn--mini {
+  padding: 8px 12px;
+  font-weight: 600;
+  border-color: rgba(31, 122, 74, 0.28);
+  background: rgba(31, 122, 74, 0.12);
+}
+
 
 .stats { margin-top: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .stat { border: 1px solid var(--border); background: rgba(255,255,255,0.03); border-radius: 14px; padding: 12px 14px; }
