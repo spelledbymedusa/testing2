@@ -1,22 +1,15 @@
-/* =========================================================
-   Consolidated + Refactored (no HTML changes)
-   Vanilla cream + dark hunter green
-   - Dedupes: toolbar/search/layout/sidebar/filter/tags/more
-   - Adds: shared typography + “panel shell” patterns
-   - Keeps: your exact visuals and hover behavior
-   ========================================================= */
-
 :root{
-  /* Brand palette */
-  --bg:#f2e8cf;                 /* vanilla cream */
-  --panel:#ffffff;              /* clean card surface */
-  --border:rgba(17,24,39,.16);  /* clear border */
-  --text:#111827;               /* high contrast text */
-  --muted:#374151;              /* readable muted */
-  --accent:#2f5f3b;             /* dark hunter green */
-  --accentSoft:rgba(47,95,59,.12);
+  /* Brand palette — neutral vanilla + hunter green */
+  --bg:#f7f4ec;                 /* lighter vanilla, less pink */
+  --panel:#ffffff;
+  --border:rgba(17,24,39,.16);
+  --text:#111827;
+  --muted:#374151;
 
-  /* Layout */
+  --accent:#2f5f3b;             /* hunter green */
+  --accentDark:#1f3f2a;         /* darker hunter (header) */
+  --accentSoft:rgba(47,95,59,.14);
+
   --container:1100px;
   --radius:16px;
 }
