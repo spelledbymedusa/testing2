@@ -633,3 +633,103 @@ body{
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important; animation:none !important;}
 }
+/* ===== Helfen page ===== */
+.helfen__switch{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.helfen__switchBtn{
+  border:1px solid rgba(247,244,236,.55);
+  background:rgba(247,244,236,.10);
+  color:var(--text);
+  border-radius:999px;
+  padding:10px 14px;
+  cursor:pointer;
+  min-height:44px;
+}
+.helfen__switchBtn--active{
+  border-color:rgba(47,95,59,.42);
+  background:var(--accentSoft);
+}
+
+/* Layout similar to other pages */
+.helfen__layout{
+  display:grid;
+  grid-template-columns: 280px 1fr;
+  gap:14px;
+  align-items:start;
+}
+.helfen__sidebar{
+  position:sticky;
+  top:74px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:14px;
+}
+.helfen__sideTitle{font-weight:750;margin-bottom:10px}
+.helfen__sideNav{display:grid;gap:8px}
+.helfen__sideLink{
+  text-decoration:none;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px 12px;
+  min-height:44px;
+  display:flex;
+  align-items:center;
+}
+.helfen__sideLink:hover{
+  border-color:rgba(47,95,59,.35);
+  background:rgba(47,95,59,.04);
+}
+.helfen__hint{margin-top:12px;color:var(--muted);font-size:13px}
+
+.helfen__main{min-width:0;display:grid;gap:12px}
+
+.helfen__section,
+.helfen__onlineCard{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:14px;
+}
+.helfen__title{font-weight:750;margin-bottom:6px}
+.helfen__text{color:var(--muted);font-size:14px;line-height:1.5}
+
+.helfen__tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.helfen__tag{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--muted);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+/* Online layout */
+.helfen__layoutOnline{display:grid;gap:14px}
+.helfen__onlineIntro{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:14px;
+}
+.helfen__onlineTitle{font-weight:750;margin-bottom:6px}
+.helfen__onlineText{color:var(--muted)}
+
+.helfen__onlineGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+@media (max-width: 1100px){
+  .helfen__layout{grid-template-columns:1fr}
+  .helfen__sidebar{position:static;top:auto}
+}
+@media (max-width: 720px){
+  .helfen__onlineGrid{grid-template-columns:1fr}
+}
