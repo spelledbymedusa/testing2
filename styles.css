@@ -103,22 +103,38 @@ body{
   color:#f7f4ec; /* vanilla on green */
 }
 
+.nav{display:flex;gap:10px;flex-wrap:wrap}
+
+/* RESTORED button/pill styling */
 .nav__link{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid transparent;
+  text-decoration:none;
+  opacity:.92;
+  background:transparent;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+
+  /* header theme */
   color:#f7f4ec;
-  opacity:.9;
 }
 
+/* hover = light vanilla tint */
 .nav__link:hover{
   opacity:1;
   border-color:rgba(247,244,236,.55);
   background:rgba(247,244,236,.12);
 }
 
+/* active = stronger vanilla tint */
 .nav__link--active{
   opacity:1;
   border-color:rgba(247,244,236,.75);
   background:rgba(247,244,236,.18);
 }
+
 
 
 /* Typography / Sections */
