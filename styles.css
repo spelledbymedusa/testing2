@@ -217,3 +217,145 @@ a:hover { opacity: 1; }
   .card { grid-template-columns: 1fr; }
   .card__image { min-height: 120px; }
 }
+
+
+
+/* ===== Vereine page layout ===== */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 14px;
+  align-items: start;
+}
+
+.maincol {
+  min-width: 0;
+}
+
+.sidebar {
+  position: sticky;
+  top: 86px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.sidebar__title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.sidebar__actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.search {
+  flex: 1;
+  min-width: 180px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.6);
+  color: var(--text);
+  outline: none;
+}
+
+.search::placeholder {
+  color: var(--muted);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.vcard {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.65);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.vcard__image {
+  height: 110px;
+  background:
+    radial-gradient(160px 90px at 30% 30%, rgba(31,122,74,0.18), rgba(17,24,39,0.03));
+  border-bottom: 1px solid var(--border);
+}
+
+.vcard__body {
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.vcard__title {
+  font-weight: 700;
+}
+
+.vcard__tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vcard__meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.filter {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.55);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.filter summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  font-weight: 650;
+}
+
+.filter__body {
+  padding: 10px 12px 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.chk {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--text);
+}
+
+.sep {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 6px 0;
+}
+
+@media (max-width: 1100px) {
+  .grid3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; top: auto; }
+}
+
+@media (max-width: 720px) {
+  .grid3 { grid-template-columns: 1fr; }
+}
+
