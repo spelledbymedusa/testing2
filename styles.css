@@ -87,7 +87,6 @@ body{
   top:0;
   z-index:10;
   background:var(--accentDark);   /* solid hunter green */
-  border-bottom:1px solid rgba(0,0,0,.15);
 }
 
 .header__inner{
