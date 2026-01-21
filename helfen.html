@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Helfen</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./blog.html">Blog</a>
+          <a class="nav__link" href="./gesuche.html">Gesuche</a>
+          <a class="nav__link nav__link--active" href="./helfen.html">Helfen</a>
+          <a class="nav__link" href="./weiterbildung.html">Weiterbildung</a>
+          <a class="nav__link" href="./login.html">Account</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <h1 class="h1">Helfen</h1>
+        <p class="lead">
+          Wähle, wie du helfen möchtest: vor Ort oder online. (Design-Prototyp, Inhalte sind Platzhalter.)
+        </p>
+
+        <!-- Mode switch -->
+        <div class="helfen__switch" role="tablist" aria-label="Helfen Modus wählen">
+          <button class="helfen__switchBtn helfen__switchBtn--active" type="button" data-mode="vorort" aria-selected="true">
+            Helfen vor Ort
+          </button>
+          <button class="helfen__switchBtn" type="button" data-mode="online" aria-selected="false">
+            Helfen online
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         VOR ORT
+         ========================= -->
+    <section class="section helfen__mode" data-mode="vorort">
+      <div class="container helfen__layout">
+        <!-- Left: role list -->
+        <aside class="helfen__sidebar" aria-label="Rollen Navigation">
+          <div class="helfen__sideTitle">Helfen vor Ort</div>
+
+          <nav class="helfen__sideNav">
+            <a class="helfen__sideLink" href="#aushilfe">Als Aushilfe/Gast</a>
+            <a class="helfen__sideLink" href="#freiwillig">Als Freiwilliger</a>
+            <a class="helfen__sideLink" href="#mitglied">Als Mitglied</a>
+            <a class="helfen__sideLink" href="#urlaub">Im Urlaub</a>
+            <a class="helfen__sideLink" href="#fsj">Als FSJ</a>
+            <a class="helfen__sideLink" href="#pflegestelle">Als Pflegestelle</a>
+          </nav>
+
+          <div class="helfen__hint">
+            Tipp: Klick links auf eine Rolle – rechts springst du direkt zum Abschnitt.
+          </div>
+        </aside>
+
+        <!-- Right: content sections -->
+        <main class="helfen__main">
+          <article class="helfen__section" id="aushilfe">
+            <div class="helfen__title">Als Aushilfe/Gast</div>
+            <div class="helfen__text">
+              Kurzfristig helfen, ohne lange Bindung. Beispiele: Event-Unterstützung, Aufbau/Abbau, Fahrdienste, Ausgabe von Materialien.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Kurzfristig</span>
+              <span class="helfen__tag">Vor Ort</span>
+              <span class="helfen__tag">Einsteiger</span>
+            </div>
+          </article>
+
+          <article class="helfen__section" id="freiwillig">
+            <div class="helfen__title">Als Freiwilliger</div>
+            <div class="helfen__text">
+              Regelmäßig mithelfen (z. B. 1× pro Woche). Beispiele: Betreuung, Training, Organisation, Besuchsdienst, Projekte.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Regelmäßig</span>
+              <span class="helfen__tag">Team</span>
+              <span class="helfen__tag">Vor Ort</span>
+            </div>
+          </article>
+
+          <article class="helfen__section" id="mitglied">
+            <div class="helfen__title">Als Mitglied</div>
+            <div class="helfen__text">
+              Mitglied werden und dadurch Strukturen stärken. Beispiele: aktive Mitarbeit, Unterstützung im Hintergrund, Vereinsleben.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Mitgliedschaft</span>
+              <span class="helfen__tag">Langfristig</span>
+            </div>
+          </article>
+
+          <article class="helfen__section" id="urlaub">
+            <div class="helfen__title">Im Urlaub</div>
+            <div class="helfen__text">
+              Zeitfenster nutzen (2 Wochen bis 2 Monate). Beispiele: lokale Aktionen, Ferienprogramme, kurzfristige Projekte.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Zeitfenster</span>
+              <span class="helfen__tag">Projekt</span>
+            </div>
+          </article>
+
+          <article class="helfen__section" id="fsj">
+            <div class="helfen__title">Als FSJ</div>
+            <div class="helfen__text">
+              Längerfristig engagieren über ein Freiwilliges Soziales Jahr. Strukturierter Einstieg, Lernkurve, echtes Verantwortungsfeld.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">FSJ</span>
+              <span class="helfen__tag">Strukturiert</span>
+            </div>
+          </article>
+
+          <article class="helfen__section" id="pflegestelle">
+            <div class="helfen__title">Als Pflegestelle</div>
+            <div class="helfen__text">
+              Pflege/Unterbringung (z. B. Tiere, Übergangslösungen). Wichtig: klare Rahmenbedingungen, Zeit & Ressourcen.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Pflege</span>
+              <span class="helfen__tag">Verantwortung</span>
+            </div>
+          </article>
+        </main>
+      </div>
+    </section>
+
+    <!-- =========================
+         ONLINE
+         ========================= -->
+    <section class="section helfen__mode" data-mode="online" hidden>
+      <div class="container helfen__layoutOnline">
+        <div class="helfen__onlineIntro">
+          <div class="helfen__onlineTitle">Helfen online</div>
+          <div class="helfen__onlineText">
+            Digitale Unterstützung – flexibel, ortsunabhängig. (Mockup war leer, daher hier saubere Platzhalter-Struktur.)
+          </div>
+        </div>
+
+        <div class="helfen__onlineGrid">
+          <div class="helfen__onlineCard">
+            <div class="helfen__title">Social Media & Design</div>
+            <div class="helfen__text">Posts, Flyer, Canva, kleine Kampagnen, Bildauswahl.</div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Kreativ</span><span class="helfen__tag">Remote</span>
+            </div>
+          </div>
+
+          <div class="helfen__onlineCard">
+            <div class="helfen__title">Texte & Übersetzung</div>
+            <div class="helfen__text">Webseiten-Texte, einfache Übersetzungen, Korrekturlesen.</div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Sprache</span><span class="helfen__tag">Remote</span>
+            </div>
+          </div>
+
+          <div class="helfen__onlineCard">
+            <div class="helfen__title">IT & Support</div>
+            <div class="helfen__text">Webpflege, E-Mail-Struktur, Tools einrichten, kleine Automationen.</div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">IT</span><span class="helfen__tag">Remote</span>
+            </div>
+          </div>
+
+          <div class="helfen__onlineCard">
+            <div class="helfen__title">Mentoring & Lernen</div>
+            <div class="helfen__text">Online-Nachhilfe, Bewerbungschecks, Lernbegleitung.</div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Co-Learning</span><span class="helfen__tag">Remote</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const switchBtns = Array.from(document.querySelectorAll(".helfen__switchBtn"));
+        const modes = Array.from(document.querySelectorAll(".helfen__mode"));
+
+        function setMode(next) {
+          modes.forEach((m) => (m.hidden = m.getAttribute("data-mode") !== next));
+          switchBtns.forEach((b) => {
+            const active = b.getAttribute("data-mode") === next;
+            b.classList.toggle("helfen__switchBtn--active", active);
+            b.setAttribute("aria-selected", active ? "true" : "false");
+          });
+        }
+
+        switchBtns.forEach((btn) => btn.addEventListener("click", () => setMode(btn.getAttribute("data-mode"))));
+        setMode("vorort");
+      })();
+    </script>
+  </body>
+</html>
