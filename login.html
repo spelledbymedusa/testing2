@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Login</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./blog.html">Blog</a>
+          <a class="nav__link" href="./gesuche.html">Gesuche</a>
+          <a class="nav__link nav__link--active" href="./login.html">Account</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Vereine • Zugang</h2>
+            <div class="sub">Anmelden oder registrieren, um Gesuche zu erstellen und euer Profil zu verwalten.</div>
+          </div>
+        </div>
+
+        <div class="auth__layout">
+          <!-- Left info (design-only) -->
+          <div class="auth__info">
+            <div class="auth__infoTitle">Warum ein Vereins-Account?</div>
+            <ul class="auth__list">
+              <li>Gesuche erstellen und verwalten</li>
+              <li>Profil & Kontaktinfos pflegen</li>
+              <li>Verfügbarkeit, Rahmen & Anforderungen definieren</li>
+              <li>Später: Nachrichten / Bewerbungen</li>
+            </ul>
+
+            <div class="auth__hint">
+              Hinweis: Das ist aktuell ein Design-Prototyp. Funktionen kommen nach Freigabe.
+            </div>
+          </div>
+
+          <!-- Right form card -->
+          <div class="auth__card">
+            <div class="auth__tabs">
+              <button class="auth__tab auth__tab--active" type="button">Anmelden</button>
+              <button class="auth__tab" type="button">Registrieren</button>
+            </div>
+
+            <div class="auth__form">
+              <label class="auth__label">
+                E-Mail
+                <input class="auth__input" type="email" placeholder="verein@email.de" />
+              </label>
+
+              <label class="auth__label">
+                Passwort
+                <input class="auth__input" type="password" placeholder="••••••••" />
+              </label>
+
+              <div class="auth__row">
+                <label class="auth__chk">
+                  <input type="checkbox" />
+                  Angemeldet bleiben
+                </label>
+
+                <a class="auth__link" href="./login.html">Passwort vergessen?</a>
+              </div>
+
+              <button class="auth__submit" type="button">Anmelden</button>
+
+              <div class="auth__small">
+                Noch kein Account? <a class="auth__link" href="./login.html">Registrieren</a>
+              </div>
+            </div>
+
+            <div class="auth__divider"></div>
+
+            <div class="auth__alt">
+              <button class="auth__altBtn" type="button">Mit Google fortfahren</button>
+              <button class="auth__altBtn" type="button">Mit Apple fortfahren</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth__next">
+          <a class="nav__link auth__fakeNext" href="./account.html">Weiter zum Account (Demo)</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>
