@@ -184,6 +184,10 @@ body{
   background:var(--accentDark);        /* same as header */
   border-bottom:1px solid rgba(0,0,0,.15);
 }
+.slider__container{
+  max-width:100%;
+  padding:0;
+}
 .slider__frame{
   display:grid;
   grid-template-columns:44px 1fr 44px;
