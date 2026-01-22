@@ -89,7 +89,7 @@ body{
   top:0;
   z-index:10;
   background:var(--accentDark);   /* solid hunter green */
-  color:var(--bg);
+  color:var(--accentDark);
 }
 
 .header__inner{
@@ -108,7 +108,7 @@ body{
   letter-spacing:.6px;
   text-transform:uppercase;
   text-shadow:0 1px 0 rgba(0,0,0,.25);
-  color:var(--bg);
+  color:currentColor;
 }
 
 .nav{
@@ -154,7 +154,7 @@ body{
   letter-spacing:.2px;
 
   /* header theme */
-  color:var(--bg);
+  color:currentColor;
 }
 
 /* hover = light vanilla tint */
@@ -175,7 +175,7 @@ body{
   border-radius:10px;
   border:1px solid rgba(247,244,236,.45);
   background:rgba(247,244,236,.08);
-  color:var(--bg);
+  color:currentColor;
   cursor:pointer;
   width:40px;
   height:40px;
