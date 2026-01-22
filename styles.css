@@ -425,6 +425,14 @@ body{
   font-weight:750;
   margin-bottom:10px;
 }
+.gesuche__activeFilters{
+  margin:8px 0 14px;
+  display:grid;
+  gap:6px;
+}
+.gesuche__filterSubtitle{
+  color:var(--muted);
+}
 .vereine__sideActions,
 .gesuche__sideActions,
 .blog__sideActions{
@@ -780,6 +788,7 @@ body{
   text-align:left;
   cursor:pointer;
   align-content:start;
+  text-decoration:none;
 }
 .helfen__choiceCard--sub{
   min-height:100px;
@@ -834,7 +843,15 @@ body{
   padding:8px 12px;
   font-size:12px;
   cursor:pointer;
-  min-height:36px;
+  min-height:44px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+}
+.helfen__more{
+  margin-top:12px;
+  display:flex;
+  justify-content:flex-start;
 }
 .helfen__resultsGrid{
   display:grid;

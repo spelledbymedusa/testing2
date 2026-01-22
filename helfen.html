@@ -49,39 +49,39 @@
         </p>
 
         <div class="helfen__choiceGrid" role="list">
-          <button class="helfen__choiceCard helfen__choiceCard--active" type="button" data-mode="vorort" role="listitem">
+          <a class="helfen__choiceCard helfen__choiceCard--active" href="#vor-ort" role="listitem">
             <span class="helfen__choiceTitle">Helfen vor Ort</span>
             <span class="helfen__choiceText">Rollen auswählen und direkt zu lokalen Gesuchen springen.</span>
-          </button>
-          <button class="helfen__choiceCard" type="button" data-mode="alltag" role="listitem">
+          </a>
+          <a class="helfen__choiceCard" href="#alltag" role="listitem">
             <span class="helfen__choiceTitle">Helfen im Alltag</span>
             <span class="helfen__choiceText">Alltagsunterstützung für Menschen in deiner Nähe.</span>
-          </button>
-          <button class="helfen__choiceCard" type="button" data-mode="online" role="listitem">
+          </a>
+          <a class="helfen__choiceCard" href="#online" role="listitem">
             <span class="helfen__choiceTitle">Helfen online</span>
             <span class="helfen__choiceText">Digital beitragen – wir zeigen dir die nächsten Optionen.</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section helfen__detail" data-mode="vorort" data-default-tag="aushilfe">
+    <section class="section helfen__detail" id="vor-ort" data-mode="vor-ort">
       <div class="container">
         <div class="helfen__sectionHeader">
           <div>
             <div class="helfen__sectionTitle">Helfen vor Ort</div>
-            <div class="helfen__sectionText">Wähle deine Rolle – wir filtern die Gesuche nach dem passenden Tag.</div>
+            <div class="helfen__sectionText">Wähle deine Rolle und springe direkt zu passenden Gesuchen.</div>
           </div>
           <span class="helfen__badge">Vor Ort</span>
         </div>
 
-        <div class="helfen__filterBar" role="tablist" aria-label="Vor-Ort Tags">
-          <button class="helfen__filterBtn" type="button" data-tag="aushilfe">Als Aushilfe/Gast</button>
-          <button class="helfen__filterBtn" type="button" data-tag="freiwillig">Als Freiwilliger</button>
-          <button class="helfen__filterBtn" type="button" data-tag="mitglied">Als Mitglied</button>
-          <button class="helfen__filterBtn" type="button" data-tag="urlaub">Im Urlaub</button>
-          <button class="helfen__filterBtn" type="button" data-tag="fsj">Als FSJ</button>
-          <button class="helfen__filterBtn" type="button" data-tag="pflegestelle">Als Pflegestelle</button>
+        <div class="helfen__filterBar" role="list" aria-label="Vor-Ort Rollen">
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=aushilfe" role="listitem">Als Aushilfe/Gast</a>
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=freiwillig" role="listitem">Als Freiwilliger</a>
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=mitglied" role="listitem">Als Mitglied</a>
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=urlaub" role="listitem">Im Urlaub</a>
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=fsj" role="listitem">Als FSJ</a>
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=pflegestelle" role="listitem">Als Pflegestelle</a>
         </div>
 
         <div class="helfen__resultsGrid">
@@ -119,40 +119,6 @@
             </div>
           </article>
 
-          <article class="helfen__card" data-tags="mitglied">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Mitglied im Sportverein</div>
-                <div class="helfen__cardMeta">SC Nippes · Köln-Nippes</div>
-              </div>
-              <span class="helfen__badge">Gemeinschaft</span>
-            </div>
-            <div class="helfen__cardText">
-              Langfristige Mitarbeit bei Trainingstagen, Vereinsorganisation und Festen.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Mitglied</span>
-              <span class="helfen__tag">Sport</span>
-            </div>
-          </article>
-
-          <article class="helfen__card" data-tags="urlaub">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Ferienprojekt im Kinderhort</div>
-                <div class="helfen__cardMeta">KiezKids · Köln-Sülz</div>
-              </div>
-              <span class="helfen__badge helfen__badge--muted">2 Wochen</span>
-            </div>
-            <div class="helfen__cardText">
-              Unterstützung im Ferienprogramm, Spiele, Ausflüge und Betreuung am Nachmittag.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Im Urlaub</span>
-              <span class="helfen__tag">Kinder</span>
-            </div>
-          </article>
-
           <article class="helfen__card" data-tags="fsj">
             <div class="helfen__cardHeader">
               <div>
@@ -169,42 +135,28 @@
               <span class="helfen__tag">Bildung</span>
             </div>
           </article>
-
-          <article class="helfen__card" data-tags="pflegestelle">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Pflegestelle für Tiere</div>
-                <div class="helfen__cardMeta">Tierhilfe Rhein · Köln-Porz</div>
-              </div>
-              <span class="helfen__badge helfen__badge--muted">Flexible Zeiten</span>
-            </div>
-            <div class="helfen__cardText">
-              Vorübergehende Unterbringung und Versorgung von Katzen oder Kleintieren.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Pflegestelle</span>
-              <span class="helfen__tag">Tiere</span>
-            </div>
-          </article>
+        </div>
+        <div class="helfen__more">
+          <a class="nav__link" href="./gesuche.html?mode=vor-ort&role=aushilfe">Alle passenden Gesuche</a>
         </div>
       </div>
     </section>
 
-    <section class="section helfen__detail" data-mode="alltag" data-default-tag="begleitung" hidden>
+    <section class="section helfen__detail" id="alltag" data-mode="alltag">
       <div class="container">
         <div class="helfen__sectionHeader">
           <div>
             <div class="helfen__sectionTitle">Helfen im Alltag</div>
-            <div class="helfen__sectionText">Kleine Unterstützung im Alltag – mit klaren Tags für passende Gesuche.</div>
+            <div class="helfen__sectionText">Kleine Unterstützung im Alltag – wähle ein Thema und sieh passende Gesuche.</div>
           </div>
           <span class="helfen__badge helfen__badge--muted">Alltag</span>
         </div>
 
-        <div class="helfen__filterBar" role="tablist" aria-label="Alltags-Tags">
-          <button class="helfen__filterBtn" type="button" data-tag="begleitung">Begleitung</button>
-          <button class="helfen__filterBtn" type="button" data-tag="einkauf">Einkaufshilfe</button>
-          <button class="helfen__filterBtn" type="button" data-tag="mobilitaet">Mobilität</button>
-          <button class="helfen__filterBtn" type="button" data-tag="nachbarschaft">Nachbarschaft</button>
+        <div class="helfen__filterBar" role="list" aria-label="Alltags-Tags">
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=alltag&tag=begleitung" role="listitem">Begleitung</a>
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=alltag&tag=einkaufshilfe" role="listitem">Einkaufshilfe</a>
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=alltag&tag=mobilitaet" role="listitem">Mobilität</a>
+          <a class="helfen__filterBtn" href="./gesuche.html?mode=alltag&tag=nachbarschaft" role="listitem">Nachbarschaft</a>
         </div>
 
         <div class="helfen__resultsGrid">
@@ -225,7 +177,7 @@
             </div>
           </article>
 
-          <article class="helfen__card" data-tags="einkauf">
+          <article class="helfen__card" data-tags="einkaufshilfe">
             <div class="helfen__cardHeader">
               <div>
                 <div class="helfen__cardTitle">Einkaufshilfe am Wochenende</div>
@@ -258,28 +210,14 @@
               <span class="helfen__tag">Fahrdienst</span>
             </div>
           </article>
-
-          <article class="helfen__card" data-tags="nachbarschaft">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Nachbarschaftshilfe im Kiez</div>
-                <div class="helfen__cardMeta">KiezConnect · Köln-Ehrenfeld</div>
-              </div>
-              <span class="helfen__badge helfen__badge--muted">Spontan</span>
-            </div>
-            <div class="helfen__cardText">
-              Kleine Unterstützung vor Ort: Pakete annehmen, Pflanzen gießen, kurze Wege.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Nachbarschaft</span>
-              <span class="helfen__tag">Alltag</span>
-            </div>
-          </article>
+        </div>
+        <div class="helfen__more">
+          <a class="nav__link" href="./gesuche.html?mode=alltag&tag=begleitung">Alle passenden Gesuche</a>
         </div>
       </div>
     </section>
 
-    <section class="section helfen__detail" data-mode="online" data-default-tag="spenden" hidden>
+    <section class="section helfen__detail" id="online" data-mode="online">
       <div class="container">
         <div class="helfen__sectionHeader">
           <div>
@@ -290,14 +228,18 @@
         </div>
 
         <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
-          <button class="helfen__choiceCard helfen__choiceCard--sub helfen__filterBtn" type="button" data-tag="spenden" role="listitem">
+          <a class="helfen__choiceCard helfen__choiceCard--sub" href="./gesuche.html?mode=online&tag=spenden" role="listitem">
             <span class="helfen__choiceTitle">Geld / Spenden</span>
             <span class="helfen__choiceText">Direkte Unterstützung durch Spendenaktionen und Förderprogramme.</span>
-          </button>
-          <button class="helfen__choiceCard helfen__choiceCard--sub helfen__filterBtn" type="button" data-tag="verbreitung" role="listitem">
+          </a>
+          <a
+            class="helfen__choiceCard helfen__choiceCard--sub"
+            href="./gesuche.html?mode=online&tag=verbreitung"
+            role="listitem"
+          >
             <span class="helfen__choiceTitle">Verbreitung &amp; Firmen</span>
             <span class="helfen__choiceText">Reichweite schaffen, Firmenkontakte nutzen, Kooperationen möglich machen.</span>
-          </button>
+          </a>
         </div>
 
         <div class="helfen__resultsGrid">
@@ -338,23 +280,6 @@
           <article class="helfen__card" data-tags="verbreitung">
             <div class="helfen__cardHeader">
               <div>
-                <div class="helfen__cardTitle">Firmenpartnerschaften anbahnen</div>
-                <div class="helfen__cardMeta">Bildungsnetz NRW · Remote</div>
-              </div>
-              <span class="helfen__badge helfen__badge--muted">B2B</span>
-            </div>
-            <div class="helfen__cardText">
-              Kontakte zu Unternehmen herstellen und mögliche Kooperationen koordinieren.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Verbreitung</span>
-              <span class="helfen__tag">Firmen</span>
-            </div>
-          </article>
-
-          <article class="helfen__card" data-tags="verbreitung">
-            <div class="helfen__cardHeader">
-              <div>
                 <div class="helfen__cardTitle">Social Sharing für Kampagnen</div>
                 <div class="helfen__cardMeta">Projekt Stimme · Remote</div>
               </div>
@@ -369,6 +294,9 @@
             </div>
           </article>
         </div>
+        <div class="helfen__more">
+          <a class="nav__link" href="./gesuche.html?mode=online&tag=spenden">Alle passenden Gesuche</a>
+        </div>
       </div>
     </section>
 
@@ -378,58 +306,5 @@
       </div>
     </footer>
 
-    <script>
-      (function () {
-        const modeButtons = Array.from(document.querySelectorAll(".helfen__choiceCard[data-mode]"));
-        const sections = Array.from(document.querySelectorAll(".helfen__detail"));
-
-        function setMode(next, { scroll = false } = {}) {
-          sections.forEach((section) => {
-            section.hidden = section.getAttribute("data-mode") !== next;
-          });
-          modeButtons.forEach((button) => {
-            const active = button.getAttribute("data-mode") === next;
-            button.classList.toggle("helfen__choiceCard--active", active);
-          });
-
-          if (scroll) {
-            const activeSection = sections.find((section) => section.getAttribute("data-mode") === next);
-            if (activeSection) {
-              activeSection.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          }
-        }
-
-        modeButtons.forEach((button) =>
-          button.addEventListener("click", () => setMode(button.getAttribute("data-mode"), { scroll: true }))
-        );
-        setMode("vorort");
-
-        sections.forEach((section) => {
-          const filterButtons = Array.from(section.querySelectorAll(".helfen__filterBtn"));
-          const cards = Array.from(section.querySelectorAll(".helfen__card"));
-          if (!filterButtons.length) {
-            return;
-          }
-
-          const defaultTag = section.getAttribute("data-default-tag") || filterButtons[0].dataset.tag;
-
-          const setFilter = (tag) => {
-            filterButtons.forEach((button) => {
-              const active = button.dataset.tag === tag;
-              button.classList.toggle("helfen__filterBtn--active", active);
-              button.setAttribute("aria-selected", active ? "true" : "false");
-            });
-            cards.forEach((card) => {
-              const tags = (card.dataset.tags || "").split(" ").filter(Boolean);
-              card.hidden = !tags.includes(tag);
-            });
-          };
-
-          filterButtons.forEach((button) => button.addEventListener("click", () => setFilter(button.dataset.tag)));
-          setFilter(defaultTag);
-        });
-      })();
-    </script>
   </body>
 </html>

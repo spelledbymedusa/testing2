@@ -45,9 +45,13 @@
       <div class="container">
         <div class="section__header">
           <div>
-            <h2 class="h2">Gesuche</h2>
-            <div class="sub">Konkrete Hilfsanfragen – lokal oder online, kurz- oder langfristig.</div>
+            <h2 class="h2" id="gesuche-title">Gesuche</h2>
+            <div class="sub" id="gesuche-subtitle">Konkrete Hilfsanfragen – lokal oder online, kurz- oder langfristig.</div>
           </div>
+        </div>
+        <div class="gesuche__activeFilters">
+          <div class="gesuche__tags" id="gesuche-filters"></div>
+          <div class="sub gesuche__filterSubtitle" id="gesuche-filter-subtitle">Gefiltert nach: Alle Gesuche</div>
         </div>
 
         <div class="gesuche__layout">
@@ -223,5 +227,84 @@
         <div>Impressum • Kontakt • Datenschutz</div>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const mode = params.get("mode");
+        const role = params.get("role");
+        const tagParam = params.get("tag");
+        const tagsParam = params.get("tags");
+
+        const modeLabels = {
+          "vor-ort": "Vor Ort",
+          alltag: "Alltag",
+          online: "Online",
+        };
+
+        const roleLabels = {
+          aushilfe: "Aushilfe/Gast",
+          freiwillig: "Freiwilliger",
+          mitglied: "Mitglied",
+          urlaub: "Urlaub",
+          fsj: "FSJ",
+          pflegestelle: "Pflegestelle",
+        };
+
+        const tagLabels = {
+          begleitung: "Begleitung",
+          einkaufshilfe: "Einkaufshilfe",
+          mobilitaet: "Mobilität",
+          nachbarschaft: "Nachbarschaft",
+          spenden: "Spenden",
+          verbreitung: "Verbreitung",
+        };
+
+        const filterChips = [];
+
+        if (mode && modeLabels[mode]) {
+          filterChips.push(`Modus: ${modeLabels[mode]}`);
+        }
+
+        if (mode === "vor-ort" && role && roleLabels[role]) {
+          filterChips.push(`Rolle: ${roleLabels[role]}`);
+        }
+
+        const tags = tagsParam ? tagsParam.split(",").map((value) => value.trim()) : [];
+        if (tagParam) {
+          tags.push(tagParam);
+        }
+
+        if (tags.length && (mode === "alltag" || mode === "online")) {
+          const uniqueTags = Array.from(new Set(tags));
+          uniqueTags.forEach((tag) => {
+            if (tagLabels[tag]) {
+              filterChips.push(`Tag: ${tagLabels[tag]}`);
+            }
+          });
+        }
+
+        const filterContainer = document.getElementById("gesuche-filters");
+        const filterSubtitle = document.getElementById("gesuche-filter-subtitle");
+        const subtitle = document.getElementById("gesuche-subtitle");
+
+        if (filterChips.length) {
+          filterContainer.innerHTML = "";
+          filterChips.forEach((label) => {
+            const chip = document.createElement("span");
+            chip.className = "gesuche__tag";
+            chip.textContent = label;
+            filterContainer.appendChild(chip);
+          });
+
+          const summaryText = `Gefiltert nach: ${filterChips.join(" · ")}`;
+          filterSubtitle.textContent = summaryText;
+          subtitle.textContent = summaryText;
+        } else {
+          filterContainer.innerHTML = "";
+          filterSubtitle.textContent = "Gefiltert nach: Alle Gesuche";
+        }
+      })();
+    </script>
   </body>
 </html>
