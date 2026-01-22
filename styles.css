@@ -95,20 +95,22 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:14px 0;
-  gap:14px;
+  padding:10px 0;
+  gap:16px;
 }
 .brand{
   font-weight:750;
-  letter-spacing:.2px;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  text-shadow:0 1px 0 rgba(0,0,0,.25);
   color:#f7f4ec; /* vanilla on green */
 }
 
-.nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center;width:100%}
+.nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center;width:100%}
 
 .nav__links{
   display:flex;
-  gap:10px;
+  gap:14px;
   flex-wrap:wrap;
   align-items:center;
 }
@@ -129,15 +131,16 @@ body{
 
 /* RESTORED button/pill styling */
 .nav__link{
-  padding:8px 12px;
-  border-radius:999px;
+  padding:7px 14px;
+  border-radius:8px;
   border:1px solid transparent;
   text-decoration:none;
   opacity:.92;
   background:transparent;
-  min-height:44px;
+  min-height:40px;
   display:inline-flex;
   align-items:center;
+  letter-spacing:.2px;
 
   /* header theme */
   color:#f7f4ec;
@@ -158,13 +161,13 @@ body{
 }
 
 .nav__toggle{
-  border-radius:12px;
+  border-radius:10px;
   border:1px solid rgba(247,244,236,.45);
   background:rgba(247,244,236,.08);
   color:#f7f4ec;
   cursor:pointer;
-  width:44px;
-  height:44px;
+  width:40px;
+  height:40px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
