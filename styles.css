@@ -106,6 +106,31 @@ body{
 
 .nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 
+.header__menuBtn{
+  border:1px solid rgba(247,244,236,.45);
+  background:rgba(247,244,236,.08);
+  border-radius:12px;
+  width:44px;
+  height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:4px;
+  cursor:pointer;
+  color:#f7f4ec;
+}
+.header__menuBtn:hover{
+  border-color:rgba(247,244,236,.70);
+  background:rgba(247,244,236,.14);
+}
+.header__menuBar{
+  width:18px;
+  height:2px;
+  border-radius:999px;
+  background:currentColor;
+}
+
 /* RESTORED button/pill styling */
 .nav__link{
   padding:8px 12px;
