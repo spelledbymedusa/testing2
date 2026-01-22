@@ -89,7 +89,7 @@ body{
   top:0;
   z-index:10;
   background:var(--accentDark);   /* solid hunter green */
-  color:var(--bg);
+  color:var(--accentDark);
 }
 
 .header__inner{
