@@ -1,6 +1,6 @@
 :root{
   /* Brand palette — neutral vanilla + hunter green */
-  --bg:#f7f4ec;                 /* lighter vanilla, less pink */
+  --bg:#f8f1e4;                 /* slightly warmer vanilla */
   --panel:#ffffff;
   --border:rgba(17,24,39,.16);
   --text:#111827;
