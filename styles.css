@@ -9,6 +9,7 @@
   --accent:#2f5f3b;             /* hunter green */
   --accentDark:#1f3f2a;         /* darker hunter (header) */
   --accentSoft:rgba(47,95,59,.14);
+  --headerText:var(--bg);
 
   --container:1100px;
   --radius:16px;
@@ -89,7 +90,7 @@ body{
   top:0;
   z-index:10;
   background:var(--accentDark);   /* solid hunter green */
-  color:var(--accentDark);
+  color:var(--headerText);
 }
 
 .header__inner{
@@ -108,7 +109,7 @@ body{
   letter-spacing:.6px;
   text-transform:uppercase;
   text-shadow:0 1px 0 rgba(0,0,0,.25);
-  color:currentColor;
+  color:var(--headerText);
 }
 
 .nav{
@@ -154,7 +155,7 @@ body{
   letter-spacing:.2px;
 
   /* header theme */
-  color:currentColor;
+  color:var(--headerText);
 }
 
 /* hover = light vanilla tint */
@@ -175,7 +176,7 @@ body{
   border-radius:10px;
   border:1px solid rgba(247,244,236,.45);
   background:rgba(247,244,236,.08);
-  color:currentColor;
+  color:var(--headerText);
   cursor:pointer;
   width:40px;
   height:40px;
