@@ -106,7 +106,14 @@ body{
   color:#f7f4ec; /* vanilla on green */
 }
 
-.nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center;width:100%}
+.nav{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-left:auto;
+  justify-content:flex-end;
+}
 
 .nav__links{
   display:flex;
