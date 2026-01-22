@@ -17,6 +17,7 @@
           <a class="nav__link" href="./blog.html">Blog</a>
           <a class="nav__link" href="./news.html">Aktuelles</a>
           <a class="nav__link" href="./gesuche.html">Gesuche</a>
+          <a class="nav__link" href="./vereine.html">Vereine</a>
           <a class="nav__link nav__link--active" href="./helfen.html">Helfen</a>
           <a class="nav__link" href="./login.html">Account</a>
         </nav>
@@ -29,165 +30,333 @@
       </div>
     </header>
 
-    <section class="section">
+    <section class="section helfen__intro">
       <div class="container">
-        <h1 class="h1">Helfen</h1>
+        <h1 class="h1">Wie kann ich helfen?</h1>
         <p class="lead">
-          Wähle, wie du helfen möchtest: vor Ort oder online. (Design-Prototyp, Inhalte sind Platzhalter.)
+          Starte mit einer Auswahl – wir zeigen dir danach die passenden Gesuche mit den passenden Tags.
         </p>
 
-        <!-- Mode switch -->
-        <div class="helfen__switch" role="tablist" aria-label="Helfen Modus wählen">
-          <button class="helfen__switchBtn helfen__switchBtn--active" type="button" data-mode="vorort" aria-selected="true">
-            Helfen vor Ort
+        <div class="helfen__choiceGrid" role="list">
+          <button class="helfen__choiceCard helfen__choiceCard--active" type="button" data-mode="vorort" role="listitem">
+            <span class="helfen__choiceTitle">Helfen vor Ort</span>
+            <span class="helfen__choiceText">Rollen auswählen und direkt zu lokalen Gesuchen springen.</span>
           </button>
-          <button class="helfen__switchBtn" type="button" data-mode="online" aria-selected="false">
-            Helfen online
+          <button class="helfen__choiceCard" type="button" data-mode="alltag" role="listitem">
+            <span class="helfen__choiceTitle">Helfen im Alltag</span>
+            <span class="helfen__choiceText">Alltagsunterstützung für Menschen in deiner Nähe.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-mode="online" role="listitem">
+            <span class="helfen__choiceTitle">Helfen online</span>
+            <span class="helfen__choiceText">Digital beitragen – wir zeigen dir die nächsten Optionen.</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- =========================
-         VOR ORT
-         ========================= -->
-    <section class="section helfen__mode" data-mode="vorort">
-      <div class="container helfen__layout">
-        <!-- Left: role list -->
-        <aside class="helfen__sidebar" aria-label="Rollen Navigation">
-          <div class="helfen__sideTitle">Helfen vor Ort</div>
-
-          <nav class="helfen__sideNav">
-            <a class="helfen__sideLink" href="#aushilfe">Als Aushilfe/Gast</a>
-            <a class="helfen__sideLink" href="#freiwillig">Als Freiwilliger</a>
-            <a class="helfen__sideLink" href="#mitglied">Als Mitglied</a>
-            <a class="helfen__sideLink" href="#urlaub">Im Urlaub</a>
-            <a class="helfen__sideLink" href="#fsj">Als FSJ</a>
-            <a class="helfen__sideLink" href="#pflegestelle">Als Pflegestelle</a>
-          </nav>
-
-          <div class="helfen__hint">
-            Tipp: Klick links auf eine Rolle – rechts springst du direkt zum Abschnitt.
+    <section class="section helfen__detail" data-mode="vorort" data-default-tag="aushilfe">
+      <div class="container">
+        <div class="helfen__sectionHeader">
+          <div>
+            <div class="helfen__sectionTitle">Helfen vor Ort</div>
+            <div class="helfen__sectionText">Wähle deine Rolle – wir filtern die Gesuche nach dem passenden Tag.</div>
           </div>
-        </aside>
+          <span class="helfen__badge">Vor Ort</span>
+        </div>
 
-        <!-- Right: content sections -->
-        <main class="helfen__main">
-          <article class="helfen__section" id="aushilfe">
-            <div class="helfen__title">Als Aushilfe/Gast</div>
-            <div class="helfen__text">
-              Kurzfristig helfen, ohne lange Bindung. Beispiele: Event-Unterstützung, Aufbau/Abbau, Fahrdienste, Ausgabe von Materialien.
+        <div class="helfen__filterBar" role="tablist" aria-label="Vor-Ort Tags">
+          <button class="helfen__filterBtn" type="button" data-tag="aushilfe">Als Aushilfe/Gast</button>
+          <button class="helfen__filterBtn" type="button" data-tag="freiwillig">Als Freiwilliger</button>
+          <button class="helfen__filterBtn" type="button" data-tag="mitglied">Als Mitglied</button>
+          <button class="helfen__filterBtn" type="button" data-tag="urlaub">Im Urlaub</button>
+          <button class="helfen__filterBtn" type="button" data-tag="fsj">Als FSJ</button>
+          <button class="helfen__filterBtn" type="button" data-tag="pflegestelle">Als Pflegestelle</button>
+        </div>
+
+        <div class="helfen__resultsGrid">
+          <article class="helfen__card" data-tags="aushilfe">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Begleitung beim Kulturcafé</div>
+                <div class="helfen__cardMeta">Verein Sonnenweg · Köln-Ehrenfeld</div>
+              </div>
+              <span class="helfen__badge">Kurzfristig</span>
+            </div>
+            <div class="helfen__cardText">
+              Spontane Unterstützung bei Veranstaltungen, Gäste begrüßen und Auf- &amp; Abbau helfen.
             </div>
             <div class="helfen__tags">
-              <span class="helfen__tag">Kurzfristig</span>
-              <span class="helfen__tag">Vor Ort</span>
-              <span class="helfen__tag">Einsteiger</span>
+              <span class="helfen__tag">Aushilfe/Gast</span>
+              <span class="helfen__tag">Event</span>
             </div>
           </article>
 
-          <article class="helfen__section" id="freiwillig">
-            <div class="helfen__title">Als Freiwilliger</div>
-            <div class="helfen__text">
-              Regelmäßig mithelfen (z. B. 1× pro Woche). Beispiele: Betreuung, Training, Organisation, Besuchsdienst, Projekte.
+          <article class="helfen__card" data-tags="freiwillig">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Fahrdienst zu Arztterminen</div>
+                <div class="helfen__cardMeta">Seniorenhilfe Köln · Innenstadt</div>
+              </div>
+              <span class="helfen__badge helfen__badge--muted">Regelmäßig</span>
+            </div>
+            <div class="helfen__cardText">
+              Ehrenamtlicher Fahrdienst für Senior:innen, ca. 2–3 Einsätze pro Monat.
             </div>
             <div class="helfen__tags">
-              <span class="helfen__tag">Regelmäßig</span>
-              <span class="helfen__tag">Team</span>
-              <span class="helfen__tag">Vor Ort</span>
+              <span class="helfen__tag">Freiwilliger</span>
+              <span class="helfen__tag">Mobilität</span>
             </div>
           </article>
 
-          <article class="helfen__section" id="mitglied">
-            <div class="helfen__title">Als Mitglied</div>
-            <div class="helfen__text">
-              Mitglied werden und dadurch Strukturen stärken. Beispiele: aktive Mitarbeit, Unterstützung im Hintergrund, Vereinsleben.
+          <article class="helfen__card" data-tags="mitglied">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Mitglied im Sportverein</div>
+                <div class="helfen__cardMeta">SC Nippes · Köln-Nippes</div>
+              </div>
+              <span class="helfen__badge">Gemeinschaft</span>
+            </div>
+            <div class="helfen__cardText">
+              Langfristige Mitarbeit bei Trainingstagen, Vereinsorganisation und Festen.
             </div>
             <div class="helfen__tags">
-              <span class="helfen__tag">Mitgliedschaft</span>
-              <span class="helfen__tag">Langfristig</span>
+              <span class="helfen__tag">Mitglied</span>
+              <span class="helfen__tag">Sport</span>
             </div>
           </article>
 
-          <article class="helfen__section" id="urlaub">
-            <div class="helfen__title">Im Urlaub</div>
-            <div class="helfen__text">
-              Zeitfenster nutzen (2 Wochen bis 2 Monate). Beispiele: lokale Aktionen, Ferienprogramme, kurzfristige Projekte.
+          <article class="helfen__card" data-tags="urlaub">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Ferienprojekt im Kinderhort</div>
+                <div class="helfen__cardMeta">KiezKids · Köln-Sülz</div>
+              </div>
+              <span class="helfen__badge helfen__badge--muted">2 Wochen</span>
+            </div>
+            <div class="helfen__cardText">
+              Unterstützung im Ferienprogramm, Spiele, Ausflüge und Betreuung am Nachmittag.
             </div>
             <div class="helfen__tags">
-              <span class="helfen__tag">Zeitfenster</span>
-              <span class="helfen__tag">Projekt</span>
+              <span class="helfen__tag">Im Urlaub</span>
+              <span class="helfen__tag">Kinder</span>
             </div>
           </article>
 
-          <article class="helfen__section" id="fsj">
-            <div class="helfen__title">Als FSJ</div>
-            <div class="helfen__text">
-              Längerfristig engagieren über ein Freiwilliges Soziales Jahr. Strukturierter Einstieg, Lernkurve, echtes Verantwortungsfeld.
+          <article class="helfen__card" data-tags="fsj">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">FSJ im Begegnungszentrum</div>
+                <div class="helfen__cardMeta">Haus der Vielfalt · Köln-Kalk</div>
+              </div>
+              <span class="helfen__badge">Langfristig</span>
+            </div>
+            <div class="helfen__cardText">
+              Ein Jahr Mitarbeit in Projekten, Begleitung von Gruppen und Event-Organisation.
             </div>
             <div class="helfen__tags">
               <span class="helfen__tag">FSJ</span>
-              <span class="helfen__tag">Strukturiert</span>
+              <span class="helfen__tag">Bildung</span>
             </div>
           </article>
 
-          <article class="helfen__section" id="pflegestelle">
-            <div class="helfen__title">Als Pflegestelle</div>
-            <div class="helfen__text">
-              Pflege/Unterbringung (z. B. Tiere, Übergangslösungen). Wichtig: klare Rahmenbedingungen, Zeit & Ressourcen.
+          <article class="helfen__card" data-tags="pflegestelle">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Pflegestelle für Tiere</div>
+                <div class="helfen__cardMeta">Tierhilfe Rhein · Köln-Porz</div>
+              </div>
+              <span class="helfen__badge helfen__badge--muted">Flexible Zeiten</span>
+            </div>
+            <div class="helfen__cardText">
+              Vorübergehende Unterbringung und Versorgung von Katzen oder Kleintieren.
             </div>
             <div class="helfen__tags">
-              <span class="helfen__tag">Pflege</span>
-              <span class="helfen__tag">Verantwortung</span>
+              <span class="helfen__tag">Pflegestelle</span>
+              <span class="helfen__tag">Tiere</span>
             </div>
           </article>
-        </main>
+        </div>
       </div>
     </section>
 
-    <!-- =========================
-         ONLINE
-         ========================= -->
-    <section class="section helfen__mode" data-mode="online" hidden>
-      <div class="container helfen__layoutOnline">
-        <div class="helfen__onlineIntro">
-          <div class="helfen__onlineTitle">Helfen online</div>
-          <div class="helfen__onlineText">
-            Digitale Unterstützung – flexibel, ortsunabhängig. (Mockup war leer, daher hier saubere Platzhalter-Struktur.)
+    <section class="section helfen__detail" data-mode="alltag" data-default-tag="begleitung" hidden>
+      <div class="container">
+        <div class="helfen__sectionHeader">
+          <div>
+            <div class="helfen__sectionTitle">Helfen im Alltag</div>
+            <div class="helfen__sectionText">Kleine Unterstützung im Alltag – mit klaren Tags für passende Gesuche.</div>
           </div>
+          <span class="helfen__badge helfen__badge--muted">Alltag</span>
         </div>
 
-        <div class="helfen__onlineGrid">
-          <div class="helfen__onlineCard">
-            <div class="helfen__title">Social Media & Design</div>
-            <div class="helfen__text">Posts, Flyer, Canva, kleine Kampagnen, Bildauswahl.</div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Kreativ</span><span class="helfen__tag">Remote</span>
-            </div>
-          </div>
+        <div class="helfen__filterBar" role="tablist" aria-label="Alltags-Tags">
+          <button class="helfen__filterBtn" type="button" data-tag="begleitung">Begleitung</button>
+          <button class="helfen__filterBtn" type="button" data-tag="einkauf">Einkaufshilfe</button>
+          <button class="helfen__filterBtn" type="button" data-tag="mobilitaet">Mobilität</button>
+          <button class="helfen__filterBtn" type="button" data-tag="nachbarschaft">Nachbarschaft</button>
+        </div>
 
-          <div class="helfen__onlineCard">
-            <div class="helfen__title">Texte & Übersetzung</div>
-            <div class="helfen__text">Webseiten-Texte, einfache Übersetzungen, Korrekturlesen.</div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Sprache</span><span class="helfen__tag">Remote</span>
+        <div class="helfen__resultsGrid">
+          <article class="helfen__card" data-tags="begleitung">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Spaziergänge &amp; Gespräche</div>
+                <div class="helfen__cardMeta">Nachbarschaftstreff Nord · Köln-Nord</div>
+              </div>
+              <span class="helfen__badge">1–2 Std/Woche</span>
             </div>
-          </div>
+            <div class="helfen__cardText">
+              Begleitung für ältere Menschen, regelmäßige Spaziergänge und gemeinsame Zeit.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Begleitung</span>
+              <span class="helfen__tag">Begegnung</span>
+            </div>
+          </article>
 
-          <div class="helfen__onlineCard">
-            <div class="helfen__title">IT & Support</div>
-            <div class="helfen__text">Webpflege, E-Mail-Struktur, Tools einrichten, kleine Automationen.</div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">IT</span><span class="helfen__tag">Remote</span>
+          <article class="helfen__card" data-tags="einkauf">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Einkaufshilfe am Wochenende</div>
+                <div class="helfen__cardMeta">KiezAssist · Köln-Lindenthal</div>
+              </div>
+              <span class="helfen__badge helfen__badge--muted">Flexibel</span>
             </div>
-          </div>
+            <div class="helfen__cardText">
+              Einkäufe übernehmen und Besorgungen erledigen, vor allem am Samstag.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Einkaufshilfe</span>
+              <span class="helfen__tag">Nachbarschaft</span>
+            </div>
+          </article>
 
-          <div class="helfen__onlineCard">
-            <div class="helfen__title">Mentoring & Lernen</div>
-            <div class="helfen__text">Online-Nachhilfe, Bewerbungschecks, Lernbegleitung.</div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Co-Learning</span><span class="helfen__tag">Remote</span>
+          <article class="helfen__card" data-tags="mobilitaet">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Fahrgemeinschaften für Termine</div>
+                <div class="helfen__cardMeta">MobilPlus · Köln-Rodenkirchen</div>
+              </div>
+              <span class="helfen__badge">Planbar</span>
             </div>
+            <div class="helfen__cardText">
+              Fahrten zu Arzt- oder Behördenterminen, mit klaren Zeitfenstern.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Mobilität</span>
+              <span class="helfen__tag">Fahrdienst</span>
+            </div>
+          </article>
+
+          <article class="helfen__card" data-tags="nachbarschaft">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Nachbarschaftshilfe im Kiez</div>
+                <div class="helfen__cardMeta">KiezConnect · Köln-Ehrenfeld</div>
+              </div>
+              <span class="helfen__badge helfen__badge--muted">Spontan</span>
+            </div>
+            <div class="helfen__cardText">
+              Kleine Unterstützung vor Ort: Pakete annehmen, Pflanzen gießen, kurze Wege.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Nachbarschaft</span>
+              <span class="helfen__tag">Alltag</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section helfen__detail" data-mode="online" data-default-tag="spenden" hidden>
+      <div class="container">
+        <div class="helfen__sectionHeader">
+          <div>
+            <div class="helfen__sectionTitle">Helfen online</div>
+            <div class="helfen__sectionText">Wähle zuerst deinen digitalen Beitrag – danach passende Gesuche.</div>
           </div>
+          <span class="helfen__badge">Online</span>
+        </div>
+
+        <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
+          <button class="helfen__choiceCard helfen__choiceCard--sub helfen__filterBtn" type="button" data-tag="spenden" role="listitem">
+            <span class="helfen__choiceTitle">Geld / Spenden</span>
+            <span class="helfen__choiceText">Direkte Unterstützung durch Spendenaktionen und Förderprogramme.</span>
+          </button>
+          <button class="helfen__choiceCard helfen__choiceCard--sub helfen__filterBtn" type="button" data-tag="verbreitung" role="listitem">
+            <span class="helfen__choiceTitle">Verbreitung &amp; Firmen</span>
+            <span class="helfen__choiceText">Reichweite schaffen, Firmenkontakte nutzen, Kooperationen möglich machen.</span>
+          </button>
+        </div>
+
+        <div class="helfen__resultsGrid">
+          <article class="helfen__card" data-tags="spenden">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Spendenaktion für den Familienfonds</div>
+                <div class="helfen__cardMeta">Stiftung Lichtblick · Deutschlandweit</div>
+              </div>
+              <span class="helfen__badge helfen__badge--muted">Online</span>
+            </div>
+            <div class="helfen__cardText">
+              Unterstütze die Spendenkampagne, teile den Link oder sammle im Freundeskreis.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Geld/Spenden</span>
+              <span class="helfen__tag">Kampagne</span>
+            </div>
+          </article>
+
+          <article class="helfen__card" data-tags="spenden">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Sachspenden organisieren</div>
+                <div class="helfen__cardMeta">Kleidertausch Köln · Remote</div>
+              </div>
+              <span class="helfen__badge">Koordination</span>
+            </div>
+            <div class="helfen__cardText">
+              Hilf bei der Organisation von Sachspendenlisten und Versandabstimmungen.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Geld/Spenden</span>
+              <span class="helfen__tag">Koordination</span>
+            </div>
+          </article>
+
+          <article class="helfen__card" data-tags="verbreitung">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Firmenpartnerschaften anbahnen</div>
+                <div class="helfen__cardMeta">Bildungsnetz NRW · Remote</div>
+              </div>
+              <span class="helfen__badge helfen__badge--muted">B2B</span>
+            </div>
+            <div class="helfen__cardText">
+              Kontakte zu Unternehmen herstellen und mögliche Kooperationen koordinieren.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Verbreitung</span>
+              <span class="helfen__tag">Firmen</span>
+            </div>
+          </article>
+
+          <article class="helfen__card" data-tags="verbreitung">
+            <div class="helfen__cardHeader">
+              <div>
+                <div class="helfen__cardTitle">Social Sharing für Kampagnen</div>
+                <div class="helfen__cardMeta">Projekt Stimme · Remote</div>
+              </div>
+              <span class="helfen__badge">Reichweite</span>
+            </div>
+            <div class="helfen__cardText">
+              Beiträge teilen, Newsletter verbreiten und Kooperationen öffentlich machen.
+            </div>
+            <div class="helfen__tags">
+              <span class="helfen__tag">Verbreitung</span>
+              <span class="helfen__tag">Reichweite</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -200,20 +369,55 @@
 
     <script>
       (function () {
-        const switchBtns = Array.from(document.querySelectorAll(".helfen__switchBtn"));
-        const modes = Array.from(document.querySelectorAll(".helfen__mode"));
+        const modeButtons = Array.from(document.querySelectorAll(".helfen__choiceCard[data-mode]"));
+        const sections = Array.from(document.querySelectorAll(".helfen__detail"));
 
-        function setMode(next) {
-          modes.forEach((m) => (m.hidden = m.getAttribute("data-mode") !== next));
-          switchBtns.forEach((b) => {
-            const active = b.getAttribute("data-mode") === next;
-            b.classList.toggle("helfen__switchBtn--active", active);
-            b.setAttribute("aria-selected", active ? "true" : "false");
+        function setMode(next, { scroll = false } = {}) {
+          sections.forEach((section) => {
+            section.hidden = section.getAttribute("data-mode") !== next;
           });
+          modeButtons.forEach((button) => {
+            const active = button.getAttribute("data-mode") === next;
+            button.classList.toggle("helfen__choiceCard--active", active);
+          });
+
+          if (scroll) {
+            const activeSection = sections.find((section) => section.getAttribute("data-mode") === next);
+            if (activeSection) {
+              activeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }
         }
 
-        switchBtns.forEach((btn) => btn.addEventListener("click", () => setMode(btn.getAttribute("data-mode"))));
+        modeButtons.forEach((button) =>
+          button.addEventListener("click", () => setMode(button.getAttribute("data-mode"), { scroll: true }))
+        );
         setMode("vorort");
+
+        sections.forEach((section) => {
+          const filterButtons = Array.from(section.querySelectorAll(".helfen__filterBtn"));
+          const cards = Array.from(section.querySelectorAll(".helfen__card"));
+          if (!filterButtons.length) {
+            return;
+          }
+
+          const defaultTag = section.getAttribute("data-default-tag") || filterButtons[0].dataset.tag;
+
+          const setFilter = (tag) => {
+            filterButtons.forEach((button) => {
+              const active = button.dataset.tag === tag;
+              button.classList.toggle("helfen__filterBtn--active", active);
+              button.setAttribute("aria-selected", active ? "true" : "false");
+            });
+            cards.forEach((card) => {
+              const tags = (card.dataset.tags || "").split(" ").filter(Boolean);
+              card.hidden = !tags.includes(tag);
+            });
+          };
+
+          filterButtons.forEach((button) => button.addEventListener("click", () => setFilter(button.dataset.tag)));
+          setFilter(defaultTag);
+        });
       })();
     </script>
   </body>
