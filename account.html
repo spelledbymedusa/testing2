@@ -13,29 +13,31 @@
         <div class="brand">Ehrenamtsnetz</div>
 
         <nav class="nav">
-          <a class="nav__link" href="./index.html">Home</a>
-          <a class="nav__link" href="./blog.html">Blog</a>
-          <a class="nav__link" href="./news.html">Aktuelles</a>
-          <a class="nav__link" href="./gesuche.html">Gesuche</a>
-          <a class="nav__link" href="./vereine.html">Vereine</a>
-          <a class="nav__link" href="./helfen.html">Helfen</a>
-          <a class="nav__link" href="./weiterbildung.html">Weiterbildung</a>
-          <a class="nav__link nav__link--active" href="./account.html">Account</a>
-          <a class="nav__link" href="./login.html">Login</a>
-          <button class="nav__toggle" type="button" aria-label="Menü öffnen">
-            <span class="nav__toggleLines" aria-hidden="true">
-              <span class="nav__toggleLine"></span>
-              <span class="nav__toggleLine"></span>
-              <span class="nav__toggleLine"></span>
-            </span>
-          </button>
+          <div class="nav__links">
+            <a class="nav__link" href="./index.html">Home</a>
+            <a class="nav__link" href="./helfen.html">Helfen</a>
+            <a class="nav__link" href="./blog.html">Einblicke</a>
+          </div>
+          <div class="nav__account">
+            <a class="nav__link nav__link--active" href="./account.html">Account</a>
+          </div>
+          <div class="nav__menu">
+            <button class="nav__toggle" type="button" aria-label="Menü öffnen">
+              <span class="nav__toggleLines" aria-hidden="true">
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+              </span>
+            </button>
+            <div class="nav__dropdown" aria-label="Menü">
+              <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
+              <a class="nav__dropdownLink" href="./vereine.html">Vereinsregister</a>
+              <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
+              <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
+              <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
+            </div>
+          </div>
         </nav>
-
-        <button class="header__menuBtn" type="button" aria-label="Menü öffnen">
-          <span class="header__menuBar"></span>
-          <span class="header__menuBar"></span>
-          <span class="header__menuBar"></span>
-        </button>
       </div>
     </header>
 

@@ -104,31 +104,27 @@ body{
   color:#f7f4ec; /* vanilla on green */
 }
 
-.nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center;width:100%}
 
-.header__menuBtn{
-  border:1px solid rgba(247,244,236,.45);
-  background:rgba(247,244,236,.08);
-  border-radius:12px;
-  width:44px;
-  height:44px;
-  display:inline-flex;
+.nav__links{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
   align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:4px;
-  cursor:pointer;
-  color:#f7f4ec;
 }
-.header__menuBtn:hover{
-  border-color:rgba(247,244,236,.70);
-  background:rgba(247,244,236,.14);
+
+.nav__account{
+  margin-left:auto;
+  padding-left:12px;
+  border-left:1px solid rgba(247,244,236,.35);
+  display:flex;
+  align-items:center;
 }
-.header__menuBar{
-  width:18px;
-  height:2px;
-  border-radius:999px;
-  background:currentColor;
+
+.nav__menu{
+  position:relative;
+  display:flex;
+  align-items:center;
 }
 
 /* RESTORED button/pill styling */
@@ -191,6 +187,41 @@ body{
   height:2px;
   background:currentColor;
   border-radius:2px;
+}
+
+.nav__dropdown{
+  position:absolute;
+  right:0;
+  top:calc(100% + 10px);
+  min-width:210px;
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  padding:8px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  box-shadow:0 12px 24px rgba(15,23,42,.18);
+  z-index:20;
+}
+
+.nav__menu:hover .nav__dropdown,
+.nav__menu:focus-within .nav__dropdown{
+  display:flex;
+}
+
+.nav__dropdownLink{
+  text-decoration:none;
+  color:var(--text);
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid transparent;
+}
+
+.nav__dropdownLink:hover,
+.nav__dropdownLink:focus-visible{
+  border-color:rgba(47,95,59,.35);
+  background:rgba(47,95,59,.08);
 }
 
 
