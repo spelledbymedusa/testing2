@@ -42,6 +42,7 @@ body{
 .blog__meta,
 .blog__text,
 .gesuche__text,
+.blog__updatesHint,
 .account__cardMeta,
 .account__activityMeta,
 .footer__inner,
@@ -64,6 +65,7 @@ body{
 .vereine__card,
 .gesuche__row,
 .blog__post,
+.blog__updates,
 .auth__info,
 .auth__card,
 .account__panel{
@@ -103,6 +105,31 @@ body{
 }
 
 .nav{display:flex;gap:10px;flex-wrap:wrap}
+
+.header__menuBtn{
+  border:1px solid rgba(247,244,236,.45);
+  background:rgba(247,244,236,.08);
+  border-radius:12px;
+  width:44px;
+  height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:4px;
+  cursor:pointer;
+  color:#f7f4ec;
+}
+.header__menuBtn:hover{
+  border-color:rgba(247,244,236,.70);
+  background:rgba(247,244,236,.14);
+}
+.header__menuBar{
+  width:18px;
+  height:2px;
+  border-radius:999px;
+  background:currentColor;
+}
 
 /* RESTORED button/pill styling */
 .nav__link{
@@ -592,6 +619,22 @@ body{
   overflow:hidden;
   display:grid;
   grid-template-columns:180px 1fr;
+}
+.blog__updates{
+  padding:14px;
+  display:grid;
+  gap:10px;
+  margin-bottom:12px;
+}
+.blog__updatesHeader{display:grid;gap:4px}
+.blog__updatesTitle{font-weight:750}
+.blog__updatesHint{font-size:13px}
+.blog__updatesList{
+  margin:0;
+  padding-left:18px;
+  display:grid;
+  gap:6px;
+  font-size:13px;
 }
 .blog__img{background:#f1f2ee;border-right:1px solid var(--border);min-height:140px}
 .blog__body{padding:14px;display:grid;gap:8px;min-width:0}

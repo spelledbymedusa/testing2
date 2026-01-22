@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Aktuelles</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./blog.html">Blog</a>
+          <a class="nav__link nav__link--active" href="./news.html">Aktuelles</a>
+          <a class="nav__link" href="./gesuche.html">Gesuche</a>
+          <a class="nav__link" href="./account.html">Account</a>
+        </nav>
+
+        <button class="header__menuBtn" type="button" aria-label="Menü öffnen">
+          <span class="header__menuBar"></span>
+          <span class="header__menuBar"></span>
+          <span class="header__menuBar"></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Aktuelles</h2>
+            <div class="sub">Netzwerk-Updates, neue Gesuche und frische Organisationen im Überblick.</div>
+          </div>
+        </div>
+
+        <div class="blog__layout">
+          <div class="blog__main">
+            <div class="blog__toolbar">
+              <input class="blog__search" placeholder="Suche nach Update, Ort oder Thema…" />
+              <button class="nav__link blog__searchBtn" type="button">Suchen</button>
+            </div>
+
+            <div class="blog__updates">
+              <div class="blog__updatesHeader">
+                <div class="blog__updatesTitle">Update-Ticker</div>
+                <div class="blog__updatesHint">Kurzmeldungen zu neuen Inhalten im Netzwerk.</div>
+              </div>
+              <ul class="blog__updatesList">
+                <li><strong>Neuer Blogartikel:</strong> „Freiwillige finden und binden“ ist online.</li>
+                <li><strong>Neues Gesuch:</strong> Begleitung für Senior:innen in Leipzig wird gesucht.</li>
+                <li><strong>Neue Organisation:</strong> „Kiez hilft e. V.“ ist dem Netzwerk beigetreten.</li>
+              </ul>
+            </div>
+
+            <div class="blog__list">
+              <article class="blog__post">
+                <div class="blog__img" aria-hidden="true"></div>
+                <div class="blog__body">
+                  <div class="blog__meta">Update • Heute • Plattform</div>
+                  <div class="blog__title">Neue Filter im Blog live</div>
+                  <div class="blog__text">
+                    Mehr Klarheit bei Artikeln, Videos und Kursen: Filter nach Format, Zielgruppe und Modus.
+                  </div>
+                  <div class="blog__footer">
+                    <a class="nav__link blog__read" href="./blog.html">Zum Blog</a>
+                    <div class="blog__tags">
+                      <span class="blog__tag">Plattform</span>
+                      <span class="blog__tag">Feature</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog__post">
+                <div class="blog__img" aria-hidden="true"></div>
+                <div class="blog__body">
+                  <div class="blog__meta">Neu • Leipzig • Gesuch</div>
+                  <div class="blog__title">Begleitung für Senior:innen am Wochenende</div>
+                  <div class="blog__text">
+                    Kurzinfo zum Gesuch mit direktem Link zur Detailseite für Interessierte.
+                  </div>
+                  <div class="blog__footer">
+                    <a class="nav__link blog__read" href="./gesuche.html">Zum Gesuch</a>
+                    <div class="blog__tags">
+                      <span class="blog__tag">Vor Ort</span>
+                      <span class="blog__tag">Kurzfristig</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="blog__post">
+                <div class="blog__img" aria-hidden="true"></div>
+                <div class="blog__body">
+                  <div class="blog__meta">Neu • Hamburg • Organisation</div>
+                  <div class="blog__title">Hafenherzen ist dem Netzwerk beigetreten</div>
+                  <div class="blog__text">
+                    Kurzer Überblick, welche Schwerpunkte die Organisation setzt und wie man unterstützen kann.
+                  </div>
+                  <div class="blog__footer">
+                    <a class="nav__link blog__read" href="./vereine.html">Zum Profil</a>
+                    <div class="blog__tags">
+                      <span class="blog__tag">Community</span>
+                      <span class="blog__tag">Verein</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="blog__sidebar">
+            <div class="blog__sideTitle">Filter</div>
+
+            <details class="blog__filter" open>
+              <summary>Update-Typ</summary>
+              <div class="blog__filterBody">
+                <label class="blog__chk"><input type="checkbox" /> Plattform</label>
+                <label class="blog__chk"><input type="checkbox" /> Gesuche</label>
+                <label class="blog__chk"><input type="checkbox" /> Organisationen</label>
+                <label class="blog__chk"><input type="checkbox" /> Events</label>
+              </div>
+            </details>
+
+            <details class="blog__filter">
+              <summary>Region</summary>
+              <div class="blog__filterBody">
+                <label class="blog__chk"><input type="checkbox" /> In der Nähe</label>
+                <label class="blog__chk"><input type="checkbox" /> Deutschlandweit</label>
+                <label class="blog__chk"><input type="checkbox" /> International</label>
+              </div>
+            </details>
+
+            <details class="blog__filter">
+              <summary>Zeitfenster</summary>
+              <div class="blog__filterBody">
+                <label class="blog__chk"><input type="checkbox" /> Heute</label>
+                <label class="blog__chk"><input type="checkbox" /> Diese Woche</label>
+                <label class="blog__chk"><input type="checkbox" /> Diesen Monat</label>
+              </div>
+            </details>
+
+            <div class="blog__sideActions">
+              <button class="nav__link blog__apply" type="button">Anwenden</button>
+              <button class="nav__link blog__reset" type="button">Zurücksetzen</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>
