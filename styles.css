@@ -264,6 +264,12 @@ body{
   background:rgba(47,95,59,.08);
 }
 
+.nav__dropdownDivider{
+  height:1px;
+  background:var(--border);
+  margin:4px 6px;
+}
+
 
 
 /* Typography / Sections */
@@ -774,7 +780,13 @@ body{
 
 @media (max-width: 900px){
   .welcome{grid-template-columns:1fr}
-  .choices{grid-template-columns:1fr}
+  .choices{
+    grid-template-columns:unset;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(220px,1fr);
+    overflow-x:auto;
+    padding-bottom:6px;
+  }
 }
 
 @media (max-width: 820px){
@@ -790,10 +802,12 @@ body{
 
 @media (max-width: 640px){
   .header__inner{padding:12px 0}
-  .nav{width:100%;justify-content:space-between}
-  .nav__links{gap:8px}
+  .nav{width:100%;justify-content:flex-end}
+  .nav__links,
+  .nav__account{display:none}
   .nav__link{padding:6px 10px;min-height:36px}
-  .nav__dropdown{left:0;right:auto;min-width:min(260px,90vw)}
+  .nav__menu{margin-left:auto}
+  .nav__dropdown{left:auto;right:0;min-width:min(260px,90vw)}
   .slider__frame{grid-template-columns:36px 1fr 36px}
   .slider__btn{min-height:36px}
   .section{padding:22px 0}
