@@ -368,6 +368,7 @@ body{
   transition:transform 120ms ease, border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
   color:var(--text);
   box-shadow:0 0 0 rgba(15,23,42,0);
+  min-width:0;
 }
 .choice:hover{
   transform:translateY(-1px);
@@ -398,12 +399,15 @@ body{
   grid-column:2;
   font-size:16px;
   color:var(--accent);
+  min-width:0;
 }
 .choice__text{
   grid-column:2;
   font-size:13px;
   font-weight:400;
   color:#111;
+  min-width:0;
+  overflow-wrap:anywhere;
 }
 
 /* =========================================================
@@ -806,15 +810,24 @@ body{
     gap:8px;
   }
   .choice{
-    grid-template-columns:34px 1fr;
+    grid-template-columns:1fr auto;
     grid-template-rows:auto auto;
     padding:12px;
   }
-  .choice__icon{justify-self:flex-start}
-  .choice__icon{width:34px;height:34px}
+  .choice__icon{
+    grid-row:1;
+    grid-column:2;
+    justify-self:flex-end;
+    align-self:flex-start;
+    width:34px;
+    height:34px;
+  }
   .choice__iconImg{width:22px;height:22px}
-  .choice__title{font-size:15px}
-  .choice__text{grid-column:2}
+  .choice__title{
+    grid-column:1 / -1;
+    font-size:15px;
+  }
+  .choice__text{grid-column:1 / -1}
   .choice__text{font-size:12px}
 }
 
@@ -838,6 +851,7 @@ body{
   .nav__link{padding:6px 10px;min-height:36px}
   .nav__menu{margin-left:auto}
   .nav__dropdown{left:auto;right:0;min-width:min(260px,90vw)}
+  .choices{grid-template-columns:1fr}
   .slider__frame{grid-template-columns:1fr}
   .slider__btn{display:none}
   .section{padding:22px 0}
