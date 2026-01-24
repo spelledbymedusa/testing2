@@ -384,16 +384,28 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
+  grid-row:1 / span 2;
+  align-self:center;
   color:var(--accent);
   background:rgba(47,95,59,.10);
   border:1px solid rgba(47,95,59,.22);
 }
 .choice__iconImg{
-  width:22px;
-  height:22px;
+  width:24px;
+  height:24px;
   display:block;
 }
-.choice__text{grid-column:2;font-size:14px}
+.choice__title{
+  grid-column:2;
+  font-size:16px;
+  color:var(--accent);
+}
+.choice__text{
+  grid-column:2;
+  font-size:13px;
+  font-weight:400;
+  color:#111;
+}
 
 /* =========================================================
    Footer
@@ -795,15 +807,15 @@ body{
     gap:8px;
   }
   .choice{
-    grid-template-columns:1fr;
-    grid-template-rows:auto 1fr;
+    grid-template-columns:34px 1fr;
+    grid-template-rows:auto auto;
     padding:12px;
   }
   .choice__icon{justify-self:flex-start}
   .choice__icon{width:34px;height:34px}
-  .choice__iconImg{width:18px;height:18px}
-  .choice__title{font-size:14px}
-  .choice__text{grid-column:1}
+  .choice__iconImg{width:22px;height:22px}
+  .choice__title{font-size:15px}
+  .choice__text{grid-column:2}
   .choice__text{font-size:12px}
 }
 
