@@ -364,11 +364,9 @@ body{
   grid-template-columns:40px 1fr;
   column-gap:12px;
   row-gap:6px;
-  align-items:start;
+  align-items:center;
   transition:transform 120ms ease, border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
   color:var(--text);
-  min-height:44px;
-  min-height:150px;
   box-shadow:0 0 0 rgba(15,23,42,0);
 }
 .choice:hover{
@@ -386,7 +384,7 @@ body{
   justify-content:center;
   grid-row:1 / span 2;
   align-self:center;
-  color:var(--accent);
+  color:var(--accentDark);
   background:rgba(47,95,59,.10);
   border:1px solid rgba(47,95,59,.22);
 }
@@ -394,6 +392,7 @@ body{
   width:24px;
   height:24px;
   display:block;
+  filter:brightness(0) saturate(100%) invert(18%) sepia(28%) saturate(617%) hue-rotate(88deg) brightness(88%) contrast(92%);
 }
 .choice__title{
   grid-column:2;
