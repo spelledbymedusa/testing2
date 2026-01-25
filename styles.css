@@ -1,8 +1,8 @@
 :root{
   /* Brand palette — neutral vanilla + hunter green */
-  --bg:#f7f4ec;                 /* light vanilla */
-  --surfaceMid:#faf8f2;
-  --surfaceLight:#fcfcfa;
+  --bg:#f6f0e3;                 /* light vanilla */
+  --surfaceMid:#f8f2e6;
+  --surfaceLight:#fbf6eb;
   --panel:var(--surfaceLight);
   --border:rgba(17,24,39,.16);
   --borderWidth:2px;
@@ -16,6 +16,21 @@
 
   --container:1100px;
   --radius:16px;
+}
+
+[data-theme="dark"]{
+  --bg:#1d1b16;
+  --surfaceMid:#24211b;
+  --surfaceLight:#2a261f;
+  --panel:#2d2922;
+  --border:rgba(248,242,227,.22);
+  --text:#f8f2e3;
+  --muted:#d4cbbb;
+
+  --accent:#7fb074;
+  --accentDark:#141d12;
+  --accentSoft:rgba(127,176,116,.18);
+  --headerText:#f8f2e3;
 }
 
 /* Base */
@@ -159,6 +174,51 @@ body{
   display:flex;
   align-items:center;
 }
+
+.nav__actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.themeToggle{
+  border:var(--borderWidth) solid rgba(248,242,227,.4);
+  background:transparent;
+  color:var(--headerText);
+  border-radius:999px;
+  width:44px;
+  height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+.themeToggle:hover{
+  border-color:rgba(248,242,227,.7);
+  background:rgba(248,242,227,.12);
+  transform:translateY(-1px);
+}
+.themeToggle:focus-visible{
+  outline:3px solid rgba(248,242,227,.7);
+  outline-offset:2px;
+}
+.themeToggle svg{
+  width:20px;
+  height:20px;
+  display:block;
+  fill:currentColor;
+}
+.themeToggle__icon--moon{display:none}
+[data-theme="dark"] .themeToggle{
+  border-color:rgba(248,242,227,.22);
+}
+[data-theme="dark"] .themeToggle:hover{
+  border-color:rgba(248,242,227,.5);
+  background:rgba(248,242,227,.08);
+}
+[data-theme="dark"] .themeToggle__icon--sun{display:none}
+[data-theme="dark"] .themeToggle__icon--moon{display:block;color:#f5ecda}
 
 /* RESTORED button/pill styling */
 .nav__link{
@@ -421,7 +481,7 @@ body{
   grid-column:2;
   font-size:13px;
   font-weight:400;
-  color:#111;
+  color:var(--text);
   min-width:0;
   overflow-wrap:anywhere;
 }
@@ -462,7 +522,7 @@ body{
   padding:0 6px 0 0;
   display:grid;
   gap:12px;
-  max-height:220px;
+  max-height:320px;
   overflow:auto;
 }
 .newsCard__item{
@@ -1008,7 +1068,7 @@ body{
 }
 .helfen__badge--muted{
   border-color:var(--border);
-  background:#fff;
+  background:var(--surfaceLight);
   color:var(--muted);
 }
 .helfen__sectionHeader{
