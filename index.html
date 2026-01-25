@@ -6,6 +6,7 @@
     <title>Ehrenamtsnetz</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./theme.js" defer></script>
+    <script src="./news-controls.js" defer></script>
   </head>
 
   <body>
@@ -154,22 +155,58 @@
           </div>
         </div>
 
-        <article class="newsCard">
+        <article class="newsCard" data-news-card>
           <div class="newsCard__controls" aria-label="Newsfeed steuern">
-            <button class="newsCard__control" type="button" aria-label="Newsfeed sortieren">
-              <span class="newsCard__controlLines" aria-hidden="true">
-                <span class="newsCard__controlLine"></span>
-                <span class="newsCard__controlLine"></span>
-                <span class="newsCard__controlLine"></span>
-              </span>
-            </button>
-            <button class="newsCard__control" type="button" aria-label="Newsfeed filtern">
-              <span class="newsCard__controlLines" aria-hidden="true">
-                <span class="newsCard__controlLine"></span>
-                <span class="newsCard__controlLine"></span>
-                <span class="newsCard__controlLine"></span>
-              </span>
-            </button>
+            <div class="newsCard__controlGroup">
+              <button
+                class="newsCard__control"
+                type="button"
+                aria-label="Newsfeed sortieren"
+                aria-expanded="false"
+                data-news-toggle="sort"
+              >
+                <span class="newsCard__controlLines" aria-hidden="true">
+                  <span class="newsCard__controlLine"></span>
+                  <span class="newsCard__controlLine"></span>
+                  <span class="newsCard__controlLine"></span>
+                </span>
+              </button>
+              <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
+                <button class="newsCard__menuItem is-active" type="button" data-news-sort="curated">
+                  Kuratierte Reihenfolge
+                </button>
+                <button class="newsCard__menuItem" type="button" data-news-sort="chronological">
+                  Chronologisch (demnächst zuerst)
+                </button>
+                <button class="newsCard__menuItem" type="button" data-news-sort="newest">
+                  Neueste zuerst
+                </button>
+              </div>
+            </div>
+            <div class="newsCard__controlsLabel">Aktuelles</div>
+            <div class="newsCard__controlGroup newsCard__controlGroup--right">
+              <button
+                class="newsCard__control"
+                type="button"
+                aria-label="Newsfeed filtern"
+                aria-expanded="false"
+                data-news-toggle="filter"
+              >
+                <span class="newsCard__controlLines" aria-hidden="true">
+                  <span class="newsCard__controlLine"></span>
+                  <span class="newsCard__controlLine"></span>
+                  <span class="newsCard__controlLine"></span>
+                </span>
+              </button>
+              <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
+                <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">
+                  Alle News
+                </button>
+                <button class="newsCard__menuItem" type="button" data-news-filter="events">Events</button>
+                <button class="newsCard__menuItem" type="button" data-news-filter="gesuche">Gesuche</button>
+                <button class="newsCard__menuItem" type="button" data-news-filter="updates">Updates</button>
+              </div>
+            </div>
           </div>
           <div class="newsCard__header">
             <div>
@@ -181,8 +218,8 @@
             </div>
             <div class="newsCard__hint">Scrollbar für weitere Einträge</div>
           </div>
-          <ul class="newsCard__list">
-            <li class="newsCard__item">
+          <ul class="newsCard__list" data-news-list>
+            <li class="newsCard__item" data-news-type="updates" data-news-date="2024-05-28" data-news-order="1">
               <div class="newsCard__thumb" aria-hidden="true"></div>
               <div>
                 <div class="newsCard__itemHeader">
@@ -192,7 +229,7 @@
                 <p class="newsCard__itemText">Community-Garten sucht Mithelfende für die Herbstpflanzung.</p>
               </div>
             </li>
-            <li class="newsCard__item">
+            <li class="newsCard__item" data-news-type="events" data-news-date="2024-06-15" data-news-order="2">
               <div class="newsCard__thumb" aria-hidden="true"></div>
               <div>
                 <div class="newsCard__itemHeader">
@@ -202,7 +239,7 @@
                 <p class="newsCard__itemText">Helfende Hände für Aufbau, Kuchenbuffet und Kinderstationen gesucht.</p>
               </div>
             </li>
-            <li class="newsCard__item">
+            <li class="newsCard__item" data-news-type="gesuche" data-news-date="2024-05-24" data-news-order="3">
               <div class="newsCard__thumb" aria-hidden="true"></div>
               <div>
                 <div class="newsCard__itemHeader">
@@ -212,7 +249,7 @@
                 <p class="newsCard__itemText">Spaziergänge in kleinen Gruppen, 1–2 Std/Woche.</p>
               </div>
             </li>
-            <li class="newsCard__item">
+            <li class="newsCard__item" data-news-type="events" data-news-date="2024-06-04" data-news-order="4">
               <div class="newsCard__thumb" aria-hidden="true"></div>
               <div>
                 <div class="newsCard__itemHeader">
@@ -222,7 +259,7 @@
                 <p class="newsCard__itemText">Kostenfreie Anmeldung für Vereine aus dem Netzwerk.</p>
               </div>
             </li>
-            <li class="newsCard__item">
+            <li class="newsCard__item" data-news-type="gesuche" data-news-date="2024-06-28" data-news-order="5">
               <div class="newsCard__thumb" aria-hidden="true"></div>
               <div>
                 <div class="newsCard__itemHeader">
