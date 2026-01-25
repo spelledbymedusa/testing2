@@ -682,6 +682,10 @@ body{
 .newsCard__control:last-child .newsCard__controlLines{
   justify-items:end;
 }
+.newsCard__controlGroup--right .newsCard__controlLines{
+  justify-items:start;
+  transform:scaleX(-1);
+}
 .newsCard__header{
   display:flex;
   justify-content:space-between;
