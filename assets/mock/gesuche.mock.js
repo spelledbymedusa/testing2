@@ -1,0 +1,78 @@
+(function () {
+  const listings = [
+    {
+      id: "gesuch-001",
+      title: "Freiwillige Feuerwehr: Unterstützung bei Übungen",
+      location: "Köln · NRW",
+      summary: "Übungsabende begleiten, Material vorbereiten und im Team Sicherheit trainieren.",
+      tags: ["mode:vor-ort", "domain:feuerwehr", "topic:menschen"],
+      createdAt: "2024-10-03",
+      displayDate: "03.10.2024",
+    },
+    {
+      id: "gesuch-002",
+      title: "Katastrophenschutz: Logistikhelfer:in gesucht",
+      location: "Bonn · NRW",
+      summary: "Material prüfen, Einsatzwagen vorbereiten und bei Übungen mithelfen.",
+      tags: ["mode:vor-ort", "domain:feuerwehr", "topic:menschen"],
+      createdAt: "2024-09-27",
+      displayDate: "27.09.2024",
+    },
+    {
+      id: "gesuch-003",
+      title: "Lernpatenschaft für Mathe und Deutsch",
+      location: "Düsseldorf · NRW",
+      summary: "Schüler:innen im Ganztag begleiten, Lernpläne erstellen, gemeinsam üben.",
+      tags: ["mode:vor-ort", "domain:schule", "topic:bildung"],
+      createdAt: "2024-10-05",
+      displayDate: "05.10.2024",
+    },
+    {
+      id: "gesuch-004",
+      title: "Mentoring für Schulabschluss",
+      location: "Essen · NRW",
+      summary: "Regelmäßiges Mentoring, Motivation und Lernstruktur für Abschlussklassen.",
+      tags: ["mode:vor-ort", "domain:schule", "topic:bildung"],
+      createdAt: "2024-09-21",
+      displayDate: "21.09.2024",
+    },
+    {
+      id: "gesuch-005",
+      title: "Remote Tech-Support für Verein",
+      location: "Online · Deutschlandweit",
+      summary: "Website prüfen, Tools empfehlen und digitale Abläufe vereinfachen.",
+      tags: ["mode:online", "domain:online-tech", "topic:technik"],
+      createdAt: "2024-10-06",
+      displayDate: "06.10.2024",
+    },
+    {
+      id: "gesuch-006",
+      title: "Digitales Onboarding für Ehrenamtliche",
+      location: "Online · Remote",
+      summary: "Kurze Video-Calls, FAQ sammeln und Tools für neue Helfende erklären.",
+      tags: ["mode:online", "domain:online-tech", "topic:technik"],
+      createdAt: "2024-09-29",
+      displayDate: "29.09.2024",
+    },
+    {
+      id: "gesuch-007",
+      title: "Tierheim: Vermittlungshilfe im Alltag",
+      location: "Köln · NRW",
+      summary: "Interessenten begleiten, Spaziergänge koordinieren und Anfragen beantworten.",
+      tags: ["mode:vor-ort", "domain:tiere", "topic:tiere"],
+      createdAt: "2024-09-18",
+      displayDate: "18.09.2024",
+    },
+    {
+      id: "gesuch-008",
+      title: "Reparaturcafé sucht Schrauber:in",
+      location: "Leverkusen · NRW",
+      summary: "Gemeinsam Dinge reparieren, Menschen beraten und Wissen weitergeben.",
+      tags: ["mode:vor-ort", "domain:handwerk", "topic:menschen"],
+      createdAt: "2024-09-13",
+      displayDate: "13.09.2024",
+    },
+  ];
+
+  window.MOCK_GESUCHE = listings;
+})();
