@@ -365,9 +365,8 @@ body{
    ========================================================= */
 .choices{
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,220px));
-  gap:12px;
-  justify-content:center;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
 }
 .choice{
   text-decoration:none;
@@ -845,8 +844,8 @@ body{
 @media (max-width: 900px){
   .welcome{grid-template-columns:1fr}
   .choices{
-    grid-template-columns:repeat(3,minmax(0,190px));
-    gap:8px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
   }
   .choice{
     grid-template-columns:1fr auto;
