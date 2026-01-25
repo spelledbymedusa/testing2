@@ -77,6 +77,21 @@ body{
   border-radius:var(--radius);
 }
 
+.section__header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:4px;
+}
+
 /* Shared hover emphasis for “card-like” surfaces */
 .vereine__card:hover,
 .gesuche__row:hover,
@@ -409,6 +424,30 @@ body{
   min-width:0;
   overflow-wrap:anywhere;
 }
+
+/* =========================================================
+   Home: Aktuelles
+   ========================================================= */
+.home__newsCard{
+  border:1px solid var(--border);
+  background:var(--surfaceLight);
+  border-radius:var(--radius);
+  padding:18px;
+  display:grid;
+  gap:8px;
+}
+.home__newsMeta{color:var(--muted);font-size:13px}
+.home__newsTitle{margin:0;font-size:20px}
+.home__newsText{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.home__newsFooter{
+  margin-top:6px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.home__newsTags{display:flex;gap:8px;flex-wrap:wrap}
 
 /* =========================================================
    Footer
