@@ -79,22 +79,14 @@
               echte Erfahrungsberichte, um deinen Einstieg zu planen.
             </p>
             <div class="helfen__heroActions">
-              <a class="nav__link" href="#helfen-kategorien">Jetzt entdecken</a>
+              <a class="nav__link" href="./blog.html">Jetzt entdecken</a>
               <a class="nav__link" href="./gesuche.html">Zu den Gesuchen</a>
             </div>
-          </div>
-          <div class="helfen__heroPanel">
-            <div class="helfen__heroPanelTitle">So startest du</div>
-            <ol class="helfen__heroSteps">
-              <li>Wähle deinen Modus (vor Ort, online, Institution).</li>
-              <li>Lies Erfahrungsberichte aus erster Hand.</li>
-              <li>Springe zu passenden Gesuchen mit vorgefilterten Tags.</li>
-            </ol>
           </div>
         </div>
       </section>
 
-      <section class="section section--airy" id="helfen-kategorien">
+      <section class="section section--airy">
         <div class="container">
           <div class="section__header">
             <div>
@@ -103,35 +95,41 @@
             </div>
           </div>
           <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
-            <a class="helfen__choiceCard" href="#einblicke-vor-ort" role="listitem">
+            <button class="helfen__choiceCard helfen__choiceCard--active" type="button" data-choice-filter="vor-ort" role="listitem">
+              <span class="helfen__choiceImage" aria-hidden="true">Bildplatzhalter</span>
               <span class="helfen__choiceTitle">Vor Ort helfen</span>
               <span class="helfen__choiceText">Nachbarschaft, Stadtteile, Begegnungsorte – direkt bei dir.</span>
-            </a>
-            <a class="helfen__choiceCard" href="#einblicke-online" role="listitem">
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="online" role="listitem">
+              <span class="helfen__choiceImage" aria-hidden="true">Bildplatzhalter</span>
               <span class="helfen__choiceTitle">Online helfen</span>
               <span class="helfen__choiceText">Remote unterstützen, beraten, organisieren, teilen.</span>
-            </a>
-            <a class="helfen__choiceCard" href="#einblicke-institutionen" role="listitem">
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="feuerwehr" role="listitem">
+              <span class="helfen__choiceImage" aria-hidden="true">Bildplatzhalter</span>
               <span class="helfen__choiceTitle">Feuerwehr / Rettung</span>
               <span class="helfen__choiceText">Strukturierte Einsätze, Teamwork und klare Abläufe.</span>
-            </a>
-            <a class="helfen__choiceCard" href="#einblicke-institutionen" role="listitem">
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="schule" role="listitem">
+              <span class="helfen__choiceImage" aria-hidden="true">Bildplatzhalter</span>
               <span class="helfen__choiceTitle">Schule / Bildung</span>
               <span class="helfen__choiceText">Mentoring, Nachhilfe und Unterstützung im Lernalltag.</span>
-            </a>
-            <a class="helfen__choiceCard" href="#einblicke-vor-ort" role="listitem">
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="tiere" role="listitem">
+              <span class="helfen__choiceImage" aria-hidden="true">Bildplatzhalter</span>
               <span class="helfen__choiceTitle">Tiere / Tierheim</span>
               <span class="helfen__choiceText">Zeit mit Tieren, Pflege, Spaziergänge, Organisation.</span>
-            </a>
-            <a class="helfen__choiceCard" href="#einblicke-online" role="listitem">
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="handwerk" role="listitem">
+              <span class="helfen__choiceImage" aria-hidden="true">Bildplatzhalter</span>
               <span class="helfen__choiceTitle">Handwerk / Reparatur</span>
               <span class="helfen__choiceText">Praktische Hilfe, Reparaturcafés, Hand in Hand.</span>
-            </a>
-            </div>
+            </button>
+          </div>
         </div>
       </section>
 
-      <section class="section section--airy helfen__insights" id="einblicke-vor-ort">
+      <section class="section section--airy helfen__insights">
         <div class="container">
           <div class="section__header">
             <div>
@@ -139,100 +137,116 @@
               <div class="sub">Blogartige Berichte von Menschen, die heute schon helfen.</div>
             </div>
             <a class="nav__link" href="./blog.html">Alle Einblicke</a>
-            </div>
-
-          <div class="helfen__insightGroup">
-            <div class="helfen__insightTitle">Vor Ort</div>
-            <div class="helfen__insightGrid" role="list">
-              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
-                <div class="helfen__cardHeader">
-                  <div>
-                    <div class="helfen__cardTitle">Im Einsatz mit der Freiwilligen Feuerwehr</div>
-                    <div class="helfen__cardMeta">Echte Einblicke · Feuerwehr / Rettung</div>
-                  </div>
-                  <span class="helfen__badge">🚒</span>
-                </div>
-                <div class="helfen__cardText">
-                  Wie Einsätze ablaufen, welche Aufgaben es gibt und wie sich Teamarbeit anfühlt.
-                </div>
-              </a>
-              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
-                <div class="helfen__cardHeader">
-                  <div>
-                    <div class="helfen__cardTitle">Mentoring in der Schule: Lernen begleiten</div>
-                    <div class="helfen__cardMeta">Echte Einblicke · Schule / Bildung</div>
-                  </div>
-                  <span class="helfen__badge helfen__badge--muted">📚</span>
-                </div>
-                <div class="helfen__cardText">
-                  Wöchentliche Lernzeiten, Vertrauen aufbauen und kleine Fortschritte feiern.
-                </div>
-              </a>
-            </div>
           </div>
 
-          <div class="helfen__insightGroup" id="einblicke-online">
-            <div class="helfen__insightTitle">Online</div>
-            <div class="helfen__insightGrid" role="list">
-              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
-                <div class="helfen__cardHeader">
-                  <div>
-                    <div class="helfen__cardTitle">Online-Tech-Support für Non-Profits</div>
-                    <div class="helfen__cardMeta">Echte Einblicke · Online / Technik</div>
-                  </div>
-                  <span class="helfen__badge">💻</span>
+          <div class="helfen__insightGrid helfen__insightGrid--filtered" role="list">
+            <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" data-insight-categories="vor-ort,feuerwehr" role="listitem">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Im Einsatz mit der Freiwilligen Feuerwehr</div>
+                  <div class="helfen__cardMeta">Echte Einblicke · Feuerwehr / Rettung</div>
                 </div>
-                <div class="helfen__cardText">
-                  Remote helfen, Prozesse digitalisieren und Teams den Rücken freihalten.
+                <span class="helfen__badge">🚒</span>
+              </div>
+              <div class="helfen__cardText">
+                Wie Einsätze ablaufen, welche Aufgaben es gibt und wie sich Teamarbeit anfühlt.
+              </div>
+            </a>
+            <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" data-insight-categories="vor-ort,schule" role="listitem">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Mentoring in der Schule: Lernen begleiten</div>
+                  <div class="helfen__cardMeta">Echte Einblicke · Schule / Bildung</div>
                 </div>
-              </a>
-              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
-                <div class="helfen__cardHeader">
-                  <div>
-                    <div class="helfen__cardTitle">Handwerk digital vermitteln</div>
-                    <div class="helfen__cardMeta">Echte Einblicke · Handwerk / Reparatur</div>
-                  </div>
-                  <span class="helfen__badge helfen__badge--muted">🔧</span>
+                <span class="helfen__badge helfen__badge--muted">📚</span>
+              </div>
+              <div class="helfen__cardText">
+                Wöchentliche Lernzeiten, Vertrauen aufbauen und kleine Fortschritte feiern.
+              </div>
+            </a>
+            <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" data-insight-categories="online,handwerk" role="listitem">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Online-Tech-Support für Non-Profits</div>
+                  <div class="helfen__cardMeta">Echte Einblicke · Online / Technik</div>
                 </div>
-                <div class="helfen__cardText">
-                  Tutorials erstellen, Fragen beantworten und Reparaturwissen teilen.
+                <span class="helfen__badge">💻</span>
+              </div>
+              <div class="helfen__cardText">
+                Remote helfen, Prozesse digitalisieren und Teams den Rücken freihalten.
+              </div>
+            </a>
+            <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" data-insight-categories="online,handwerk" role="listitem">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Handwerk digital vermitteln</div>
+                  <div class="helfen__cardMeta">Echte Einblicke · Handwerk / Reparatur</div>
                 </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="helfen__insightGroup" id="einblicke-institutionen">
-            <div class="helfen__insightTitle">Institutionen / Rollen</div>
-            <div class="helfen__insightGrid" role="list">
-              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
-                <div class="helfen__cardHeader">
-                  <div>
-                    <div class="helfen__cardTitle">Teamarbeit im Katastrophenschutz</div>
-                    <div class="helfen__cardMeta">Echte Einblicke · Feuerwehr / Rettung</div>
-                  </div>
-                  <span class="helfen__badge">🧯</span>
+                <span class="helfen__badge helfen__badge--muted">🔧</span>
+              </div>
+              <div class="helfen__cardText">
+                Tutorials erstellen, Fragen beantworten und Reparaturwissen teilen.
+              </div>
+            </a>
+            <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" data-insight-categories="vor-ort,feuerwehr" role="listitem">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Teamarbeit im Katastrophenschutz</div>
+                  <div class="helfen__cardMeta">Echte Einblicke · Feuerwehr / Rettung</div>
                 </div>
-                <div class="helfen__cardText">
-                  Von der Ausbildung bis zum Einsatz – ein Einblick in strukturierte Abläufe.
+                <span class="helfen__badge">🧯</span>
+              </div>
+              <div class="helfen__cardText">
+                Von der Ausbildung bis zum Einsatz – ein Einblick in strukturierte Abläufe.
+              </div>
+            </a>
+            <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" data-insight-categories="vor-ort,schule" role="listitem">
+              <div class="helfen__cardHeader">
+                <div>
+                  <div class="helfen__cardTitle">Lernpatenschaften in der Ganztagsschule</div>
+                  <div class="helfen__cardMeta">Echte Einblicke · Schule / Bildung</div>
                 </div>
-              </a>
-              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
-                <div class="helfen__cardHeader">
-                  <div>
-                    <div class="helfen__cardTitle">Lernpatenschaften in der Ganztagsschule</div>
-                    <div class="helfen__cardMeta">Echte Einblicke · Schule / Bildung</div>
-                  </div>
-                  <span class="helfen__badge helfen__badge--muted">🎒</span>
-                </div>
-                <div class="helfen__cardText">
-                  Strukturiert begleiten, Vertrauen aufbauen und nachhaltige Lernziele setzen.
-                </div>
-              </a>
-            </div>
+                <span class="helfen__badge helfen__badge--muted">🎒</span>
+              </div>
+              <div class="helfen__cardText">
+                Strukturiert begleiten, Vertrauen aufbauen und nachhaltige Lernziele setzen.
+              </div>
+            </a>
           </div>
         </div>
       </section>
     </main>
+
+    <script>
+      const choiceButtons = Array.from(document.querySelectorAll("[data-choice-filter]"));
+      const insightCards = Array.from(document.querySelectorAll("[data-insight-categories]"));
+
+      const setActiveChoice = (activeFilter) => {
+        choiceButtons.forEach((button) => {
+          const isActive = button.dataset.choiceFilter === activeFilter;
+          button.classList.toggle("helfen__choiceCard--active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        insightCards.forEach((card) => {
+          const categories = card.dataset.insightCategories
+            .split(",")
+            .map((entry) => entry.trim());
+          const matches = categories.includes(activeFilter);
+          card.toggleAttribute("hidden", !matches);
+        });
+      };
+
+      choiceButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setActiveChoice(button.dataset.choiceFilter);
+        });
+      });
+
+      if (choiceButtons.length > 0) {
+        setActiveChoice(choiceButtons[0].dataset.choiceFilter);
+      }
+    </script>
 
     <footer class="footer">
       <div class="container footer__inner">

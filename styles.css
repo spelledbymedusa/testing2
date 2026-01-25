@@ -1183,8 +1183,22 @@ body{
   cursor:pointer;
   align-content:start;
   text-decoration:none;
+  font:inherit;
+  width:100%;
+  appearance:none;
   transition:transform 120ms ease, border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
   box-shadow:0 0 0 rgba(15,23,42,0);
+}
+.helfen__choiceImage{
+  border:1px dashed rgba(17,24,39,.2);
+  border-radius:12px;
+  background:var(--surfaceLight);
+  color:var(--muted);
+  font-size:12px;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .helfen__choiceCard:hover{
   transform:translateY(-1px);
