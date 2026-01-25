@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Einblick Artikel</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <div class="nav__links">
+            <a class="nav__link" href="./index.html">Home</a>
+            <a class="nav__link nav__link--active" href="./helfen.html">Helfen</a>
+            <a class="nav__link" href="./blog.html">Einblicke</a>
+          </div>
+          <div class="nav__account">
+            <a class="nav__link" href="./account.html">Account</a>
+          </div>
+          <div class="nav__menu">
+            <button class="nav__toggle" type="button" aria-label="Menü öffnen">
+              <span class="nav__toggleLines" aria-hidden="true">
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+              </span>
+            </button>
+            <div class="nav__dropdown" aria-label="Menü">
+              <a class="nav__dropdownLink" href="./index.html">Home</a>
+              <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
+              <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
+              <a class="nav__dropdownLink" href="./account.html">Account</a>
+              <div class="nav__dropdownDivider" aria-hidden="true"></div>
+              <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
+              <a class="nav__dropdownLink" href="./vereine.html">Vereinsregister</a>
+              <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
+              <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
+              <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="article" data-component="ArticlePage" data-article-tags="mode:vor-ort,domain:feuerwehr,topic:menschen">
+      <section class="section section--airy article__hero">
+        <div class="container">
+          <div class="article__kicker">Echte Einblicke · Feuerwehr / Rettung</div>
+          <h1 class="h1">Im Einsatz mit der Freiwilligen Feuerwehr</h1>
+          <div class="article__meta">Von Lara M. · 12.09.2024 · Köln</div>
+          <p class="article__lead">
+            Zwischen Übungsabenden, Alarm und Teamgeist: Ein Blick darauf, wie der Alltag in der Freiwilligen Feuerwehr
+            wirklich aussieht.
+          </p>
+          <div class="helfen__tags article__tags">
+            <span class="helfen__tag">Vor Ort</span>
+            <span class="helfen__tag">Feuerwehr</span>
+            <span class="helfen__tag">Menschen</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--airy article__body">
+        <div class="container article__content">
+          <article class="article__section">
+            <h2 class="h3">Warum ich das mache</h2>
+            <p>
+              Ich wollte etwas beitragen, das sofort Wirkung hat. Die Feuerwehr gibt mir die Möglichkeit, Verantwortung zu
+              übernehmen und mich auf mein Team zu verlassen.
+            </p>
+          </article>
+          <article class="article__section">
+            <h2 class="h3">Was man konkret tut</h2>
+            <p>
+              Wir üben regelmäßig Einsätze, betreuen Veranstaltungen und sind bei Alarmierungen sofort zur Stelle – von
+              technischen Hilfeleistungen bis zu Brandeinsätzen.
+            </p>
+          </article>
+          <article class="article__section">
+            <h2 class="h3">Zeitaufwand</h2>
+            <p>
+              Ein fester Übungsabend pro Woche, plus Einsätze. Im Schnitt sind es etwa 4–6 Stunden, manchmal auch mehr.
+            </p>
+          </article>
+          <article class="article__section">
+            <h2 class="h3">Voraussetzungen</h2>
+            <p>
+              Motivation, Teamfähigkeit und die Bereitschaft, sich ausbilden zu lassen. Fitness hilft, wichtiger ist aber
+              Zuverlässigkeit.
+            </p>
+          </article>
+          <article class="article__section">
+            <h2 class="h3">Für wen passt das</h2>
+            <p>
+              Für Menschen, die Verantwortung übernehmen wollen und in stressigen Situationen einen kühlen Kopf bewahren
+              können.
+            </p>
+          </article>
+          <article class="article__section">
+            <h2 class="h3">So startest du</h2>
+            <p>
+              Such dir eine Feuerwache in deiner Nähe, geh zu einem Infoabend und schnuppere rein. Die Teams freuen sich
+              über neue Gesichter.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--airy article__listings" data-component="ListingsPreview">
+        <div class="container">
+          <div class="section__header">
+            <div>
+              <h2 class="h2">Passende Gesuche</h2>
+              <div class="sub">Die neuesten Hilfegesuche mit passenden Tags zur Feuerwehr.</div>
+            </div>
+          </div>
+          <div class="listingsPreview__empty" hidden>
+            <p class="listingsPreview__emptyText">
+              Aktuell gibt es keine passenden Gesuche. Schau dir alle Gesuche an oder passe die Filter an.
+            </p>
+            <div class="listingsPreview__emptyActions">
+              <a class="nav__link" href="./gesuche.html">Alle Gesuche ansehen</a>
+              <a class="nav__link" href="./gesuche.html">Filter ändern</a>
+            </div>
+          </div>
+          <div class="listingsPreview__grid" role="list"></div>
+          <div class="listingsPreview__actions">
+            <a class="nav__link listingsPreview__cta" href="./gesuche.html">Alle passenden Gesuche anzeigen</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+
+    <script src="./assets/mock/gesuche.mock.js"></script>
+    <script>
+      (function () {
+        const article = document.querySelector('[data-component="ArticlePage"]');
+        const listingsWrapper = document.querySelector('[data-component="ListingsPreview"]');
+        if (!article || !listingsWrapper || !window.MOCK_GESUCHE) return;
+
+        const tagString = article.dataset.articleTags || "";
+        const articleTags = tagString
+          .split(",")
+          .map((tag) => tag.trim())
+          .filter(Boolean);
+
+        const articleTagMap = new Map();
+        articleTags.forEach((tag) => {
+          const [key, value] = tag.split(":");
+          if (key && value) {
+            articleTagMap.set(key, value);
+          }
+        });
+
+        const tagLabelMap = {
+          "mode:vor-ort": "Vor Ort",
+          "mode:online": "Online",
+          "domain:feuerwehr": "Feuerwehr",
+          "domain:schule": "Schule",
+          "domain:online-tech": "Online-Tech",
+          "domain:tiere": "Tiere",
+          "domain:handwerk": "Handwerk",
+          "topic:menschen": "Menschen",
+          "topic:bildung": "Bildung",
+          "topic:technik": "Technik",
+          "topic:tiere": "Tiere",
+        };
+
+        const formatTag = (tag) => tagLabelMap[tag] || tag.replace("domain:", "").replace("topic:", "");
+
+        const matchesArticle = (listing) => {
+          if (!articleTagMap.size) return true;
+          const listingMap = new Map();
+          listing.tags.forEach((tag) => {
+            const [key, value] = tag.split(":");
+            if (key && value) {
+              listingMap.set(key, value);
+            }
+          });
+          for (const [key, value] of articleTagMap.entries()) {
+            if (listingMap.get(key) !== value) {
+              return false;
+            }
+          }
+          return true;
+        };
+
+        const filteredListings = window.MOCK_GESUCHE.filter(matchesArticle)
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .slice(0, 3);
+
+        const grid = listingsWrapper.querySelector(".listingsPreview__grid");
+        const emptyState = listingsWrapper.querySelector(".listingsPreview__empty");
+        const cta = listingsWrapper.querySelector(".listingsPreview__cta");
+
+        if (!grid) return;
+
+        const buildQuery = () => {
+          const params = new URLSearchParams();
+          const modeTag = articleTags.find((tag) => tag.startsWith("mode:"));
+          if (modeTag) {
+            params.set("mode", modeTag.split(":")[1]);
+          }
+          const extraTags = articleTags
+            .filter((tag) => !tag.startsWith("mode:"))
+            .map((tag) => tag.split(":")[1]);
+          if (extraTags.length) {
+            params.set("tags", extraTags.join(","));
+          }
+          return params.toString();
+        };
+
+        if (cta) {
+          const query = buildQuery();
+          cta.href = query ? `./gesuche.html?${query}` : "./gesuche.html";
+        }
+
+        if (!filteredListings.length) {
+          grid.innerHTML = "";
+          if (emptyState) {
+            emptyState.hidden = false;
+          }
+          return;
+        }
+
+        grid.innerHTML = "";
+        filteredListings.forEach((listing) => {
+          const card = document.createElement("article");
+          card.className = "helfen__card listingsPreview__card";
+          card.setAttribute("role", "listitem");
+          card.setAttribute("data-listing-tags", listing.tags.join(", "));
+
+          const header = document.createElement("div");
+          header.className = "listingsPreview__cardHeader";
+
+          const headerText = document.createElement("div");
+          const title = document.createElement("div");
+          title.className = "listingsPreview__title";
+          title.textContent = listing.title;
+
+          const meta = document.createElement("div");
+          meta.className = "listingsPreview__meta";
+          meta.textContent = listing.location;
+
+          headerText.appendChild(title);
+          headerText.appendChild(meta);
+
+          const date = document.createElement("div");
+          date.className = "listingsPreview__date";
+          date.textContent = listing.displayDate;
+
+          header.appendChild(headerText);
+          header.appendChild(date);
+
+          const text = document.createElement("div");
+          text.className = "listingsPreview__text";
+          text.textContent = listing.summary;
+
+          const tags = document.createElement("div");
+          tags.className = "helfen__tags listingsPreview__tags";
+          listing.tags.forEach((tag) => {
+            const chip = document.createElement("span");
+            chip.className = "helfen__tag";
+            chip.textContent = formatTag(tag);
+            tags.appendChild(chip);
+          });
+
+          card.appendChild(header);
+          card.appendChild(text);
+          card.appendChild(tags);
+          grid.appendChild(card);
+        });
+      })();
+    </script>
+  </body>
+</html>
