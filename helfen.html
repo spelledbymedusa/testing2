@@ -46,270 +46,175 @@
       </div>
     </header>
 
-    <section class="section section--airy helfen__intro">
-      <div class="container">
-        <h1 class="h1">Wie kann ich helfen?</h1>
-        <p class="lead">
-          Starte mit einer Auswahl – wir zeigen dir danach die passenden Gesuche mit den passenden Tags.
-        </p>
-
-        <div class="helfen__choiceGrid" role="list">
-          <a class="helfen__choiceCard helfen__choiceCard--active" href="#vor-ort" role="listitem">
-            <span class="helfen__choiceTitle">Helfen vor Ort</span>
-            <span class="helfen__choiceText">Rollen auswählen und direkt zu lokalen Gesuchen springen.</span>
-          </a>
-          <a class="helfen__choiceCard" href="#alltag" role="listitem">
-            <span class="helfen__choiceTitle">Helfen im Alltag</span>
-            <span class="helfen__choiceText">Alltagsunterstützung für Menschen in deiner Nähe.</span>
-          </a>
-          <a class="helfen__choiceCard" href="#online" role="listitem">
-            <span class="helfen__choiceTitle">Helfen online</span>
-            <span class="helfen__choiceText">Digital beitragen – wir zeigen dir die nächsten Optionen.</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--airy helfen__detail" id="vor-ort" data-mode="vor-ort">
-      <div class="container">
-        <div class="helfen__sectionHeader">
-          <div>
-            <div class="helfen__sectionTitle">Helfen vor Ort</div>
-            <div class="helfen__sectionText">Wähle deine Rolle und springe direkt zu passenden Gesuchen.</div>
+    <main data-component="HelpHub">
+      <section class="section section--airy helfen__hero">
+        <div class="container helfen__heroGrid">
+          <div class="helfen__heroCopy">
+            <h1 class="h1">Hilfe entdecken</h1>
+            <p class="lead">
+              Ehrenamt heißt: Zeit schenken, Talente teilen und Gemeinschaft stärken. Hier findest du Inspirationen und
+              echte Erfahrungsberichte, um deinen Einstieg zu planen.
+            </p>
+            <div class="helfen__heroActions">
+              <a class="nav__link" href="#helfen-kategorien">Jetzt entdecken</a>
+              <a class="nav__link" href="./gesuche.html">Zu den Gesuchen</a>
+            </div>
           </div>
-          <span class="helfen__badge">Vor Ort</span>
-        </div>
-
-        <div class="helfen__filterBar" role="list" aria-label="Vor-Ort Rollen">
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=aushilfe" role="listitem">Als Aushilfe/Gast</a>
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=freiwillig" role="listitem">Als Freiwilliger</a>
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=mitglied" role="listitem">Als Mitglied</a>
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=urlaub" role="listitem">Im Urlaub</a>
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=fsj" role="listitem">Als FSJ</a>
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=vor-ort&role=pflegestelle" role="listitem">Als Pflegestelle</a>
-        </div>
-
-        <div class="helfen__resultsGrid">
-          <article class="helfen__card" data-tags="aushilfe">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Begleitung beim Kulturcafé</div>
-                <div class="helfen__cardMeta">Verein Sonnenweg · Köln-Ehrenfeld</div>
-              </div>
-              <span class="helfen__badge">Kurzfristig</span>
-            </div>
-            <div class="helfen__cardText">
-              Spontane Unterstützung bei Veranstaltungen, Gäste begrüßen und Auf- &amp; Abbau helfen.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Aushilfe/Gast</span>
-              <span class="helfen__tag">Event</span>
-            </div>
-          </article>
-
-          <article class="helfen__card" data-tags="freiwillig">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Fahrdienst zu Arztterminen</div>
-                <div class="helfen__cardMeta">Seniorenhilfe Köln · Innenstadt</div>
-              </div>
-              <span class="helfen__badge helfen__badge--muted">Regelmäßig</span>
-            </div>
-            <div class="helfen__cardText">
-              Ehrenamtlicher Fahrdienst für Senior:innen, ca. 2–3 Einsätze pro Monat.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Freiwilliger</span>
-              <span class="helfen__tag">Mobilität</span>
-            </div>
-          </article>
-
-          <article class="helfen__card" data-tags="fsj">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">FSJ im Begegnungszentrum</div>
-                <div class="helfen__cardMeta">Haus der Vielfalt · Köln-Kalk</div>
-              </div>
-              <span class="helfen__badge">Langfristig</span>
-            </div>
-            <div class="helfen__cardText">
-              Ein Jahr Mitarbeit in Projekten, Begleitung von Gruppen und Event-Organisation.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">FSJ</span>
-              <span class="helfen__tag">Bildung</span>
-            </div>
-          </article>
-        </div>
-        <div class="helfen__more">
-          <a class="nav__link" href="./gesuche.html?mode=vor-ort&role=aushilfe">Alle passenden Gesuche</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--airy helfen__detail" id="alltag" data-mode="alltag">
-      <div class="container">
-        <div class="helfen__sectionHeader">
-          <div>
-            <div class="helfen__sectionTitle">Helfen im Alltag</div>
-            <div class="helfen__sectionText">Kleine Unterstützung im Alltag – wähle ein Thema und sieh passende Gesuche.</div>
+          <div class="helfen__heroPanel">
+            <div class="helfen__heroPanelTitle">So startest du</div>
+            <ol class="helfen__heroSteps">
+              <li>Wähle deinen Modus (vor Ort, online, Institution).</li>
+              <li>Lies Erfahrungsberichte aus erster Hand.</li>
+              <li>Springe zu passenden Gesuchen mit vorgefilterten Tags.</li>
+            </ol>
           </div>
-          <span class="helfen__badge helfen__badge--muted">Alltag</span>
         </div>
+      </section>
 
-        <div class="helfen__filterBar" role="list" aria-label="Alltags-Tags">
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=alltag&tag=begleitung" role="listitem">Begleitung</a>
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=alltag&tag=einkaufshilfe" role="listitem">Einkaufshilfe</a>
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=alltag&tag=mobilitaet" role="listitem">Mobilität</a>
-          <a class="helfen__filterBtn" href="./gesuche.html?mode=alltag&tag=nachbarschaft" role="listitem">Nachbarschaft</a>
-        </div>
-
-        <div class="helfen__resultsGrid">
-          <article class="helfen__card" data-tags="begleitung">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Spaziergänge &amp; Gespräche</div>
-                <div class="helfen__cardMeta">Nachbarschaftstreff Nord · Köln-Nord</div>
-              </div>
-              <span class="helfen__badge">1–2 Std/Woche</span>
+      <section class="section section--airy" id="helfen-kategorien">
+        <div class="container">
+          <div class="section__header">
+            <div>
+              <h2 class="h2">Entdecke Wege zu helfen</h2>
+              <div class="sub">Wähle eine Richtung – die passenden Artikel und Gesuche warten auf dich.</div>
             </div>
-            <div class="helfen__cardText">
-              Begleitung für ältere Menschen, regelmäßige Spaziergänge und gemeinsame Zeit.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Begleitung</span>
-              <span class="helfen__tag">Begegnung</span>
-            </div>
-          </article>
-
-          <article class="helfen__card" data-tags="einkaufshilfe">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Einkaufshilfe am Wochenende</div>
-                <div class="helfen__cardMeta">KiezAssist · Köln-Lindenthal</div>
-              </div>
-              <span class="helfen__badge helfen__badge--muted">Flexibel</span>
-            </div>
-            <div class="helfen__cardText">
-              Einkäufe übernehmen und Besorgungen erledigen, vor allem am Samstag.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Einkaufshilfe</span>
-              <span class="helfen__tag">Nachbarschaft</span>
-            </div>
-          </article>
-
-          <article class="helfen__card" data-tags="mobilitaet">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Fahrgemeinschaften für Termine</div>
-                <div class="helfen__cardMeta">MobilPlus · Köln-Rodenkirchen</div>
-              </div>
-              <span class="helfen__badge">Planbar</span>
-            </div>
-            <div class="helfen__cardText">
-              Fahrten zu Arzt- oder Behördenterminen, mit klaren Zeitfenstern.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Mobilität</span>
-              <span class="helfen__tag">Fahrdienst</span>
-            </div>
-          </article>
-        </div>
-        <div class="helfen__more">
-          <a class="nav__link" href="./gesuche.html?mode=alltag&tag=begleitung">Alle passenden Gesuche</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--airy helfen__detail" id="online" data-mode="online">
-      <div class="container">
-        <div class="helfen__sectionHeader">
-          <div>
-            <div class="helfen__sectionTitle">Helfen online</div>
-            <div class="helfen__sectionText">Wähle zuerst deinen digitalen Beitrag – danach passende Gesuche.</div>
           </div>
-          <span class="helfen__badge">Online</span>
+          <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
+            <a class="helfen__choiceCard" href="#einblicke-vor-ort" role="listitem">
+              <span class="helfen__choiceTitle">Vor Ort helfen</span>
+              <span class="helfen__choiceText">Nachbarschaft, Stadtteile, Begegnungsorte – direkt bei dir.</span>
+            </a>
+            <a class="helfen__choiceCard" href="#einblicke-online" role="listitem">
+              <span class="helfen__choiceTitle">Online helfen</span>
+              <span class="helfen__choiceText">Remote unterstützen, beraten, organisieren, teilen.</span>
+            </a>
+            <a class="helfen__choiceCard" href="#einblicke-institutionen" role="listitem">
+              <span class="helfen__choiceTitle">Feuerwehr / Rettung</span>
+              <span class="helfen__choiceText">Strukturierte Einsätze, Teamwork und klare Abläufe.</span>
+            </a>
+            <a class="helfen__choiceCard" href="#einblicke-institutionen" role="listitem">
+              <span class="helfen__choiceTitle">Schule / Bildung</span>
+              <span class="helfen__choiceText">Mentoring, Nachhilfe und Unterstützung im Lernalltag.</span>
+            </a>
+            <a class="helfen__choiceCard" href="#einblicke-vor-ort" role="listitem">
+              <span class="helfen__choiceTitle">Tiere / Tierheim</span>
+              <span class="helfen__choiceText">Zeit mit Tieren, Pflege, Spaziergänge, Organisation.</span>
+            </a>
+            <a class="helfen__choiceCard" href="#einblicke-online" role="listitem">
+              <span class="helfen__choiceTitle">Handwerk / Reparatur</span>
+              <span class="helfen__choiceText">Praktische Hilfe, Reparaturcafés, Hand in Hand.</span>
+            </a>
+          </div>
         </div>
+      </section>
 
-        <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
-          <a class="helfen__choiceCard helfen__choiceCard--sub" href="./gesuche.html?mode=online&tag=spenden" role="listitem">
-            <span class="helfen__choiceTitle">Geld / Spenden</span>
-            <span class="helfen__choiceText">Direkte Unterstützung durch Spendenaktionen und Förderprogramme.</span>
-          </a>
-          <a
-            class="helfen__choiceCard helfen__choiceCard--sub"
-            href="./gesuche.html?mode=online&tag=verbreitung"
-            role="listitem"
-          >
-            <span class="helfen__choiceTitle">Verbreitung &amp; Firmen</span>
-            <span class="helfen__choiceText">Reichweite schaffen, Firmenkontakte nutzen, Kooperationen möglich machen.</span>
-          </a>
+      <section class="section section--airy helfen__insights" id="einblicke-vor-ort">
+        <div class="container">
+          <div class="section__header">
+            <div>
+              <h2 class="h2">Echte Einblicke</h2>
+              <div class="sub">Blogartige Berichte von Menschen, die heute schon helfen.</div>
+            </div>
+            <a class="nav__link" href="./blog.html">Alle Einblicke</a>
+          </div>
+
+          <div class="helfen__insightGroup">
+            <div class="helfen__insightTitle">Vor Ort</div>
+            <div class="helfen__insightGrid" role="list">
+              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
+                <div class="helfen__cardHeader">
+                  <div>
+                    <div class="helfen__cardTitle">Im Einsatz mit der Freiwilligen Feuerwehr</div>
+                    <div class="helfen__cardMeta">Echte Einblicke · Feuerwehr / Rettung</div>
+                  </div>
+                  <span class="helfen__badge">🚒</span>
+                </div>
+                <div class="helfen__cardText">
+                  Wie Einsätze ablaufen, welche Aufgaben es gibt und wie sich Teamarbeit anfühlt.
+                </div>
+              </a>
+              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
+                <div class="helfen__cardHeader">
+                  <div>
+                    <div class="helfen__cardTitle">Mentoring in der Schule: Lernen begleiten</div>
+                    <div class="helfen__cardMeta">Echte Einblicke · Schule / Bildung</div>
+                  </div>
+                  <span class="helfen__badge helfen__badge--muted">📚</span>
+                </div>
+                <div class="helfen__cardText">
+                  Wöchentliche Lernzeiten, Vertrauen aufbauen und kleine Fortschritte feiern.
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="helfen__insightGroup" id="einblicke-online">
+            <div class="helfen__insightTitle">Online</div>
+            <div class="helfen__insightGrid" role="list">
+              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
+                <div class="helfen__cardHeader">
+                  <div>
+                    <div class="helfen__cardTitle">Online-Tech-Support für Non-Profits</div>
+                    <div class="helfen__cardMeta">Echte Einblicke · Online / Technik</div>
+                  </div>
+                  <span class="helfen__badge">💻</span>
+                </div>
+                <div class="helfen__cardText">
+                  Remote helfen, Prozesse digitalisieren und Teams den Rücken freihalten.
+                </div>
+              </a>
+              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
+                <div class="helfen__cardHeader">
+                  <div>
+                    <div class="helfen__cardTitle">Handwerk digital vermitteln</div>
+                    <div class="helfen__cardMeta">Echte Einblicke · Handwerk / Reparatur</div>
+                  </div>
+                  <span class="helfen__badge helfen__badge--muted">🔧</span>
+                </div>
+                <div class="helfen__cardText">
+                  Tutorials erstellen, Fragen beantworten und Reparaturwissen teilen.
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="helfen__insightGroup" id="einblicke-institutionen">
+            <div class="helfen__insightTitle">Institutionen / Rollen</div>
+            <div class="helfen__insightGrid" role="list">
+              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
+                <div class="helfen__cardHeader">
+                  <div>
+                    <div class="helfen__cardTitle">Teamarbeit im Katastrophenschutz</div>
+                    <div class="helfen__cardMeta">Echte Einblicke · Feuerwehr / Rettung</div>
+                  </div>
+                  <span class="helfen__badge">🧯</span>
+                </div>
+                <div class="helfen__cardText">
+                  Von der Ausbildung bis zum Einsatz – ein Einblick in strukturierte Abläufe.
+                </div>
+              </a>
+              <a class="helfen__card helfen__card--link" href="./hilfe-artikel.html" role="listitem">
+                <div class="helfen__cardHeader">
+                  <div>
+                    <div class="helfen__cardTitle">Lernpatenschaften in der Ganztagsschule</div>
+                    <div class="helfen__cardMeta">Echte Einblicke · Schule / Bildung</div>
+                  </div>
+                  <span class="helfen__badge helfen__badge--muted">🎒</span>
+                </div>
+                <div class="helfen__cardText">
+                  Strukturiert begleiten, Vertrauen aufbauen und nachhaltige Lernziele setzen.
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
-
-        <div class="helfen__resultsGrid">
-          <article class="helfen__card" data-tags="spenden">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Spendenaktion für den Familienfonds</div>
-                <div class="helfen__cardMeta">Stiftung Lichtblick · Deutschlandweit</div>
-              </div>
-              <span class="helfen__badge helfen__badge--muted">Online</span>
-            </div>
-            <div class="helfen__cardText">
-              Unterstütze die Spendenkampagne, teile den Link oder sammle im Freundeskreis.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Geld/Spenden</span>
-              <span class="helfen__tag">Kampagne</span>
-            </div>
-          </article>
-
-          <article class="helfen__card" data-tags="spenden">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Sachspenden organisieren</div>
-                <div class="helfen__cardMeta">Kleidertausch Köln · Remote</div>
-              </div>
-              <span class="helfen__badge">Koordination</span>
-            </div>
-            <div class="helfen__cardText">
-              Hilf bei der Organisation von Sachspendenlisten und Versandabstimmungen.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Geld/Spenden</span>
-              <span class="helfen__tag">Koordination</span>
-            </div>
-          </article>
-
-          <article class="helfen__card" data-tags="verbreitung">
-            <div class="helfen__cardHeader">
-              <div>
-                <div class="helfen__cardTitle">Social Sharing für Kampagnen</div>
-                <div class="helfen__cardMeta">Projekt Stimme · Remote</div>
-              </div>
-              <span class="helfen__badge">Reichweite</span>
-            </div>
-            <div class="helfen__cardText">
-              Beiträge teilen, Newsletter verbreiten und Kooperationen öffentlich machen.
-            </div>
-            <div class="helfen__tags">
-              <span class="helfen__tag">Verbreitung</span>
-              <span class="helfen__tag">Reichweite</span>
-            </div>
-          </article>
-        </div>
-        <div class="helfen__more">
-          <a class="nav__link" href="./gesuche.html?mode=online&tag=spenden">Alle passenden Gesuche</a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container footer__inner">
         <div>Impressum • Kontakt • Datenschutz</div>
       </div>
     </footer>
-
   </body>
 </html>
