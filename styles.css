@@ -5,6 +5,7 @@
   --surfaceLight:#fcfcfa;
   --panel:var(--surfaceLight);
   --border:rgba(17,24,39,.16);
+  --borderWidth:2px;
   --text:var(--accentDark);
   --muted:#374151;
 
@@ -72,7 +73,7 @@ body{
 .auth__info,
 .auth__card,
 .account__panel{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   border-radius:var(--radius);
 }
@@ -163,7 +164,7 @@ body{
 .nav__link{
   padding:7px 14px;
   border-radius:8px;
-  border:1px solid transparent;
+  border:var(--borderWidth) solid transparent;
   text-decoration:none;
   opacity:.92;
   background:transparent;
@@ -179,7 +180,7 @@ body{
 /* Content buttons (outside header) */
 .section .nav__link{
   border-radius:12px;
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   color:var(--text);
   font-weight:600;
@@ -214,7 +215,7 @@ body{
 
 .nav__toggle{
   border-radius:10px;
-  border:1px solid rgba(247,244,236,.45);
+  border:var(--borderWidth) solid rgba(247,244,236,.45);
   background:rgba(247,244,236,.08);
   color:var(--headerText);
   cursor:pointer;
@@ -254,7 +255,7 @@ body{
   gap:6px;
   padding:8px;
   border-radius:12px;
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   box-shadow:0 12px 24px rgba(15,23,42,.18);
   z-index:20;
@@ -270,7 +271,7 @@ body{
   color:var(--text);
   padding:8px 12px;
   border-radius:10px;
-  border:1px solid transparent;
+  border:var(--borderWidth) solid transparent;
 }
 
 .nav__dropdownLink:hover,
@@ -314,7 +315,7 @@ body{
 }
 .slider__btn{
   border-radius:12px;
-  border:1px solid rgba(247,244,236,.45);
+  border:var(--borderWidth) solid rgba(247,244,236,.45);
   background:rgba(247,244,236,.08);
   cursor:pointer;
   font-size:18px;
@@ -327,7 +328,7 @@ body{
 }
 
 .slider__content{
-  border:1px solid rgba(247,244,236,.25);
+  border:var(--borderWidth) solid rgba(247,244,236,.25);
   background:rgba(247,244,236,.06);
   border-radius:var(--radius);
   overflow:hidden;
@@ -356,7 +357,7 @@ body{
 .welcome__img{
   height:220px;
   border-radius:var(--radius);
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:#f1f2ee; /* placeholder */
 }
 
@@ -370,7 +371,7 @@ body{
 }
 .choice{
   text-decoration:none;
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--surfaceMid);
   border-radius:var(--radius);
   padding:20px 18px;
@@ -428,7 +429,7 @@ body{
    News cards
    ========================================================= */
 .newsCard{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--surfaceLight);
   border-radius:var(--radius);
   padding:18px;
@@ -464,7 +465,7 @@ body{
   overflow:auto;
 }
 .newsCard__item{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   border-radius:12px;
   padding:12px;
@@ -477,7 +478,7 @@ body{
    Vereinsprofil
    ========================================================= */
 .profile__hero{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--surfaceLight);
   border-radius:var(--radius);
   padding:18px;
@@ -697,7 +698,7 @@ body{
 .auth__card{padding:16px}
 .auth__tabs{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .auth__tab{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   color:var(--text);
   border-radius:999px;
@@ -725,7 +726,7 @@ body{
 .auth__link{color:var(--accent);text-decoration:none}
 .auth__link:hover{text-decoration:underline}
 .auth__submit{
-  border:1px solid rgba(47,95,59,.42);
+  border:var(--borderWidth) solid rgba(47,95,59,.42);
   background:var(--accentSoft);
   color:var(--text);
   font-weight:650;
@@ -733,7 +734,7 @@ body{
 .auth__divider{height:1px;background:var(--border);margin:14px 0}
 .auth__alt{display:grid;gap:10px}
 .auth__altBtn{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   color:var(--text);
 }
@@ -754,12 +755,12 @@ body{
   display:flex;
   gap:8px;
   padding:6px;
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   border-radius:999px;
   background:var(--panel);
 }
 .auth__roleBtn{
-  border:1px solid transparent;
+  border:var(--borderWidth) solid transparent;
   background:transparent;
   color:var(--text);
   border-radius:999px;
@@ -797,19 +798,19 @@ body{
   min-height:44px;
 }
 .account__btnPrimary{
-  border:1px solid rgba(47,95,59,.42);
+  border:var(--borderWidth) solid rgba(47,95,59,.42);
   background:var(--accentSoft);
   color:var(--text);
   font-weight:650;
 }
 .account__btn{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   color:var(--text);
 }
 .account__cards{display:grid;gap:10px}
 .account__card{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   border-radius:12px;
   padding:12px;
   background:var(--surfaceLight);
@@ -961,7 +962,7 @@ body{
   margin-top:12px;
 }
 .helfen__choiceCard{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--surfaceMid);
   color:var(--text);
   border-radius:var(--radius);
@@ -1014,7 +1015,7 @@ body{
   justify-content:space-between;
   align-items:center;
   gap:12px;
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   border-radius:var(--radius);
   padding:14px;
@@ -1028,7 +1029,7 @@ body{
   margin-top:12px;
 }
 .helfen__filterBtn{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--surfaceLight);
   color:var(--text);
   border-radius:999px;
@@ -1052,7 +1053,7 @@ body{
   margin-top:16px;
 }
 .helfen__card{
-  border:1px solid var(--border);
+  border:var(--borderWidth) solid var(--border);
   background:var(--panel);
   border-radius:var(--radius);
   padding:14px;
