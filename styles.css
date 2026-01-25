@@ -581,7 +581,7 @@ body{
   overflow:auto;
 }
 .newsCard__item{
-  border:var(--borderWidth) solid var(--border);
+  border:var(--innerBorderWidth) solid var(--border);
   background:var(--panel);
   border-radius:12px;
   padding:12px;
@@ -977,6 +977,7 @@ body{
    ========================================================= */
 .blog__list{display:grid;gap:16px}
 .blog__post{
+  border:var(--innerBorderWidth) solid var(--border);
   overflow:hidden;
   display:grid;
   grid-template-columns:180px 1fr;
@@ -1004,7 +1005,7 @@ body{
 .blog__footer{margin-top:6px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
 .blog__main{
   background:var(--surfaceLight);
-  border:var(--innerBorderWidth) solid rgba(17,24,39,.12);
+  border:var(--borderWidth) solid rgba(17,24,39,.12);
   border-radius:var(--radius);
   padding:20px;
 }
