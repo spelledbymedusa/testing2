@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Vereinsprofil</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <div class="nav__links">
+            <a class="nav__link" href="./index.html">Home</a>
+            <a class="nav__link" href="./helfen.html">Helfen</a>
+            <a class="nav__link" href="./blog.html">Einblicke</a>
+          </div>
+          <div class="nav__account">
+            <a class="nav__link" href="./account.html">Account</a>
+          </div>
+          <div class="nav__menu">
+            <button class="nav__toggle" type="button" aria-label="Menü öffnen">
+              <span class="nav__toggleLines" aria-hidden="true">
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+              </span>
+            </button>
+            <div class="nav__dropdown" aria-label="Menü">
+              <a class="nav__dropdownLink" href="./index.html">Home</a>
+              <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
+              <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
+              <a class="nav__dropdownLink" href="./account.html">Account</a>
+              <div class="nav__dropdownDivider" aria-hidden="true"></div>
+              <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
+              <a class="nav__dropdownLink" href="./vereine.html">Vereinsregister</a>
+              <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
+              <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
+              <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="profile__hero">
+          <div class="profile__info">
+            <div class="profile__title">Verein XY</div>
+            <p class="profile__lead">
+              Wir fördern Sport, Gemeinschaft und niedrigschwellige Angebote für Kinder und Familien.
+            </p>
+            <div class="profile__meta">Berlin • Kinder • Sport • Vor Ort</div>
+          </div>
+          <div class="profile__actions">
+            <button class="nav__link profile__cta" type="button">Kontakt aufnehmen</button>
+            <button class="nav__link profile__secondary" type="button">Gesuche ansehen</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">News aus dem Verein</h2>
+            <div class="sub">Aktuelle Einblicke, Termine und Aufrufe direkt vom Verein.</div>
+          </div>
+        </div>
+
+        <article class="newsCard">
+          <div class="newsCard__header">
+            <div>
+              <div class="newsCard__meta">Vereins-News</div>
+              <h3 class="newsCard__title">Neuigkeiten von Verein XY</h3>
+              <p class="newsCard__text">Alle Meldungen chronologisch sortiert – neueste zuerst.</p>
+            </div>
+            <div class="newsCard__hint">Updates der letzten Wochen</div>
+          </div>
+          <ul class="newsCard__list">
+            <li class="newsCard__item">
+              <div class="newsCard__itemTitle">Sommerfest am 15. Juni</div>
+              <div class="newsCard__itemMeta">In 3 Wochen • Event</div>
+              <p class="newsCard__itemText">Wir suchen noch Helfende für Aufbau, Kuchen und Kinderprogramm.</p>
+            </li>
+            <li class="newsCard__item">
+              <div class="newsCard__itemTitle">Neue Trainingszeiten für die Jugendgruppen</div>
+              <div class="newsCard__itemMeta">Letzte Woche • Update</div>
+              <p class="newsCard__itemText">Dienstags 17 Uhr &amp; donnerstags 18 Uhr in der Sporthalle Nord.</p>
+            </li>
+            <li class="newsCard__item">
+              <div class="newsCard__itemTitle">Helfende Hände für das Stadtteilfest</div>
+              <div class="newsCard__itemMeta">Nächster Monat • Aufruf</div>
+              <p class="newsCard__itemText">Infostand betreuen und bei der Mitmach-Station unterstützen.</p>
+            </li>
+            <li class="newsCard__item">
+              <div class="newsCard__itemTitle">Einblick: So sah unser letzter Aktionstag aus</div>
+              <div class="newsCard__itemMeta">Vor 2 Wochen • Rückblick</div>
+              <p class="newsCard__itemText">Ein paar Highlights und Danke an alle Helfer:innen.</p>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>

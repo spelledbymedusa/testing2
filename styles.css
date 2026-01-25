@@ -425,28 +425,75 @@ body{
 }
 
 /* =========================================================
-   Home: Aktuelles
+   News cards
    ========================================================= */
-.home__newsCard{
+.newsCard{
   border:1px solid var(--border);
   background:var(--surfaceLight);
   border-radius:var(--radius);
   padding:18px;
   display:grid;
-  gap:8px;
+  gap:16px;
 }
-.home__newsMeta{color:var(--muted);font-size:13px}
-.home__newsTitle{margin:0;font-size:20px}
-.home__newsText{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
-.home__newsFooter{
-  margin-top:6px;
+.newsCard__header{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+}
+.newsCard__meta{color:var(--muted);font-size:13px}
+.newsCard__title{margin:0;font-size:20px}
+.newsCard__text{margin:0;color:var(--muted);font-size:14px;line-height:1.5;max-width:560px}
+.newsCard__hint{
+  font-size:12px;
+  color:var(--accentDark);
+  background:rgba(47,95,59,.12);
+  border:1px solid rgba(47,95,59,.2);
+  padding:6px 10px;
+  border-radius:999px;
+  height:fit-content;
+}
+.newsCard__list{
+  list-style:none;
+  margin:0;
+  padding:0 6px 0 0;
+  display:grid;
   gap:12px;
+  max-height:220px;
+  overflow:auto;
+}
+.newsCard__item{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:12px;
+  padding:12px;
+}
+.newsCard__itemTitle{font-weight:700}
+.newsCard__itemMeta{color:var(--muted);font-size:12px;margin-top:2px}
+.newsCard__itemText{margin:6px 0 0;color:var(--text);font-size:13px;line-height:1.5}
+
+/* =========================================================
+   Vereinsprofil
+   ========================================================= */
+.profile__hero{
+  border:1px solid var(--border);
+  background:var(--surfaceLight);
+  border-radius:var(--radius);
+  padding:18px;
+  display:flex;
+  gap:24px;
+  justify-content:space-between;
+  align-items:flex-start;
   flex-wrap:wrap;
 }
-.home__newsTags{display:flex;gap:8px;flex-wrap:wrap}
+.profile__info{max-width:560px;display:grid;gap:8px}
+.profile__title{font-size:26px;font-weight:700}
+.profile__lead{margin:0;color:var(--muted);line-height:1.6}
+.profile__meta{color:var(--muted);font-size:13px}
+.profile__actions{display:grid;gap:10px}
+.profile__cta{background:rgba(47,95,59,.12)}
+.profile__secondary{background:var(--panel)}
 
 /* =========================================================
    Footer
