@@ -835,7 +835,11 @@ body{
   margin-bottom:0;
 }
 .blog__controlsCard{
+  display:grid;
   gap:12px;
+  padding:0;
+  border:none;
+  background:transparent;
 }
 .blog__controlsCard .blog__toolbar{
   margin-bottom:0;
