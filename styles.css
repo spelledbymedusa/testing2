@@ -798,6 +798,9 @@ body{
   gap:18px;
   align-items:start;
 }
+.blog__layout--single{
+  grid-template-columns:1fr;
+}
 .vereine__main,
 .gesuche__main,
 .blog__main{min-width:0}
@@ -810,6 +813,20 @@ body{
   gap:10px;
   align-items:center;
   margin-bottom:12px;
+}
+.blog__toolbar--compact{
+  margin-bottom:0;
+}
+.blog__controlsCard{
+  gap:12px;
+}
+.blog__controlsCard .blog__toolbar{
+  margin-bottom:0;
+}
+.blog__read{
+  min-height:32px;
+  padding:6px 10px;
+  font-size:13px;
 }
 
 /* Search input */
