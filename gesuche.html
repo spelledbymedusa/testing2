@@ -59,7 +59,7 @@
               <a class="nav__dropdownLink" href="./account.html">Account</a>
               <div class="nav__dropdownDivider" aria-hidden="true"></div>
               <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
-              <a class="nav__dropdownLink" href="./vereine.html">Vereinsregister</a>
+              <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
               <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
               <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
               <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
@@ -191,64 +191,68 @@
           <!-- SIDEBAR -->
           <aside class="gesuche__sidebar">
             <div class="gesuche__sideTitle">Filter</div>
+            <details class="gesuche__filterPanel">
+              <summary>Filter anzeigen</summary>
+              <div class="gesuche__filterPanelBody">
+                <details class="gesuche__filter" open>
+                  <summary>Themengebiet</summary>
+                  <div class="gesuche__filterBody">
+                    <label class="gesuche__chk"><input type="checkbox" /> Kinder</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Geflüchtete</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Inklusiv</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Ältere</label>
 
-            <details class="gesuche__filter" open>
-              <summary>Themengebiet</summary>
-              <div class="gesuche__filterBody">
-                <label class="gesuche__chk"><input type="checkbox" /> Kinder</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Geflüchtete</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Inklusiv</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Ältere</label>
+                    <div class="gesuche__sep"></div>
 
-                <div class="gesuche__sep"></div>
+                    <label class="gesuche__chk"><input type="checkbox" /> Tiere</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Natur</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Sport</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Kreativ</label>
+                  </div>
+                </details>
 
-                <label class="gesuche__chk"><input type="checkbox" /> Tiere</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Natur</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Sport</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Kreativ</label>
+                <details class="gesuche__filter">
+                  <summary>Ort</summary>
+                  <div class="gesuche__filterBody">
+                    <label class="gesuche__chk"><input type="checkbox" /> In der Nähe</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> In Deutschland</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Im Ausland</label>
+                  </div>
+                </details>
+
+                <details class="gesuche__filter">
+                  <summary>Modus</summary>
+                  <div class="gesuche__filterBody">
+                    <label class="gesuche__chk"><input type="checkbox" /> Online</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Offline</label>
+                  </div>
+                </details>
+
+                <details class="gesuche__filter">
+                  <summary>Aufwand</summary>
+                  <div class="gesuche__filterBody">
+                    <label class="gesuche__chk"><input type="checkbox" /> kurzfristig (3–30 Min)</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> mittelfristig (halber Tag)</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> langfristig (mehrere Tage)</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> FSJ o.ä.</label>
+                  </div>
+                </details>
+
+                <details class="gesuche__filter">
+                  <summary>Rahmen</summary>
+                  <div class="gesuche__filterBody">
+                    <label class="gesuche__chk"><input type="checkbox" /> Mit ÖPNV erreichbar</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Geld (Aufwandsentschädigung)</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Barrierefrei</label>
+                  </div>
+                </details>
+
+                <div class="gesuche__sideActions">
+                  <button class="nav__link gesuche__apply" type="button">Anwenden</button>
+                  <button class="nav__link gesuche__reset" type="button">Zurücksetzen</button>
+                </div>
               </div>
             </details>
-
-            <details class="gesuche__filter">
-              <summary>Ort</summary>
-              <div class="gesuche__filterBody">
-                <label class="gesuche__chk"><input type="checkbox" /> In der Nähe</label>
-                <label class="gesuche__chk"><input type="checkbox" /> In Deutschland</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Im Ausland</label>
-              </div>
-            </details>
-
-            <details class="gesuche__filter">
-              <summary>Modus</summary>
-              <div class="gesuche__filterBody">
-                <label class="gesuche__chk"><input type="checkbox" /> Online</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Offline</label>
-              </div>
-            </details>
-
-            <details class="gesuche__filter">
-              <summary>Aufwand</summary>
-              <div class="gesuche__filterBody">
-                <label class="gesuche__chk"><input type="checkbox" /> kurzfristig (3–30 Min)</label>
-                <label class="gesuche__chk"><input type="checkbox" /> mittelfristig (halber Tag)</label>
-                <label class="gesuche__chk"><input type="checkbox" /> langfristig (mehrere Tage)</label>
-                <label class="gesuche__chk"><input type="checkbox" /> FSJ o.ä.</label>
-              </div>
-            </details>
-
-            <details class="gesuche__filter">
-              <summary>Rahmen</summary>
-              <div class="gesuche__filterBody">
-                <label class="gesuche__chk"><input type="checkbox" /> Mit ÖPNV erreichbar</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Geld (Aufwandsentschädigung)</label>
-                <label class="gesuche__chk"><input type="checkbox" /> Barrierefrei</label>
-              </div>
-            </details>
-
-            <div class="gesuche__sideActions">
-              <button class="nav__link gesuche__apply" type="button">Anwenden</button>
-              <button class="nav__link gesuche__reset" type="button">Zurücksetzen</button>
-            </div>
           </aside>
         </div>
       </div>

@@ -6,6 +6,7 @@
     <title>Ehrenamtsnetz • Einblicke</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./theme.js" defer></script>
+    <script src="./news-controls.js" defer></script>
   </head>
 
   <body>
@@ -59,7 +60,7 @@
               <a class="nav__dropdownLink" href="./account.html">Account</a>
               <div class="nav__dropdownDivider" aria-hidden="true"></div>
               <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
-              <a class="nav__dropdownLink" href="./vereine.html">Vereinsregister</a>
+              <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
               <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
               <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
               <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
@@ -80,29 +81,56 @@
           </div>
         </div>
 
-        <div class="blog__layout blog__layout--single">
+        <div class="blog__layout">
           <!-- MAIN -->
-          <div class="blog__main">
+          <div class="blog__main" data-news-card>
             <div class="blog__controlsCard newsCard">
               <div class="newsCard__controls" aria-label="Einblicke steuern">
-                <div class="newsCard__controlGroup">
-                  <button class="newsCard__control" type="button" aria-label="Einblicke sortieren">
+                <div class="newsCard__controlGroup newsCard__controlGroup--left">
+                  <button
+                    class="newsCard__control"
+                    type="button"
+                    aria-label="Einblicke sortieren"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    data-news-toggle="sort"
+                  >
                     <span class="newsCard__controlLines" aria-hidden="true">
                       <span class="newsCard__controlLine"></span>
                       <span class="newsCard__controlLine"></span>
                       <span class="newsCard__controlLine"></span>
                     </span>
                   </button>
+                  <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
+                    <button class="newsCard__menuItem is-active" type="button" data-news-sort="curated">Empfohlen</button>
+                    <button class="newsCard__menuItem" type="button" data-news-sort="chronological">Älteste zuerst</button>
+                    <button class="newsCard__menuItem" type="button" data-news-sort="newest">Neueste zuerst</button>
+                  </div>
                 </div>
                 <h3 class="newsCard__controlsLabel">Einblicke</h3>
                 <div class="newsCard__controlGroup newsCard__controlGroup--right">
-                  <button class="newsCard__control" type="button" aria-label="Einblicke filtern">
+                  <button
+                    class="newsCard__control"
+                    type="button"
+                    aria-label="Einblicke filtern"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    data-news-toggle="filter"
+                  >
                     <span class="newsCard__controlLines" aria-hidden="true">
                       <span class="newsCard__controlLine"></span>
                       <span class="newsCard__controlLine"></span>
                       <span class="newsCard__controlLine"></span>
                     </span>
                   </button>
+                  <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
+                    <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="artikel">Artikel</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="weiterbildung">Weiterbildung</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="events">Events</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="gesuch">Gesuche</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="download">Download</button>
+                  </div>
                 </div>
               </div>
               <div class="blog__toolbar blog__toolbar--compact">
@@ -111,8 +139,8 @@
               </div>
             </div>
 
-            <div class="blog__list">
-              <article class="blog__post">
+            <div class="blog__list" data-news-list>
+              <article class="blog__post newsCard__item" data-news-type="events" data-news-date="2024-06-10">
                 <div class="blog__img" aria-hidden="true"></div>
                 <div class="blog__body">
                   <div class="blog__metaRow">
@@ -133,7 +161,7 @@
                 </div>
               </article>
 
-              <article class="blog__post">
+              <article class="blog__post newsCard__item" data-news-type="weiterbildung" data-news-date="2024-06-09">
                 <div class="blog__img" aria-hidden="true"></div>
                 <div class="blog__body">
                   <div class="blog__metaRow">
@@ -154,7 +182,7 @@
                 </div>
               </article>
 
-              <article class="blog__post">
+              <article class="blog__post newsCard__item" data-news-type="artikel" data-news-date="2024-06-03">
                 <div class="blog__img" aria-hidden="true"></div>
                 <div class="blog__body">
                   <div class="blog__metaRow">
@@ -175,7 +203,7 @@
                 </div>
               </article>
 
-              <article class="blog__post">
+              <article class="blog__post newsCard__item" data-news-type="artikel" data-news-date="2024-05-27">
                 <div class="blog__img" aria-hidden="true"></div>
                 <div class="blog__body">
                   <div class="blog__metaRow">
@@ -196,7 +224,7 @@
                 </div>
               </article>
 
-              <article class="blog__post">
+              <article class="blog__post newsCard__item" data-news-type="download" data-news-date="2024-05-30">
                 <div class="blog__img" aria-hidden="true"></div>
                 <div class="blog__body">
                   <div class="blog__metaRow">
@@ -217,7 +245,7 @@
                 </div>
               </article>
 
-              <article class="blog__post">
+              <article class="blog__post newsCard__item" data-news-type="gesuch" data-news-date="2024-06-07">
                 <div class="blog__img" aria-hidden="true"></div>
                 <div class="blog__body">
                   <div class="blog__metaRow">
@@ -238,7 +266,7 @@
                 </div>
               </article>
 
-              <article class="blog__post">
+              <article class="blog__post newsCard__item" data-news-type="download" data-news-date="2024-05-23">
                 <div class="blog__img" aria-hidden="true"></div>
                 <div class="blog__body">
                   <div class="blog__metaRow">
@@ -266,6 +294,48 @@
             </div>
           </div>
 
+          <!-- SIDEBAR -->
+          <aside class="blog__sidebar">
+            <div class="blog__sideTitle">Filter</div>
+            <details class="blog__filterPanel">
+              <summary>Filter anzeigen</summary>
+              <div class="blog__filterPanelBody">
+                <details class="blog__filter" open>
+                  <summary>Format</summary>
+                  <div class="blog__filterBody">
+                    <label class="blog__chk"><input type="checkbox" /> Artikel</label>
+                    <label class="blog__chk"><input type="checkbox" /> Video</label>
+                    <label class="blog__chk"><input type="checkbox" /> Download</label>
+                    <label class="blog__chk"><input type="checkbox" /> Webinar</label>
+                  </div>
+                </details>
+
+                <details class="blog__filter">
+                  <summary>Thema</summary>
+                  <div class="blog__filterBody">
+                    <label class="blog__chk"><input type="checkbox" /> Community</label>
+                    <label class="blog__chk"><input type="checkbox" /> Vereinswissen</label>
+                    <label class="blog__chk"><input type="checkbox" /> Finanzierung</label>
+                    <label class="blog__chk"><input type="checkbox" /> Engagement</label>
+                  </div>
+                </details>
+
+                <details class="blog__filter">
+                  <summary>Ort</summary>
+                  <div class="blog__filterBody">
+                    <label class="blog__chk"><input type="checkbox" /> Vor Ort</label>
+                    <label class="blog__chk"><input type="checkbox" /> Online</label>
+                    <label class="blog__chk"><input type="checkbox" /> Bundesweit</label>
+                  </div>
+                </details>
+
+                <div class="blog__sideActions">
+                  <button class="nav__link blog__apply" type="button">Anwenden</button>
+                  <button class="nav__link blog__reset" type="button">Zurücksetzen</button>
+                </div>
+              </div>
+            </details>
+          </aside>
         </div>
       </div>
     </section>

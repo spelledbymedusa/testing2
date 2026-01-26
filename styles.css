@@ -597,6 +597,16 @@ body{
   justify-content:flex-end;
   padding-right:9px;
 }
+.newsCard__controlGroup--left .newsCard__control{
+  justify-content:flex-start;
+  padding-left:9px;
+  padding-right:0;
+}
+.newsCard__controlGroup--right .newsCard__control{
+  justify-content:flex-end;
+  padding-right:9px;
+  padding-left:0;
+}
 .newsCard__control:hover{
   border-color:rgba(47,95,59,.45);
   background:rgba(47,95,59,.14);
@@ -795,7 +805,7 @@ body{
 .blog__layout{
   display:grid;
   grid-template-columns:1fr 340px;
-  gap:18px;
+  gap:20px;
   align-items:start;
 }
 .blog__layout--single{
@@ -822,6 +832,12 @@ body{
 }
 .blog__controlsCard .blog__toolbar{
   margin-bottom:0;
+}
+.vereine__profileLink{
+  min-height:32px;
+  padding:6px 10px;
+  font-size:12px;
+  align-self:flex-start;
 }
 .blog__read{
   min-height:32px;
@@ -858,7 +874,7 @@ body{
   border:var(--innerBorderWidth) solid rgba(17,24,39,.12);
   background:var(--surfaceLight);
   border-radius:var(--radius);
-  padding:14px;
+  padding:16px;
   box-shadow:0 10px 24px rgba(15,23,42,.08);
 }
 .vereine__sideTitle,
@@ -883,6 +899,43 @@ body{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
+}
+.blog__filterPanel,
+.gesuche__filterPanel{
+  border:var(--innerBorderWidth) solid rgba(17,24,39,.12);
+  border-radius:14px;
+  background:var(--panel);
+  padding:10px;
+  display:grid;
+  gap:12px;
+}
+.blog__filterPanel summary,
+.gesuche__filterPanel summary{
+  list-style:none;
+  cursor:pointer;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(47,95,59,.08);
+  border:var(--innerBorderWidth) solid rgba(47,95,59,.2);
+  color:var(--accentDark);
+  font-weight:650;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+.blog__filterPanel summary::-webkit-details-marker,
+.gesuche__filterPanel summary::-webkit-details-marker{
+  display:none;
+}
+.blog__filterPanel[open] summary,
+.gesuche__filterPanel[open] summary{
+  margin-bottom:8px;
+}
+.blog__filterPanelBody,
+.gesuche__filterPanelBody{
+  display:grid;
+  gap:12px;
 }
 
 /* Filter block */
