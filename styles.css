@@ -433,16 +433,16 @@ body{
   background:rgba(247,244,236,.06);
   border-radius:var(--radius);
   overflow:hidden;
-  min-height:120px;   /* shorter than before */
+  min-height:180px;   /* shorter than before */
   display:flex;
 }
 
 .slider__img{
   width:100%;
-  /* still placeholder but now fits header area */
-  background:
-    linear-gradient(90deg, rgba(247,244,236,.10), rgba(247,244,236,.03)),
-    radial-gradient(600px 220px at 20% 40%, rgba(47,95,59,.55), transparent 60%);
+  height:100%;
+  flex:0 0 100%;
+  object-fit:cover;
+  display:block;
 }
 
 
