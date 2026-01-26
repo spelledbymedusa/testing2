@@ -80,24 +80,35 @@
           </div>
         </div>
 
-        <div class="blog__layout">
+        <div class="blog__layout blog__layout--single">
           <!-- MAIN -->
           <div class="blog__main">
-            <div class="blog__toolbar">
-              <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" />
-              <button class="nav__link blog__searchBtn" type="button">Suchen</button>
-            </div>
-
-            <div class="blog__updates">
-              <div class="blog__updatesHeader">
-                <div class="blog__updatesTitle">Update-Ticker</div>
-                <div class="blog__updatesHint">Kurzmeldungen zu neuen Inhalten im Netzwerk.</div>
+            <div class="blog__controlsCard newsCard">
+              <div class="newsCard__controls" aria-label="Einblicke steuern">
+                <div class="newsCard__controlGroup">
+                  <button class="newsCard__control" type="button" aria-label="Einblicke sortieren">
+                    <span class="newsCard__controlLines" aria-hidden="true">
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                    </span>
+                  </button>
+                </div>
+                <h3 class="newsCard__controlsLabel">Einblicke</h3>
+                <div class="newsCard__controlGroup newsCard__controlGroup--right">
+                  <button class="newsCard__control" type="button" aria-label="Einblicke filtern">
+                    <span class="newsCard__controlLines" aria-hidden="true">
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                    </span>
+                  </button>
+                </div>
               </div>
-              <ul class="blog__updatesList">
-                <li><strong>Neuer Beitrag:</strong> „Freiwillige finden und binden“ ist online.</li>
-                <li><strong>Neues Gesuch:</strong> Begleitung für Senior:innen in Leipzig wird gesucht.</li>
-                <li><strong>Neue Organisation:</strong> „Kiez hilft e. V.“ ist dem Netzwerk beigetreten.</li>
-              </ul>
+              <div class="blog__toolbar blog__toolbar--compact">
+                <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" />
+                <button class="nav__link blog__searchBtn" type="button">Suchen</button>
+              </div>
             </div>
 
             <div class="blog__list">
@@ -255,87 +266,6 @@
             </div>
           </div>
 
-          <!-- SIDEBAR -->
-          <aside class="blog__sidebar">
-            <div class="blog__sideTitle">Filter</div>
-
-            <details class="blog__filter" open>
-              <summary>Inhaltstyp</summary>
-              <div class="blog__filterBody">
-                <label class="blog__chk"><input type="checkbox" /> Artikel</label>
-                <label class="blog__chk"><input type="checkbox" /> Weiterbildung</label>
-                <label class="blog__chk"><input type="checkbox" /> Video</label>
-              </div>
-            </details>
-
-            <details class="blog__filter">
-              <summary>Format</summary>
-              <div class="blog__filterBody">
-                <label class="blog__chk"><input type="checkbox" /> Kurs</label>
-                <label class="blog__chk"><input type="checkbox" /> Workshop</label>
-                <label class="blog__chk"><input type="checkbox" /> Leitfaden</label>
-                <label class="blog__chk"><input type="checkbox" /> Interview</label>
-                <label class="blog__chk"><input type="checkbox" /> Video</label>
-              </div>
-            </details>
-
-            <details class="blog__filter">
-              <summary>Zielgruppe</summary>
-              <div class="blog__filterBody">
-                <label class="blog__chk"><input type="checkbox" /> Einsteiger</label>
-                <label class="blog__chk"><input type="checkbox" /> Erfahrene</label>
-                <label class="blog__chk"><input type="checkbox" /> Vereine/Orgas</label>
-              </div>
-            </details>
-
-            <details class="blog__filter">
-              <summary>Themen</summary>
-              <div class="blog__filterBody">
-                <label class="blog__chk"><input type="checkbox" /> Kommunikation</label>
-                <label class="blog__chk"><input type="checkbox" /> Organisation</label>
-                <label class="blog__chk"><input type="checkbox" /> Recht &amp; Datenschutz</label>
-                <label class="blog__chk"><input type="checkbox" /> Fördermittel</label>
-                <label class="blog__chk"><input type="checkbox" /> Gesundheit &amp; Sicherheit</label>
-              </div>
-            </details>
-
-            <details class="blog__filter">
-              <summary>Modus</summary>
-              <div class="blog__filterBody">
-                <label class="blog__chk"><input type="checkbox" /> Online</label>
-                <label class="blog__chk"><input type="checkbox" /> Vor Ort</label>
-                <label class="blog__chk"><input type="checkbox" /> Hybrid</label>
-              </div>
-            </details>
-
-            <details class="blog__filter">
-              <summary>Chronologisch</summary>
-              <div class="blog__filterBody">
-                <label class="blog__chk">
-                  <input type="radio" name="blog-order" checked />
-                  Neueste zuerst
-                </label>
-                <label class="blog__chk">
-                  <input type="radio" name="blog-order" />
-                  Älteste zuerst
-                </label>
-              </div>
-            </details>
-
-            <details class="blog__filter">
-              <summary>Ort</summary>
-              <div class="blog__filterBody">
-                <label class="blog__chk"><input type="checkbox" /> In der Nähe</label>
-                <label class="blog__chk"><input type="checkbox" /> Deutschlandweit</label>
-                <label class="blog__chk"><input type="checkbox" /> International</label>
-              </div>
-            </details>
-
-            <div class="blog__sideActions">
-              <button class="nav__link blog__apply" type="button">Anwenden</button>
-              <button class="nav__link blog__reset" type="button">Zurücksetzen</button>
-            </div>
-          </aside>
         </div>
       </div>
     </section>
