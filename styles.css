@@ -1329,12 +1329,21 @@ body{
   color:var(--text);
 }
 .helfen__badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   border:1px solid rgba(47,95,59,.35);
   background:rgba(47,95,59,.08);
   color:var(--text);
   padding:6px 10px;
   border-radius:999px;
   font-size:12px;
+}
+.helfen__badgeImage{
+  width:28px;
+  height:28px;
+  display:block;
+  border-radius:6px;
 }
 .helfen__badge--muted{
   border-color:var(--border);
