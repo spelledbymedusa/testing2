@@ -86,7 +86,7 @@
         </div>
       </section>
 
-      <section class="section section--airy">
+      <section class="section section--airy" data-choice-section>
         <div class="container">
           <div class="section__header">
             <div>
@@ -129,7 +129,7 @@
         </div>
       </section>
 
-      <section class="section section--airy helfen__insights">
+      <section class="section section--airy helfen__insights" data-insight-section hidden>
         <div class="container">
           <div class="section__header">
             <div>
@@ -220,6 +220,8 @@
     <script>
       const choiceButtons = Array.from(document.querySelectorAll("[data-choice-filter]"));
       const insightCards = Array.from(document.querySelectorAll("[data-insight-categories]"));
+      const choiceSection = document.querySelector("[data-choice-section]");
+      const insightSection = document.querySelector("[data-insight-section]");
 
       const setActiveChoice = (activeFilter) => {
         choiceButtons.forEach((button) => {
@@ -240,12 +242,10 @@
       choiceButtons.forEach((button) => {
         button.addEventListener("click", () => {
           setActiveChoice(button.dataset.choiceFilter);
+          choiceSection?.setAttribute("hidden", "true");
+          insightSection?.removeAttribute("hidden");
         });
       });
-
-      if (choiceButtons.length > 0) {
-        setActiveChoice(choiceButtons[0].dataset.choiceFilter);
-      }
     </script>
 
     <footer class="footer">
