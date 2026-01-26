@@ -1209,7 +1209,7 @@ body{
 /* =========================================================
    Blog (unique)
    ========================================================= */
-.blog__list{display:grid;gap:16px}
+.blog__list{display:grid;gap:16px;margin-top:16px}
 .blog__post{
   border:var(--innerBorderWidth) solid var(--border);
   overflow:hidden;
