@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Hilfe entdecken</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./theme.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="brand">Ehrenamtsnetz</div>
+
+        <nav class="nav">
+          <div class="nav__links">
+            <a class="nav__link" href="./index.html">Home</a>
+            <a class="nav__link" href="./hilfe.html">Helfen</a>
+            <a class="nav__link" href="./blog.html">Einblicke</a>
+            </div>
+          <div class="nav__actions">
+            <div class="nav__account">
+              <a class="nav__link nav__link--active" href="./vereine.html">Vereine</a>
+            </div>
+            <button class="themeToggle" type="button" aria-label="Dunkelmodus aktivieren" aria-pressed="false" data-theme-toggle>
+              <span class="themeToggle__icon themeToggle__icon--sun" aria-hidden="true">
+                <svg fill="currentColor" viewBox="144 144 512 512" xmlns="http://www.w3.org/2000/svg">
+                  <g>
+                    <path d="m549.75 4e2c0 83.094-67.051 150.45-149.75 150.45-82.711.0-149.75-67.355-149.75-150.45.0-83.09 67.043-150.44 149.75-150.44 82.707-.007813 149.75 67.348 149.75 150.44"/>
+                    <path d="m603.56 423.2c12.727-5.1641 23.148-9.4102 23.148-9.4453v-.019531l.003907-.027344c0-.03125-9.8281-5.5078-21.855-12.172l-15.773-8.7422c-12.016-6.6641-13.492-19.66-3.2812-28.875l13.371-12.07c10.219-9.2148 18.559-16.785 18.547-16.816-.003906-.03125-11.129-1.8594-24.695-3.9766l-17.766-2.7656c-13.566-2.1172-19.398-13.816-12.949-25.988l8.4023-15.887c6.4375-12.176 11.695-22.168 11.656-22.215-.023438-.039062-11.117 2.0469-24.586 4.7109l-17.574 3.4727c-13.469 2.6641-22.91-6.3242-20.973-19.98l2.5195-17.844c1.9336-13.652 3.4805-24.844 3.4492-24.867-.03125-.019531-9.7422 5.7422-21.496 12.867l-15.355 9.3086c-11.754 7.125-23.711 1.9141-26.555-11.578l-3.7422-17.688c-2.8516-13.492-5.2031-24.535-5.2344-24.547-.035156-.003906-7.1523 8.7656-15.758 19.512l-11.297 14.102c-8.6133 10.742-21.594 9.957-28.852-1.7422l-9.5234-15.367c-7.2539-11.703-13.211-21.27-13.246-21.27-.023437.0-3.75 10.691-8.1914 23.734l-5.8242 17.109c-4.4492 13.047-16.934 16.777-27.75 8.2812l-14.133-11.09c-10.812-8.4961-19.695-15.426-19.73-15.406-.035156.019532.097656 11.352.37891 25.145l.37109 18.012c.28125 13.789-10.168 21.578-23.219 17.305l-17.02-5.5625c-13.047-4.2734-23.758-7.7383-23.789-7.707-.03125.035156 3.9258 10.656 8.8672 23.52l6.4336 16.777c4.9492 12.867-2.2422 23.773-15.957 24.242l-17.961.60547c-13.723.46875-24.965.87109-24.973.90234-.015626.035156 7.3438 8.6133 16.379 19l11.836 13.598c9.0391 10.379 6.0156 23.102-6.7109 28.266l-16.707 6.7812c-12.742 5.1641-23.156 9.418-23.16 9.4492v.042968c-.003906.023438 9.8242 5.5078 21.844 12.172l15.77 8.7422c12.016 6.6641 13.496 19.66 3.2852 28.875l-13.375 12.07c-10.207 9.2148-18.559 16.781-18.551 16.816.011719.035156 11.133 1.8594 24.695 3.9688l17.773 2.7695c13.562 2.1172 19.391 13.816 12.941 25.992l-8.4023 15.879c-6.4453 12.176-11.688 22.168-11.664 22.203.023438.039062 11.125-2.0391 24.59-4.6992l17.566-3.4766c13.469-2.6641 22.91 6.3242 20.973 19.98l-2.5195 17.844c-1.9336 13.648-3.4805 24.844-3.4492 24.867.035156.023437 9.7422-5.7422 21.496-12.867l15.359-9.3086c11.754-7.125 23.699-1.9141 26.551 11.574l-3.75 17.695c2.8477 13.488 5.2109 24.535 5.2344 24.547.03125.0 7.1484-8.7656 15.754-19.52l11.305-14.105c8.6055-10.742 21.59-9.957 28.844 1.75l9.5312 15.359c7.2695 11.723 13.234 21.293 13.262 21.293.03125-.003907 3.75-10.695 8.1875-23.738l5.8359-17.113c4.4375-13.047 16.93-16.781 27.746-8.2812l14.125 11.094c10.816 8.4961 19.703 15.426 19.734 15.406.035157-.015625-.10156-11.348-.38672-25.137l-.36328-18.027c-.28125-13.793 10.16-21.578 23.211-17.305l17.023 5.5703c13.059 4.2656 23.766 7.7383 23.797 7.6992.023438-.03125-3.9297-10.652-8.8672-23.512l-6.4492-16.785c-4.9375-12.863 2.2461-23.773 15.965-24.238l17.973-.60938c13.719-.45703 24.953-.86719 24.973-.90234.011719-.035156-7.3438-8.6094-16.383-18.992l-11.836-13.594c-9.0352-10.387-6.0117-23.109 6.7148-28.273zM390.39 560.19c-88.066-5.332-155.15-81.371-149.84-169.84s80.996-155.86 169.06-150.53c88.066 5.3359 155.14 81.371 149.83 169.84-5.3086 88.473-80.996 155.86-169.05 150.53"/>
+                  </g>
+                </svg>
+              </span>
+              <span class="themeToggle__icon themeToggle__icon--moon" aria-hidden="true">
+                <svg fill="currentColor" viewBox="144 144 512 512" xmlns="http://www.w3.org/2000/svg">
+                  <g fill-rule="evenodd">
+                    <path d="m586.16 520.09c-37.855 49.766-97.699 81.895-165.04 81.895-114.46.0-207.27-92.801-207.27-207.27.0-91.602 59.426-169.31 141.82-196.71-121.23 159.34 35.664 386.83 230.49 322.09z"/>
+                    <path d="m516.45 388.75 14.566 47.379 47.367 14.559-47.367 14.555-14.566 47.379-14.559-47.379-47.375-14.555 47.375-14.559z"/>
+                    <path d="m428.86 287.64 7.293 23.734 23.723 7.2891-23.723 7.2969-7.293 23.723-7.293-23.723-23.727-7.2969 23.727-7.2891z"/>
+                    <path d="m416.86 399.47 7.293 23.727 23.727 7.293-23.727 7.2891-7.293 23.727-7.2891-23.727-23.73-7.2891 23.73-7.293z"/>
+                  </g>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div class="nav__menu">
+            <button class="nav__toggle" type="button" aria-label="Menü öffnen">
+              <span class="nav__toggleLines" aria-hidden="true">
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+              </span>
+            </button>
+            <div class="nav__dropdown" aria-label="Menü">
+              <a class="nav__dropdownLink" href="./index.html">Home</a>
+              <a class="nav__dropdownLink" href="./hilfe.html">Helfen</a>
+              <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
+              <a class="nav__dropdownLink" href="./account.html">Account</a>
+              <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
+              <div class="nav__dropdownDivider" aria-hidden="true"></div>
+              <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
+              <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
+              <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
+              <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main data-component="HelpHub">
+      <section class="section section--airy helfen__hero">
+        <div class="container helfen__heroGrid">
+          <div class="helfen__heroCopy">
+            <h1 class="h1">Hilfe entdecken</h1>
+            <p class="lead">
+              Ehrenamt heißt: Zeit schenken, Talente teilen und Wirkung spüren. Hier findest du echte Einblicke und klare
+              Wege, wie dein Engagement zu dir passt.
+            </p>
+            <div class="helfen__heroActions">
+              <a class="nav__link" href="./blog.html">Echte Einblicke lesen</a>
+              <a class="nav__link" href="./gesuche.html">Zu den Gesuchen</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--airy" data-choice-section>
+        <div class="container">
+          <div class="section__header">
+            <div>
+              <h2 class="h2">Wähle deinen Bereich</h2>
+              <div class="sub">
+                Stöbere durch fünf Wege ins Ehrenamt – und öffne die passenden Erfahrungsberichte direkt darunter.
+              </div>
+            </div>
+          </div>
+          <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
+            <button class="helfen__choiceCard helfen__choiceCard--active" type="button" data-choice-filter="vor-ort" role="listitem">
+              <img class="helfen__choiceImage" src="./assets/helfenpics/teamwork.jpg" alt="Menschen, die gemeinsam vor Ort helfen" loading="lazy" />
+              <span class="helfen__choiceTitle">Helfen vor Ort</span>
+              <span class="helfen__choiceText">Präsenz, Teamwork, direkte Wirkung in deiner Umgebung.</span>
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="online" role="listitem">
+              <img class="helfen__choiceImage" src="./assets/helfenpics/home%20office.jpg" alt="Online Hilfe im Homeoffice" loading="lazy" />
+              <span class="helfen__choiceTitle">Helfen Online</span>
+              <span class="helfen__choiceText">Remote begleiten, Wissen teilen, Abläufe digital stärken.</span>
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="alltag" role="listitem">
+              <img class="helfen__choiceImage" src="./assets/helfenpics/Werkstatt.jpg" alt="Alltagshilfe mit Werkzeugen" loading="lazy" />
+              <span class="helfen__choiceTitle">Im Alltag</span>
+              <span class="helfen__choiceText">Kleine, konkrete Hilfen – schnell organisiert, sofort spürbar.</span>
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="spenden" role="listitem">
+              <img class="helfen__choiceImage" src="./assets/helfenpics/Klassenzimmer.jpg" alt="Gemeinschaft unterstützen" loading="lazy" />
+              <span class="helfen__choiceTitle">Geld / Spenden</span>
+              <span class="helfen__choiceText">Deinen Willen gezielt einsetzen und Wirkung strategisch verstärken.</span>
+            </button>
+            <button class="helfen__choiceCard" type="button" data-choice-filter="firmen" role="listitem">
+              <img class="helfen__choiceImage" src="./assets/helfenpics/HundHigh5.jpg" alt="Engagement mit Teams" loading="lazy" />
+              <span class="helfen__choiceTitle">Verbreitung / Firmen</span>
+              <span class="helfen__choiceText">Reichweite, Ressourcen und Kooperationen bündeln – gemeinsam mehr bewegen.</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--airy helfen__insights" data-level2-section>
+        <div class="container">
+          <div class="section__header">
+            <div>
+              <h2 class="h2">Echte Einblicke auswählen</h2>
+              <div class="sub">Wähle einen Erfahrungsbericht – die Artikel öffnen sich auf einer gemeinsamen Vorlage.</div>
+            </div>
+          </div>
+
+          <div class="helfen__insightGroup" data-choice-panel="vor-ort">
+            <div class="helfen__sectionHeader">
+              <div>
+                <div class="helfen__sectionTitle">Helfen vor Ort</div>
+                <div class="helfen__sectionText">Direkt anpacken, Menschen begegnen und vor Ort Wirkung erleben.</div>
+              </div>
+            </div>
+            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-freiwilliger" role="listitem">
+                <span class="helfen__choiceTitle">Als Freiwilliger</span>
+                <span class="helfen__choiceText">Einstieg mit festen Aufgaben und klaren Zeitfenstern.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-aushilfe-gast" role="listitem">
+                <span class="helfen__choiceTitle">Als Aushilfe / Gast</span>
+                <span class="helfen__choiceText">Kurz reinschnuppern, spontan helfen, flexibel bleiben.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-mitglied" role="listitem">
+                <span class="helfen__choiceTitle">Als Mitglied</span>
+                <span class="helfen__choiceText">Langfristig dazugehören und gemeinsam Strukturen tragen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=im-urlaub" role="listitem">
+                <span class="helfen__choiceTitle">Im Urlaub</span>
+                <span class="helfen__choiceText">Engagement mit Reiseerlebnis verbinden und neue Orte erleben.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-fsj" role="listitem">
+                <span class="helfen__choiceTitle">Als FSJ</span>
+                <span class="helfen__choiceText">Ein Jahr Orientierung, Verantwortung und neue Perspektiven.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-pflegestelle" role="listitem">
+                <span class="helfen__choiceTitle">Als Pflegestelle</span>
+                <span class="helfen__choiceText">Schutz bieten und Übergänge für Menschen oder Tiere begleiten.</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="helfen__insightGroup" data-choice-panel="online" hidden>
+            <div class="helfen__sectionHeader">
+              <div>
+                <div class="helfen__sectionTitle">Helfen Online</div>
+                <div class="helfen__sectionText">Digitale Unterstützung, die Teams entlastet und Wissen zugänglich macht.</div>
+              </div>
+            </div>
+            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-digitalisieren" role="listitem">
+                <span class="helfen__choiceTitle">Digitalisieren &amp; Dokumente übertragen</span>
+                <span class="helfen__choiceText">Akten und Abläufe schlank machen – Schritt für Schritt.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-tech" role="listitem">
+                <span class="helfen__choiceTitle">IT / Webseiten &amp; Tools</span>
+                <span class="helfen__choiceText">Technik erklären, Websites stabilisieren, Tools einführen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-design-content" role="listitem">
+                <span class="helfen__choiceTitle">Design &amp; Content</span>
+                <span class="helfen__choiceText">Materialien gestalten, Geschichten erzählen, Wirkung sichtbar machen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-uebersetzen" role="listitem">
+                <span class="helfen__choiceTitle">Übersetzen &amp; Korrekturlesen</span>
+                <span class="helfen__choiceText">Zugänge schaffen, Verständlichkeit verbessern, Vertrauen stärken.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-mentoring" role="listitem">
+                <span class="helfen__choiceTitle">Mentoring / Lernen</span>
+                <span class="helfen__choiceText">Wissen teilen, Fragen beantworten, Lernwege begleiten.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-community" role="listitem">
+                <span class="helfen__choiceTitle">Community Support / Moderation</span>
+                <span class="helfen__choiceText">Sichere Räume schaffen und Austausch ermöglichen.</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="helfen__insightGroup" data-choice-panel="alltag" hidden>
+            <div class="helfen__sectionHeader">
+              <div>
+                <div class="helfen__sectionTitle">Im Alltag</div>
+                <div class="helfen__sectionText">Niedrigschwellig helfen – oft reicht eine Stunde oder ein kurzer Weg.</div>
+              </div>
+            </div>
+            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-nachbarschaft" role="listitem">
+                <span class="helfen__choiceTitle">Nachbarschaftshilfe</span>
+                <span class="helfen__choiceText">Kleine Gesten, große Wirkung im direkten Umfeld.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-zuhoeren" role="listitem">
+                <span class="helfen__choiceTitle">Begleiten &amp; Zuhören</span>
+                <span class="helfen__choiceText">Zeit schenken, Gespräche ermöglichen, Vertrauen aufbauen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-besorgungen" role="listitem">
+                <span class="helfen__choiceTitle">Fahrten &amp; Besorgungen</span>
+                <span class="helfen__choiceText">Erledigungen abnehmen, Mobilität sichern, Alltag entlasten.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-kinder" role="listitem">
+                <span class="helfen__choiceTitle">Kinder / Vorlesen / Hausaufgaben</span>
+                <span class="helfen__choiceText">Kinder stärken, Lernfreude teilen, Eltern entlasten.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-tiere" role="listitem">
+                <span class="helfen__choiceTitle">Tiere: Gassi / Pflege</span>
+                <span class="helfen__choiceText">Verantwortung übernehmen und Tierliebe praktisch zeigen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-handwerk" role="listitem">
+                <span class="helfen__choiceTitle">Handwerk im Kleinen</span>
+                <span class="helfen__choiceText">Reparieren, aufbauen, mit Werkzeugen unterstützen.</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="helfen__insightGroup" data-choice-panel="spenden" hidden>
+            <div class="helfen__sectionHeader">
+              <div>
+                <div class="helfen__sectionTitle">Geld / Spenden</div>
+                <div class="helfen__sectionText">
+                  Geld ist Wirkung: Mit klarem Ziel und Strategie kannst du Organisationen spürbar voranbringen.
+                </div>
+              </div>
+            </div>
+            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-einmalig" role="listitem">
+                <span class="helfen__choiceTitle">Einmalige Spende</span>
+                <span class="helfen__choiceText">Gezielt helfen, wenn gerade schnelle Wirkung gebraucht wird.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-monatlich" role="listitem">
+                <span class="helfen__choiceTitle">Monatlich unterstützen</span>
+                <span class="helfen__choiceText">Planungssicherheit geben und langfristige Projekte ermöglichen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-patenschaft" role="listitem">
+                <span class="helfen__choiceTitle">Patenschaft / gezielte Hilfe</span>
+                <span class="helfen__choiceText">Deinen Willen in konkrete Ziele und Menschen investieren.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-aktion" role="listitem">
+                <span class="helfen__choiceTitle">Spendenaktion starten</span>
+                <span class="helfen__choiceText">Mit anderen mobilisieren und den Impact multiplizieren.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-sachspenden" role="listitem">
+                <span class="helfen__choiceTitle">Sachspenden sinnvoll geben</span>
+                <span class="helfen__choiceText">Bedarfsgerecht spenden statt Lager füllen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-statt-geschenke" role="listitem">
+                <span class="helfen__choiceTitle">Spenden statt Geschenke</span>
+                <span class="helfen__choiceText">Feiern mit Sinn und gemeinsam Wirkung schaffen.</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="helfen__insightGroup" data-choice-panel="firmen" hidden>
+            <div class="helfen__sectionHeader">
+              <div>
+                <div class="helfen__sectionTitle">Verbreitung / Firmen</div>
+                <div class="helfen__sectionText">Unternehmen können Reichweite, Ressourcen und Teams gezielt einsetzen.</div>
+              </div>
+            </div>
+            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-reichweite" role="listitem">
+                <span class="helfen__choiceTitle">Teilen &amp; Reichweite geben</span>
+                <span class="helfen__choiceText">Netzwerke öffnen und Aufmerksamkeit gezielt nutzen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-sponsoring" role="listitem">
+                <span class="helfen__choiceTitle">Partnerschaften / Sponsoring</span>
+                <span class="helfen__choiceText">Langfristige Kooperationen, die Projekte tragen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-corporate" role="listitem">
+                <span class="helfen__choiceTitle">Corporate Volunteering</span>
+                <span class="helfen__choiceText">Teams zusammenbringen und gleichzeitig Gutes tun.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-sachleistungen" role="listitem">
+                <span class="helfen__choiceTitle">Sachleistungen bereitstellen</span>
+                <span class="helfen__choiceText">Mit Know-how, Räumen oder Hardware unterstützen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-fundraising" role="listitem">
+                <span class="helfen__choiceTitle">Fundraising-Kampagnen</span>
+                <span class="helfen__choiceText">Gemeinsam Mobilisierung und Mittelbeschaffung planen.</span>
+              </a>
+              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-jobs" role="listitem">
+                <span class="helfen__choiceTitle">Jobs / Praktika ermöglichen</span>
+                <span class="helfen__choiceText">Chancen schaffen und Perspektiven eröffnen.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const choiceButtons = Array.from(document.querySelectorAll("[data-choice-filter]"));
+      const choicePanels = Array.from(document.querySelectorAll("[data-choice-panel]"));
+
+      const setActiveChoice = (activeFilter) => {
+        choiceButtons.forEach((button) => {
+          const isActive = button.dataset.choiceFilter === activeFilter;
+          button.classList.toggle("helfen__choiceCard--active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        choicePanels.forEach((panel) => {
+          panel.toggleAttribute("hidden", panel.dataset.choicePanel !== activeFilter);
+        });
+      };
+
+      choiceButtons.forEach((button) => {
+        button.addEventListener("click", () => setActiveChoice(button.dataset.choiceFilter));
+      });
+
+      if (choiceButtons.length) {
+        setActiveChoice(choiceButtons[0].dataset.choiceFilter);
+      }
+    </script>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>

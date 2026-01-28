@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ehrenamtsnetz • Vereinsprofil</title>
+    <title>Ehrenamtsnetz • Erfahrungsbericht</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./theme.js" defer></script>
-    <script src="./news-controls.js" defer></script>
   </head>
 
   <body>
@@ -70,144 +69,103 @@
       </div>
     </header>
 
-    <section class="section">
-      <div class="container">
-        <div class="profile__hero">
-          <div class="profile__info">
-            <div class="profile__title">Verein XY</div>
-            <p class="profile__lead">
-              Wir fördern Sport, Gemeinschaft und niedrigschwellige Angebote für Kinder und Familien.
-            </p>
-            <div class="profile__meta">Berlin • Kinder • Sport • Vor Ort</div>
-          </div>
-          <div class="profile__actions">
-            <button class="nav__link profile__cta" type="button">Kontakt aufnehmen</button>
-            <button class="nav__link profile__secondary" type="button">Gesuche ansehen</button>
-          </div>
+    <main class="article" data-component="ArticleTemplate">
+      <section class="section section--airy article__hero" id="article-hero">
+        <div class="container">
+          <div class="article__kicker">Echte Einblicke</div>
+          <h1 class="h1" id="article-title"></h1>
+          <p class="article__lead" id="article-intro"></p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section__header">
-          <div>
-            <h2 class="h2">News aus dem Verein</h2>
-            <div class="sub">Aktuelle Einblicke, Termine und Aufrufe direkt vom Verein.</div>
-          </div>
-        </div>
+      <section class="section section--airy article__body" id="article-body">
+        <div class="container article__content" id="article-sections"></div>
+      </section>
 
-        <article class="newsCard" data-news-card>
-          <div class="newsCard__controls" aria-label="Vereins-News steuern">
-            <div class="newsCard__controlGroup">
-              <button
-                class="newsCard__control"
-                type="button"
-                aria-label="Beiträge sortieren"
-                aria-expanded="false"
-                data-news-toggle="sort"
-              >
-                <span class="newsCard__controlLines" aria-hidden="true">
-                  <span class="newsCard__controlLine"></span>
-                  <span class="newsCard__controlLine"></span>
-                  <span class="newsCard__controlLine"></span>
-                </span>
-              </button>
-              <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
-                <button class="newsCard__menuItem is-active" type="button" data-news-sort="curated">
-                  Kuratierte Reihenfolge
-                </button>
-                <button class="newsCard__menuItem" type="button" data-news-sort="chronological">
-                  Chronologisch (demnächst zuerst)
-                </button>
-                <button class="newsCard__menuItem" type="button" data-news-sort="newest">
-                  Neueste zuerst
-                </button>
-              </div>
-            </div>
-            <div class="newsCard__controlsLabel">Aktuelles</div>
-            <div class="newsCard__controlGroup newsCard__controlGroup--right">
-              <button
-                class="newsCard__control"
-                type="button"
-                aria-label="Beiträge filtern"
-                aria-expanded="false"
-                data-news-toggle="filter"
-              >
-                <span class="newsCard__controlLines" aria-hidden="true">
-                  <span class="newsCard__controlLine"></span>
-                  <span class="newsCard__controlLine"></span>
-                  <span class="newsCard__controlLine"></span>
-                </span>
-              </button>
-              <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
-                <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">
-                  Alle News
-                </button>
-                <button class="newsCard__menuItem" type="button" data-news-filter="events">Events</button>
-                <button class="newsCard__menuItem" type="button" data-news-filter="gesuche">Gesuche</button>
-                <button class="newsCard__menuItem" type="button" data-news-filter="updates">Updates</button>
-              </div>
-            </div>
-          </div>
-          <div class="newsCard__header">
+      <section class="section section--airy" id="article-cta-section">
+        <div class="container">
+          <div class="helfen__sectionHeader">
             <div>
-              <div class="newsCard__meta">Vereins-News</div>
-              <h3 class="newsCard__title">Neuigkeiten von Verein XY</h3>
-              <p class="newsCard__text">Alle Meldungen chronologisch sortiert – neueste zuerst.</p>
+              <div class="helfen__sectionTitle">Nächster Schritt</div>
+              <div class="helfen__sectionText">Sieh dir passende Gesuche an, die zu diesem Erfahrungsbericht passen.</div>
             </div>
-            <div class="newsCard__hint">Updates der letzten Wochen</div>
+            <a class="nav__link" id="article-cta" href="./gesuche.html">Siehe passende Gesuche</a>
           </div>
-          <ul class="newsCard__list" data-news-list>
-            <li class="newsCard__item" data-news-type="events" data-news-date="2024-06-15" data-news-order="1">
-              <div class="newsCard__thumb" aria-hidden="true"></div>
-              <div>
-                <div class="newsCard__itemHeader">
-                  <div class="newsCard__itemTitle">Sommerfest am 15. Juni</div>
-                  <div class="newsCard__itemDate">In 3 Wochen</div>
-                </div>
-                <p class="newsCard__itemText">Wir suchen noch Helfende für Aufbau, Kuchen und Kinderprogramm.</p>
-              </div>
-            </li>
-            <li class="newsCard__item" data-news-type="updates" data-news-date="2024-05-20" data-news-order="2">
-              <div class="newsCard__thumb" aria-hidden="true"></div>
-              <div>
-                <div class="newsCard__itemHeader">
-                  <div class="newsCard__itemTitle">Neue Trainingszeiten für die Jugendgruppen</div>
-                  <div class="newsCard__itemDate">Letzte Woche</div>
-                </div>
-                <p class="newsCard__itemText">Dienstags 17 Uhr &amp; donnerstags 18 Uhr in der Sporthalle Nord.</p>
-              </div>
-            </li>
-            <li class="newsCard__item" data-news-type="gesuche" data-news-date="2024-07-05" data-news-order="3">
-              <div class="newsCard__thumb" aria-hidden="true"></div>
-              <div>
-                <div class="newsCard__itemHeader">
-                  <div class="newsCard__itemTitle">Helfende Hände für das Stadtteilfest</div>
-                  <div class="newsCard__itemDate">Nächster Monat</div>
-                </div>
-                <p class="newsCard__itemText">Infostand betreuen und bei der Mitmach-Station unterstützen.</p>
-              </div>
-            </li>
-            <li class="newsCard__item" data-news-type="updates" data-news-date="2024-05-12" data-news-order="4">
-              <div class="newsCard__thumb" aria-hidden="true"></div>
-              <div>
-                <div class="newsCard__itemHeader">
-                  <div class="newsCard__itemTitle">Einblick: So sah unser letzter Aktionstag aus</div>
-                  <div class="newsCard__itemDate">Vor 2 Wochen</div>
-                </div>
-                <p class="newsCard__itemText">Ein paar Highlights und Danke an alle Helfer:innen.</p>
-              </div>
-            </li>
-          </ul>
-        </article>
-      </div>
-    </section>
+        </div>
+      </section>
+
+      <section class="section section--airy" id="article-fallback" hidden>
+        <div class="container">
+          <div class="helfen__sectionHeader">
+            <div>
+              <div class="helfen__sectionTitle">Artikel nicht gefunden</div>
+              <div class="helfen__sectionText">Dieser Erfahrungsbericht ist noch nicht verfügbar.</div>
+            </div>
+            <a class="nav__link" href="./hilfe.html">Zurück zur Übersicht</a>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container footer__inner">
         <div>Impressum • Kontakt • Datenschutz</div>
       </div>
     </footer>
+
+    <script src="./assets/data/articles.js"></script>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get("slug");
+        const articles = window.ARTICLES || [];
+        const article = articles.find((entry) => entry.slug === slug);
+
+        const hero = document.getElementById("article-hero");
+        const body = document.getElementById("article-body");
+        const ctaSection = document.getElementById("article-cta-section");
+        const fallback = document.getElementById("article-fallback");
+
+        if (!article) {
+          hero?.setAttribute("hidden", "true");
+          body?.setAttribute("hidden", "true");
+          ctaSection?.setAttribute("hidden", "true");
+          fallback?.removeAttribute("hidden");
+          return;
+        }
+
+        const title = document.getElementById("article-title");
+        const intro = document.getElementById("article-intro");
+        const sectionsWrapper = document.getElementById("article-sections");
+        const cta = document.getElementById("article-cta");
+
+        if (title) title.textContent = article.title;
+        if (intro) intro.textContent = article.intro;
+
+        if (sectionsWrapper) {
+          sectionsWrapper.innerHTML = "";
+          article.sections.forEach((section) => {
+            const block = document.createElement("article");
+            block.className = "article__section";
+
+            const heading = document.createElement("h2");
+            heading.className = "h3";
+            heading.textContent = section.title;
+
+            const text = document.createElement("p");
+            text.textContent = section.text;
+
+            block.appendChild(heading);
+            block.appendChild(text);
+            sectionsWrapper.appendChild(block);
+          });
+        }
+
+        if (cta) {
+          const query = article.gesucheQuery ? `?${article.gesucheQuery}` : "";
+          cta.href = `./gesuche.html${query}`;
+        }
+      })();
+    </script>
   </body>
 </html>
