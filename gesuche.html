@@ -16,7 +16,7 @@
         <nav class="nav">
           <div class="nav__links">
             <a class="nav__link" href="./index.html">Home</a>
-            <a class="nav__link" href="./helfen.html">Helfen</a>
+            <a class="nav__link" href="./hilfe.html">Helfen</a>
             <a class="nav__link" href="./blog.html">Einblicke</a>
             </div>
           <div class="nav__actions">
@@ -54,7 +54,7 @@
             </button>
             <div class="nav__dropdown" aria-label="Menü">
               <a class="nav__dropdownLink" href="./index.html">Home</a>
-              <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
+              <a class="nav__dropdownLink" href="./hilfe.html">Helfen</a>
               <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
               <a class="nav__dropdownLink" href="./account.html">Account</a>
               <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
@@ -266,63 +266,35 @@
 
     <script>
       (function () {
-        const params = new URLSearchParams(window.location.search);
-        const mode = params.get("mode");
-        const role = params.get("role");
-        const tagParam = params.get("tag");
-        const tagsParam = params.get("tags");
-
-        const modeLabels = {
-          "vor-ort": "Vor Ort",
-          alltag: "Alltag",
-          online: "Online",
-        };
-
-        const roleLabels = {
-          aushilfe: "Aushilfe/Gast",
-          freiwillig: "Freiwilliger",
-          mitglied: "Mitglied",
-          urlaub: "Urlaub",
-          fsj: "FSJ",
-          pflegestelle: "Pflegestelle",
-        };
-
-        const tagLabels = {
-          begleitung: "Begleitung",
-          einkaufshilfe: "Einkaufshilfe",
-          mobilitaet: "Mobilität",
-          nachbarschaft: "Nachbarschaft",
-          spenden: "Spenden",
-          verbreitung: "Verbreitung",
-        };
-
-        const filterChips = [];
-
-        if (mode && modeLabels[mode]) {
-          filterChips.push(`Modus: ${modeLabels[mode]}`);
-        }
-
-        if (mode === "vor-ort" && role && roleLabels[role]) {
-          filterChips.push(`Rolle: ${roleLabels[role]}`);
-        }
-
-        const tags = tagsParam ? tagsParam.split(",").map((value) => value.trim()) : [];
-        if (tagParam) {
-          tags.push(tagParam);
-        }
-
-        if (tags.length && (mode === "alltag" || mode === "online")) {
-          const uniqueTags = Array.from(new Set(tags));
-          uniqueTags.forEach((tag) => {
-            if (tagLabels[tag]) {
-              filterChips.push(`Tag: ${tagLabels[tag]}`);
-            }
-          });
-        }
-
         const filterContainer = document.getElementById("gesuche-filters");
         const filterSubtitle = document.getElementById("gesuche-filter-subtitle");
         const subtitle = document.getElementById("gesuche-subtitle");
+        if (!filterContainer || !filterSubtitle) return;
+
+        const params = new URLSearchParams(window.location.search);
+        const path = params.get("path") || params.get("mode");
+        const role = params.get("role");
+        const topic = params.get("topic");
+        const type = params.get("type");
+
+        const labelMap = {
+          path: "Bereich",
+          role: "Rolle",
+          topic: "Thema",
+          type: "Typ",
+        };
+
+        const formatValue = (value) =>
+          value
+            .split("-")
+            .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+            .join(" ");
+
+        const filterChips = [];
+        if (path) filterChips.push(`${labelMap.path}: ${formatValue(path)}`);
+        if (role) filterChips.push(`${labelMap.role}: ${formatValue(role)}`);
+        if (topic) filterChips.push(`${labelMap.topic}: ${formatValue(topic)}`);
+        if (type) filterChips.push(`${labelMap.type}: ${formatValue(type)}`);
 
         if (filterChips.length) {
           filterContainer.innerHTML = "";
@@ -335,7 +307,7 @@
 
           const summaryText = `Gefiltert nach: ${filterChips.join(" · ")}`;
           filterSubtitle.textContent = summaryText;
-          subtitle.textContent = summaryText;
+          if (subtitle) subtitle.textContent = summaryText;
         } else {
           filterContainer.innerHTML = "";
           filterSubtitle.textContent = "Gefiltert nach: Alle Gesuche";
