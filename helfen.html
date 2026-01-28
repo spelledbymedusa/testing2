@@ -327,6 +327,10 @@
       }
 
       const setActiveChoice = (activeFilter) => {
+        if (!activeFilter) {
+          return;
+        }
+
         choiceButtons.forEach((button) => {
           const isActive = button.dataset.choiceFilter === activeFilter;
           button.classList.toggle("helfen__choiceCard--active", isActive);
@@ -349,6 +353,13 @@
       choiceButtons.forEach((button) => {
         button.addEventListener("click", () => setActiveChoice(button.dataset.choiceFilter));
       });
+
+      const defaultButton = choiceButtons.find((button) =>
+        button.classList.contains("helfen__choiceCard--active")
+      );
+      if (defaultButton) {
+        setActiveChoice(defaultButton.dataset.choiceFilter);
+      }
     </script>
 
     <footer class="footer">
