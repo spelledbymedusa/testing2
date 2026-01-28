@@ -935,6 +935,12 @@ body{
   justify-content:space-between;
   gap:8px;
 }
+[data-theme="dark"] .blog__filterPanel summary,
+[data-theme="dark"] .gesuche__filterPanel summary{
+  color:var(--headerText);
+  background:rgba(154,211,154,.18);
+  border-color:rgba(154,211,154,.3);
+}
 .blog__filterPanel summary::-webkit-details-marker,
 .gesuche__filterPanel summary::-webkit-details-marker{
   display:none;
