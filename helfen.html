@@ -17,7 +17,7 @@
         <nav class="nav">
           <div class="nav__links">
             <a class="nav__link" href="./index.html">Home</a>
-            <a class="nav__link" href="./hilfe.html">Helfen</a>
+            <a class="nav__link" href="./helfen.html">Helfen</a>
             <a class="nav__link" href="./blog.html">Einblicke</a>
             </div>
           <div class="nav__actions">
@@ -55,7 +55,7 @@
             </button>
             <div class="nav__dropdown" aria-label="Menü">
               <a class="nav__dropdownLink" href="./index.html">Home</a>
-              <a class="nav__dropdownLink" href="./hilfe.html">Helfen</a>
+              <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
               <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
               <a class="nav__dropdownLink" href="./account.html">Account</a>
               <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
@@ -127,7 +127,7 @@
         </div>
       </section>
 
-      <section class="section section--airy helfen__insights" data-level2-section>
+      <section class="section section--airy helfen__insights" data-level2-section hidden>
         <div class="container">
           <div class="section__header">
             <div>
@@ -136,7 +136,7 @@
             </div>
           </div>
 
-          <div class="helfen__insightGroup" data-choice-panel="vor-ort">
+          <div class="helfen__insightGroup" data-choice-panel="vor-ort" hidden>
             <div class="helfen__sectionHeader">
               <div>
                 <div class="helfen__sectionTitle">Helfen vor Ort</div>
@@ -319,6 +319,12 @@
     <script>
       const choiceButtons = Array.from(document.querySelectorAll("[data-choice-filter]"));
       const choicePanels = Array.from(document.querySelectorAll("[data-choice-panel]"));
+      const choiceSection = document.querySelector("[data-choice-section]");
+      const level2Section = document.querySelector("[data-level2-section]");
+
+      if (level2Section) {
+        level2Section.hidden = true;
+      }
 
       const setActiveChoice = (activeFilter) => {
         choiceButtons.forEach((button) => {
@@ -330,15 +336,19 @@
         choicePanels.forEach((panel) => {
           panel.toggleAttribute("hidden", panel.dataset.choicePanel !== activeFilter);
         });
+
+        if (choiceSection) {
+          choiceSection.hidden = true;
+        }
+
+        if (level2Section) {
+          level2Section.hidden = false;
+        }
       };
 
       choiceButtons.forEach((button) => {
         button.addEventListener("click", () => setActiveChoice(button.dataset.choiceFilter));
       });
-
-      if (choiceButtons.length) {
-        setActiveChoice(choiceButtons[0].dataset.choiceFilter);
-      }
     </script>
 
     <footer class="footer">
