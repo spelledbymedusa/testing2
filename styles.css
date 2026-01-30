@@ -1629,6 +1629,13 @@ body{
   .h1{font-size:28px}
   .account__kv{grid-template-columns:1fr}
   .account__setting{flex-direction:column;align-items:flex-start}
+  .newsCard__controls{flex-direction:column;align-items:stretch}
+  .newsCard__controlGroup{width:100%;justify-content:space-between}
+  .newsCard__controlsLabel{order:-1;width:100%;white-space:normal;text-align:left}
+  .newsCard__item{grid-template-columns:1fr}
+  .newsCard__thumb{height:120px}
+  .newsCard__itemHeader{flex-wrap:wrap}
+  .newsCard__itemDate{white-space:normal}
 }
 
 /* Reduced motion */
