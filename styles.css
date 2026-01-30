@@ -1583,24 +1583,25 @@ body{
     gap:12px;
   }
   .choice{
-    grid-template-columns:1fr auto;
+    grid-template-columns:36px 1fr;
     grid-template-rows:auto auto;
     padding:12px;
+    column-gap:10px;
   }
   .choice__icon{
-    grid-row:1;
-    grid-column:2;
-    justify-self:flex-end;
-    align-self:flex-start;
-    width:34px;
-    height:34px;
+    grid-row:1 / span 2;
+    grid-column:1;
+    justify-self:flex-start;
+    align-self:center;
+    width:32px;
+    height:32px;
   }
-  .choice__iconImg{width:22px;height:22px}
+  .choice__iconImg{width:20px;height:20px}
   .choice__title{
-    grid-column:1 / -1;
+    grid-column:2;
     font-size:15px;
   }
-  .choice__text{grid-column:1 / -1}
+  .choice__text{grid-column:2}
   .choice__text{font-size:12px}
 }
 
@@ -1632,13 +1633,36 @@ body{
   .h1{font-size:28px}
   .account__kv{grid-template-columns:1fr}
   .account__setting{flex-direction:column;align-items:flex-start}
-  .newsCard__controls{flex-direction:column;align-items:stretch}
-  .newsCard__controlGroup{width:100%;justify-content:space-between}
-  .newsCard__controlsLabel{order:-1;width:100%;white-space:normal;text-align:left}
+  .newsCard__controls{
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    align-items:center;
+  }
+  .newsCard__controlGroup{
+    width:auto;
+    justify-content:flex-end;
+  }
+  .newsCard__controlsLabel{
+    order:-1;
+    width:100%;
+    white-space:normal;
+    text-align:left;
+  }
   .newsCard__item{grid-template-columns:1fr}
   .newsCard__thumb{height:120px}
   .newsCard__itemHeader{flex-wrap:wrap}
   .newsCard__itemDate{white-space:normal}
+  .entryForm__grid{grid-template-columns:1fr}
+  .entryForm__input[type="file"]{width:100%}
+  .entryForm__actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .entryForm__actions .nav__link{
+    width:100%;
+    justify-content:center;
+  }
+  .entryForm__message{width:100%}
 }
 
 /* Reduced motion */
