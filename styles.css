@@ -235,7 +235,8 @@ body{
   display:block;
   fill:currentColor;
 }
-.themeToggle__icon--moon{display:none}
+.themeToggle__icon--sun{display:none}
+.themeToggle__icon--moon{display:block}
 [data-theme="dark"] .themeToggle{
   border-color:rgba(248,242,227,.22);
 }
@@ -243,8 +244,8 @@ body{
   border-color:rgba(248,242,227,.5);
   background:rgba(248,242,227,.08);
 }
-[data-theme="dark"] .themeToggle__icon--sun{display:none}
-[data-theme="dark"] .themeToggle__icon--moon{display:block;color:#f5ecda}
+[data-theme="dark"] .themeToggle__icon--sun{display:block;color:#f5ecda}
+[data-theme="dark"] .themeToggle__icon--moon{display:none}
 
 /* RESTORED button/pill styling */
 .nav__link{
