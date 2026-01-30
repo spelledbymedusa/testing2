@@ -131,6 +131,48 @@
           </div>
 
           <div class="account__panel">
+            <div class="account__panelTitle">Kontakt & Sichtbarkeit</div>
+            <form class="account__form" data-account-contact-form>
+              <label class="account__label">
+                Verein *
+                <input class="account__input" type="text" data-account-contact="verein" required />
+              </label>
+              <label class="account__label">
+                Adresse (sichtbar) *
+                <input class="account__input" type="text" data-account-contact="address" required />
+              </label>
+              <label class="account__label">
+                Ansprechpartner (optional)
+                <input class="account__input" type="text" data-account-contact="contactPerson" />
+              </label>
+              <div class="account__formRow">
+                <label class="account__label">
+                  E-Mail *
+                  <input class="account__input" type="email" data-account-contact="email" required />
+                </label>
+                <label class="account__toggle">
+                  <span>Sichtbar</span>
+                  <input type="checkbox" data-account-visibility="email" />
+                </label>
+              </div>
+              <div class="account__formRow">
+                <label class="account__label">
+                  Telefon
+                  <input class="account__input" type="tel" data-account-contact="phone" />
+                </label>
+                <label class="account__toggle">
+                  <span>Sichtbar</span>
+                  <input type="checkbox" data-account-visibility="phone" />
+                </label>
+              </div>
+              <div class="account__panelActions">
+                <button class="account__btnPrimary" type="submit">Kontakt speichern</button>
+                <div class="account__hint" data-account-contact-hint></div>
+              </div>
+            </form>
+          </div>
+
+          <div class="account__panel">
             <div class="account__panelTitle">Einstellungen</div>
             <div class="account__settings">
               <label class="account__setting">

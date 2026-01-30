@@ -12,6 +12,19 @@
   const gesucheContainer = document.querySelector("[data-account-gesuche]");
   const postsContainer = document.querySelector("[data-account-posts]");
   const savedContainer = document.querySelector("[data-account-saved]");
+  const contactForm = document.querySelector("[data-account-contact-form]");
+  const contactHint = document.querySelector("[data-account-contact-hint]");
+  const contactFields = {
+    verein: document.querySelector("[data-account-contact='verein']"),
+    address: document.querySelector("[data-account-contact='address']"),
+    contactPerson: document.querySelector("[data-account-contact='contactPerson']"),
+    email: document.querySelector("[data-account-contact='email']"),
+    phone: document.querySelector("[data-account-contact='phone']"),
+  };
+  const visibilityToggles = {
+    email: document.querySelector("[data-account-visibility='email']"),
+    phone: document.querySelector("[data-account-visibility='phone']"),
+  };
 
   const session = store.getSession();
   const isLoggedIn = Boolean(session && session.userId);
@@ -41,6 +54,84 @@
   }
   if (statusField) {
     statusField.textContent = isLoggedIn ? "Aktiv" : "Unverifiziert";
+  }
+
+  const setContactHint = (text, tone = "info") => {
+    if (!contactHint) {
+      return;
+    }
+    contactHint.textContent = text;
+    contactHint.className = `account__hint account__hint--${tone}`;
+  };
+
+  const applyProfileToForm = (profile) => {
+    if (!contactForm || !profile) {
+      return;
+    }
+    if (contactFields.verein) contactFields.verein.value = profile.vereinName || "";
+    if (contactFields.address) contactFields.address.value = profile.address || "";
+    if (contactFields.contactPerson) contactFields.contactPerson.value = profile.contactPerson || "";
+    if (contactFields.email) contactFields.email.value = profile.email || "";
+    if (contactFields.phone) contactFields.phone.value = profile.phone || "";
+    if (visibilityToggles.email) visibilityToggles.email.checked = Boolean(profile.visibility?.email);
+    if (visibilityToggles.phone) visibilityToggles.phone.checked = Boolean(profile.visibility?.phone);
+  };
+
+  const getProfileFromForm = () => ({
+    vereinName: contactFields.verein?.value.trim() || "",
+    address: contactFields.address?.value.trim() || "",
+    contactPerson: contactFields.contactPerson?.value.trim() || "",
+    email: contactFields.email?.value.trim() || "",
+    phone: contactFields.phone?.value.trim() || "",
+    visibility: {
+      email: Boolean(visibilityToggles.email?.checked),
+      phone: Boolean(visibilityToggles.phone?.checked),
+    },
+  });
+
+  if (contactForm) {
+    if (!isLoggedIn) {
+      setContactHint("Bitte einloggen, um Kontaktdaten zu pflegen.", "warning");
+      contactForm.querySelectorAll("input").forEach((input) => {
+        input.disabled = true;
+      });
+    } else {
+      const userId = session.userId;
+      const existingProfile = store.getOrgProfile(userId);
+      const defaultProfile = existingProfile || {
+        vereinName: session?.name || "Verein",
+        address: "Musterstraße 12, 10115 Berlin",
+        contactPerson: "",
+        email: session?.email || "kontakt@verein.de",
+        phone: "+49 30 1234567",
+        visibility: { email: true, phone: false },
+      };
+      if (!existingProfile) {
+        store.setOrgProfile(userId, defaultProfile);
+      }
+      applyProfileToForm(defaultProfile);
+      setContactHint("Mindestens E-Mail oder Telefon muss sichtbar sein.", "info");
+
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const profile = getProfileFromForm();
+
+        if (!profile.vereinName || !profile.address || !profile.email) {
+          setContactHint("Bitte Verein, Adresse und E-Mail ausfüllen.", "error");
+          return;
+        }
+
+        const emailVisible = profile.visibility.email && profile.email;
+        const phoneVisible = profile.visibility.phone && profile.phone;
+        if (!emailVisible && !phoneVisible) {
+          setContactHint("Mindestens eine Kontaktmöglichkeit (E-Mail oder Telefon) muss sichtbar sein.", "error");
+          return;
+        }
+
+        store.setOrgProfile(userId, profile);
+        setContactHint("Kontakt gespeichert und sichtbar für Gesuche.", "success");
+      });
+    }
   }
 
   const renderCards = (container, items, emptyText, mapFn) => {
