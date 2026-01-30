@@ -41,12 +41,10 @@
   if (createToggle) {
     const initialExpanded = createToggle.getAttribute("aria-expanded") === "true";
     setCreateExpanded(initialExpanded);
-    createToggle.addEventListener("click", () => {
+    createToggle.addEventListener("click", (event) => {
+      event.preventDefault();
       const isExpanded = createToggle.getAttribute("aria-expanded") === "true";
       setCreateExpanded(!isExpanded);
-      if (!isExpanded) {
-        form.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
     });
   }
 
