@@ -95,6 +95,9 @@ body{
   font-size:16px;
   line-height:1.3;
 }
+.gesuche__title{
+  margin:0;
+}
 
 /* Common “panel shell” (border + bg + radius) */
 .vereine__card,
@@ -788,7 +791,7 @@ body{
   flex-wrap:wrap;
 }
 .profile__info{max-width:560px;display:grid;gap:8px}
-.profile__title{font-size:26px;font-weight:700}
+.profile__title{margin:0;font-size:26px;font-weight:700}
 .profile__lead{margin:0;color:var(--muted);line-height:1.6}
 .profile__meta{color:var(--muted);font-size:13px}
 .profile__actions{display:grid;gap:10px}
@@ -1248,6 +1251,33 @@ body{
   color:var(--text);
   min-height:44px;
   font:inherit;
+}
+.entryForm__input[type="file"]{
+  padding:8px 12px;
+  cursor:pointer;
+  color:var(--muted);
+}
+.entryForm__input[type="file"]::file-selector-button{
+  margin-right:12px;
+  padding:8px 14px;
+  border-radius:999px;
+  border:var(--innerBorderWidth) solid rgba(47,95,59,.35);
+  background:rgba(47,95,59,.08);
+  color:var(--accentDark);
+  font:inherit;
+  font-weight:600;
+  cursor:pointer;
+  transition:border-color 150ms ease, background 150ms ease, transform 150ms ease;
+}
+.entryForm__input[type="file"]::file-selector-button:hover{
+  border-color:rgba(47,95,59,.5);
+  background:rgba(47,95,59,.14);
+  transform:translateY(-1px);
+}
+[data-theme="dark"] .entryForm__input[type="file"]::file-selector-button{
+  border-color:rgba(154,211,154,.4);
+  background:rgba(154,211,154,.12);
+  color:var(--accent);
 }
 .entryForm__textarea{
   min-height:110px;
