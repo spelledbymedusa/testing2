@@ -76,74 +76,14 @@
               Artikel, Videos und Weiterbildungen für dein Engagement – gebündelt in einem Feed.
             </div>
           </div>
+          <div>
+            <a class="nav__link" href="./einblick-erstellen.html">Einblick erstellen</a>
+          </div>
         </div>
 
         <div class="blog__layout">
           <!-- MAIN -->
           <div class="blog__main" data-news-card>
-            <div class="blog__create is-collapsed" id="blog-create" data-blog-collapsible>
-              <div class="section__header">
-                <div>
-                  <h3 class="h2">
-                    <button
-                      class="blog__toggle"
-                      type="button"
-                      data-blog-toggle
-                      aria-expanded="false"
-                      aria-controls="blog-create-form"
-                    >
-                      <span>Beitrag erstellen</span>
-                      <span class="blog__toggleIcon" aria-hidden="true">+</span>
-                    </button>
-                  </h3>
-                  <div class="sub">Neuen Einblick teilen (Artikel, Event, Download, Gesuch).</div>
-                </div>
-              </div>
-              <form class="entryForm" id="blog-create-form" data-blog-form hidden>
-                <div class="entryForm__grid">
-                  <label class="entryForm__label">
-                    Titel *
-                    <input class="entryForm__input" type="text" placeholder="Titel des Beitrags" data-blog-field="title" required />
-                  </label>
-                  <label class="entryForm__label">
-                    Format *
-                    <select class="entryForm__select" data-blog-field="type" required>
-                      <option value="artikel">Artikel</option>
-                      <option value="weiterbildung">Weiterbildung</option>
-                      <option value="events">Event</option>
-                      <option value="gesuch">Gesuch</option>
-                      <option value="download">Download</option>
-                    </select>
-                  </label>
-                  <label class="entryForm__label">
-                    Datum
-                    <input class="entryForm__input" type="date" data-blog-field="date" />
-                  </label>
-                  <label class="entryForm__label">
-                    Ort / Format
-                    <input class="entryForm__input" type="text" placeholder="z. B. Berlin • Online" data-blog-field="meta" />
-                  </label>
-                </div>
-                <label class="entryForm__label">
-                  Kurzbeschreibung *
-                  <textarea class="entryForm__textarea" placeholder="Teasertext für den Feed" data-blog-field="summary" required></textarea>
-                </label>
-                <label class="entryForm__label">
-                  Tags (kommagetrennt)
-                  <input class="entryForm__input" type="text" placeholder="z. B. Community, Online" data-blog-field="tags" />
-                </label>
-                <label class="entryForm__label">
-                  Bild (optional)
-                  <input class="entryForm__input" type="file" accept="image/*" data-blog-field="image" />
-                  <span class="entryForm__hint">Max. 1,5 MB. Das Bild wird lokal gespeichert.</span>
-                </label>
-                <div class="entryForm__preview" data-blog-preview>Bildvorschau</div>
-                <div class="entryForm__actions">
-                  <button class="nav__link" type="submit">Beitrag speichern</button>
-                  <div class="entryForm__message" data-blog-message></div>
-                </div>
-              </form>
-            </div>
             <div class="blog__controlsCard">
               <div class="newsCard__controls" aria-label="Einblicke steuern">
                 <div class="newsCard__controlGroup newsCard__controlGroup--left">

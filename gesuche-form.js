@@ -14,21 +14,26 @@
   const detailEmail = document.querySelector("[data-gesuch-detail-email]");
   const detailPhone = document.querySelector("[data-gesuch-detail-phone]");
   const detailNote = document.querySelector("[data-gesuch-detail-note]");
+  const hasForm = Boolean(form);
+  const hasList = Boolean(list);
 
-  if (!form) {
+  if (!store) {
     return;
   }
 
   const MAX_IMAGE_BYTES = 1_500_000;
   let searchTerm = "";
 
-  const getField = (key) => form.querySelector(`[data-gesuche-field="${key}"]`);
-  const message = form.querySelector("[data-gesuche-message]");
-  const preview = form.querySelector("[data-gesuche-preview]");
+  const getField = (key) => form?.querySelector(`[data-gesuche-field="${key}"]`);
+  const message = form?.querySelector("[data-gesuche-message]");
+  const preview = form?.querySelector("[data-gesuche-preview]");
   const createWrapper = document.querySelector("[data-gesuche-collapsible]");
   const createToggle = document.querySelector("[data-gesuche-toggle]");
 
   const setCreateExpanded = (expanded) => {
+    if (!form) {
+      return;
+    }
     form.hidden = !expanded;
     if (createWrapper) {
       createWrapper.classList.toggle("is-collapsed", !expanded);
@@ -38,7 +43,7 @@
     }
   };
 
-  if (createToggle) {
+  if (createToggle && form) {
     const initialExpanded = createToggle.getAttribute("aria-expanded") === "true";
     setCreateExpanded(initialExpanded);
     createToggle.addEventListener("click", (event) => {
@@ -49,10 +54,6 @@
       const isExpanded = createToggle.getAttribute("aria-expanded") === "true";
       setCreateExpanded(!isExpanded);
     });
-  }
-
-  if (!list || !store) {
-    return;
   }
 
   const setMessage = (text, tone) => {
@@ -124,6 +125,9 @@
   };
 
   const applySearch = () => {
+    if (!list) {
+      return;
+    }
     const items = Array.from(list.querySelectorAll(".gesuche__row"));
     items.forEach((item) => {
       const haystack = [
@@ -149,6 +153,9 @@
   };
 
   const applySavedState = () => {
+    if (!list) {
+      return;
+    }
     const saved = new Set(store.getSavedGesuche());
     const buttons = list.querySelectorAll("[data-gesuch-save]");
     buttons.forEach((button) => {
@@ -326,6 +333,9 @@
   };
 
   const assignIdsToExisting = () => {
+    if (!list) {
+      return;
+    }
     const rows = Array.from(list.querySelectorAll(".gesuche__row"));
     rows.forEach((row, index) => {
       if (!row.dataset.gesuchId) {
@@ -340,6 +350,9 @@
   };
 
   const seedStaticGesuche = () => {
+    if (!list) {
+      return;
+    }
     const existing = Array.from(list.querySelectorAll(".gesuche__row"));
     const current = store.getGesuche();
     const knownIds = new Set(current.map((item) => item.id));
@@ -373,6 +386,9 @@
   };
 
   const renderStoredGesuche = () => {
+    if (!list) {
+      return;
+    }
     const gesuche = store.getGesuche();
     if (!gesuche.length) {
       return;
@@ -387,28 +403,30 @@
     list.prepend(fragment);
   };
 
-  assignIdsToExisting();
-  seedStaticGesuche();
-  renderStoredGesuche();
-  applySavedState();
-  applySearch();
+  if (hasList) {
+    assignIdsToExisting();
+    seedStaticGesuche();
+    renderStoredGesuche();
+    applySavedState();
+    applySearch();
 
-  list.addEventListener("click", (event) => {
-    const target = event.target;
-    if (!(target instanceof HTMLElement)) {
-      return;
-    }
-    if (target.matches("[data-gesuch-save]")) {
-      const id = target.dataset.gesuchId;
-      const updated = store.toggleSavedGesuch(id);
-      updateSaveButton(target, updated.includes(id));
-      return;
-    }
-    const row = target.closest(".gesuche__row");
-    if (row && !target.closest(".gesuche__save")) {
-      openDetail(row);
-    }
-  });
+    list.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+      if (target.matches("[data-gesuch-save]")) {
+        const id = target.dataset.gesuchId;
+        const updated = store.toggleSavedGesuch(id);
+        updateSaveButton(target, updated.includes(id));
+        return;
+      }
+      const row = target.closest(".gesuche__row");
+      if (row && !target.closest(".gesuche__save")) {
+        openDetail(row);
+      }
+    });
+  }
 
   if (detail) {
     detail.addEventListener("click", (event) => {
@@ -437,6 +455,9 @@
   };
 
   const updateCreateAccess = () => {
+    if (!form) {
+      return;
+    }
     const session = store.getSession();
     const isLoggedIn = Boolean(session?.userId);
     form.querySelectorAll("input, select, textarea, button").forEach((field) => {
@@ -455,102 +476,106 @@
     }
   };
 
-  updateCreateAccess();
+  if (hasForm) {
+    updateCreateAccess();
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    setMessage("");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      setMessage("");
 
-    const title = getField("title").value.trim();
-    const location = getField("location").value.trim();
-    const effort = getField("effort").value.trim();
-    const mode = getField("mode").value;
-    const modeLabel = getModeLabel(mode);
-    const summary = getField("summary").value.trim();
-    const tags = parseTags(getField("tags").value || "");
-    const imageFile = getField("image").files[0];
+      const title = getField("title").value.trim();
+      const location = getField("location").value.trim();
+      const effort = getField("effort").value.trim();
+      const mode = getField("mode").value;
+      const modeLabel = getModeLabel(mode);
+      const summary = getField("summary").value.trim();
+      const tags = parseTags(getField("tags").value || "");
+      const imageFile = getField("image").files[0];
 
-    if (!title || !location || !effort || !summary) {
-      setMessage("Bitte alle Pflichtfelder ausfüllen.", "error");
-      return;
-    }
-
-    if (imageFile && imageFile.size > MAX_IMAGE_BYTES) {
-      setMessage("Bild ist zu groß. Maximal 1,5 MB.", "error");
-      return;
-    }
-
-    const session = requireSession();
-    if (!session) {
-      return;
-    }
-
-    const saveGesuch = (imageData) => {
-      const gesuch = store.saveGesuch({
-        id: store.createId("gesuch"),
-        title,
-        location,
-        effort,
-        mode,
-        summary,
-        tags: tags.length ? tags : [modeLabel],
-        imageData,
-        ownerId: session?.userId || null,
-        ownerName: session?.name || session?.email || "Verein",
-        createdAt: new Date().toISOString(),
-      });
-
-      list.prepend(createGesuchElement(gesuch));
-      assignIdsToExisting();
-      applySavedState();
-      applySearch();
-      form.reset();
-      if (preview) {
-        preview.style.backgroundImage = "";
-        preview.classList.remove("is-filled");
-        preview.textContent = "Bildvorschau";
-      }
-      setMessage("Gesuch gespeichert.", "success");
-    };
-
-    if (imageFile) {
-      const reader = new FileReader();
-      reader.onload = () => saveGesuch(reader.result);
-      reader.readAsDataURL(imageFile);
-    } else {
-      saveGesuch(null);
-    }
-  });
-
-  const imageInput = getField("image");
-  if (imageInput && preview) {
-    imageInput.addEventListener("change", () => {
-      const file = imageInput.files[0];
-      if (!file) {
-        preview.style.backgroundImage = "";
-        preview.classList.remove("is-filled");
-        preview.textContent = "Bildvorschau";
+      if (!title || !location || !effort || !summary) {
+        setMessage("Bitte alle Pflichtfelder ausfüllen.", "error");
         return;
       }
-      if (file.size > MAX_IMAGE_BYTES) {
+
+      if (imageFile && imageFile.size > MAX_IMAGE_BYTES) {
         setMessage("Bild ist zu groß. Maximal 1,5 MB.", "error");
-        imageInput.value = "";
-        preview.style.backgroundImage = "";
-        preview.classList.remove("is-filled");
-        preview.textContent = "Bildvorschau";
         return;
       }
-      const reader = new FileReader();
-      reader.onload = () => {
-        preview.style.backgroundImage = `url(${reader.result})`;
-        preview.classList.add("is-filled");
-        preview.textContent = "";
+
+      const session = requireSession();
+      if (!session) {
+        return;
+      }
+
+      const saveGesuch = (imageData) => {
+        const gesuch = store.saveGesuch({
+          id: store.createId("gesuch"),
+          title,
+          location,
+          effort,
+          mode,
+          summary,
+          tags: tags.length ? tags : [modeLabel],
+          imageData,
+          ownerId: session?.userId || null,
+          ownerName: session?.name || session?.email || "Verein",
+          createdAt: new Date().toISOString(),
+        });
+
+        if (hasList) {
+          list.prepend(createGesuchElement(gesuch));
+          assignIdsToExisting();
+          applySavedState();
+          applySearch();
+        }
+        form.reset();
+        if (preview) {
+          preview.style.backgroundImage = "";
+          preview.classList.remove("is-filled");
+          preview.textContent = "Bildvorschau";
+        }
+        setMessage("Gesuch gespeichert.", "success");
       };
-      reader.readAsDataURL(file);
+
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onload = () => saveGesuch(reader.result);
+        reader.readAsDataURL(imageFile);
+      } else {
+        saveGesuch(null);
+      }
     });
+
+    const imageInput = getField("image");
+    if (imageInput && preview) {
+      imageInput.addEventListener("change", () => {
+        const file = imageInput.files[0];
+        if (!file) {
+          preview.style.backgroundImage = "";
+          preview.classList.remove("is-filled");
+          preview.textContent = "Bildvorschau";
+          return;
+        }
+        if (file.size > MAX_IMAGE_BYTES) {
+          setMessage("Bild ist zu groß. Maximal 1,5 MB.", "error");
+          imageInput.value = "";
+          preview.style.backgroundImage = "";
+          preview.classList.remove("is-filled");
+          preview.textContent = "Bildvorschau";
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => {
+          preview.style.backgroundImage = `url(${reader.result})`;
+          preview.classList.add("is-filled");
+          preview.textContent = "";
+        };
+        reader.readAsDataURL(file);
+      });
+    }
   }
 
-  if (searchInput && searchButton) {
+  if (searchInput && searchButton && hasList) {
     const applySearchInput = () => {
       searchTerm = searchInput.value.trim().toLowerCase();
       applySearch();
