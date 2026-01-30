@@ -8,7 +8,10 @@
     <script src="./theme.js" defer></script>
     <script src="./nav-active.js" defer></script>
     <script src="./nav-menu.js" defer></script>
+    <script src="./data-store.js" defer></script>
+    <script src="./session.js" defer></script>
     <script src="./news-controls.js" defer></script>
+    <script src="./blog-form.js" defer></script>
   </head>
 
   <body>
@@ -63,7 +66,7 @@
               <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
               <div class="nav__dropdownDivider" aria-hidden="true"></div>
               <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
-              <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
+              <a class="nav__dropdownLink" href="./login.html" data-auth-link>Login / Logout</a>
               <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
               <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
             </div>
@@ -86,6 +89,58 @@
         <div class="blog__layout">
           <!-- MAIN -->
           <div class="blog__main" data-news-card>
+            <div class="blog__create" id="blog-create">
+              <div class="section__header">
+                <div>
+                  <h3 class="h2">Beitrag erstellen</h3>
+                  <div class="sub">Neuen Einblick teilen (Artikel, Event, Download, Gesuch).</div>
+                </div>
+              </div>
+              <form class="entryForm" data-blog-form>
+                <div class="entryForm__grid">
+                  <label class="entryForm__label">
+                    Titel *
+                    <input class="entryForm__input" type="text" placeholder="Titel des Beitrags" data-blog-field="title" required />
+                  </label>
+                  <label class="entryForm__label">
+                    Format *
+                    <select class="entryForm__select" data-blog-field="type" required>
+                      <option value="artikel">Artikel</option>
+                      <option value="weiterbildung">Weiterbildung</option>
+                      <option value="events">Event</option>
+                      <option value="gesuch">Gesuch</option>
+                      <option value="download">Download</option>
+                    </select>
+                  </label>
+                  <label class="entryForm__label">
+                    Datum
+                    <input class="entryForm__input" type="date" data-blog-field="date" />
+                  </label>
+                  <label class="entryForm__label">
+                    Ort / Format
+                    <input class="entryForm__input" type="text" placeholder="z. B. Berlin • Online" data-blog-field="meta" />
+                  </label>
+                </div>
+                <label class="entryForm__label">
+                  Kurzbeschreibung *
+                  <textarea class="entryForm__textarea" placeholder="Teasertext für den Feed" data-blog-field="summary" required></textarea>
+                </label>
+                <label class="entryForm__label">
+                  Tags (kommagetrennt)
+                  <input class="entryForm__input" type="text" placeholder="z. B. Community, Online" data-blog-field="tags" />
+                </label>
+                <label class="entryForm__label">
+                  Bild (optional)
+                  <input class="entryForm__input" type="file" accept="image/*" data-blog-field="image" />
+                  <span class="entryForm__hint">Max. 1,5 MB. Das Bild wird lokal gespeichert.</span>
+                </label>
+                <div class="entryForm__preview" data-blog-preview>Bildvorschau</div>
+                <div class="entryForm__actions">
+                  <button class="nav__link" type="submit">Beitrag speichern</button>
+                  <div class="entryForm__message" data-blog-message></div>
+                </div>
+              </form>
+            </div>
             <div class="blog__controlsCard">
               <div class="newsCard__controls" aria-label="Einblicke steuern">
                 <div class="newsCard__controlGroup newsCard__controlGroup--left">
@@ -136,8 +191,8 @@
                 </div>
               </div>
               <div class="blog__toolbar blog__toolbar--compact">
-                <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" />
-                <button class="nav__link blog__searchBtn" type="button">Suchen</button>
+                <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" data-blog-search />
+                <button class="nav__link blog__searchBtn" type="button" data-blog-search-btn>Suchen</button>
               </div>
             </div>
 

@@ -1161,6 +1161,115 @@ body{
   background:var(--accentSoft);
 }
 .auth__section[hidden]{display:none !important;}
+.auth__notice{
+  margin:12px 0 0;
+  padding:10px 12px;
+  border-radius:12px;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--surfaceLight);
+  font-size:13px;
+  color:var(--muted);
+}
+.auth__notice:empty{display:none}
+.auth__notice--success{
+  border-color:rgba(47,95,59,.4);
+  color:var(--accentDark);
+  background:rgba(47,95,59,.08);
+}
+.auth__notice--error{
+  border-color:rgba(185,28,28,.35);
+  color:#991b1b;
+  background:rgba(185,28,28,.08);
+}
+
+/* =========================================================
+   Entry forms (Blog / Gesuche)
+   ========================================================= */
+.entryForm{
+  display:grid;
+  gap:12px;
+  padding:16px;
+  border:var(--borderWidth) solid var(--border);
+  border-radius:var(--radius);
+  background:var(--panel);
+  margin-bottom:16px;
+}
+.entryForm__grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+}
+.entryForm__label{
+  display:grid;
+  gap:6px;
+  font-size:13px;
+  font-weight:650;
+}
+.entryForm__input,
+.entryForm__select,
+.entryForm__textarea{
+  padding:11px 12px;
+  border-radius:12px;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  min-height:44px;
+  font:inherit;
+}
+.entryForm__textarea{
+  min-height:110px;
+  resize:vertical;
+}
+.entryForm__hint{
+  font-size:12px;
+  color:var(--muted);
+}
+.entryForm__actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.entryForm__preview{
+  width:100%;
+  min-height:140px;
+  border-radius:14px;
+  border:var(--innerBorderWidth) dashed rgba(47,95,59,.3);
+  background:rgba(47,95,59,.05);
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  font-size:13px;
+  background-size:cover;
+  background-position:center;
+}
+.entryForm__preview.is-filled{
+  border-style:solid;
+}
+.entryForm__message{
+  font-size:13px;
+  color:var(--muted);
+}
+.entryForm__message.is-success{
+  color:var(--accentDark);
+}
+.entryForm__message.is-error{
+  color:#991b1b;
+}
+
+.gesuche__save.is-saved{
+  border-color:rgba(47,95,59,.45);
+  background:var(--accentSoft);
+  font-weight:650;
+}
+
+.account__empty{
+  padding:10px 12px;
+  border-radius:12px;
+  border:var(--innerBorderWidth) dashed var(--border);
+  color:var(--muted);
+  font-size:13px;
+}
 /* =========================================================
    Account dashboard
    ========================================================= */

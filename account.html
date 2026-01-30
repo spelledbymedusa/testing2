@@ -8,6 +8,9 @@
     <script src="./theme.js" defer></script>
     <script src="./nav-active.js" defer></script>
     <script src="./nav-menu.js" defer></script>
+    <script src="./data-store.js" defer></script>
+    <script src="./session.js" defer></script>
+    <script src="./account.js" defer></script>
   </head>
 
   <body>
@@ -62,7 +65,7 @@
               <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
               <div class="nav__dropdownDivider" aria-hidden="true"></div>
               <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
-              <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
+              <a class="nav__dropdownLink" href="./login.html" data-auth-link>Login / Logout</a>
               <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
               <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
             </div>
@@ -76,22 +79,23 @@
         <div class="section__header">
           <div>
             <h2 class="h2">Vereins-Dashboard</h2>
-            <div class="sub">Übersicht über Profil, Gesuche und Aktivitäten (Design-only).</div>
+            <div class="sub">Übersicht über Profil, Gesuche und Aktivitäten.</div>
           </div>
         </div>
+        <div class="auth__notice" data-account-message role="status" aria-live="polite"></div>
 
         <div class="account__grid">
           <div class="account__panel">
             <div class="account__panelTitle">Profilstatus</div>
             <div class="account__kv">
               <div class="account__k">Verein</div>
-              <div class="account__v">Verein XY (Demo)</div>
+              <div class="account__v" data-account-name>Verein XY (Demo)</div>
               <div class="account__k">Ort</div>
-              <div class="account__v">Berlin</div>
+              <div class="account__v" data-account-location>Berlin</div>
               <div class="account__k">Kontakt</div>
-              <div class="account__v">verein@email.de</div>
+              <div class="account__v" data-account-email>verein@email.de</div>
               <div class="account__k">Status</div>
-              <div class="account__v">Unverifiziert (Demo)</div>
+              <div class="account__v" data-account-status>Unverifiziert</div>
             </div>
             <div class="account__panelActions">
               <button class="account__btnPrimary" type="button">Profil bearbeiten</button>
@@ -100,55 +104,30 @@
           </div>
 
           <div class="account__panel">
-            <div class="account__panelTitle">Gesuche</div>
+            <div class="account__panelTitle">Meine Gesuche</div>
 
-            <div class="account__cards">
-              <div class="account__card">
-                <div class="account__cardTitle">Begleitung zum Arzt</div>
-                <div class="account__cardMeta">Aktiv • Berlin • Vor Ort</div>
-              </div>
-              <div class="account__card">
-                <div class="account__cardTitle">Online Nachhilfe Mathe</div>
-                <div class="account__cardMeta">Entwurf • Online</div>
-              </div>
-              <div class="account__card">
-                <div class="account__cardTitle">Hilfe am Wochenende</div>
-                <div class="account__cardMeta">Aktiv • Hamburg</div>
-              </div>
-            </div>
+            <div class="account__cards" data-account-gesuche></div>
 
             <div class="account__panelActions">
-              <button class="account__btnPrimary" type="button">Neues Gesuch</button>
+              <a class="account__btnPrimary" href="./gesuche.html#gesuche-create">Neues Gesuch</a>
               <a class="nav__link" href="./gesuche.html">Zur Liste</a>
             </div>
           </div>
 
           <div class="account__panel">
-            <div class="account__panelTitle">Aktivität</div>
-            <div class="account__activity">
-              <div class="account__activityRow">
-                <div class="account__dot"></div>
-                <div>
-                  <div class="account__activityTitle">Neues Interesse (Demo)</div>
-                  <div class="account__activityMeta">Heute • 12:20</div>
-                </div>
-              </div>
+            <div class="account__panelTitle">Meine Beiträge</div>
+            <div class="account__cards" data-account-posts></div>
+            <div class="account__panelActions">
+              <a class="account__btnPrimary" href="./blog.html#blog-create">Neuer Beitrag</a>
+              <a class="nav__link" href="./blog.html">Zum Feed</a>
+            </div>
+          </div>
 
-              <div class="account__activityRow">
-                <div class="account__dot"></div>
-                <div>
-                  <div class="account__activityTitle">Profil aktualisiert (Demo)</div>
-                  <div class="account__activityMeta">Gestern • 18:04</div>
-                </div>
-              </div>
-
-              <div class="account__activityRow">
-                <div class="account__dot"></div>
-                <div>
-                  <div class="account__activityTitle">Gesuch veröffentlicht (Demo)</div>
-                  <div class="account__activityMeta">Letzte Woche</div>
-                </div>
-              </div>
+          <div class="account__panel">
+            <div class="account__panelTitle">Merkliste</div>
+            <div class="account__cards" data-account-saved></div>
+            <div class="account__panelActions">
+              <a class="nav__link" href="./gesuche.html">Gesuche entdecken</a>
             </div>
           </div>
 
@@ -171,7 +150,7 @@
 
             <div class="account__panelActions">
               <button class="account__btn" type="button">Speichern</button>
-              <a class="nav__link" href="./login.html">Abmelden (Demo)</a>
+              <a class="nav__link" href="./login.html" data-auth-link>Abmelden</a>
             </div>
           </div>
         </div>

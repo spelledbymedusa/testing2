@@ -8,6 +8,8 @@
     <script src="./theme.js" defer></script>
     <script src="./nav-active.js" defer></script>
     <script src="./nav-menu.js" defer></script>
+    <script src="./data-store.js" defer></script>
+    <script src="./session.js" defer></script>
     <script src="./auth.js" defer></script>
   </head>
 
@@ -63,7 +65,7 @@
               <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
               <div class="nav__dropdownDivider" aria-hidden="true"></div>
               <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
-              <a class="nav__dropdownLink" href="./login.html">Login / Logout</a>
+              <a class="nav__dropdownLink" href="./login.html" data-auth-link>Login / Logout</a>
               <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
               <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
             </div>
@@ -144,18 +146,20 @@
               </button>
             </div>
 
+            <div class="auth__notice" data-auth-message role="status" aria-live="polite"></div>
+
             <!-- Forms (role + mode controlled) -->
             <form class="auth__form" autocomplete="on">
               <!-- PERSON / LOGIN -->
               <div class="auth__section" data-role="person" data-mode="login">
                 <label class="auth__label">
                   E-Mail
-                  <input class="auth__input" type="email" placeholder="name@email.de" autocomplete="email" />
+                  <input class="auth__input" type="email" placeholder="name@email.de" autocomplete="email" data-auth-field="email" />
                 </label>
 
                 <label class="auth__label">
                   Passwort
-                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="current-password" />
+                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="current-password" data-auth-field="password" />
                 </label>
 
                 <div class="auth__row">
@@ -167,7 +171,7 @@
                   <a class="auth__link" href="./login.html">Passwort vergessen?</a>
                 </div>
 
-                <button class="auth__submit" type="button">Anmelden</button>
+                <button class="auth__submit" type="button" data-auth-action="login">Anmelden</button>
 
                 <div class="auth__small">
                   Noch kein Account? <button class="auth__link auth__linkButton" type="button" data-switch-to="signup">Registrieren</button>
@@ -178,35 +182,35 @@
               <div class="auth__section" data-role="person" data-mode="signup" hidden>
                 <label class="auth__label">
                   Vorname
-                  <input class="auth__input" type="text" placeholder="Max" autocomplete="given-name" />
+                  <input class="auth__input" type="text" placeholder="Max" autocomplete="given-name" data-auth-field="firstName" />
                 </label>
 
                 <label class="auth__label">
                   Nachname
-                  <input class="auth__input" type="text" placeholder="Mustermann" autocomplete="family-name" />
+                  <input class="auth__input" type="text" placeholder="Mustermann" autocomplete="family-name" data-auth-field="lastName" />
                 </label>
 
                 <label class="auth__label">
                   E-Mail
-                  <input class="auth__input" type="email" placeholder="name@email.de" autocomplete="email" />
+                  <input class="auth__input" type="email" placeholder="name@email.de" autocomplete="email" data-auth-field="email" />
                 </label>
 
                 <label class="auth__label">
                   Passwort
-                  <input class="auth__input" type="password" placeholder="Mind. 8 Zeichen" autocomplete="new-password" />
+                  <input class="auth__input" type="password" placeholder="Mind. 8 Zeichen" autocomplete="new-password" data-auth-field="password" />
                 </label>
 
                 <label class="auth__label">
                   Passwort wiederholen
-                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="new-password" />
+                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="new-password" data-auth-field="confirm" />
                 </label>
 
                 <label class="auth__chk">
-                  <input type="checkbox" />
+                  <input type="checkbox" data-auth-field="terms" />
                   Ich akzeptiere Datenschutz & Nutzungsbedingungen
                 </label>
 
-                <button class="auth__submit" type="button">Registrieren</button>
+                <button class="auth__submit" type="button" data-auth-action="signup">Registrieren</button>
 
                 <div class="auth__small">
                   Schon registriert? <button class="auth__link auth__linkButton" type="button" data-switch-to="login">Anmelden</button>
@@ -217,12 +221,12 @@
               <div class="auth__section" data-role="org" data-mode="login" hidden>
                 <label class="auth__label">
                   Vereins-E-Mail
-                  <input class="auth__input" type="email" placeholder="verein@email.de" autocomplete="email" />
+                  <input class="auth__input" type="email" placeholder="verein@email.de" autocomplete="email" data-auth-field="email" />
                 </label>
 
                 <label class="auth__label">
                   Passwort
-                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="current-password" />
+                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="current-password" data-auth-field="password" />
                 </label>
 
                 <div class="auth__row">
@@ -234,7 +238,7 @@
                   <a class="auth__link" href="./login.html">Passwort vergessen?</a>
                 </div>
 
-                <button class="auth__submit" type="button">Anmelden</button>
+                <button class="auth__submit" type="button" data-auth-action="login">Anmelden</button>
 
                 <div class="auth__small">
                   Noch kein Vereins-Account? <button class="auth__link auth__linkButton" type="button" data-switch-to="signup">Registrieren</button>
@@ -245,40 +249,40 @@
               <div class="auth__section" data-role="org" data-mode="signup" hidden>
                 <label class="auth__label">
                   Vereinsname / Organisation
-                  <input class="auth__input" type="text" placeholder="z. B. Sportverein Musterstadt" autocomplete="organization" />
+                  <input class="auth__input" type="text" placeholder="z. B. Sportverein Musterstadt" autocomplete="organization" data-auth-field="orgName" />
                 </label>
 
                 <label class="auth__label">
                   Ansprechpartner*in
-                  <input class="auth__input" type="text" placeholder="Vor- und Nachname" autocomplete="name" />
+                  <input class="auth__input" type="text" placeholder="Vor- und Nachname" autocomplete="name" data-auth-field="contactName" />
                 </label>
 
                 <label class="auth__label">
                   Vereins-E-Mail
-                  <input class="auth__input" type="email" placeholder="verein@email.de" autocomplete="email" />
+                  <input class="auth__input" type="email" placeholder="verein@email.de" autocomplete="email" data-auth-field="email" />
                 </label>
 
                 <label class="auth__label">
                   Telefon (optional)
-                  <input class="auth__input" type="tel" placeholder="+49 ..." autocomplete="tel" />
+                  <input class="auth__input" type="tel" placeholder="+49 ..." autocomplete="tel" data-auth-field="phone" />
                 </label>
 
                 <label class="auth__label">
                   Passwort
-                  <input class="auth__input" type="password" placeholder="Mind. 8 Zeichen" autocomplete="new-password" />
+                  <input class="auth__input" type="password" placeholder="Mind. 8 Zeichen" autocomplete="new-password" data-auth-field="password" />
                 </label>
 
                 <label class="auth__label">
                   Passwort wiederholen
-                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="new-password" />
+                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="new-password" data-auth-field="confirm" />
                 </label>
 
                 <label class="auth__chk">
-                  <input type="checkbox" />
+                  <input type="checkbox" data-auth-field="terms" />
                   Ich akzeptiere Datenschutz & Nutzungsbedingungen
                 </label>
 
-                <button class="auth__submit" type="button">Registrieren</button>
+                <button class="auth__submit" type="button" data-auth-action="signup">Registrieren</button>
 
                 <div class="auth__small">
                   Schon registriert? <button class="auth__link auth__linkButton" type="button" data-switch-to="login">Anmelden</button>
