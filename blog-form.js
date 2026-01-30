@@ -4,8 +4,10 @@
   const list = document.querySelector("[data-news-list]");
   const searchInput = document.querySelector("[data-blog-search]");
   const searchButton = document.querySelector("[data-blog-search-btn]");
+  const createWrapper = document.querySelector("[data-blog-collapsible]");
+  const createToggle = document.querySelector("[data-blog-toggle]");
 
-  if (!form || !list || !store) {
+  if (!form) {
     return;
   }
 
@@ -15,6 +17,30 @@
   const getField = (key) => form.querySelector(`[data-blog-field="${key}"]`);
   const message = form.querySelector("[data-blog-message]");
   const preview = form.querySelector("[data-blog-preview]");
+
+  const setCreateExpanded = (expanded) => {
+    form.hidden = !expanded;
+    if (createWrapper) {
+      createWrapper.classList.toggle("is-collapsed", !expanded);
+    }
+    if (createToggle) {
+      createToggle.setAttribute("aria-expanded", String(expanded));
+    }
+  };
+
+  if (createToggle) {
+    const initialExpanded = createToggle.getAttribute("aria-expanded") === "true";
+    setCreateExpanded(initialExpanded);
+    createToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      const isExpanded = createToggle.getAttribute("aria-expanded") === "true";
+      setCreateExpanded(!isExpanded);
+    });
+  }
+
+  if (!list || !store) {
+    return;
+  }
 
   const setMessage = (text, tone) => {
     if (!message) {
