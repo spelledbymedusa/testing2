@@ -1556,6 +1556,7 @@ body{
   border-right:var(--innerBorderWidth) solid var(--border);
   min-height:140px;
 }
+.blog__img.has-image::after{content:none}
 .blog__body{padding:14px;display:grid;gap:8px;min-width:0}
 .blog__metaRow{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
 .blog__date{color:var(--muted);font-size:12px;white-space:nowrap}

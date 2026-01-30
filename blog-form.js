@@ -122,6 +122,7 @@
     img.className = "blog__img";
     img.setAttribute("aria-hidden", "true");
     if (post.imageData) {
+      img.classList.add("has-image");
       img.style.backgroundImage = `url(${post.imageData})`;
       img.style.backgroundSize = "cover";
       img.style.backgroundPosition = "center";
