@@ -75,6 +75,9 @@
             <h1 class="h1" id="gesuche-title">Gesuche</h1>
             <div class="sub" id="gesuche-subtitle">Konkrete Hilfsanfragen – lokal oder online, kurz- oder langfristig.</div>
           </div>
+          <div>
+            <a class="nav__link" href="./gesuch-erstellen.html">Gesuch erstellen</a>
+          </div>
         </div>
         <div class="gesuche__activeFilters">
           <div class="gesuche__tags" id="gesuche-filters"></div>
@@ -85,70 +88,6 @@
           <!-- MAIN -->
           <div class="gesuche__main">
             <div class="gesuche__card newsCard" data-news-card>
-              <div class="gesuche__create is-collapsed" id="gesuche-create" data-gesuche-collapsible>
-                <div class="section__header">
-                  <div>
-                    <h3 class="h2">
-                      <button
-                        class="gesuche__toggle"
-                        type="button"
-                        data-gesuche-toggle
-                        aria-expanded="false"
-                        aria-controls="gesuche-create-form"
-                      >
-                        <span>Gesuch erstellen</span>
-                        <span class="gesuche__toggleIcon" aria-hidden="true">+</span>
-                      </button>
-                    </h3>
-                    <div class="sub">Teile eine konkrete Anfrage und finde Unterstützung.</div>
-                  </div>
-                </div>
-                <form class="entryForm" id="gesuche-create-form" data-gesuche-form hidden>
-                  <div class="entryForm__grid">
-                    <label class="entryForm__label">
-                      Titel *
-                      <input class="entryForm__input" type="text" placeholder="z. B. Begleitung zum Arzt" data-gesuche-field="title" required />
-                    </label>
-                    <label class="entryForm__label">
-                      Ort *
-                      <input class="entryForm__input" type="text" placeholder="z. B. Berlin" data-gesuche-field="location" required />
-                    </label>
-                    <label class="entryForm__label">
-                      Aufwand *
-                      <input class="entryForm__input" type="text" placeholder="z. B. 2–3 Std/Woche" data-gesuche-field="effort" required />
-                    </label>
-                    <label class="entryForm__label">
-                      Modus *
-                      <select class="entryForm__select" data-gesuche-field="mode" required>
-                        <option value="vor_ort">Vor Ort</option>
-                        <option value="online">Online</option>
-                        <option value="hybrid">Hybrid</option>
-                      </select>
-                    </label>
-                  </div>
-                  <label class="entryForm__label">
-                    Kurzbeschreibung *
-                    <textarea class="entryForm__textarea" placeholder="Kurzbeschreibung des Gesuchs" data-gesuche-field="summary" required></textarea>
-                  </label>
-                  <label class="entryForm__label">
-                    Tags (kommagetrennt)
-                    <input class="entryForm__input" type="text" placeholder="z. B. Ältere, Begleitung" data-gesuche-field="tags" />
-                  </label>
-                  <label class="entryForm__label">
-                    Bild (optional)
-                    <input class="entryForm__input" type="file" accept="image/*" data-gesuche-field="image" />
-                    <span class="entryForm__hint">Max. 1,5 MB. Das Bild wird lokal gespeichert.</span>
-                  </label>
-                  <div class="entryForm__preview" data-gesuche-preview>Bildvorschau</div>
-                  <div class="entryForm__actions">
-                    <button class="nav__link" type="submit">Gesuch speichern</button>
-                    <div class="entryForm__message" data-gesuche-message></div>
-                  </div>
-                </form>
-              </div>
-
-              <div class="gesuche__divider" aria-hidden="true"></div>
-
               <div class="gesuche__controls">
                 <div class="gesuche__toolbar">
                   <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />

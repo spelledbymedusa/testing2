@@ -6,19 +6,24 @@
   const searchButton = document.querySelector("[data-blog-search-btn]");
   const createWrapper = document.querySelector("[data-blog-collapsible]");
   const createToggle = document.querySelector("[data-blog-toggle]");
+  const hasForm = Boolean(form);
+  const hasList = Boolean(list);
 
-  if (!form) {
+  if (!store) {
     return;
   }
 
   const MAX_IMAGE_BYTES = 1_500_000;
   let searchTerm = "";
 
-  const getField = (key) => form.querySelector(`[data-blog-field="${key}"]`);
-  const message = form.querySelector("[data-blog-message]");
-  const preview = form.querySelector("[data-blog-preview]");
+  const getField = (key) => form?.querySelector(`[data-blog-field="${key}"]`);
+  const message = form?.querySelector("[data-blog-message]");
+  const preview = form?.querySelector("[data-blog-preview]");
 
   const setCreateExpanded = (expanded) => {
+    if (!form) {
+      return;
+    }
     form.hidden = !expanded;
     if (createWrapper) {
       createWrapper.classList.toggle("is-collapsed", !expanded);
@@ -28,7 +33,7 @@
     }
   };
 
-  if (createToggle) {
+  if (createToggle && form) {
     const initialExpanded = createToggle.getAttribute("aria-expanded") === "true";
     setCreateExpanded(initialExpanded);
     createToggle.addEventListener("click", (event) => {
@@ -39,10 +44,6 @@
       const isExpanded = createToggle.getAttribute("aria-expanded") === "true";
       setCreateExpanded(!isExpanded);
     });
-  }
-
-  if (!list || !store) {
-    return;
   }
 
   const setMessage = (text, tone) => {
@@ -80,6 +81,9 @@
   };
 
   const applySearch = () => {
+    if (!list) {
+      return;
+    }
     const items = Array.from(list.querySelectorAll(".newsCard__item"));
     items.forEach((item) => {
       const haystack = [
@@ -174,6 +178,9 @@
   };
 
   const renderStoredPosts = () => {
+    if (!list) {
+      return;
+    }
     const posts = store.getPosts();
     if (!posts.length) {
       return;
@@ -194,6 +201,9 @@
   };
 
   const updateCreateAccess = () => {
+    if (!form) {
+      return;
+    }
     const session = store.getSession();
     const isLoggedIn = Boolean(session?.userId);
     form.querySelectorAll("input, select, textarea, button").forEach((field) => {
@@ -212,99 +222,103 @@
     }
   };
 
-  updateCreateAccess();
+  if (hasForm) {
+    updateCreateAccess();
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      setMessage("");
+
+      const title = getField("title").value.trim();
+      const type = getField("type").value;
+      const date = getField("date").value;
+      const meta = getField("meta").value.trim();
+      const summary = getField("summary").value.trim();
+      const tags = parseTags(getField("tags").value || "");
+      const imageFile = getField("image").files[0];
+
+      if (!title || !summary) {
+        setMessage("Bitte Titel und Kurzbeschreibung ausfüllen.", "error");
+        return;
+      }
+
+      if (imageFile && imageFile.size > MAX_IMAGE_BYTES) {
+        setMessage("Bild ist zu groß. Maximal 1,5 MB.", "error");
+        return;
+      }
+
+      const session = requireSession();
+      if (!session) {
+        return;
+      }
+
+      const savePost = (imageData) => {
+        const post = store.savePost({
+          id: store.createId("post"),
+          title,
+          type,
+          date,
+          meta,
+          summary,
+          tags: tags.length ? tags : [type],
+          imageData,
+          ownerId: session?.userId || null,
+          ownerName: session?.name || session?.email || "Verein",
+          createdAt: new Date().toISOString(),
+        });
+
+        if (hasList) {
+          list.prepend(createPostElement(post));
+          applySearch();
+        }
+        form.reset();
+        if (preview) {
+          preview.style.backgroundImage = "";
+          preview.classList.remove("is-filled");
+          preview.textContent = "Bildvorschau";
+        }
+        setMessage("Beitrag gespeichert.", "success");
+      };
+
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onload = () => savePost(reader.result);
+        reader.readAsDataURL(imageFile);
+      } else {
+        savePost(null);
+      }
+    });
+
+    const imageInput = getField("image");
+    if (imageInput && preview) {
+      imageInput.addEventListener("change", () => {
+        const file = imageInput.files[0];
+        if (!file) {
+          preview.style.backgroundImage = "";
+          preview.classList.remove("is-filled");
+          preview.textContent = "Bildvorschau";
+          return;
+        }
+        if (file.size > MAX_IMAGE_BYTES) {
+          setMessage("Bild ist zu groß. Maximal 1,5 MB.", "error");
+          imageInput.value = "";
+          preview.style.backgroundImage = "";
+          preview.classList.remove("is-filled");
+          preview.textContent = "Bildvorschau";
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => {
+          preview.style.backgroundImage = `url(${reader.result})`;
+          preview.classList.add("is-filled");
+          preview.textContent = "";
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+  }
 
   renderStoredPosts();
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    setMessage("");
-
-    const title = getField("title").value.trim();
-    const type = getField("type").value;
-    const date = getField("date").value;
-    const meta = getField("meta").value.trim();
-    const summary = getField("summary").value.trim();
-    const tags = parseTags(getField("tags").value || "");
-    const imageFile = getField("image").files[0];
-
-    if (!title || !summary) {
-      setMessage("Bitte Titel und Kurzbeschreibung ausfüllen.", "error");
-      return;
-    }
-
-    if (imageFile && imageFile.size > MAX_IMAGE_BYTES) {
-      setMessage("Bild ist zu groß. Maximal 1,5 MB.", "error");
-      return;
-    }
-
-    const session = requireSession();
-    if (!session) {
-      return;
-    }
-
-    const savePost = (imageData) => {
-      const post = store.savePost({
-        id: store.createId("post"),
-        title,
-        type,
-        date,
-        meta,
-        summary,
-        tags: tags.length ? tags : [type],
-        imageData,
-        ownerId: session?.userId || null,
-        ownerName: session?.name || session?.email || "Verein",
-        createdAt: new Date().toISOString(),
-      });
-
-      list.prepend(createPostElement(post));
-      applySearch();
-      form.reset();
-      if (preview) {
-        preview.style.backgroundImage = "";
-        preview.classList.remove("is-filled");
-        preview.textContent = "Bildvorschau";
-      }
-      setMessage("Beitrag gespeichert.", "success");
-    };
-
-    if (imageFile) {
-      const reader = new FileReader();
-      reader.onload = () => savePost(reader.result);
-      reader.readAsDataURL(imageFile);
-    } else {
-      savePost(null);
-    }
-  });
-
-  const imageInput = getField("image");
-  if (imageInput && preview) {
-    imageInput.addEventListener("change", () => {
-      const file = imageInput.files[0];
-      if (!file) {
-        preview.style.backgroundImage = "";
-        preview.classList.remove("is-filled");
-        preview.textContent = "Bildvorschau";
-        return;
-      }
-      if (file.size > MAX_IMAGE_BYTES) {
-        setMessage("Bild ist zu groß. Maximal 1,5 MB.", "error");
-        imageInput.value = "";
-        preview.style.backgroundImage = "";
-        preview.classList.remove("is-filled");
-        preview.textContent = "Bildvorschau";
-        return;
-      }
-      const reader = new FileReader();
-      reader.onload = () => {
-        preview.style.backgroundImage = `url(${reader.result})`;
-        preview.classList.add("is-filled");
-        preview.textContent = "";
-      };
-      reader.readAsDataURL(file);
-    });
-  }
 
   if (searchInput && searchButton) {
     const applySearchInput = () => {
