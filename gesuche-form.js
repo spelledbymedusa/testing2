@@ -4,6 +4,16 @@
   const list = document.querySelector("[data-gesuche-list]");
   const searchInput = document.querySelector("[data-gesuche-search]");
   const searchButton = document.querySelector("[data-gesuche-search-btn]");
+  const detail = document.querySelector("[data-gesuch-detail]");
+  const detailMeta = document.querySelector("[data-gesuch-detail-meta]");
+  const detailTitle = document.querySelector("[data-gesuch-detail-title]");
+  const detailSummary = document.querySelector("[data-gesuch-detail-summary]");
+  const detailVerein = document.querySelector("[data-gesuch-detail-verein]");
+  const detailAddress = document.querySelector("[data-gesuch-detail-address]");
+  const detailContactPerson = document.querySelector("[data-gesuch-detail-contact-person]");
+  const detailEmail = document.querySelector("[data-gesuch-detail-email]");
+  const detailPhone = document.querySelector("[data-gesuch-detail-phone]");
+  const detailNote = document.querySelector("[data-gesuch-detail-note]");
 
   if (!form || !list || !store) {
     return;
@@ -156,6 +166,93 @@
     return row;
   };
 
+  const getGesuchById = (id) => store.getGesuche().find((item) => item.id === id);
+
+  const getBooleanDatasetValue = (value) => value === "true";
+
+  const getProfileFromDataset = (row) => ({
+    vereinName: row.dataset.vereinName || "Verein",
+    address: row.dataset.vereinAddress || "Adresse folgt",
+    contactPerson: row.dataset.vereinContact || "",
+    email: row.dataset.vereinEmail || "",
+    phone: row.dataset.vereinPhone || "",
+    visibility: {
+      email: getBooleanDatasetValue(row.dataset.vereinEmailVisible),
+      phone: getBooleanDatasetValue(row.dataset.vereinPhoneVisible),
+    },
+  });
+
+  const resolveVereinProfile = (gesuch, row) => {
+    if (gesuch?.ownerId) {
+      const profile = store.getOrgProfile(gesuch.ownerId);
+      if (profile) {
+        return profile;
+      }
+    }
+    return getProfileFromDataset(row);
+  };
+
+  const openDetail = (row) => {
+    if (!detail || !row) {
+      return;
+    }
+    const id = row.dataset.gesuchId;
+    const gesuch = getGesuchById(id);
+    const profile = resolveVereinProfile(gesuch, row);
+
+    const title = gesuch?.title || row.querySelector(".gesuche__title")?.textContent || "Gesuch";
+    const meta =
+      gesuch
+        ? `${gesuch.location} • ${gesuch.effort} • ${gesuch.mode}`
+        : row.querySelector(".gesuche__meta")?.textContent || "";
+    const summary = gesuch?.summary || row.querySelector(".gesuche__text")?.textContent || "";
+
+    if (detailMeta) detailMeta.textContent = meta;
+    if (detailTitle) detailTitle.textContent = title;
+    if (detailSummary) detailSummary.textContent = summary;
+    if (detailVerein) detailVerein.textContent = profile.vereinName || "Verein";
+    if (detailAddress) detailAddress.textContent = profile.address || "Adresse folgt";
+
+    const contactPerson = profile.contactPerson?.trim();
+    if (detailContactPerson) {
+      detailContactPerson.textContent = contactPerson ? `Ansprechpartner: ${contactPerson}` : "";
+      detailContactPerson.hidden = !contactPerson;
+    }
+
+    let emailVisible = Boolean(profile.visibility?.email && profile.email);
+    let phoneVisible = Boolean(profile.visibility?.phone && profile.phone);
+    if (!emailVisible && !phoneVisible) {
+      if (profile.email) {
+        emailVisible = true;
+      } else if (profile.phone) {
+        phoneVisible = true;
+      }
+    }
+
+    if (detailEmail) {
+      detailEmail.textContent = emailVisible ? `E-Mail: ${profile.email}` : "";
+      detailEmail.hidden = !emailVisible;
+    }
+    if (detailPhone) {
+      detailPhone.textContent = phoneVisible ? `Telefon: ${profile.phone}` : "";
+      detailPhone.hidden = !phoneVisible;
+    }
+    if (detailNote) {
+      detailNote.textContent = "Adresse ist immer sichtbar. Mindestens eine Kontaktoption bleibt freigegeben.";
+    }
+
+    detail.hidden = false;
+    document.body.classList.add("is-detail-open");
+  };
+
+  const closeDetail = () => {
+    if (!detail) {
+      return;
+    }
+    detail.hidden = true;
+    document.body.classList.remove("is-detail-open");
+  };
+
   const assignIdsToExisting = () => {
     const rows = Array.from(list.querySelectorAll(".gesuche__row"));
     rows.forEach((row, index) => {
@@ -230,8 +327,30 @@
       const id = target.dataset.gesuchId;
       const updated = store.toggleSavedGesuch(id);
       updateSaveButton(target, updated.includes(id));
+      return;
+    }
+    const row = target.closest(".gesuche__row");
+    if (row && !target.closest(".gesuche__save")) {
+      openDetail(row);
     }
   });
+
+  if (detail) {
+    detail.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+      if (target.matches("[data-gesuch-detail-close]")) {
+        closeDetail();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !detail.hidden) {
+        closeDetail();
+      }
+    });
+  }
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
