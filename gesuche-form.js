@@ -66,6 +66,51 @@
     }
   };
 
+  const modeLabels = window.EHN_LABELS?.modes || {
+    vor_ort: "Vor Ort",
+    online: "Online",
+    hybrid: "Hybrid",
+  };
+
+  const resolveModeKey = (value) => {
+    if (!value) {
+      return null;
+    }
+    const normalized = value
+      .toLowerCase()
+      .replace(/\s+/g, "_")
+      .replace(/-/g, "_");
+    if (modeLabels[normalized]) {
+      return normalized;
+    }
+    const match = Object.entries(modeLabels).find(
+      ([, label]) => label.toLowerCase() === value.toLowerCase()
+    );
+    return match ? match[0] : null;
+  };
+
+  const normalizeModeKey = (value) => {
+    const resolved = resolveModeKey(value);
+    if (resolved) {
+      return resolved;
+    }
+    const normalized = value ? value.toLowerCase() : "";
+    if (normalized.includes("online")) {
+      return "online";
+    }
+    if (normalized.includes("hybrid")) {
+      return "hybrid";
+    }
+    return "vor_ort";
+  };
+
+  const getModeLabel = (value) => modeLabels[normalizeModeKey(value)] || modeLabels.vor_ort;
+
+  const getTagLabel = (tag) => {
+    const modeKey = resolveModeKey(tag);
+    return modeKey ? modeLabels[modeKey] : tag;
+  };
+
   const parseTags = (value) =>
     value
       .split(",")
@@ -118,7 +163,7 @@
     tags.forEach((tag) => {
       const span = document.createElement("span");
       span.className = "gesuche__tag";
-      span.textContent = tag;
+      span.textContent = getTagLabel(tag);
       wrapper.appendChild(span);
     });
     return wrapper;
@@ -132,14 +177,8 @@
     row.dataset.newsDate = new Date().toISOString().split("T")[0];
     row.dataset.newsDistance = "0";
 
-    const modeValue = (gesuch.mode || "").toLowerCase();
-    let newsType = "vor-ort";
-    if (modeValue.includes("online")) {
-      newsType = "online";
-    } else if (modeValue.includes("hybrid")) {
-      newsType = "hybrid";
-    }
-    row.dataset.newsType = newsType;
+    const modeKey = normalizeModeKey(gesuch.mode);
+    row.dataset.newsType = modeKey;
 
     const media = document.createElement("div");
     media.className = "gesuche__media";
@@ -159,7 +198,7 @@
 
     const meta = document.createElement("div");
     meta.className = "gesuche__meta";
-    meta.textContent = `${gesuch.location} • ${gesuch.effort} • ${gesuch.mode}`;
+    meta.textContent = `${gesuch.location} • ${gesuch.effort} • ${getModeLabel(gesuch.mode)}`;
 
     const text = document.createElement("div");
     text.className = "gesuche__text";
@@ -235,10 +274,9 @@
     const profile = resolveVereinProfile(gesuch, row);
 
     const title = gesuch?.title || row.querySelector(".gesuche__title")?.textContent || "Gesuch";
-    const meta =
-      gesuch
-        ? `${gesuch.location} • ${gesuch.effort} • ${gesuch.mode}`
-        : row.querySelector(".gesuche__meta")?.textContent || "";
+    const meta = gesuch
+      ? `${gesuch.location} • ${gesuch.effort} • ${getModeLabel(gesuch.mode)}`
+      : row.querySelector(".gesuche__meta")?.textContent || "";
     const summary = gesuch?.summary || row.querySelector(".gesuche__text")?.textContent || "";
 
     if (detailMeta) detailMeta.textContent = meta;
@@ -312,7 +350,7 @@
         const metaParts = metaText.split("•").map((part) => part.trim()).filter(Boolean);
         const location = metaParts[0] || "Ort";
         const effort = metaParts[1] || "Flexibel";
-        const mode = metaParts[metaParts.length - 1] || "Vor Ort";
+        const mode = normalizeModeKey(metaParts[metaParts.length - 1] || "Vor Ort");
         return {
           id: row.dataset.gesuchId,
           title: row.querySelector(".gesuche__title")?.textContent || "Gesuch",
@@ -320,7 +358,10 @@
           effort,
           mode,
           summary: row.querySelector(".gesuche__text")?.textContent || "",
-          tags: Array.from(row.querySelectorAll(".gesuche__tag")).map((tag) => tag.textContent),
+          tags: Array.from(row.querySelectorAll(".gesuche__tag")).map((tag) => {
+            const modeKey = resolveModeKey(tag.textContent);
+            return modeKey ? modeKey : tag.textContent;
+          }),
           imageData: null,
           ownerId: null,
           createdAt: new Date().toISOString(),
@@ -424,6 +465,7 @@
     const location = getField("location").value.trim();
     const effort = getField("effort").value.trim();
     const mode = getField("mode").value;
+    const modeLabel = getModeLabel(mode);
     const summary = getField("summary").value.trim();
     const tags = parseTags(getField("tags").value || "");
     const imageFile = getField("image").files[0];
@@ -451,7 +493,7 @@
         effort,
         mode,
         summary,
-        tags: tags.length ? tags : [mode],
+        tags: tags.length ? tags : [modeLabel],
         imageData,
         ownerId: session?.userId || null,
         ownerName: session?.name || session?.email || "Verein",
