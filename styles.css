@@ -649,6 +649,14 @@ body{
   transition:opacity 150ms ease, transform 150ms ease;
   z-index:20;
 }
+.newsCard__menuLabel{
+  font-size:12px;
+  font-weight:600;
+  color:var(--muted);
+  padding:4px 10px 0;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+}
 .newsCard__controlGroup--right .newsCard__menu{
   right:0;
   left:auto;
@@ -942,6 +950,23 @@ body{
   margin:8px 0 14px;
   display:grid;
   gap:6px;
+}
+.gesuche__card{
+  display:grid;
+  gap:16px;
+}
+.gesuche__divider{
+  height:1px;
+  background:var(--border);
+  width:calc(100% - 28px);
+  margin:2px auto 4px;
+}
+.gesuche__controls{
+  display:grid;
+  gap:12px;
+}
+.gesuche__controls .gesuche__toolbar{
+  margin-bottom:0;
 }
 .gesuche__filterSubtitle{
   color:var(--muted);

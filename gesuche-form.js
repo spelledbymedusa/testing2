@@ -69,6 +69,12 @@
       .map((tag) => tag.trim())
       .filter(Boolean);
 
+  const updateVisibility = (item) => {
+    const searchHidden = item.dataset.searchHidden === "true";
+    const filterHidden = item.dataset.filterHidden === "true";
+    item.hidden = searchHidden || filterHidden;
+  };
+
   const applySearch = () => {
     const items = Array.from(list.querySelectorAll(".gesuche__row"));
     items.forEach((item) => {
@@ -81,7 +87,8 @@
         .join(" ")
         .toLowerCase();
       const match = !searchTerm || haystack.includes(searchTerm);
-      item.hidden = !match;
+      item.dataset.searchHidden = match ? "false" : "true";
+      updateVisibility(item);
     });
   };
 
@@ -118,6 +125,18 @@
     const row = document.createElement("article");
     row.className = "gesuche__row";
     row.dataset.gesuchId = gesuch.id;
+    row.setAttribute("data-news-item", "");
+    row.dataset.newsDate = new Date().toISOString().split("T")[0];
+    row.dataset.newsDistance = "0";
+
+    const modeValue = (gesuch.mode || "").toLowerCase();
+    let newsType = "vor-ort";
+    if (modeValue.includes("online")) {
+      newsType = "online";
+    } else if (modeValue.includes("hybrid")) {
+      newsType = "hybrid";
+    }
+    row.dataset.newsType = newsType;
 
     const media = document.createElement("div");
     media.className = "gesuche__media";
