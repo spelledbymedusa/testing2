@@ -362,6 +362,9 @@ body{
 .nav__menu:focus-within .nav__dropdown{
   display:flex;
 }
+.nav__dropdown.is-open{
+  display:flex;
+}
 
 .nav__dropdownLink{
   text-decoration:none;
@@ -1100,6 +1103,13 @@ body{
 .auth__chk{display:flex;gap:10px;align-items:center;font-size:13px}
 .auth__link{color:var(--accent);text-decoration:none}
 .auth__link:hover{text-decoration:underline}
+.auth__linkButton{
+  border:0;
+  background:none;
+  padding:0;
+  font:inherit;
+  cursor:pointer;
+}
 .auth__submit{
   border:var(--borderWidth) solid rgba(47,95,59,.42);
   background:var(--accentSoft);

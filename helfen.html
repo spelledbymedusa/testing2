@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./styles.css" />
     <script src="./theme.js" defer></script>
     <script src="./nav-active.js" defer></script>
+    <script src="./nav-menu.js" defer></script>
+    <script src="./helfen.js" defer></script>
   </head>
 
   <body>
@@ -46,14 +48,14 @@
             </button>
           </div>
           <div class="nav__menu">
-            <button class="nav__toggle" type="button" aria-label="Menü öffnen">
+            <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-menu-main" data-nav-toggle="main">
               <span class="nav__toggleLines" aria-hidden="true">
                 <span class="nav__toggleLine"></span>
                 <span class="nav__toggleLine"></span>
                 <span class="nav__toggleLine"></span>
               </span>
             </button>
-            <div class="nav__dropdown" aria-label="Menü">
+            <div class="nav__dropdown" id="nav-menu-main" aria-label="Menü" data-nav-menu="main">
               <a class="nav__dropdownLink" href="./index.html">Home</a>
               <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
               <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
@@ -316,51 +318,7 @@
       </section>
     </main>
 
-    <script>
-      const choiceButtons = Array.from(document.querySelectorAll("[data-choice-filter]"));
-      const choicePanels = Array.from(document.querySelectorAll("[data-choice-panel]"));
-      const choiceSection = document.querySelector("[data-choice-section]");
-      const level2Section = document.querySelector("[data-level2-section]");
-
-      if (level2Section) {
-        level2Section.hidden = true;
-      }
-
-      const setActiveChoice = (activeFilter) => {
-        if (!activeFilter) {
-          return;
-        }
-
-        choiceButtons.forEach((button) => {
-          const isActive = button.dataset.choiceFilter === activeFilter;
-          button.classList.toggle("helfen__choiceCard--active", isActive);
-          button.setAttribute("aria-pressed", String(isActive));
-        });
-
-        choicePanels.forEach((panel) => {
-          panel.toggleAttribute("hidden", panel.dataset.choicePanel !== activeFilter);
-        });
-
-        if (choiceSection) {
-          choiceSection.hidden = true;
-        }
-
-        if (level2Section) {
-          level2Section.hidden = false;
-        }
-      };
-
-      choiceButtons.forEach((button) => {
-        button.addEventListener("click", () => setActiveChoice(button.dataset.choiceFilter));
-      });
-
-      const defaultButton = choiceButtons.find((button) =>
-        button.classList.contains("helfen__choiceCard--active")
-      );
-      if (defaultButton) {
-        setActiveChoice(defaultButton.dataset.choiceFilter);
-      }
-    </script>
+    
 
     <footer class="footer">
       <div class="container footer__inner">

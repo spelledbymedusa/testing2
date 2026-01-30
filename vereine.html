@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles.css" />
     <script src="./theme.js" defer></script>
     <script src="./nav-active.js" defer></script>
+    <script src="./nav-menu.js" defer></script>
   </head>
 
   <body>
@@ -46,14 +47,14 @@
             </button>
           </div>
           <div class="nav__menu">
-            <button class="nav__toggle" type="button" aria-label="Menü öffnen">
+            <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-menu-main" data-nav-toggle="main">
               <span class="nav__toggleLines" aria-hidden="true">
                 <span class="nav__toggleLine"></span>
                 <span class="nav__toggleLine"></span>
                 <span class="nav__toggleLine"></span>
               </span>
             </button>
-            <div class="nav__dropdown" aria-label="Menü">
+            <div class="nav__dropdown" id="nav-menu-main" aria-label="Menü" data-nav-menu="main">
               <a class="nav__dropdownLink" href="./index.html">Home</a>
               <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
               <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>

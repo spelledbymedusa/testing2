@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./styles.css" />
     <script src="./theme.js" defer></script>
     <script src="./nav-active.js" defer></script>
+    <script src="./nav-menu.js" defer></script>
+    <script src="./auth.js" defer></script>
   </head>
 
   <body>
@@ -46,14 +48,14 @@
             </button>
           </div>
           <div class="nav__menu">
-            <button class="nav__toggle" type="button" aria-label="Menü öffnen">
+            <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-menu-main" data-nav-toggle="main">
               <span class="nav__toggleLines" aria-hidden="true">
                 <span class="nav__toggleLine"></span>
                 <span class="nav__toggleLine"></span>
                 <span class="nav__toggleLine"></span>
               </span>
             </button>
-            <div class="nav__dropdown" aria-label="Menü">
+            <div class="nav__dropdown" id="nav-menu-main" aria-label="Menü" data-nav-menu="main">
               <a class="nav__dropdownLink" href="./index.html">Home</a>
               <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
               <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
@@ -168,7 +170,7 @@
                 <button class="auth__submit" type="button">Anmelden</button>
 
                 <div class="auth__small">
-                  Noch kein Account? <a class="auth__link" href="#" data-switch-to="signup">Registrieren</a>
+                  Noch kein Account? <button class="auth__link auth__linkButton" type="button" data-switch-to="signup">Registrieren</button>
                 </div>
               </div>
 
@@ -207,7 +209,7 @@
                 <button class="auth__submit" type="button">Registrieren</button>
 
                 <div class="auth__small">
-                  Schon registriert? <a class="auth__link" href="#" data-switch-to="login">Anmelden</a>
+                  Schon registriert? <button class="auth__link auth__linkButton" type="button" data-switch-to="login">Anmelden</button>
                 </div>
               </div>
 
@@ -235,7 +237,7 @@
                 <button class="auth__submit" type="button">Anmelden</button>
 
                 <div class="auth__small">
-                  Noch kein Vereins-Account? <a class="auth__link" href="#" data-switch-to="signup">Registrieren</a>
+                  Noch kein Vereins-Account? <button class="auth__link auth__linkButton" type="button" data-switch-to="signup">Registrieren</button>
                 </div>
               </div>
 
@@ -279,7 +281,7 @@
                 <button class="auth__submit" type="button">Registrieren</button>
 
                 <div class="auth__small">
-                  Schon registriert? <a class="auth__link" href="#" data-switch-to="login">Anmelden</a>
+                  Schon registriert? <button class="auth__link auth__linkButton" type="button" data-switch-to="login">Anmelden</button>
                 </div>
               </div>
             </form>
@@ -305,61 +307,6 @@
       </div>
     </footer>
 
-    <script>
-      (function () {
-        const card = document.getElementById("authCard");
-        const roleBtns = Array.from(card.querySelectorAll(".auth__roleBtn"));
-        const modeBtns = Array.from(card.querySelectorAll(".auth__tab"));
-        const sections = Array.from(card.querySelectorAll(".auth__section"));
-        const switchLinks = Array.from(card.querySelectorAll("[data-switch-to]"));
-
-        let currentRole = "person";
-        let currentMode = "login";
-
-        function setActiveButton(btns, activeBtn, activeClass) {
-          btns.forEach((b) => {
-            const isActive = b === activeBtn;
-            b.classList.toggle(activeClass, isActive);
-            b.setAttribute("aria-selected", isActive ? "true" : "false");
-          });
-        }
-
-        function render() {
-          sections.forEach((sec) => {
-            const matches =
-              sec.getAttribute("data-role") === currentRole &&
-              sec.getAttribute("data-mode") === currentMode;
-            sec.hidden = !matches;
-          });
-        }
-
-        roleBtns.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            currentRole = btn.getAttribute("data-role");
-            setActiveButton(roleBtns, btn, "auth__roleBtn--active");
-            render();
-          });
-        });
-
-        modeBtns.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            currentMode = btn.getAttribute("data-mode");
-            setActiveButton(modeBtns, btn, "auth__tab--active");
-            render();
-          });
-        });
-
-        switchLinks.forEach((a) => {
-          a.addEventListener("click", (e) => {
-            e.preventDefault();
-            const target = a.getAttribute("data-switch-to");
-            const targetBtn = modeBtns.find((b) => b.getAttribute("data-mode") === target);
-            if (targetBtn) targetBtn.click();
-          });
-        });
-
-        render();
-      })();
-    </script>
+    
   </body>
 </html>
