@@ -15,7 +15,7 @@
   const detailPhone = document.querySelector("[data-gesuch-detail-phone]");
   const detailNote = document.querySelector("[data-gesuch-detail-note]");
 
-  if (!form || !list || !store) {
+  if (!form) {
     return;
   }
 
@@ -48,6 +48,10 @@
         form.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
+  }
+
+  if (!list || !store) {
+    return;
   }
 
   const setMessage = (text, tone) => {
