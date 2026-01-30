@@ -6,6 +6,7 @@
     <title>Ehrenamtsnetz • Gesuche</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./theme.js" defer></script>
+    <script src="./labels.js" defer></script>
     <script src="./nav.js" defer></script>
     <script src="./nav-active.js" defer></script>
     <script src="./data-store.js" defer></script>
@@ -119,9 +120,9 @@
                     <label class="entryForm__label">
                       Modus *
                       <select class="entryForm__select" data-gesuche-field="mode" required>
-                        <option value="Vor Ort">Vor Ort</option>
-                        <option value="Online">Online</option>
-                        <option value="Hybrid">Hybrid</option>
+                        <option value="vor_ort">Vor Ort</option>
+                        <option value="online">Online</option>
+                        <option value="hybrid">Hybrid</option>
                       </select>
                     </label>
                   </div>
@@ -197,7 +198,7 @@
                       <div class="newsCard__menuLabel">Filtern nach</div>
                       <div class="newsCard__menuDivider" aria-hidden="true"></div>
                       <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
-                      <button class="newsCard__menuItem" type="button" data-news-filter="vor-ort">Vor Ort</button>
+                      <button class="newsCard__menuItem" type="button" data-news-filter="vor_ort">Vor Ort</button>
                       <button class="newsCard__menuItem" type="button" data-news-filter="online">Online</button>
                       <button class="newsCard__menuItem" type="button" data-news-filter="hybrid">Hybrid</button>
                     </div>
@@ -210,7 +211,7 @@
                 <article
                   class="gesuche__row"
                   data-news-item
-                  data-news-type="vor-ort"
+                  data-news-type="vor_ort"
                   data-news-date="2024-06-02"
                   data-news-distance="2"
                   data-verein-name="Seniorenhilfe Berlin e.V."
@@ -284,7 +285,7 @@
                 <article
                   class="gesuche__row"
                   data-news-item
-                  data-news-type="vor-ort"
+                  data-news-type="vor_ort"
                   data-news-date="2024-05-18"
                   data-news-distance="5"
                   data-verein-name="Tierfreunde Hamburg"
@@ -298,12 +299,12 @@
                   <div class="gesuche__media" aria-hidden="true"></div>
                   <div class="gesuche__left">
                     <h3 class="gesuche__title">Hilfe im Tierheim am Wochenende</h3>
-                    <div class="gesuche__meta">Hamburg • 5 km • halber Tag • Offline</div>
+                    <div class="gesuche__meta">Hamburg • 5 km • halber Tag • Vor Ort</div>
 
                     <div class="gesuche__tags">
                       <span class="gesuche__tag">Tiere</span>
                       <span class="gesuche__tag">Wochenende</span>
-                      <span class="gesuche__tag">Offline</span>
+                      <span class="gesuche__tag">Vor Ort</span>
                     </div>
 
                     <div class="gesuche__text">
@@ -321,7 +322,7 @@
                 <article
                   class="gesuche__row"
                   data-news-item
-                  data-news-type="vor-ort"
+                  data-news-type="vor_ort"
                   data-news-date="2024-05-12"
                   data-news-distance="4"
                   data-verein-name="Nachbarschaftshaus Nord"
@@ -392,7 +393,7 @@
                   <summary>Modus</summary>
                   <div class="gesuche__filterBody">
                     <label class="gesuche__chk"><input type="checkbox" /> Online</label>
-                    <label class="gesuche__chk"><input type="checkbox" /> Offline</label>
+                    <label class="gesuche__chk"><input type="checkbox" /> Vor Ort</label>
                   </div>
                 </details>
 
@@ -478,7 +479,7 @@
 
         const formatValue = (value) =>
           value
-            .split("-")
+            .split(/[-_]/)
             .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
             .join(" ");
 
