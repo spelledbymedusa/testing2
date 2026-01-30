@@ -61,11 +61,10 @@
               <a class="nav__dropdownLink" href="./index.html">Home</a>
               <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
               <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
-              <a class="nav__dropdownLink" href="./account.html">Account</a>
+              <a class="nav__dropdownLink" href="./login.html" data-auth-switch>Login</a>
               <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
               <div class="nav__dropdownDivider" aria-hidden="true"></div>
               <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
-              <a class="nav__dropdownLink" href="./login.html" data-auth-link>Login / Logout</a>
               <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
               <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
             </div>
@@ -78,7 +77,7 @@
       <div class="container">
         <div class="section__header">
           <div>
-            <h2 class="h2">Vereins-Dashboard</h2>
+            <h1 class="h1">Vereins-Dashboard</h1>
             <div class="sub">Übersicht über Profil, Gesuche und Aktivitäten.</div>
           </div>
         </div>
@@ -132,6 +131,48 @@
           </div>
 
           <div class="account__panel">
+            <div class="account__panelTitle">Kontakt & Sichtbarkeit</div>
+            <form class="account__form" data-account-contact-form>
+              <label class="account__label">
+                Verein *
+                <input class="account__input" type="text" data-account-contact="verein" required />
+              </label>
+              <label class="account__label">
+                Adresse (sichtbar) *
+                <input class="account__input" type="text" data-account-contact="address" required />
+              </label>
+              <label class="account__label">
+                Ansprechpartner (optional)
+                <input class="account__input" type="text" data-account-contact="contactPerson" />
+              </label>
+              <div class="account__formRow">
+                <label class="account__label">
+                  E-Mail *
+                  <input class="account__input" type="email" data-account-contact="email" required />
+                </label>
+                <label class="account__toggle">
+                  <span>Sichtbar</span>
+                  <input type="checkbox" data-account-visibility="email" />
+                </label>
+              </div>
+              <div class="account__formRow">
+                <label class="account__label">
+                  Telefon
+                  <input class="account__input" type="tel" data-account-contact="phone" />
+                </label>
+                <label class="account__toggle">
+                  <span>Sichtbar</span>
+                  <input type="checkbox" data-account-visibility="phone" />
+                </label>
+              </div>
+              <div class="account__panelActions">
+                <button class="account__btnPrimary" type="submit">Kontakt speichern</button>
+                <div class="account__hint" data-account-contact-hint></div>
+              </div>
+            </form>
+          </div>
+
+          <div class="account__panel">
             <div class="account__panelTitle">Einstellungen</div>
             <div class="account__settings">
               <label class="account__setting">
@@ -150,7 +191,7 @@
 
             <div class="account__panelActions">
               <button class="account__btn" type="button">Speichern</button>
-              <a class="nav__link" href="./login.html" data-auth-link>Abmelden</a>
+              <a class="nav__link" href="./login.html" data-auth-logout>Abmelden</a>
             </div>
           </div>
         </div>

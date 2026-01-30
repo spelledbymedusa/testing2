@@ -5,6 +5,7 @@
     posts: "ehnPosts",
     gesuche: "ehnGesuche",
     savedGesuche: "ehnSavedGesuche",
+    orgProfiles: "ehnOrgProfiles",
   };
 
   const readJSON = (key, fallback) => {
@@ -34,6 +35,8 @@
   const saveGesuche = (gesuche) => writeJSON(STORAGE_KEYS.gesuche, gesuche);
   const getSavedGesuche = () => readJSON(STORAGE_KEYS.savedGesuche, []);
   const saveSavedGesuche = (saved) => writeJSON(STORAGE_KEYS.savedGesuche, saved);
+  const getOrgProfiles = () => readJSON(STORAGE_KEYS.orgProfiles, {});
+  const saveOrgProfiles = (profiles) => writeJSON(STORAGE_KEYS.orgProfiles, profiles);
 
   const store = {
     createId,
@@ -74,6 +77,22 @@
       const updated = Array.from(saved);
       saveSavedGesuche(updated);
       return updated;
+    },
+    getOrgProfile: (userId) => {
+      if (!userId) {
+        return null;
+      }
+      const profiles = getOrgProfiles();
+      return profiles[userId] || null;
+    },
+    setOrgProfile: (userId, profile) => {
+      if (!userId) {
+        return null;
+      }
+      const profiles = getOrgProfiles();
+      profiles[userId] = profile;
+      saveOrgProfiles(profiles);
+      return profile;
     },
   };
 

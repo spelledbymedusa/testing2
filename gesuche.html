@@ -61,11 +61,10 @@
               <a class="nav__dropdownLink" href="./index.html">Home</a>
               <a class="nav__dropdownLink" href="./helfen.html">Helfen</a>
               <a class="nav__dropdownLink" href="./blog.html">Einblicke</a>
-              <a class="nav__dropdownLink" href="./account.html">Account</a>
+              <a class="nav__dropdownLink" href="./login.html" data-auth-switch>Login</a>
               <a class="nav__dropdownLink" href="./vereine.html">Vereine</a>
               <div class="nav__dropdownDivider" aria-hidden="true"></div>
               <a class="nav__dropdownLink" href="./gesuche.html">Gesuche</a>
-              <a class="nav__dropdownLink" href="./login.html" data-auth-link>Login / Logout</a>
               <a class="nav__dropdownLink" href="./index.html#impressum">Impressum</a>
               <a class="nav__dropdownLink" href="./index.html#datenschutz">Datenschutz</a>
             </div>
@@ -78,7 +77,7 @@
       <div class="container">
         <div class="section__header">
           <div>
-            <h2 class="h2" id="gesuche-title">Gesuche</h2>
+            <h1 class="h1" id="gesuche-title">Gesuche</h1>
             <div class="sub" id="gesuche-subtitle">Konkrete Hilfsanfragen – lokal oder online, kurz- oder langfristig.</div>
           </div>
         </div>
@@ -159,10 +158,19 @@
 
             <div class="gesuche__list" data-gesuche-list>
               <!-- Gesuch row 1 -->
-              <article class="gesuche__row">
+              <article
+                class="gesuche__row"
+                data-verein-name="Seniorenhilfe Berlin e.V."
+                data-verein-address="Kastanienallee 14, 10435 Berlin"
+                data-verein-email="kontakt@seniorenhilfe-berlin.de"
+                data-verein-phone="+49 30 234567-0"
+                data-verein-contact="Maren Hoffmann"
+                data-verein-email-visible="true"
+                data-verein-phone-visible="false"
+              >
                 <div class="gesuche__media" aria-hidden="true"></div>
                 <div class="gesuche__left">
-                  <div class="gesuche__title">Begleitung zum Arzt gesucht</div>
+                  <h3 class="gesuche__title">Begleitung zum Arzt gesucht</h3>
                   <div class="gesuche__meta">Berlin • 2 km • 30–90 Min • Vor Ort</div>
 
                   <div class="gesuche__tags">
@@ -183,10 +191,19 @@
               </article>
 
               <!-- Gesuch row 2 -->
-              <article class="gesuche__row">
+              <article
+                class="gesuche__row"
+                data-verein-name="Lernbrücke Online"
+                data-verein-address="Digitale Beratung, Berlin"
+                data-verein-email="team@lernbruecke-online.de"
+                data-verein-phone="+49 30 987654-0"
+                data-verein-contact="Said Yilmaz"
+                data-verein-email-visible="true"
+                data-verein-phone-visible="true"
+              >
                 <div class="gesuche__media" aria-hidden="true"></div>
                 <div class="gesuche__left">
-                  <div class="gesuche__title">Online Nachhilfe (Mathe) für Schüler</div>
+                  <h3 class="gesuche__title">Online Nachhilfe (Mathe) für Schüler</h3>
                   <div class="gesuche__meta">Online • flexibel • 1–2 Std/Woche</div>
 
                   <div class="gesuche__tags">
@@ -207,10 +224,19 @@
               </article>
 
               <!-- Gesuch row 3 -->
-              <article class="gesuche__row">
+              <article
+                class="gesuche__row"
+                data-verein-name="Tierfreunde Hamburg"
+                data-verein-address="Barkhausenweg 2, 22339 Hamburg"
+                data-verein-email="kontakt@tierfreunde-hh.de"
+                data-verein-phone="+49 40 555123-0"
+                data-verein-contact="Lina Vogt"
+                data-verein-email-visible="false"
+                data-verein-phone-visible="true"
+              >
                 <div class="gesuche__media" aria-hidden="true"></div>
                 <div class="gesuche__left">
-                  <div class="gesuche__title">Hilfe im Tierheim am Wochenende</div>
+                  <h3 class="gesuche__title">Hilfe im Tierheim am Wochenende</h3>
                   <div class="gesuche__meta">Hamburg • 5 km • halber Tag • Offline</div>
 
                   <div class="gesuche__tags">
@@ -231,10 +257,19 @@
               </article>
 
               <!-- More placeholders -->
-              <article class="gesuche__row">
+              <article
+                class="gesuche__row"
+                data-verein-name="Nachbarschaftshaus Nord"
+                data-verein-address="Nordplatz 5, 30159 Hannover"
+                data-verein-email="info@nachbarschaft-nord.de"
+                data-verein-phone="+49 511 780900"
+                data-verein-contact=""
+                data-verein-email-visible="true"
+                data-verein-phone-visible="false"
+              >
                 <div class="gesuche__media" aria-hidden="true"></div>
                 <div class="gesuche__left">
-                  <div class="gesuche__title">Gesuch Platzhalter</div>
+                  <h3 class="gesuche__title">Gesuch Platzhalter</h3>
                   <div class="gesuche__meta">Ort • Nähe • Aufwand • Modus</div>
                   <div class="gesuche__tags">
                     <span class="gesuche__tag">Tag 1</span>
@@ -324,6 +359,30 @@
         </div>
       </div>
     </section>
+
+    <div class="gesuchDetail" data-gesuch-detail hidden>
+      <div class="gesuchDetail__overlay" data-gesuch-detail-close></div>
+      <div class="gesuchDetail__panel" role="dialog" aria-modal="true" aria-labelledby="gesuch-detail-title">
+        <button class="gesuchDetail__close" type="button" data-gesuch-detail-close>Schließen</button>
+        <div class="gesuchDetail__content">
+          <div class="gesuchDetail__meta" data-gesuch-detail-meta></div>
+          <h2 class="h2" id="gesuch-detail-title" data-gesuch-detail-title></h2>
+          <p class="gesuchDetail__summary" data-gesuch-detail-summary></p>
+
+          <div class="gesuchDetail__section">
+            <h3 class="h3">Verein</h3>
+            <div class="gesuchDetail__verein" data-gesuch-detail-verein></div>
+            <div class="gesuchDetail__address" data-gesuch-detail-address></div>
+            <div class="gesuchDetail__contact">
+              <div class="gesuchDetail__contactLead" data-gesuch-detail-contact-person></div>
+              <div class="gesuchDetail__contactRow" data-gesuch-detail-email></div>
+              <div class="gesuchDetail__contactRow" data-gesuch-detail-phone></div>
+            </div>
+            <div class="gesuchDetail__note" data-gesuch-detail-note></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container footer__inner">
