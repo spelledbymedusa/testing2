@@ -1249,6 +1249,33 @@ body{
   min-height:44px;
   font:inherit;
 }
+.entryForm__input[type="file"]{
+  padding:8px 12px;
+  cursor:pointer;
+  color:var(--muted);
+}
+.entryForm__input[type="file"]::file-selector-button{
+  margin-right:12px;
+  padding:8px 14px;
+  border-radius:999px;
+  border:var(--innerBorderWidth) solid rgba(47,95,59,.35);
+  background:rgba(47,95,59,.08);
+  color:var(--accentDark);
+  font:inherit;
+  font-weight:600;
+  cursor:pointer;
+  transition:border-color 150ms ease, background 150ms ease, transform 150ms ease;
+}
+.entryForm__input[type="file"]::file-selector-button:hover{
+  border-color:rgba(47,95,59,.5);
+  background:rgba(47,95,59,.14);
+  transform:translateY(-1px);
+}
+[data-theme="dark"] .entryForm__input[type="file"]::file-selector-button{
+  border-color:rgba(154,211,154,.4);
+  background:rgba(154,211,154,.12);
+  color:var(--accent);
+}
 .entryForm__textarea{
   min-height:110px;
   resize:vertical;
