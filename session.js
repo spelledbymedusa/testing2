@@ -27,6 +27,8 @@
 
   updateAuthLink();
 
+  document.addEventListener("nav:rendered", updateAuthLink);
+
   logoutLinks.forEach((logoutLink) => {
     if (!logoutLink.dataset.authBound) {
       logoutLink.dataset.authBound = "true";
