@@ -1230,6 +1230,9 @@ body{
   background:var(--panel);
   margin-bottom:16px;
 }
+.entryForm[hidden]{
+  display:none;
+}
 .entryForm__grid{
   display:grid;
   gap:12px;
