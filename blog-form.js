@@ -33,6 +33,9 @@
     setCreateExpanded(initialExpanded);
     createToggle.addEventListener("click", (event) => {
       event.preventDefault();
+      if (createToggle.disabled) {
+        return;
+      }
       const isExpanded = createToggle.getAttribute("aria-expanded") === "true";
       setCreateExpanded(!isExpanded);
     });
@@ -181,6 +184,36 @@
     applySearch();
   };
 
+  const requireSession = () => {
+    const session = store.getSession();
+    if (!session?.userId) {
+      setMessage("Bitte einloggen, um einen Beitrag zu erstellen.", "error");
+      return null;
+    }
+    return session;
+  };
+
+  const updateCreateAccess = () => {
+    const session = store.getSession();
+    const isLoggedIn = Boolean(session?.userId);
+    form.querySelectorAll("input, select, textarea, button").forEach((field) => {
+      if (field === createToggle) {
+        return;
+      }
+      field.disabled = !isLoggedIn;
+    });
+    if (createToggle) {
+      createToggle.disabled = !isLoggedIn;
+      createToggle.setAttribute("aria-disabled", String(!isLoggedIn));
+    }
+    if (!isLoggedIn) {
+      setCreateExpanded(false);
+      setMessage("Bitte einloggen, um einen Beitrag zu erstellen.", "error");
+    }
+  };
+
+  updateCreateAccess();
+
   renderStoredPosts();
 
   form.addEventListener("submit", (event) => {
@@ -205,7 +238,10 @@
       return;
     }
 
-    const session = store.getSession();
+    const session = requireSession();
+    if (!session) {
+      return;
+    }
 
     const savePost = (imageData) => {
       const post = store.savePost({
@@ -218,6 +254,7 @@
         tags: tags.length ? tags : [type],
         imageData,
         ownerId: session?.userId || null,
+        ownerName: session?.name || session?.email || "Verein",
         createdAt: new Date().toISOString(),
       });
 

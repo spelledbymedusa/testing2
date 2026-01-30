@@ -43,6 +43,9 @@
     setCreateExpanded(initialExpanded);
     createToggle.addEventListener("click", (event) => {
       event.preventDefault();
+      if (createToggle.disabled) {
+        return;
+      }
       const isExpanded = createToggle.getAttribute("aria-expanded") === "true";
       setCreateExpanded(!isExpanded);
     });
@@ -189,6 +192,16 @@
       const profile = store.getOrgProfile(gesuch.ownerId);
       if (profile) {
         return profile;
+      }
+      if (gesuch.ownerName) {
+        return {
+          vereinName: gesuch.ownerName,
+          address: "Adresse folgt",
+          contactPerson: "",
+          email: "",
+          phone: "",
+          visibility: { email: false, phone: false },
+        };
       }
     }
     return getProfileFromDataset(row);
@@ -354,6 +367,36 @@
     });
   }
 
+  const requireSession = () => {
+    const session = store.getSession();
+    if (!session?.userId) {
+      setMessage("Bitte einloggen, um ein neues Gesuch zu erstellen.", "error");
+      return null;
+    }
+    return session;
+  };
+
+  const updateCreateAccess = () => {
+    const session = store.getSession();
+    const isLoggedIn = Boolean(session?.userId);
+    form.querySelectorAll("input, select, textarea, button").forEach((field) => {
+      if (field === createToggle) {
+        return;
+      }
+      field.disabled = !isLoggedIn;
+    });
+    if (createToggle) {
+      createToggle.disabled = !isLoggedIn;
+      createToggle.setAttribute("aria-disabled", String(!isLoggedIn));
+    }
+    if (!isLoggedIn) {
+      setCreateExpanded(false);
+      setMessage("Bitte einloggen, um ein neues Gesuch zu erstellen.", "error");
+    }
+  };
+
+  updateCreateAccess();
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     setMessage("");
@@ -376,7 +419,10 @@
       return;
     }
 
-    const session = store.getSession();
+    const session = requireSession();
+    if (!session) {
+      return;
+    }
 
     const saveGesuch = (imageData) => {
       const gesuch = store.saveGesuch({
@@ -389,6 +435,7 @@
         tags: tags.length ? tags : [mode],
         imageData,
         ownerId: session?.userId || null,
+        ownerName: session?.name || session?.email || "Verein",
         createdAt: new Date().toISOString(),
       });
 
