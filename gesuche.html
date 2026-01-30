@@ -95,14 +95,25 @@
               <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
             </div>
 
-            <div class="gesuche__create" id="gesuche-create">
+            <div class="gesuche__create is-collapsed" id="gesuche-create" data-gesuche-collapsible>
               <div class="section__header">
                 <div>
-                  <h3 class="h2">Gesuch erstellen</h3>
+                  <h3 class="h2">
+                    <button
+                      class="gesuche__toggle"
+                      type="button"
+                      data-gesuche-toggle
+                      aria-expanded="false"
+                      aria-controls="gesuche-create-form"
+                    >
+                      <span>Gesuch erstellen</span>
+                      <span class="gesuche__toggleIcon" aria-hidden="true">+</span>
+                    </button>
+                  </h3>
                   <div class="sub">Teile eine konkrete Anfrage und finde Unterstützung.</div>
                 </div>
               </div>
-              <form class="entryForm" data-gesuche-form>
+              <form class="entryForm" id="gesuche-create-form" data-gesuche-form hidden>
                 <div class="entryForm__grid">
                   <label class="entryForm__label">
                     Titel *

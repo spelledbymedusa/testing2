@@ -5,7 +5,7 @@
   const searchInput = document.querySelector("[data-gesuche-search]");
   const searchButton = document.querySelector("[data-gesuche-search-btn]");
 
-  if (!form || !list || !store) {
+  if (!form) {
     return;
   }
 
@@ -15,6 +15,34 @@
   const getField = (key) => form.querySelector(`[data-gesuche-field="${key}"]`);
   const message = form.querySelector("[data-gesuche-message]");
   const preview = form.querySelector("[data-gesuche-preview]");
+  const createWrapper = document.querySelector("[data-gesuche-collapsible]");
+  const createToggle = document.querySelector("[data-gesuche-toggle]");
+
+  const setCreateExpanded = (expanded) => {
+    form.hidden = !expanded;
+    if (createWrapper) {
+      createWrapper.classList.toggle("is-collapsed", !expanded);
+    }
+    if (createToggle) {
+      createToggle.setAttribute("aria-expanded", String(expanded));
+    }
+  };
+
+  if (createToggle) {
+    const initialExpanded = createToggle.getAttribute("aria-expanded") === "true";
+    setCreateExpanded(initialExpanded);
+    createToggle.addEventListener("click", () => {
+      const isExpanded = createToggle.getAttribute("aria-expanded") === "true";
+      setCreateExpanded(!isExpanded);
+      if (!isExpanded) {
+        form.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+
+  if (!list || !store) {
+    return;
+  }
 
   const setMessage = (text, tone) => {
     if (!message) {

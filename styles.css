@@ -859,6 +859,39 @@ body{
   font-size:13px;
 }
 
+/* Gesuche create toggle */
+.gesuche__toggle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  width:100%;
+  padding:0;
+  border:none;
+  background:transparent;
+  color:inherit;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+.gesuche__toggleIcon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  border:var(--innerBorderWidth) solid var(--border);
+  font-size:18px;
+  line-height:1;
+  transition:transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+.gesuche__toggle[aria-expanded="true"] .gesuche__toggleIcon{
+  transform:rotate(45deg);
+  background:var(--accentSoft);
+  border-color:rgba(47,95,59,.4);
+}
+
 /* Search input */
 .vereine__search,
 .gesuche__search,
