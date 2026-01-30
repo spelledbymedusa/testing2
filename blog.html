@@ -88,14 +88,25 @@
         <div class="blog__layout">
           <!-- MAIN -->
           <div class="blog__main" data-news-card>
-            <div class="blog__create" id="blog-create">
+            <div class="blog__create is-collapsed" id="blog-create" data-blog-collapsible>
               <div class="section__header">
                 <div>
-                  <h3 class="h2">Beitrag erstellen</h3>
+                  <h3 class="h2">
+                    <button
+                      class="blog__toggle"
+                      type="button"
+                      data-blog-toggle
+                      aria-expanded="false"
+                      aria-controls="blog-create-form"
+                    >
+                      <span>Beitrag erstellen</span>
+                      <span class="blog__toggleIcon" aria-hidden="true">+</span>
+                    </button>
+                  </h3>
                   <div class="sub">Neuen Einblick teilen (Artikel, Event, Download, Gesuch).</div>
                 </div>
               </div>
-              <form class="entryForm" data-blog-form>
+              <form class="entryForm" id="blog-create-form" data-blog-form hidden>
                 <div class="entryForm__grid">
                   <label class="entryForm__label">
                     Titel *
