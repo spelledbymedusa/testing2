@@ -30,8 +30,8 @@
       return;
     }
 
-    const items = Array.from(list.querySelectorAll(".newsCard__item"));
-    items.forEach((item, index) => {
+    const getItems = () => Array.from(list.querySelectorAll(".newsCard__item"));
+    getItems().forEach((item, index) => {
       if (!item.dataset.newsOrder) {
         item.dataset.newsOrder = String(index + 1);
       }
@@ -46,6 +46,12 @@
     allToggles.push(...toggles);
 
     const applySort = (sortKey) => {
+      const items = getItems();
+      items.forEach((item, index) => {
+        if (!item.dataset.newsOrder) {
+          item.dataset.newsOrder = String(index + 1);
+        }
+      });
       const sorted = [...items].sort((a, b) => {
         if (sortKey === "curated") {
           return Number(a.dataset.newsOrder) - Number(b.dataset.newsOrder);
@@ -64,10 +70,18 @@
       sorted.forEach((item) => list.appendChild(item));
     };
 
+    const updateVisibility = (item) => {
+      const searchHidden = item.dataset.searchHidden === "true";
+      const filterHidden = item.dataset.filterHidden === "true";
+      item.hidden = searchHidden || filterHidden;
+    };
+
     const applyFilter = (filterKey) => {
+      const items = getItems();
       items.forEach((item) => {
         const matches = filterKey === "all" || item.dataset.newsType === filterKey;
-        item.hidden = !matches;
+        item.dataset.filterHidden = matches ? "false" : "true";
+        updateVisibility(item);
       });
     };
 
@@ -97,6 +111,7 @@
         setActive(sortItems, sortKey, "data-news-sort");
         applySort(sortKey);
         closeAllMenus();
+        card.dispatchEvent(new CustomEvent("news:updated", { bubbles: true }));
       });
     });
 
@@ -106,6 +121,7 @@
         setActive(filterItems, filterKey, "data-news-filter");
         applyFilter(filterKey);
         closeAllMenus();
+        card.dispatchEvent(new CustomEvent("news:updated", { bubbles: true }));
       });
     });
   });
