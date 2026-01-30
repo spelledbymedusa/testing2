@@ -12,6 +12,7 @@
   const gesucheContainer = document.querySelector("[data-account-gesuche]");
   const postsContainer = document.querySelector("[data-account-posts]");
   const savedContainer = document.querySelector("[data-account-saved]");
+  const editButton = document.querySelector("[data-account-edit]");
   const contactForm = document.querySelector("[data-account-contact-form]");
   const contactHint = document.querySelector("[data-account-contact-hint]");
   const contactFields = {
@@ -77,6 +78,24 @@
     if (visibilityToggles.phone) visibilityToggles.phone.checked = Boolean(profile.visibility?.phone);
   };
 
+  const applyProfileToSummary = (profile) => {
+    if (!profile) {
+      return;
+    }
+    if (nameField && profile.vereinName) {
+      nameField.textContent = profile.vereinName;
+    }
+    if (emailField && profile.email) {
+      emailField.textContent = profile.email;
+    }
+    if (locationField) {
+      locationField.textContent = profile.address || (session?.role === "org" ? "Berlin" : "Deutschland");
+    }
+    if (statusField) {
+      statusField.textContent = isLoggedIn ? "Aktiv" : "Unverifiziert";
+    }
+  };
+
   const getProfileFromForm = () => ({
     vereinName: contactFields.verein?.value.trim() || "",
     address: contactFields.address?.value.trim() || "",
@@ -95,6 +114,9 @@
       contactForm.querySelectorAll("input").forEach((input) => {
         input.disabled = true;
       });
+      if (editButton) {
+        editButton.disabled = true;
+      }
     } else {
       const userId = session.userId;
       const existingProfile = store.getOrgProfile(userId);
@@ -110,6 +132,7 @@
         store.setOrgProfile(userId, defaultProfile);
       }
       applyProfileToForm(defaultProfile);
+      applyProfileToSummary(defaultProfile);
       setContactHint("Mindestens E-Mail oder Telefon muss sichtbar sein.", "info");
 
       contactForm.addEventListener("submit", (event) => {
@@ -129,9 +152,17 @@
         }
 
         store.setOrgProfile(userId, profile);
+        applyProfileToSummary(profile);
         setContactHint("Kontakt gespeichert und sichtbar für Gesuche.", "success");
       });
     }
+  }
+
+  if (editButton && contactForm) {
+    editButton.addEventListener("click", () => {
+      contactForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      contactFields.verein?.focus();
+    });
   }
 
   const renderCards = (container, items, emptyText, mapFn) => {
