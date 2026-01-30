@@ -30,7 +30,7 @@
       return;
     }
 
-    const getItems = () => Array.from(list.querySelectorAll(".newsCard__item"));
+    const getItems = () => Array.from(list.querySelectorAll(".newsCard__item, [data-news-item]"));
     getItems().forEach((item, index) => {
       if (!item.dataset.newsOrder) {
         item.dataset.newsOrder = String(index + 1);
@@ -55,6 +55,12 @@
       const sorted = [...items].sort((a, b) => {
         if (sortKey === "curated") {
           return Number(a.dataset.newsOrder) - Number(b.dataset.newsOrder);
+        }
+
+        if (sortKey === "distance") {
+          const distanceA = Number(a.dataset.newsDistance || "0");
+          const distanceB = Number(b.dataset.newsDistance || "0");
+          return distanceA - distanceB;
         }
 
         const dateA = parseDate(a.dataset.newsDate || "");

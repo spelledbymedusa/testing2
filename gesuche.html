@@ -10,6 +10,7 @@
     <script src="./nav-menu.js" defer></script>
     <script src="./data-store.js" defer></script>
     <script src="./session.js" defer></script>
+    <script src="./news-controls.js" defer></script>
     <script src="./gesuche-form.js" defer></script>
   </head>
 
@@ -87,204 +88,276 @@
         <div class="gesuche__layout">
           <!-- MAIN -->
           <div class="gesuche__main">
-            <div class="gesuche__toolbar">
-              <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />
-              <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
-            </div>
+            <div class="gesuche__card newsCard" data-news-card>
+              <div class="gesuche__create is-collapsed" id="gesuche-create" data-gesuche-collapsible>
+                <div class="section__header">
+                  <div>
+                    <h3 class="h2">
+                      <button
+                        class="gesuche__toggle"
+                        type="button"
+                        data-gesuche-toggle
+                        aria-expanded="false"
+                        aria-controls="gesuche-create-form"
+                      >
+                        <span>Gesuch erstellen</span>
+                        <span class="gesuche__toggleIcon" aria-hidden="true">+</span>
+                      </button>
+                    </h3>
+                    <div class="sub">Teile eine konkrete Anfrage und finde Unterstützung.</div>
+                  </div>
+                </div>
+                <form class="entryForm" id="gesuche-create-form" data-gesuche-form hidden>
+                  <div class="entryForm__grid">
+                    <label class="entryForm__label">
+                      Titel *
+                      <input class="entryForm__input" type="text" placeholder="z. B. Begleitung zum Arzt" data-gesuche-field="title" required />
+                    </label>
+                    <label class="entryForm__label">
+                      Ort *
+                      <input class="entryForm__input" type="text" placeholder="z. B. Berlin" data-gesuche-field="location" required />
+                    </label>
+                    <label class="entryForm__label">
+                      Aufwand *
+                      <input class="entryForm__input" type="text" placeholder="z. B. 2–3 Std/Woche" data-gesuche-field="effort" required />
+                    </label>
+                    <label class="entryForm__label">
+                      Modus *
+                      <select class="entryForm__select" data-gesuche-field="mode" required>
+                        <option value="Vor Ort">Vor Ort</option>
+                        <option value="Online">Online</option>
+                        <option value="Hybrid">Hybrid</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label class="entryForm__label">
+                    Kurzbeschreibung *
+                    <textarea class="entryForm__textarea" placeholder="Kurzbeschreibung des Gesuchs" data-gesuche-field="summary" required></textarea>
+                  </label>
+                  <label class="entryForm__label">
+                    Tags (kommagetrennt)
+                    <input class="entryForm__input" type="text" placeholder="z. B. Ältere, Begleitung" data-gesuche-field="tags" />
+                  </label>
+                  <label class="entryForm__label">
+                    Bild (optional)
+                    <input class="entryForm__input" type="file" accept="image/*" data-gesuche-field="image" />
+                    <span class="entryForm__hint">Max. 1,5 MB. Das Bild wird lokal gespeichert.</span>
+                  </label>
+                  <div class="entryForm__preview" data-gesuche-preview>Bildvorschau</div>
+                  <div class="entryForm__actions">
+                    <button class="nav__link" type="submit">Gesuch speichern</button>
+                    <div class="entryForm__message" data-gesuche-message></div>
+                  </div>
+                </form>
+              </div>
 
-            <div class="gesuche__create is-collapsed" id="gesuche-create" data-gesuche-collapsible>
-              <div class="section__header">
-                <div>
-                  <h3 class="h2">
+              <div class="gesuche__divider" aria-hidden="true"></div>
+
+              <div class="gesuche__controls">
+                <div class="gesuche__toolbar">
+                  <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />
+                  <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
+                </div>
+                <div class="newsCard__controls" aria-label="Gesuche steuern">
+                  <div class="newsCard__controlGroup newsCard__controlGroup--left">
                     <button
-                      class="gesuche__toggle"
+                      class="newsCard__control"
                       type="button"
-                      data-gesuche-toggle
+                      aria-label="Gesuche sortieren"
                       aria-expanded="false"
-                      aria-controls="gesuche-create-form"
+                      aria-haspopup="true"
+                      data-news-toggle="sort"
                     >
-                      <span>Gesuch erstellen</span>
-                      <span class="gesuche__toggleIcon" aria-hidden="true">+</span>
+                      <span class="newsCard__controlLines" aria-hidden="true">
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                      </span>
                     </button>
-                  </h3>
-                  <div class="sub">Teile eine konkrete Anfrage und finde Unterstützung.</div>
+                    <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
+                      <div class="newsCard__menuLabel">Sortieren nach</div>
+                      <div class="newsCard__menuDivider" aria-hidden="true"></div>
+                      <button class="newsCard__menuItem is-active" type="button" data-news-sort="newest">Neueste zuerst</button>
+                      <button class="newsCard__menuItem" type="button" data-news-sort="oldest">Älteste zuerst</button>
+                      <button class="newsCard__menuItem" type="button" data-news-sort="distance">Entfernung</button>
+                    </div>
+                  </div>
+                  <h3 class="newsCard__controlsLabel">Gesuche</h3>
+                  <div class="newsCard__controlGroup newsCard__controlGroup--right">
+                    <button
+                      class="newsCard__control"
+                      type="button"
+                      aria-label="Gesuche filtern"
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      data-news-toggle="filter"
+                    >
+                      <span class="newsCard__controlLines" aria-hidden="true">
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                      </span>
+                    </button>
+                    <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
+                      <div class="newsCard__menuLabel">Filtern nach</div>
+                      <div class="newsCard__menuDivider" aria-hidden="true"></div>
+                      <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
+                      <button class="newsCard__menuItem" type="button" data-news-filter="vor-ort">Vor Ort</button>
+                      <button class="newsCard__menuItem" type="button" data-news-filter="online">Online</button>
+                      <button class="newsCard__menuItem" type="button" data-news-filter="hybrid">Hybrid</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <form class="entryForm" id="gesuche-create-form" data-gesuche-form hidden>
-                <div class="entryForm__grid">
-                  <label class="entryForm__label">
-                    Titel *
-                    <input class="entryForm__input" type="text" placeholder="z. B. Begleitung zum Arzt" data-gesuche-field="title" required />
-                  </label>
-                  <label class="entryForm__label">
-                    Ort *
-                    <input class="entryForm__input" type="text" placeholder="z. B. Berlin" data-gesuche-field="location" required />
-                  </label>
-                  <label class="entryForm__label">
-                    Aufwand *
-                    <input class="entryForm__input" type="text" placeholder="z. B. 2–3 Std/Woche" data-gesuche-field="effort" required />
-                  </label>
-                  <label class="entryForm__label">
-                    Modus *
-                    <select class="entryForm__select" data-gesuche-field="mode" required>
-                      <option value="Vor Ort">Vor Ort</option>
-                      <option value="Online">Online</option>
-                      <option value="Hybrid">Hybrid</option>
-                    </select>
-                  </label>
-                </div>
-                <label class="entryForm__label">
-                  Kurzbeschreibung *
-                  <textarea class="entryForm__textarea" placeholder="Kurzbeschreibung des Gesuchs" data-gesuche-field="summary" required></textarea>
-                </label>
-                <label class="entryForm__label">
-                  Tags (kommagetrennt)
-                  <input class="entryForm__input" type="text" placeholder="z. B. Ältere, Begleitung" data-gesuche-field="tags" />
-                </label>
-                <label class="entryForm__label">
-                  Bild (optional)
-                  <input class="entryForm__input" type="file" accept="image/*" data-gesuche-field="image" />
-                  <span class="entryForm__hint">Max. 1,5 MB. Das Bild wird lokal gespeichert.</span>
-                </label>
-                <div class="entryForm__preview" data-gesuche-preview>Bildvorschau</div>
-                <div class="entryForm__actions">
-                  <button class="nav__link" type="submit">Gesuch speichern</button>
-                  <div class="entryForm__message" data-gesuche-message></div>
-                </div>
-              </form>
-            </div>
 
-            <div class="gesuche__list" data-gesuche-list>
-              <!-- Gesuch row 1 -->
-              <article
-                class="gesuche__row"
-                data-verein-name="Seniorenhilfe Berlin e.V."
-                data-verein-address="Kastanienallee 14, 10435 Berlin"
-                data-verein-email="kontakt@seniorenhilfe-berlin.de"
-                data-verein-phone="+49 30 234567-0"
-                data-verein-contact="Maren Hoffmann"
-                data-verein-email-visible="true"
-                data-verein-phone-visible="false"
-              >
-                <div class="gesuche__media" aria-hidden="true"></div>
-                <div class="gesuche__left">
-                  <h3 class="gesuche__title">Begleitung zum Arzt gesucht</h3>
-                  <div class="gesuche__meta">Berlin • 2 km • 30–90 Min • Vor Ort</div>
+              <div class="gesuche__list" data-gesuche-list data-news-list>
+                <!-- Gesuch row 1 -->
+                <article
+                  class="gesuche__row"
+                  data-news-item
+                  data-news-type="vor-ort"
+                  data-news-date="2024-06-02"
+                  data-news-distance="2"
+                  data-verein-name="Seniorenhilfe Berlin e.V."
+                  data-verein-address="Kastanienallee 14, 10435 Berlin"
+                  data-verein-email="kontakt@seniorenhilfe-berlin.de"
+                  data-verein-phone="+49 30 234567-0"
+                  data-verein-contact="Maren Hoffmann"
+                  data-verein-email-visible="true"
+                  data-verein-phone-visible="false"
+                >
+                  <div class="gesuche__media" aria-hidden="true"></div>
+                  <div class="gesuche__left">
+                    <h3 class="gesuche__title">Begleitung zum Arzt gesucht</h3>
+                    <div class="gesuche__meta">Berlin • 2 km • 30–90 Min • Vor Ort</div>
 
-                  <div class="gesuche__tags">
-                    <span class="gesuche__tag">Ältere</span>
-                    <span class="gesuche__tag">Begleitung</span>
-                    <span class="gesuche__tag">Kurzfristig</span>
+                    <div class="gesuche__tags">
+                      <span class="gesuche__tag">Ältere</span>
+                      <span class="gesuche__tag">Begleitung</span>
+                      <span class="gesuche__tag">Kurzfristig</span>
+                    </div>
+
+                    <div class="gesuche__text">
+                      Kurzer Teaser: Worum geht es? Was ist wichtig? Welche Zeiten? Was sollte man mitbringen?
+                    </div>
                   </div>
 
-                  <div class="gesuche__text">
-                    Kurzer Teaser: Worum geht es? Was ist wichtig? Welche Zeiten? Was sollte man mitbringen?
+                  <div class="gesuche__right">
+                    <button class="nav__link gesuche__open" type="button">Öffnen</button>
+                    <button class="nav__link gesuche__save" type="button">Merken</button>
                   </div>
-                </div>
+                </article>
 
-                <div class="gesuche__right">
-                  <button class="nav__link gesuche__open" type="button">Öffnen</button>
-                  <button class="nav__link gesuche__save" type="button">Merken</button>
-                </div>
-              </article>
+                <!-- Gesuch row 2 -->
+                <article
+                  class="gesuche__row"
+                  data-news-item
+                  data-news-type="online"
+                  data-news-date="2024-05-24"
+                  data-news-distance="0"
+                  data-verein-name="Lernbrücke Online"
+                  data-verein-address="Digitale Beratung, Berlin"
+                  data-verein-email="team@lernbruecke-online.de"
+                  data-verein-phone="+49 30 987654-0"
+                  data-verein-contact="Said Yilmaz"
+                  data-verein-email-visible="true"
+                  data-verein-phone-visible="true"
+                >
+                  <div class="gesuche__media" aria-hidden="true"></div>
+                  <div class="gesuche__left">
+                    <h3 class="gesuche__title">Online Nachhilfe (Mathe) für Schüler</h3>
+                    <div class="gesuche__meta">Online • flexibel • 1–2 Std/Woche</div>
 
-              <!-- Gesuch row 2 -->
-              <article
-                class="gesuche__row"
-                data-verein-name="Lernbrücke Online"
-                data-verein-address="Digitale Beratung, Berlin"
-                data-verein-email="team@lernbruecke-online.de"
-                data-verein-phone="+49 30 987654-0"
-                data-verein-contact="Said Yilmaz"
-                data-verein-email-visible="true"
-                data-verein-phone-visible="true"
-              >
-                <div class="gesuche__media" aria-hidden="true"></div>
-                <div class="gesuche__left">
-                  <h3 class="gesuche__title">Online Nachhilfe (Mathe) für Schüler</h3>
-                  <div class="gesuche__meta">Online • flexibel • 1–2 Std/Woche</div>
+                    <div class="gesuche__tags">
+                      <span class="gesuche__tag">Kinder</span>
+                      <span class="gesuche__tag">Online</span>
+                      <span class="gesuche__tag">Wissen</span>
+                    </div>
 
-                  <div class="gesuche__tags">
-                    <span class="gesuche__tag">Kinder</span>
-                    <span class="gesuche__tag">Online</span>
-                    <span class="gesuche__tag">Wissen</span>
-                  </div>
-
-                  <div class="gesuche__text">
-                    Kurzer Teaser: Zielgruppe, Zeitslots, Level und gewünschte Skills.
-                  </div>
-                </div>
-
-                <div class="gesuche__right">
-                  <button class="nav__link gesuche__open" type="button">Öffnen</button>
-                  <button class="nav__link gesuche__save" type="button">Merken</button>
-                </div>
-              </article>
-
-              <!-- Gesuch row 3 -->
-              <article
-                class="gesuche__row"
-                data-verein-name="Tierfreunde Hamburg"
-                data-verein-address="Barkhausenweg 2, 22339 Hamburg"
-                data-verein-email="kontakt@tierfreunde-hh.de"
-                data-verein-phone="+49 40 555123-0"
-                data-verein-contact="Lina Vogt"
-                data-verein-email-visible="false"
-                data-verein-phone-visible="true"
-              >
-                <div class="gesuche__media" aria-hidden="true"></div>
-                <div class="gesuche__left">
-                  <h3 class="gesuche__title">Hilfe im Tierheim am Wochenende</h3>
-                  <div class="gesuche__meta">Hamburg • 5 km • halber Tag • Offline</div>
-
-                  <div class="gesuche__tags">
-                    <span class="gesuche__tag">Tiere</span>
-                    <span class="gesuche__tag">Wochenende</span>
-                    <span class="gesuche__tag">Offline</span>
+                    <div class="gesuche__text">
+                      Kurzer Teaser: Zielgruppe, Zeitslots, Level und gewünschte Skills.
+                    </div>
                   </div>
 
-                  <div class="gesuche__text">
-                    Kurzer Teaser: Aufgaben (Füttern, Reinigen, Spaziergänge), Kleidung, Treffpunkt.
+                  <div class="gesuche__right">
+                    <button class="nav__link gesuche__open" type="button">Öffnen</button>
+                    <button class="nav__link gesuche__save" type="button">Merken</button>
                   </div>
-                </div>
+                </article>
 
-                <div class="gesuche__right">
-                  <button class="nav__link gesuche__open" type="button">Öffnen</button>
-                  <button class="nav__link gesuche__save" type="button">Merken</button>
-                </div>
-              </article>
+                <!-- Gesuch row 3 -->
+                <article
+                  class="gesuche__row"
+                  data-news-item
+                  data-news-type="vor-ort"
+                  data-news-date="2024-05-18"
+                  data-news-distance="5"
+                  data-verein-name="Tierfreunde Hamburg"
+                  data-verein-address="Barkhausenweg 2, 22339 Hamburg"
+                  data-verein-email="kontakt@tierfreunde-hh.de"
+                  data-verein-phone="+49 40 555123-0"
+                  data-verein-contact="Lina Vogt"
+                  data-verein-email-visible="false"
+                  data-verein-phone-visible="true"
+                >
+                  <div class="gesuche__media" aria-hidden="true"></div>
+                  <div class="gesuche__left">
+                    <h3 class="gesuche__title">Hilfe im Tierheim am Wochenende</h3>
+                    <div class="gesuche__meta">Hamburg • 5 km • halber Tag • Offline</div>
 
-              <!-- More placeholders -->
-              <article
-                class="gesuche__row"
-                data-verein-name="Nachbarschaftshaus Nord"
-                data-verein-address="Nordplatz 5, 30159 Hannover"
-                data-verein-email="info@nachbarschaft-nord.de"
-                data-verein-phone="+49 511 780900"
-                data-verein-contact=""
-                data-verein-email-visible="true"
-                data-verein-phone-visible="false"
-              >
-                <div class="gesuche__media" aria-hidden="true"></div>
-                <div class="gesuche__left">
-                  <h3 class="gesuche__title">Gesuch Platzhalter</h3>
-                  <div class="gesuche__meta">Ort • Nähe • Aufwand • Modus</div>
-                  <div class="gesuche__tags">
-                    <span class="gesuche__tag">Tag 1</span>
-                    <span class="gesuche__tag">Tag 2</span>
-                    <span class="gesuche__tag">Tag 3</span>
+                    <div class="gesuche__tags">
+                      <span class="gesuche__tag">Tiere</span>
+                      <span class="gesuche__tag">Wochenende</span>
+                      <span class="gesuche__tag">Offline</span>
+                    </div>
+
+                    <div class="gesuche__text">
+                      Kurzer Teaser: Aufgaben (Füttern, Reinigen, Spaziergänge), Kleidung, Treffpunkt.
+                    </div>
                   </div>
-                  <div class="gesuche__text">Kurzbeschreibung / Teasertext.</div>
-                </div>
-                <div class="gesuche__right">
-                  <button class="nav__link gesuche__open" type="button">Öffnen</button>
-                  <button class="nav__link gesuche__save" type="button">Merken</button>
-                </div>
-              </article>
-            </div>
 
-            <div class="gesuche__more">
-              <button class="nav__link gesuche__moreBtn" type="button">Weitere…</button>
+                  <div class="gesuche__right">
+                    <button class="nav__link gesuche__open" type="button">Öffnen</button>
+                    <button class="nav__link gesuche__save" type="button">Merken</button>
+                  </div>
+                </article>
+
+                <!-- More placeholders -->
+                <article
+                  class="gesuche__row"
+                  data-news-item
+                  data-news-type="vor-ort"
+                  data-news-date="2024-05-12"
+                  data-news-distance="4"
+                  data-verein-name="Nachbarschaftshaus Nord"
+                  data-verein-address="Nordplatz 5, 30159 Hannover"
+                  data-verein-email="info@nachbarschaft-nord.de"
+                  data-verein-phone="+49 511 780900"
+                  data-verein-contact=""
+                  data-verein-email-visible="true"
+                  data-verein-phone-visible="false"
+                >
+                  <div class="gesuche__media" aria-hidden="true"></div>
+                  <div class="gesuche__left">
+                    <h3 class="gesuche__title">Gesuch Platzhalter</h3>
+                    <div class="gesuche__meta">Ort • Nähe • Aufwand • Modus</div>
+                    <div class="gesuche__tags">
+                      <span class="gesuche__tag">Tag 1</span>
+                      <span class="gesuche__tag">Tag 2</span>
+                      <span class="gesuche__tag">Tag 3</span>
+                    </div>
+                    <div class="gesuche__text">Kurzbeschreibung / Teasertext.</div>
+                  </div>
+                  <div class="gesuche__right">
+                    <button class="nav__link gesuche__open" type="button">Öffnen</button>
+                    <button class="nav__link gesuche__save" type="button">Merken</button>
+                  </div>
+                </article>
+              </div>
+
+              <div class="gesuche__more">
+                <button class="nav__link gesuche__moreBtn" type="button">Weitere…</button>
+              </div>
             </div>
           </div>
 
