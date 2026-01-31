@@ -4,6 +4,8 @@
   const typeSelect = document.querySelector("[data-gesuche-type-filter]");
   const clearButton = document.querySelector("[data-gesuche-clear-filters]");
   const searchInput = document.querySelector("[data-gesuche-search]");
+  const filterTags = document.getElementById("gesuche-filters");
+  const filterSubtitle = document.getElementById("gesuche-filter-subtitle");
 
   if (!list) {
     return;
@@ -67,6 +69,7 @@
     if (window.location.search) {
       window.history.replaceState(null, "", "gesuche.html");
     }
+    renderFilterSummary(new URLSearchParams());
   };
 
   const initFromUI = () => {
@@ -77,6 +80,55 @@
     if (typeSelect) {
       currentType = typeSelect.value || "all";
     }
+  };
+
+  const formatLabel = (value) =>
+    value
+      .split(/[-_ ]+/)
+      .filter(Boolean)
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ");
+
+  const renderFilterSummary = (params) => {
+    if (!filterTags || !filterSubtitle) {
+      return;
+    }
+
+    const items = [];
+    const path = params.get("path");
+    const role = params.get("role");
+    const topic = params.get("topic");
+    const type = params.get("type");
+    const mode = params.get("mode");
+
+    const pathMap = {
+      vorort: "Vor Ort",
+      online: "Online",
+      alltag: "Alltag",
+      spenden: "Spenden",
+      firmen: "Firmen",
+    };
+
+    if (path) items.push(pathMap[path] || formatLabel(path));
+    if (mode) items.push(formatLabel(mode.replace("_", " ")));
+    if (role) items.push(formatLabel(role));
+    if (topic) items.push(formatLabel(topic));
+    if (type) items.push(formatLabel(type));
+
+    if (!items.length) {
+      filterTags.innerHTML = "";
+      filterSubtitle.textContent = "Gefiltert nach: Alle Gesuche";
+      return;
+    }
+
+    filterTags.innerHTML = "";
+    items.forEach((item) => {
+      const tag = document.createElement("span");
+      tag.className = "gesuche__tag";
+      tag.textContent = item;
+      filterTags.appendChild(tag);
+    });
+    filterSubtitle.textContent = `Gefiltert nach: ${items.join(", ")}`;
   };
 
   filterMenuItems.forEach((item) => {
@@ -105,14 +157,20 @@
   const params = new URLSearchParams(window.location.search);
   const modeParam = params.get("mode");
   const typeParam = params.get("type");
+  const pathParam = params.get("path");
+  const roleParam = params.get("role");
 
   let didPrefill = false;
-  if (modeParam && ["vor_ort", "online"].includes(modeParam)) {
+  const normalizedPath = pathParam === "vorort" ? "vor_ort" : pathParam;
+  if (normalizedPath && ["vor_ort", "online", "hybrid"].includes(normalizedPath)) {
+    setActiveMode(normalizedPath);
+    didPrefill = true;
+  } else if (modeParam && ["vor_ort", "online", "hybrid"].includes(modeParam)) {
     setActiveMode(modeParam);
     didPrefill = true;
   }
-  if (typeParam) {
-    const normalizedType = typeParam.toLowerCase();
+  if (roleParam || typeParam) {
+    const normalizedType = (roleParam || typeParam).toLowerCase();
     if (typeSelect) {
       const hasType = Array.from(typeSelect.options).some((option) => option.value === normalizedType);
       if (hasType) {
@@ -123,6 +181,7 @@
   }
 
   applyCombinedFilter();
+  renderFilterSummary(params);
 
   if (didPrefill && clearButton) {
     clearButton.classList.add("is-active");
