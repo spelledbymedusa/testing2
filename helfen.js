@@ -2,6 +2,7 @@
   const choiceButtons = Array.from(document.querySelectorAll("[data-choice-filter]"));
   const choiceSection = document.querySelector("[data-choice-section]");
   const level2Section = document.querySelector("[data-level2-section]");
+  const backButton = document.querySelector("[data-choice-back]");
   const suboptionsTitle = document.querySelector("[data-suboptions-title]");
   const suboptionsText = document.querySelector("[data-suboptions-text]");
   const suboptionsGrid = document.querySelector("[data-suboptions-grid]");
@@ -64,15 +65,24 @@
     renderSubOptions(bucketMap.get(activeFilter));
   };
 
+  const resetChoices = () => {
+    if (choiceSection) {
+      choiceSection.hidden = false;
+    }
+    level2Section.hidden = true;
+    choiceButtons.forEach((button) => {
+      button.classList.remove("helfen__choiceCard--active");
+      button.setAttribute("aria-pressed", "false");
+    });
+  };
+
   choiceButtons.forEach((button) => {
     button.addEventListener("click", () => setActiveChoice(button.dataset.choiceFilter));
   });
 
-  const defaultButton =
-    choiceButtons.find((button) => button.classList.contains("helfen__choiceCard--active")) ||
-    choiceButtons[0];
-
-  if (defaultButton) {
-    setActiveChoice(defaultButton.dataset.choiceFilter);
+  if (backButton) {
+    backButton.addEventListener("click", resetChoices);
   }
+
+  resetChoices();
 })();
