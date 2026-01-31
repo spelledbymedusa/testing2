@@ -118,6 +118,19 @@
       .map((tag) => tag.trim())
       .filter(Boolean);
 
+  const knownTypes = ["fsj", "pflegestelle", "urlaub", "aushilfe", "mitglied", "freiwillig"];
+
+  const normalizeType = (value) =>
+    value
+      .toLowerCase()
+      .replace(/\s+/g, "_")
+      .replace(/-/g, "_");
+
+  const resolveTypeFromTags = (tags = []) => {
+    const normalizedTags = tags.map((tag) => normalizeType(tag));
+    return normalizedTags.find((tag) => knownTypes.includes(tag)) || null;
+  };
+
   const updateVisibility = (item) => {
     const searchHidden = item.dataset.searchHidden === "true";
     const filterHidden = item.dataset.filterHidden === "true";
@@ -186,6 +199,10 @@
 
     const modeKey = normalizeModeKey(gesuch.mode);
     row.dataset.newsType = modeKey;
+    const resolvedType = resolveTypeFromTags(gesuch.tags);
+    if (resolvedType) {
+      row.dataset.gesuchType = resolvedType;
+    }
 
     const media = document.createElement("div");
     media.className = "gesuche__media";

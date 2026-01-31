@@ -13,6 +13,7 @@
     <script src="./session.js" defer></script>
     <script src="./news-controls.js" defer></script>
     <script src="./gesuche-form.js" defer></script>
+    <script src="./gesuche-filters.js" defer></script>
   </head>
 
   <body>
@@ -91,7 +92,17 @@
               <div class="gesuche__controls">
                 <div class="gesuche__toolbar">
                   <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />
+                  <select class="gesuche__select" aria-label="Gesuchstyp auswählen" data-gesuche-type-filter>
+                    <option value="all">Alle Typen</option>
+                    <option value="fsj">FSJ</option>
+                    <option value="pflegestelle">Pflegestelle</option>
+                    <option value="urlaub">Urlaub</option>
+                    <option value="aushilfe">Aushilfe</option>
+                    <option value="mitglied">Mitglied</option>
+                    <option value="freiwillig">Freiwillig</option>
+                  </select>
                   <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
+                  <button class="gesuche__clear" type="button" data-gesuche-clear-filters>Filter zurücksetzen</button>
                 </div>
                 <div class="newsCard__controls" aria-label="Gesuche steuern">
                   <div class="newsCard__controlGroup newsCard__controlGroup--left">
@@ -151,6 +162,7 @@
                   class="gesuche__row"
                   data-news-item
                   data-news-type="vor_ort"
+                  data-gesuch-type="aushilfe"
                   data-news-date="2024-06-02"
                   data-news-distance="2"
                   data-verein-name="Seniorenhilfe Berlin e.V."
@@ -188,6 +200,7 @@
                   class="gesuche__row"
                   data-news-item
                   data-news-type="online"
+                  data-gesuch-type="freiwillig"
                   data-news-date="2024-05-24"
                   data-news-distance="0"
                   data-verein-name="Lernbrücke Online"
@@ -225,6 +238,7 @@
                   class="gesuche__row"
                   data-news-item
                   data-news-type="vor_ort"
+                  data-gesuch-type="pflegestelle"
                   data-news-date="2024-05-18"
                   data-news-distance="5"
                   data-verein-name="Tierfreunde Hamburg"
@@ -262,6 +276,7 @@
                   class="gesuche__row"
                   data-news-item
                   data-news-type="vor_ort"
+                  data-gesuch-type="fsj"
                   data-news-date="2024-05-12"
                   data-news-distance="4"
                   data-verein-name="Nachbarschaftshaus Nord"
@@ -274,14 +289,16 @@
                 >
                   <div class="gesuche__media" aria-hidden="true"></div>
                   <div class="gesuche__left">
-                    <h3 class="gesuche__title">Gesuch Platzhalter</h3>
-                    <div class="gesuche__meta">Ort • Nähe • Aufwand • Modus</div>
+                    <h3 class="gesuche__title">FSJ im Nachbarschaftshaus</h3>
+                    <div class="gesuche__meta">Hannover • 4 km • FSJ • Vor Ort</div>
                     <div class="gesuche__tags">
-                      <span class="gesuche__tag">Tag 1</span>
-                      <span class="gesuche__tag">Tag 2</span>
-                      <span class="gesuche__tag">Tag 3</span>
+                      <span class="gesuche__tag">FSJ</span>
+                      <span class="gesuche__tag">Langfristig</span>
+                      <span class="gesuche__tag">Vor Ort</span>
                     </div>
-                    <div class="gesuche__text">Kurzbeschreibung / Teasertext.</div>
+                    <div class="gesuche__text">
+                      Langfristige Unterstützung im Quartierstreff: Planung, Begleitung von Angeboten und Hilfe im Alltag.
+                    </div>
                   </div>
                   <div class="gesuche__right">
                     <button class="nav__link gesuche__open" type="button">Öffnen</button>
@@ -404,13 +421,15 @@
         if (!filterContainer || !filterSubtitle) return;
 
         const params = new URLSearchParams(window.location.search);
-        const path = params.get("path") || params.get("mode");
+        const path = params.get("path");
+        const mode = params.get("mode");
         const role = params.get("role");
         const topic = params.get("topic");
         const type = params.get("type");
 
         const labelMap = {
           path: "Bereich",
+          mode: "Modus",
           role: "Rolle",
           topic: "Thema",
           type: "Typ",
@@ -424,6 +443,7 @@
 
         const filterChips = [];
         if (path) filterChips.push(`${labelMap.path}: ${formatValue(path)}`);
+        if (mode) filterChips.push(`${labelMap.mode}: ${formatValue(mode)}`);
         if (role) filterChips.push(`${labelMap.role}: ${formatValue(role)}`);
         if (topic) filterChips.push(`${labelMap.topic}: ${formatValue(topic)}`);
         if (type) filterChips.push(`${labelMap.type}: ${formatValue(type)}`);
