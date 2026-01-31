@@ -10,6 +10,7 @@
     <script src="./nav-active.js" defer></script>
     <script src="./data-store.js" defer></script>
     <script src="./session.js" defer></script>
+    <script src="./helfen-data.js" defer></script>
     <script src="./helfen.js" defer></script>
   </head>
 
@@ -114,7 +115,7 @@
               <span class="helfen__choiceTitle">Geld / Spenden</span>
               <span class="helfen__choiceText">Deinen Willen gezielt einsetzen und Wirkung strategisch verstärken.</span>
             </button>
-            <button class="helfen__choiceCard" type="button" data-choice-filter="firmen" role="listitem">
+            <button class="helfen__choiceCard" type="button" data-choice-filter="reichweite" role="listitem">
               <img class="helfen__choiceImage" src="./assets/helfenpics/HundHigh5.jpg" alt="Engagement mit Teams" loading="lazy" />
               <span class="helfen__choiceTitle">Verbreitung / Firmen</span>
               <span class="helfen__choiceText">Reichweite, Ressourcen und Kooperationen bündeln – gemeinsam mehr bewegen.</span>
@@ -131,182 +132,14 @@
               <div class="sub">Wähle einen Erfahrungsbericht – die Artikel öffnen sich auf einer gemeinsamen Vorlage.</div>
             </div>
           </div>
-
-          <div class="helfen__insightGroup" data-choice-panel="vor_ort" hidden>
+          <div class="helfen__insightGroup">
             <div class="helfen__sectionHeader">
               <div>
-                <div class="helfen__sectionTitle">Helfen vor Ort</div>
-                <div class="helfen__sectionText">Direkt anpacken, Menschen begegnen und vor Ort Wirkung erleben.</div>
+                <div class="helfen__sectionTitle" data-suboptions-title></div>
+                <div class="helfen__sectionText" data-suboptions-text></div>
               </div>
             </div>
-            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-freiwilliger" role="listitem">
-                <span class="helfen__choiceTitle">Als Freiwilliger</span>
-                <span class="helfen__choiceText">Einstieg mit festen Aufgaben und klaren Zeitfenstern.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-aushilfe-gast" role="listitem">
-                <span class="helfen__choiceTitle">Als Aushilfe / Gast</span>
-                <span class="helfen__choiceText">Kurz reinschnuppern, spontan helfen, flexibel bleiben.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-mitglied" role="listitem">
-                <span class="helfen__choiceTitle">Als Mitglied</span>
-                <span class="helfen__choiceText">Langfristig dazugehören und gemeinsam Strukturen tragen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=im-urlaub" role="listitem">
-                <span class="helfen__choiceTitle">Im Urlaub</span>
-                <span class="helfen__choiceText">Engagement mit Reiseerlebnis verbinden und neue Orte erleben.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-fsj" role="listitem">
-                <span class="helfen__choiceTitle">Als FSJ</span>
-                <span class="helfen__choiceText">Ein Jahr Orientierung, Verantwortung und neue Perspektiven.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=als-pflegestelle" role="listitem">
-                <span class="helfen__choiceTitle">Als Pflegestelle</span>
-                <span class="helfen__choiceText">Schutz bieten und Übergänge für Menschen oder Tiere begleiten.</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="helfen__insightGroup" data-choice-panel="online" hidden>
-            <div class="helfen__sectionHeader">
-              <div>
-                <div class="helfen__sectionTitle">Helfen Online</div>
-                <div class="helfen__sectionText">Digitale Unterstützung, die Teams entlastet und Wissen zugänglich macht.</div>
-              </div>
-            </div>
-            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-digitalisieren" role="listitem">
-                <span class="helfen__choiceTitle">Digitalisieren &amp; Dokumente übertragen</span>
-                <span class="helfen__choiceText">Akten und Abläufe schlank machen – Schritt für Schritt.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-tech" role="listitem">
-                <span class="helfen__choiceTitle">IT / Webseiten &amp; Tools</span>
-                <span class="helfen__choiceText">Technik erklären, Websites stabilisieren, Tools einführen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-design-content" role="listitem">
-                <span class="helfen__choiceTitle">Design &amp; Content</span>
-                <span class="helfen__choiceText">Materialien gestalten, Geschichten erzählen, Wirkung sichtbar machen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-uebersetzen" role="listitem">
-                <span class="helfen__choiceTitle">Übersetzen &amp; Korrekturlesen</span>
-                <span class="helfen__choiceText">Zugänge schaffen, Verständlichkeit verbessern, Vertrauen stärken.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-mentoring" role="listitem">
-                <span class="helfen__choiceTitle">Mentoring / Lernen</span>
-                <span class="helfen__choiceText">Wissen teilen, Fragen beantworten, Lernwege begleiten.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=online-community" role="listitem">
-                <span class="helfen__choiceTitle">Community Support / Moderation</span>
-                <span class="helfen__choiceText">Sichere Räume schaffen und Austausch ermöglichen.</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="helfen__insightGroup" data-choice-panel="alltag" hidden>
-            <div class="helfen__sectionHeader">
-              <div>
-                <div class="helfen__sectionTitle">Im Alltag</div>
-                <div class="helfen__sectionText">Niedrigschwellig helfen – oft reicht eine Stunde oder ein kurzer Weg.</div>
-              </div>
-            </div>
-            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-nachbarschaft" role="listitem">
-                <span class="helfen__choiceTitle">Nachbarschaftshilfe</span>
-                <span class="helfen__choiceText">Kleine Gesten, große Wirkung im direkten Umfeld.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-zuhoeren" role="listitem">
-                <span class="helfen__choiceTitle">Begleiten &amp; Zuhören</span>
-                <span class="helfen__choiceText">Zeit schenken, Gespräche ermöglichen, Vertrauen aufbauen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-besorgungen" role="listitem">
-                <span class="helfen__choiceTitle">Fahrten &amp; Besorgungen</span>
-                <span class="helfen__choiceText">Erledigungen abnehmen, Mobilität sichern, Alltag entlasten.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-kinder" role="listitem">
-                <span class="helfen__choiceTitle">Kinder / Vorlesen / Hausaufgaben</span>
-                <span class="helfen__choiceText">Kinder stärken, Lernfreude teilen, Eltern entlasten.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-tiere" role="listitem">
-                <span class="helfen__choiceTitle">Tiere: Gassi / Pflege</span>
-                <span class="helfen__choiceText">Verantwortung übernehmen und Tierliebe praktisch zeigen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=alltag-handwerk" role="listitem">
-                <span class="helfen__choiceTitle">Handwerk im Kleinen</span>
-                <span class="helfen__choiceText">Reparieren, aufbauen, mit Werkzeugen unterstützen.</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="helfen__insightGroup" data-choice-panel="spenden" hidden>
-            <div class="helfen__sectionHeader">
-              <div>
-                <div class="helfen__sectionTitle">Geld / Spenden</div>
-                <div class="helfen__sectionText">
-                  Geld ist Wirkung: Mit klarem Ziel und Strategie kannst du Organisationen spürbar voranbringen.
-                </div>
-              </div>
-            </div>
-            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-einmalig" role="listitem">
-                <span class="helfen__choiceTitle">Einmalige Spende</span>
-                <span class="helfen__choiceText">Gezielt helfen, wenn gerade schnelle Wirkung gebraucht wird.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-monatlich" role="listitem">
-                <span class="helfen__choiceTitle">Monatlich unterstützen</span>
-                <span class="helfen__choiceText">Planungssicherheit geben und langfristige Projekte ermöglichen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-patenschaft" role="listitem">
-                <span class="helfen__choiceTitle">Patenschaft / gezielte Hilfe</span>
-                <span class="helfen__choiceText">Deinen Willen in konkrete Ziele und Menschen investieren.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-aktion" role="listitem">
-                <span class="helfen__choiceTitle">Spendenaktion starten</span>
-                <span class="helfen__choiceText">Mit anderen mobilisieren und den Impact multiplizieren.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-sachspenden" role="listitem">
-                <span class="helfen__choiceTitle">Sachspenden sinnvoll geben</span>
-                <span class="helfen__choiceText">Bedarfsgerecht spenden statt Lager füllen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=spenden-statt-geschenke" role="listitem">
-                <span class="helfen__choiceTitle">Spenden statt Geschenke</span>
-                <span class="helfen__choiceText">Feiern mit Sinn und gemeinsam Wirkung schaffen.</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="helfen__insightGroup" data-choice-panel="firmen" hidden>
-            <div class="helfen__sectionHeader">
-              <div>
-                <div class="helfen__sectionTitle">Verbreitung / Firmen</div>
-                <div class="helfen__sectionText">Unternehmen können Reichweite, Ressourcen und Teams gezielt einsetzen.</div>
-              </div>
-            </div>
-            <div class="helfen__choiceGrid helfen__choiceGrid--sub" role="list">
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-reichweite" role="listitem">
-                <span class="helfen__choiceTitle">Teilen &amp; Reichweite geben</span>
-                <span class="helfen__choiceText">Netzwerke öffnen und Aufmerksamkeit gezielt nutzen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-sponsoring" role="listitem">
-                <span class="helfen__choiceTitle">Partnerschaften / Sponsoring</span>
-                <span class="helfen__choiceText">Langfristige Kooperationen, die Projekte tragen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-corporate" role="listitem">
-                <span class="helfen__choiceTitle">Corporate Volunteering</span>
-                <span class="helfen__choiceText">Teams zusammenbringen und gleichzeitig Gutes tun.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-sachleistungen" role="listitem">
-                <span class="helfen__choiceTitle">Sachleistungen bereitstellen</span>
-                <span class="helfen__choiceText">Mit Know-how, Räumen oder Hardware unterstützen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-fundraising" role="listitem">
-                <span class="helfen__choiceTitle">Fundraising-Kampagnen</span>
-                <span class="helfen__choiceText">Gemeinsam Mobilisierung und Mittelbeschaffung planen.</span>
-              </a>
-              <a class="helfen__choiceCard helfen__choiceCard--sub" href="./erfahrungsbericht.html?slug=firmen-jobs" role="listitem">
-                <span class="helfen__choiceTitle">Jobs / Praktika ermöglichen</span>
-                <span class="helfen__choiceText">Chancen schaffen und Perspektiven eröffnen.</span>
-              </a>
-            </div>
+            <div class="helfen__choiceGrid helfen__choiceGrid--sub" data-suboptions-grid role="list"></div>
           </div>
         </div>
       </section>

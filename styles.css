@@ -1695,6 +1695,21 @@ body{
 }
 .helfen__choiceCard--sub{
   min-height:100px;
+  position:relative;
+  padding-right:42px;
+}
+.helfen__choiceCard--sub::after{
+  content:"→";
+  position:absolute;
+  right:16px;
+  top:16px;
+  font-size:18px;
+  color:var(--muted);
+  transition:transform 120ms ease,color 120ms ease;
+}
+.helfen__choiceCard--sub:hover::after{
+  transform:translateX(4px);
+  color:var(--text);
 }
 .helfen__choiceTitle{font-weight:750}
 .helfen__choiceText{color:var(--muted);font-size:13px;line-height:1.5}
@@ -1723,6 +1738,18 @@ body{
   height:28px;
   display:block;
   border-radius:6px;
+}
+.article__backLink{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+  margin-bottom:10px;
+}
+.article__backLink:hover{
+  color:var(--text);
 }
 .helfen__badge--muted{
   border-color:var(--border);

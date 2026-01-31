@@ -10,6 +10,8 @@
     <script src="./nav-active.js" defer></script>
     <script src="./data-store.js" defer></script>
     <script src="./session.js" defer></script>
+    <script src="./helfen-data.js" defer></script>
+    <script src="./erfahrungsbericht.js" defer></script>
   </head>
 
   <body>
@@ -68,6 +70,7 @@
     <main class="article" data-component="ArticleTemplate">
       <section class="section section--airy article__hero" id="article-hero">
         <div class="container">
+          <a class="article__backLink" href="./helfen.html">← Zurück zu Helfen</a>
           <div class="article__kicker">Echte Einblicke</div>
           <h1 class="h1" id="article-title"></h1>
           <p class="article__lead" id="article-intro"></p>
@@ -85,7 +88,7 @@
               <div class="helfen__sectionTitle">Nächster Schritt</div>
               <div class="helfen__sectionText">Sieh dir passende Gesuche an, die zu diesem Erfahrungsbericht passen.</div>
             </div>
-            <a class="nav__link" id="article-cta" href="./gesuche.html">Siehe passende Gesuche</a>
+            <a class="nav__link" id="article-cta" href="./gesuche.html">Zu passenden Gesuchen</a>
           </div>
         </div>
       </section>
@@ -109,59 +112,5 @@
       </div>
     </footer>
 
-    <script src="./assets/data/articles.js"></script>
-    <script>
-      (function () {
-        const params = new URLSearchParams(window.location.search);
-        const slug = params.get("slug");
-        const articles = window.ARTICLES || [];
-        const article = articles.find((entry) => entry.slug === slug);
-
-        const hero = document.getElementById("article-hero");
-        const body = document.getElementById("article-body");
-        const ctaSection = document.getElementById("article-cta-section");
-        const fallback = document.getElementById("article-fallback");
-
-        if (!article) {
-          hero?.setAttribute("hidden", "true");
-          body?.setAttribute("hidden", "true");
-          ctaSection?.setAttribute("hidden", "true");
-          fallback?.removeAttribute("hidden");
-          return;
-        }
-
-        const title = document.getElementById("article-title");
-        const intro = document.getElementById("article-intro");
-        const sectionsWrapper = document.getElementById("article-sections");
-        const cta = document.getElementById("article-cta");
-
-        if (title) title.textContent = article.title;
-        if (intro) intro.textContent = article.intro;
-
-        if (sectionsWrapper) {
-          sectionsWrapper.innerHTML = "";
-          article.sections.forEach((section) => {
-            const block = document.createElement("article");
-            block.className = "article__section";
-
-            const heading = document.createElement("h2");
-            heading.className = "h3";
-            heading.textContent = section.title;
-
-            const text = document.createElement("p");
-            text.textContent = section.text;
-
-            block.appendChild(heading);
-            block.appendChild(text);
-            sectionsWrapper.appendChild(block);
-          });
-        }
-
-        if (cta) {
-          const query = article.gesucheQuery ? `?${article.gesucheQuery}` : "";
-          cta.href = `./gesuche.html${query}`;
-        }
-      })();
-    </script>
   </body>
 </html>
