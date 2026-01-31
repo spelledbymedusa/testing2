@@ -867,6 +867,27 @@ body{
   outline:none;
   min-height:44px;
 }
+.gesuche__select{
+  min-width:170px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  min-height:44px;
+}
+.gesuche__clear{
+  border:none;
+  background:transparent;
+  color:var(--accent);
+  font-weight:600;
+  font-size:12px;
+  padding:6px 4px;
+  cursor:pointer;
+}
+.gesuche__clear.is-active{
+  text-decoration:underline;
+}
 .vereine__search::placeholder,
 .gesuche__search::placeholder,
 .blog__search::placeholder,
