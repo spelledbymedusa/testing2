@@ -772,6 +772,10 @@ body{
   width:44px;
   height:44px;
 }
+.listcard__topRow{
+  display:grid;
+  gap:8px;
+}
 .listcard__search{
   display:flex;
   gap:10px;
@@ -783,6 +787,20 @@ body{
 }
 .listcard__inner{
   order:0;
+}
+.listcard__actions{
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+}
+.listcard__createLink{
+  font-size:13px;
+  color:var(--muted);
+  text-decoration:none;
+}
+.listcard__createLink:hover{
+  color:var(--text);
+  text-decoration:underline;
 }
 .listcard__actions{
   display:flex;
