@@ -1593,8 +1593,133 @@ body{
    Account dashboard
    ========================================================= */
 .account__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.account__grid{align-items:stretch}
 .account__panel{padding:16px;min-width:0}
+.account__panel--subtle{
+  background:var(--surfaceLight);
+  border:var(--innerBorderWidth) dashed var(--border);
+}
+.account__panel--compact{padding:12px}
+.account__panel--collapsible{
+  border:var(--innerBorderWidth) solid var(--border);
+  border-radius:16px;
+  background:var(--panel);
+}
+.account__panel--settings{margin-top:16px}
+.account__panelSummary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  cursor:pointer;
+  list-style:none;
+  font-weight:650;
+}
+.account__panelSummary::-webkit-details-marker{display:none}
+.account__panelSummary--hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  margin:-1px;
+  padding:0;
+  border:0;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap;
+}
+.account__panelSummaryActions{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-left:auto;
+}
+.account__panelSummaryHint{
+  color:var(--muted);
+  font-size:12px;
+  opacity:0;
+  transform:translateY(-2px);
+  transition:opacity .2s ease, transform .2s ease;
+}
+.account__panelSummary:hover .account__panelSummaryHint,
+.account__panelSummary:focus-visible .account__panelSummaryHint{
+  opacity:1;
+  transform:translateY(0);
+}
+.account__panelSummaryArrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--surfaceLight);
+  transition:transform .2s ease;
+}
+.account__panelSummaryArrow svg{width:16px;height:16px}
+details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rotate(180deg)}
+.account__panelSummaryIcon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  border-radius:999px;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--surfaceLight);
+}
+.account__panelSummaryIcon svg{width:18px;height:18px}
+.account__panelBody{margin-top:16px;display:grid;gap:16px}
 .account__panelTitle{margin-bottom:12px}
+.account__panelNote{font-size:12px;color:var(--muted);margin-bottom:12px}
+.account__settingsToggle{
+  border-radius:16px;
+  border:var(--borderWidth) solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  padding:10px 12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  min-width:44px;
+  box-shadow:var(--shadowSoft);
+}
+.account__settingsToggle svg{width:20px;height:20px}
+.account__settingsToggle:hover{border-color:rgba(47,95,59,.4)}
+.account__column{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-height:100%;
+}
+.account__column > .account__panel,
+.account__column > details{
+  flex:1;
+}
+.account__profile{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+  padding:10px;
+  border-radius:12px;
+  background:var(--surfaceLight);
+  border:var(--innerBorderWidth) solid var(--border);
+}
+.account__avatar{
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  overflow:hidden;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--panel);
+  flex-shrink:0;
+}
+.account__avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.account__profileInfo{display:grid;gap:4px}
+.account__profileName{font-weight:700}
+.account__profileMeta{font-size:12px;color:var(--muted)}
 .account__form{display:grid;gap:12px}
 .account__label{
   display:grid;
@@ -1611,6 +1736,9 @@ body{
   min-height:44px;
   font:inherit;
 }
+.account__textarea{resize:vertical;min-height:96px}
+.account__fileInput{padding:8px 10px}
+.account__helper{font-size:12px;color:var(--muted)}
 .account__formRow{
   display:flex;
   gap:12px;
@@ -1640,6 +1768,7 @@ body{
   font-size:13px;
 }
 .account__panelActions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.account__panelActions--compact{margin-top:10px}
 .account__btnPrimary,
 .account__btn{
   border-radius:12px;
@@ -1658,13 +1787,24 @@ body{
   background:var(--panel);
   color:var(--text);
 }
+.account__btnSmall{
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:12px;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+}
+.account__linkSmall{font-size:12px;color:var(--muted)}
 .account__cards{display:grid;gap:10px}
+.account__cards--mini{gap:8px}
 .account__card{
   border:var(--borderWidth) solid var(--border);
   border-radius:12px;
   padding:12px;
   background:var(--surfaceLight);
 }
+.account__cards--mini .account__card{padding:10px}
 .account__cardTitle{font-weight:700}
 .account__cardMeta{margin-top:4px;font-size:13px}
 .account__activity{display:grid;gap:10px}
@@ -1686,6 +1826,17 @@ body{
   color:var(--muted);
   font-size:13px;
 }
+.account__miniGrid{display:grid;gap:12px}
+.account__miniSection{
+  display:grid;
+  gap:8px;
+  padding:10px;
+  border-radius:12px;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--panel);
+}
+.account__miniTitle{font-size:13px;font-weight:650;color:var(--muted)}
+.account__miniActions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
 /* =========================================================
    Blog (unique)
