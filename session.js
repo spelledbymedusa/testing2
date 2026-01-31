@@ -6,9 +6,7 @@
 
   const authSwitchLinks = Array.from(document.querySelectorAll("[data-auth-switch]"));
   const logoutLinks = Array.from(document.querySelectorAll("[data-auth-logout]"));
-  if (!authSwitchLinks.length && !logoutLinks.length) {
-    return;
-  }
+  const authOnlyElements = Array.from(document.querySelectorAll("[data-auth-only]"));
 
   const updateAuthLink = () => {
     const session = store.getSession();
@@ -22,6 +20,9 @@
     logoutLinks.forEach((link) => {
       link.hidden = !isLoggedIn;
       link.dataset.authState = isLoggedIn ? "logout" : "login";
+    });
+    authOnlyElements.forEach((element) => {
+      element.hidden = !isLoggedIn;
     });
   };
 
