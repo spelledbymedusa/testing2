@@ -802,20 +802,6 @@ body{
   color:var(--text);
   text-decoration:underline;
 }
-.listcard__actions{
-  display:flex;
-  justify-content:flex-end;
-  align-items:flex-end;
-}
-.listcard__createLink{
-  font-size:13px;
-  color:var(--muted);
-  text-decoration:none;
-}
-.listcard__createLink:hover{
-  color:var(--text);
-  text-decoration:underline;
-}
 .listcardShell{
   position:relative;
 }
