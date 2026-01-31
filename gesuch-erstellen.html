@@ -100,13 +100,20 @@
               <select class="entryForm__select" data-gesuche-field="mode" required>
                 <option value="vor_ort">Vor Ort</option>
                 <option value="online">Online</option>
-                <option value="hybrid">Hybrid</option>
               </select>
             </label>
           </div>
           <label class="entryForm__label">
             Kurzbeschreibung *
             <textarea class="entryForm__textarea" placeholder="Kurzbeschreibung des Gesuchs" data-gesuche-field="summary" required></textarea>
+          </label>
+          <label class="entryForm__label">
+            Ausführliche Beschreibung (optional)
+            <textarea
+              class="entryForm__textarea"
+              placeholder="Mehr Details zum Gesuch, Anforderungen oder Ablauf"
+              data-gesuche-field="details"
+            ></textarea>
           </label>
           <label class="entryForm__label">
             Tags (kommagetrennt)

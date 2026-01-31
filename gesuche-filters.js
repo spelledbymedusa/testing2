@@ -11,7 +11,7 @@
     return;
   }
 
-  const validModes = new Set(["vor_ort", "online", "hybrid", "all"]);
+  const validModes = new Set(["vor_ort", "online", "all"]);
 
   let currentMode = "all";
   let currentType = "all";
@@ -162,10 +162,10 @@
 
   let didPrefill = false;
   const normalizedPath = pathParam === "vorort" ? "vor_ort" : pathParam;
-  if (normalizedPath && ["vor_ort", "online", "hybrid"].includes(normalizedPath)) {
+  if (normalizedPath && ["vor_ort", "online"].includes(normalizedPath)) {
     setActiveMode(normalizedPath);
     didPrefill = true;
-  } else if (modeParam && ["vor_ort", "online", "hybrid"].includes(modeParam)) {
+  } else if (modeParam && ["vor_ort", "online"].includes(modeParam)) {
     setActiveMode(modeParam);
     didPrefill = true;
   }

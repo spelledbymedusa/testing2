@@ -8,6 +8,7 @@
   const detailMeta = document.querySelector("[data-gesuch-detail-meta]");
   const detailTitle = document.querySelector("[data-gesuch-detail-title]");
   const detailSummary = document.querySelector("[data-gesuch-detail-summary]");
+  const detailDescription = document.querySelector("[data-gesuch-detail-description]");
   const detailVerein = document.querySelector("[data-gesuch-detail-verein]");
   const detailAddress = document.querySelector("[data-gesuch-detail-address]");
   const detailContactPerson = document.querySelector("[data-gesuch-detail-contact-person]");
@@ -70,7 +71,6 @@
   const modeLabels = window.EHN_LABELS?.modes || {
     vor_ort: "Vor Ort",
     online: "Online",
-    hybrid: "Hybrid",
   };
 
   const resolveModeKey = (value) => {
@@ -98,9 +98,6 @@
     const normalized = value ? value.toLowerCase() : "";
     if (normalized.includes("online")) {
       return "online";
-    }
-    if (normalized.includes("hybrid")) {
-      return "hybrid";
     }
     return "vor_ort";
   };
@@ -162,7 +159,12 @@
       return;
     }
     button.classList.toggle("is-saved", isSaved);
-    button.textContent = isSaved ? "Gemerkt" : "Merken";
+    button.setAttribute("aria-pressed", String(isSaved));
+    button.setAttribute("aria-label", "Merken");
+    const label = button.querySelector(".gesuche__saveText");
+    if (label) {
+      label.textContent = "Merken";
+    }
   };
 
   const applySavedState = () => {
@@ -196,6 +198,7 @@
     row.setAttribute("data-news-item", "");
     row.dataset.newsDate = new Date().toISOString().split("T")[0];
     row.dataset.newsDistance = "0";
+    row.tabIndex = 0;
 
     const modeKey = normalizeModeKey(gesuch.mode);
     row.dataset.newsType = modeKey;
@@ -235,19 +238,21 @@
     const right = document.createElement("div");
     right.className = "gesuche__right";
 
-    const openButton = document.createElement("button");
-    openButton.className = "nav__link gesuche__open";
-    openButton.type = "button";
-    openButton.textContent = "Öffnen";
-
     const saveButton = document.createElement("button");
     saveButton.className = "nav__link gesuche__save";
     saveButton.type = "button";
     saveButton.dataset.gesuchSave = "true";
     saveButton.dataset.gesuchId = gesuch.id;
-    saveButton.textContent = "Merken";
+    saveButton.setAttribute("aria-pressed", "false");
+    saveButton.setAttribute("aria-label", "Merken");
+    saveButton.innerHTML = `
+      <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
+      </svg>
+      <span class="gesuche__saveText" aria-hidden="true">Merken</span>
+    `;
 
-    right.append(openButton, saveButton);
+    right.append(saveButton);
     row.append(media, left, right);
 
     return row;
@@ -302,10 +307,15 @@
       ? `${gesuch.location} • ${gesuch.effort} • ${getModeLabel(gesuch.mode)}`
       : row.querySelector(".gesuche__meta")?.textContent || "";
     const summary = gesuch?.summary || row.querySelector(".gesuche__text")?.textContent || "";
+    const description = gesuch?.details || "";
 
     if (detailMeta) detailMeta.textContent = meta;
     if (detailTitle) detailTitle.textContent = title;
     if (detailSummary) detailSummary.textContent = summary;
+    if (detailDescription) {
+      detailDescription.textContent = description;
+      detailDescription.hidden = !description;
+    }
     if (detailVerein) detailVerein.textContent = profile.vereinName || "Verein";
     if (detailAddress) detailAddress.textContent = profile.address || "Adresse folgt";
 
@@ -443,6 +453,23 @@
         openDetail(row);
       }
     });
+
+    list.addEventListener("keydown", (event) => {
+      if (!(event.target instanceof HTMLElement)) {
+        return;
+      }
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+      if (event.target.matches("[data-gesuch-save]") || event.target.closest(".gesuche__save")) {
+        return;
+      }
+      const row = event.target.closest(".gesuche__row");
+      if (row) {
+        event.preventDefault();
+        openDetail(row);
+      }
+    });
   }
 
   if (detail) {
@@ -506,6 +533,7 @@
       const mode = getField("mode").value;
       const modeLabel = getModeLabel(mode);
       const summary = getField("summary").value.trim();
+      const details = getField("details")?.value.trim() || "";
       const tags = parseTags(getField("tags").value || "");
       const imageFile = getField("image").files[0];
 
@@ -532,6 +560,7 @@
           effort,
           mode,
           summary,
+          details,
           tags: tags.length ? tags : [modeLabel],
           imageData,
           ownerId: session?.userId || null,

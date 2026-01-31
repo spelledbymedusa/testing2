@@ -192,6 +192,7 @@
                 <!-- Gesuch row 1 -->
                 <article
                   class="gesuche__row"
+                  tabindex="0"
                   data-news-item
                   data-news-type="vor_ort"
                   data-gesuch-type="aushilfe"
@@ -222,14 +223,19 @@
                   </div>
 
                   <div class="gesuche__right">
-                    <button class="nav__link gesuche__open" type="button">Öffnen</button>
-                    <button class="nav__link gesuche__save" type="button">Merken</button>
+                    <button class="nav__link gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
+                      <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
+                      </svg>
+                      <span class="gesuche__saveText" aria-hidden="true">Merken</span>
+                    </button>
                   </div>
                 </article>
 
                 <!-- Gesuch row 2 -->
                 <article
                   class="gesuche__row"
+                  tabindex="0"
                   data-news-item
                   data-news-type="online"
                   data-gesuch-type="freiwillig"
@@ -260,14 +266,19 @@
                   </div>
 
                   <div class="gesuche__right">
-                    <button class="nav__link gesuche__open" type="button">Öffnen</button>
-                    <button class="nav__link gesuche__save" type="button">Merken</button>
+                    <button class="nav__link gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
+                      <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
+                      </svg>
+                      <span class="gesuche__saveText" aria-hidden="true">Merken</span>
+                    </button>
                   </div>
                 </article>
 
                 <!-- Gesuch row 3 -->
                 <article
                   class="gesuche__row"
+                  tabindex="0"
                   data-news-item
                   data-news-type="vor_ort"
                   data-gesuch-type="pflegestelle"
@@ -298,14 +309,19 @@
                   </div>
 
                   <div class="gesuche__right">
-                    <button class="nav__link gesuche__open" type="button">Öffnen</button>
-                    <button class="nav__link gesuche__save" type="button">Merken</button>
+                    <button class="nav__link gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
+                      <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
+                      </svg>
+                      <span class="gesuche__saveText" aria-hidden="true">Merken</span>
+                    </button>
                   </div>
                 </article>
 
                 <!-- More placeholders -->
                 <article
                   class="gesuche__row"
+                  tabindex="0"
                   data-news-item
                   data-news-type="vor_ort"
                   data-gesuch-type="fsj"
@@ -333,8 +349,12 @@
                     </div>
                   </div>
                   <div class="gesuche__right">
-                    <button class="nav__link gesuche__open" type="button">Öffnen</button>
-                    <button class="nav__link gesuche__save" type="button">Merken</button>
+                    <button class="nav__link gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
+                      <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
+                      </svg>
+                      <span class="gesuche__saveText" aria-hidden="true">Merken</span>
+                    </button>
                   </div>
                 </article>
               </div>
@@ -357,6 +377,7 @@
           <div class="gesuchDetail__meta" data-gesuch-detail-meta></div>
           <h2 class="h2" id="gesuch-detail-title" data-gesuch-detail-title></h2>
           <p class="gesuchDetail__summary" data-gesuch-detail-summary></p>
+          <p class="gesuchDetail__description" data-gesuch-detail-description></p>
 
           <div class="gesuchDetail__section">
             <h3 class="h3">Verein</h3>
