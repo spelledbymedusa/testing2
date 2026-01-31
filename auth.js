@@ -4,11 +4,13 @@
     return;
   }
 
-  const roleBtns = Array.from(card.querySelectorAll(".auth__roleBtn"));
-  const modeBtns = Array.from(card.querySelectorAll(".auth__tab"));
+  const choiceCards = Array.from(card.querySelectorAll("[data-choice-role]"));
+  const roleButtons = Array.from(card.querySelectorAll("[data-role-button]"));
+  const header = card.querySelector("[data-auth-header]");
   const sections = Array.from(card.querySelectorAll(".auth__section"));
   const switchLinks = Array.from(card.querySelectorAll("[data-switch-to]"));
   const message = card.querySelector("[data-auth-message]");
+  const appleAlt = card.querySelector("[data-auth-alt=\"apple\"]");
 
   const store = window.EHNStore;
 
@@ -20,38 +22,62 @@
     message.className = `auth__notice auth__notice--${tone}`;
   };
 
+  const defaultMode = card.dataset.authDefaultMode || "login";
   let currentRole = "person";
-  let currentMode = "login";
+  let currentMode = defaultMode;
 
-  const setActiveButton = (btns, activeBtn, activeClass) => {
-    btns.forEach((btn) => {
-      const isActive = btn === activeBtn;
-      btn.classList.toggle(activeClass, isActive);
+  const updateChoiceUI = () => {
+    choiceCards.forEach((cardEl) => {
+      const isActive = cardEl.getAttribute("data-choice-role") === currentRole;
+      cardEl.classList.toggle("auth__choiceCard--active", isActive);
+      cardEl.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    roleButtons.forEach((btn) => {
+      const isActive = btn.getAttribute("data-role-button") === currentRole;
+      btn.classList.toggle("auth__roleBtn--active", isActive);
       btn.setAttribute("aria-selected", isActive ? "true" : "false");
     });
+
+    if (header) {
+      const roleLabel = currentRole === "person" ? "Privatperson" : "Verein/Organisation";
+      const modeLabel = currentMode === "login" ? "Anmelden" : "Registrieren";
+      if (currentMode === "login") {
+        header.textContent = modeLabel;
+      } else {
+        header.textContent = `${roleLabel} – ${modeLabel}`;
+      }
+    }
+
+    if (appleAlt) {
+      appleAlt.hidden = currentRole === "org";
+    }
   };
 
   const render = () => {
     sections.forEach((section) => {
-      const matches =
-        section.getAttribute("data-role") === currentRole &&
-        section.getAttribute("data-mode") === currentMode;
-      section.hidden = !matches;
+      const role = section.getAttribute("data-role");
+      const roleMatches = role === "any" || role === currentRole;
+      const modeMatches = section.getAttribute("data-mode") === currentMode;
+      section.hidden = !(roleMatches && modeMatches);
     });
+    updateChoiceUI();
   };
 
-  roleBtns.forEach((btn) => {
+  choiceCards.forEach((btn) => {
     btn.addEventListener("click", () => {
-      currentRole = btn.getAttribute("data-role");
-      setActiveButton(roleBtns, btn, "auth__roleBtn--active");
+      currentRole = btn.getAttribute("data-choice-role");
+      const nextMode = btn.getAttribute("data-choice-mode");
+      if (nextMode) {
+        currentMode = nextMode;
+      }
       render();
     });
   });
 
-  modeBtns.forEach((btn) => {
+  roleButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      currentMode = btn.getAttribute("data-mode");
-      setActiveButton(modeBtns, btn, "auth__tab--active");
+      currentRole = btn.getAttribute("data-role-button");
       render();
     });
   });
@@ -60,9 +86,9 @@
     link.addEventListener("click", (event) => {
       event.preventDefault();
       const target = link.getAttribute("data-switch-to");
-      const targetBtn = modeBtns.find((btn) => btn.getAttribute("data-mode") === target);
-      if (targetBtn) {
-        targetBtn.click();
+      if (target) {
+        currentMode = target;
+        render();
       }
     });
   });
@@ -98,7 +124,7 @@
     }
 
     const user = store.findUserByEmail(email);
-    if (!user || user.password !== password || user.role !== role) {
+    if (!user || user.password !== password || (role && user.role !== role)) {
       showMessage("Zugangsdaten stimmen nicht.", "error");
       return;
     }
@@ -188,7 +214,7 @@
         return;
       }
       const action = button.dataset.authAction;
-      const role = section.dataset.role || currentRole;
+      const role = section.dataset.role === "any" ? null : section.dataset.role || currentRole;
       showMessage("");
       if (action === "login") {
         handleLogin(section, role);

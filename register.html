@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ehrenamtsnetz • Registrieren</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./theme.js" defer></script>
+    <script src="./nav.js" defer></script>
+    <script src="./nav-active.js" defer></script>
+    <script src="./data-store.js" defer></script>
+    <script src="./session.js" defer></script>
+    <script src="./auth.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="./index.html">Ehrenamtsnetz</a>
+
+        <nav class="nav">
+          <div class="nav__links" data-desktop-nav></div>
+          <div class="nav__menu">
+            <button
+              class="nav__toggle"
+              type="button"
+              aria-label="Menü öffnen"
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+              data-nav-toggle
+            >
+              <span class="nav__toggleLines" aria-hidden="true">
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+                <span class="nav__toggleLine"></span>
+              </span>
+            </button>
+            <div class="nav__dropdown" id="mobileMenu" hidden>
+              <nav class="nav__dropdownNav" aria-label="Menü" data-mobile-menu></nav>
+            </div>
+          </div>
+          <div class="nav__actions">
+            <button class="themeToggle" type="button" aria-label="Dunkelmodus aktivieren" aria-pressed="false" data-theme-toggle>
+              <span class="themeToggle__icon themeToggle__icon--sun" aria-hidden="true">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 18a6 6 0 100-12 6 6 0 000 12z"/>
+                  <path d="M12 2.25a.75.75 0 01.75.75V5a.75.75 0 01-1.5 0V3A.75.75 0 0112 2.25z"/>
+                  <path d="M12 19a.75.75 0 01.75.75v2a.75.75 0 01-1.5 0v-2A.75.75 0 0112 19z"/>
+                  <path d="M4.72 4.72a.75.75 0 011.06 0l1.41 1.41a.75.75 0 11-1.06 1.06L4.72 5.78a.75.75 0 010-1.06z"/>
+                  <path d="M16.81 16.81a.75.75 0 011.06 0l1.41 1.41a.75.75 0 11-1.06 1.06l-1.41-1.41a.75.75 0 010-1.06z"/>
+                  <path d="M2.25 12c0-.414.336-.75.75-.75h2a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75z"/>
+                  <path d="M19 12c0-.414.336-.75.75-.75h2a.75.75 0 010 1.5h-2A.75.75 0 0119 12z"/>
+                  <path d="M4.72 19.28a.75.75 0 010-1.06l1.41-1.41a.75.75 0 111.06 1.06l-1.41 1.41a.75.75 0 01-1.06 0z"/>
+                  <path d="M16.81 7.19a.75.75 0 010-1.06l1.41-1.41a.75.75 0 011.06 1.06l-1.41 1.41a.75.75 0 01-1.06 0z"/>
+                </svg>
+              </span>
+              <span class="themeToggle__icon themeToggle__icon--moon" aria-hidden="true">
+                <svg fill="currentColor" viewBox="144 144 512 512" xmlns="http://www.w3.org/2000/svg">
+                  <g fill-rule="evenodd">
+                    <path d="m586.16 520.09c-37.855 49.766-97.699 81.895-165.04 81.895-114.46.0-207.27-92.801-207.27-207.27.0-91.602 59.426-169.31 141.82-196.71-121.23 159.34 35.664 386.83 230.49 322.09z"/>
+                    <path d="m516.45 388.75 14.566 47.379 47.367 14.559-47.367 14.555-14.566 47.379-14.559-47.379-47.375-14.555 47.375-14.559z"/>
+                    <path d="m428.86 287.64 7.293 23.734 23.723 7.2891-23.723 7.2969-7.293 23.723-7.293-23.723-23.727-7.2969 23.727-7.2891z"/>
+                    <path d="m416.86 399.47 7.293 23.727 23.727 7.293-23.727 7.2891-7.293 23.727-7.2891-23.727-23.73-7.2891 23.73-7.293z"/>
+                  </g>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h1 class="h1">Registrieren</h1>
+            <div class="sub">
+              Wähle deinen Account-Typ und erstelle deinen Zugang.
+            </div>
+          </div>
+        </div>
+
+        <div class="auth__layout">
+          <div class="auth__card" id="authCard" data-auth-default-mode="signup">
+            <div class="auth__choiceIntro">
+              Bist du als Privatperson oder für einen Verein unterwegs?
+            </div>
+            <div class="auth__choice" aria-label="Account-Typ auswählen">
+              <button class="auth__choiceCard auth__choiceCard--active" type="button" data-choice-role="person" data-choice-mode="signup" aria-pressed="true">
+                <span class="auth__choiceIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z"/>
+                    <path d="M4 20.5c0-3.59 3.582-6.5 8-6.5s8 2.91 8 6.5v.5H4v-.5z"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="auth__choiceTitle">Privatperson</span>
+                  <span class="auth__choiceText">Wenig Angaben, schnell startklar.</span>
+                </span>
+              </button>
+              <button class="auth__choiceCard" type="button" data-choice-role="org" data-choice-mode="signup" aria-pressed="false">
+                <span class="auth__choiceIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 21h18v-2H3v2z"/>
+                    <path d="M7 19V5h10v14H7z"/>
+                    <path d="M9 7h2v2H9V7zm0 4h2v2H9v-2zm0 4h2v2H9v-2zm4-8h2v2h-2V7zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
+                    <path d="M5 19V9h2v10H5zm12 0V9h2v10h-2z"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="auth__choiceTitle">Verein/Organisation</span>
+                  <span class="auth__choiceText">Mehr Details für Ansprechpartner & Organisation.</span>
+                </span>
+              </button>
+            </div>
+
+            <div class="auth__formHeader" data-auth-header>Privatperson – Registrieren</div>
+            <div class="auth__notice" data-auth-message role="status" aria-live="polite"></div>
+
+            <form class="auth__form" autocomplete="on">
+              <div class="auth__section" data-role="person" data-mode="signup">
+                <label class="auth__label">
+                  Vorname
+                  <input class="auth__input" type="text" placeholder="Max" autocomplete="given-name" data-auth-field="firstName" />
+                </label>
+
+                <label class="auth__label">
+                  Nachname
+                  <input class="auth__input" type="text" placeholder="Mustermann" autocomplete="family-name" data-auth-field="lastName" />
+                </label>
+
+                <label class="auth__label">
+                  E-Mail
+                  <input class="auth__input" type="email" placeholder="name@email.de" autocomplete="email" data-auth-field="email" />
+                </label>
+
+                <label class="auth__label">
+                  Passwort
+                  <input class="auth__input" type="password" placeholder="Mind. 8 Zeichen" autocomplete="new-password" data-auth-field="password" />
+                </label>
+
+                <label class="auth__label">
+                  Passwort wiederholen
+                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="new-password" data-auth-field="confirm" />
+                </label>
+
+                <label class="auth__chk">
+                  <input type="checkbox" data-auth-field="terms" />
+                  Ich akzeptiere Datenschutz & Nutzungsbedingungen
+                </label>
+
+                <button class="auth__submit" type="button" data-auth-action="signup">Registrieren</button>
+
+                <div class="auth__small">
+                  Schon registriert? <a class="auth__link" href="./login.html">Anmelden</a>
+                </div>
+              </div>
+
+              <div class="auth__section" data-role="org" data-mode="signup" hidden>
+                <label class="auth__label">
+                  Vereinsname / Organisation
+                  <input class="auth__input" type="text" placeholder="z. B. Sportverein Musterstadt" autocomplete="organization" data-auth-field="orgName" />
+                </label>
+
+                <label class="auth__label">
+                  Ansprechpartner*in
+                  <input class="auth__input" type="text" placeholder="Vor- und Nachname" autocomplete="name" data-auth-field="contactName" />
+                </label>
+
+                <label class="auth__label">
+                  Vereins-E-Mail
+                  <input class="auth__input" type="email" placeholder="verein@email.de" autocomplete="email" data-auth-field="email" />
+                </label>
+
+                <label class="auth__label">
+                  Telefon (optional)
+                  <input class="auth__input" type="tel" placeholder="+49 ..." autocomplete="tel" data-auth-field="phone" />
+                </label>
+
+                <label class="auth__label">
+                  Passwort
+                  <input class="auth__input" type="password" placeholder="Mind. 8 Zeichen" autocomplete="new-password" data-auth-field="password" />
+                </label>
+
+                <label class="auth__label">
+                  Passwort wiederholen
+                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="new-password" data-auth-field="confirm" />
+                </label>
+
+                <label class="auth__chk">
+                  <input type="checkbox" data-auth-field="terms" />
+                  Ich akzeptiere Datenschutz & Nutzungsbedingungen
+                </label>
+
+                <button class="auth__submit" type="button" data-auth-action="signup">Registrieren</button>
+
+                <div class="auth__small">
+                  Schon registriert? <a class="auth__link" href="./login.html">Anmelden</a>
+                </div>
+              </div>
+            </form>
+
+            <div class="auth__divider"></div>
+
+            <div class="auth__alt">
+              <button class="auth__altBtn" type="button">Mit Google fortfahren</button>
+              <button class="auth__altBtn" type="button" data-auth-alt="apple">Mit Apple fortfahren</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth__next">
+          <a class="nav__link auth__fakeNext" href="./account.html">Weiter zum Account (Demo)</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Impressum • Kontakt • Datenschutz</div>
+      </div>
+    </footer>
+  </body>
+</html>
