@@ -11,6 +11,7 @@
     <script src="./data-store.js" defer></script>
     <script src="./session.js" defer></script>
     <script src="./news-controls.js" defer></script>
+    <script src="./ui-drawers.js" defer></script>
     <script src="./blog-form.js" defer></script>
   </head>
 
@@ -70,12 +71,7 @@
     <section class="section section--airy">
       <div class="container">
         <div class="section__header">
-          <div>
-            <h1 class="h1">Einblicke</h1>
-            <div class="sub">
-              Artikel, Videos und Weiterbildungen für dein Engagement – gebündelt in einem Feed.
-            </div>
-          </div>
+          <div></div>
           <div>
             <a class="nav__link" href="./einblick-erstellen.html">Einblick erstellen</a>
           </div>
@@ -84,58 +80,50 @@
         <div class="blog__layout">
           <!-- MAIN -->
           <div class="blog__main" data-news-card>
-            <div class="blog__controlsCard">
-              <div class="newsCard__controls" aria-label="Einblicke steuern">
-                <div class="newsCard__controlGroup newsCard__controlGroup--left">
-                  <button
-                    class="newsCard__control"
-                    type="button"
-                    aria-label="Einblicke sortieren"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    data-news-toggle="sort"
-                  >
+            <div class="listcardShell">
+              <div class="listcard">
+                <div class="listcard__header">
+                  <button class="newsCard__control listcard__control" type="button" aria-label="Einblicke sortieren" aria-expanded="false" data-open-sort>
                     <span class="newsCard__controlLines" aria-hidden="true">
                       <span class="newsCard__controlLine"></span>
                       <span class="newsCard__controlLine"></span>
                       <span class="newsCard__controlLine"></span>
                     </span>
                   </button>
-                  <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
-                    <button class="newsCard__menuItem is-active" type="button" data-news-sort="curated">Empfohlen</button>
-                    <button class="newsCard__menuItem" type="button" data-news-sort="chronological">Älteste zuerst</button>
-                    <button class="newsCard__menuItem" type="button" data-news-sort="newest">Neueste zuerst</button>
-                  </div>
+                  <h1 class="listcard__title">Einblicke</h1>
+                  <button class="newsCard__control listcard__control" type="button" aria-label="Einblicke filtern" aria-expanded="false" data-open-filter>
+                    <span class="newsCard__controlLines" aria-hidden="true">
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                    </span>
+                  </button>
                 </div>
-                <h3 class="newsCard__controlsLabel">Einblicke</h3>
-                <div class="newsCard__controlGroup newsCard__controlGroup--right">
-                  <button
-                    class="newsCard__control"
-                    type="button"
-                    aria-label="Einblicke filtern"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    data-news-toggle="filter"
-                  >
-                    <span class="newsCard__controlLines" aria-hidden="true">
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                    </span>
-                  </button>
-                  <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
-                    <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="artikel">Artikel</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="weiterbildung">Weiterbildung</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="events">Events</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="gesuch">Gesuche</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="download">Download</button>
-                  </div>
+                <p class="listcard__subtitle">
+                  Artikel, Videos und Weiterbildungen für dein Engagement – gebündelt in einem Feed.
+                </p>
+                <div class="listcard__search">
+                  <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" data-blog-search />
+                  <button class="nav__link blog__searchBtn" type="button" data-blog-search-btn>Suchen</button>
                 </div>
               </div>
-              <div class="blog__toolbar blog__toolbar--compact">
-                <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" data-blog-search />
-                <button class="nav__link blog__searchBtn" type="button" data-blog-search-btn>Suchen</button>
+              <div class="listcard__drawer" data-drawer="sort" hidden>
+                <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
+                  <button class="newsCard__menuItem is-active" type="button" data-news-sort="curated">Empfohlen</button>
+                  <button class="newsCard__menuItem" type="button" data-news-sort="chronological">Älteste zuerst</button>
+                  <button class="newsCard__menuItem" type="button" data-news-sort="newest">Neueste zuerst</button>
+                </div>
+              </div>
+              <div class="listcard__drawer" data-drawer="filter" hidden>
+                <div class="listcard__drawerTitle">Filter</div>
+                <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
+                  <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
+                  <button class="newsCard__menuItem" type="button" data-news-filter="artikel">Artikel</button>
+                  <button class="newsCard__menuItem" type="button" data-news-filter="weiterbildung">Weiterbildung</button>
+                  <button class="newsCard__menuItem" type="button" data-news-filter="events">Events</button>
+                  <button class="newsCard__menuItem" type="button" data-news-filter="gesuch">Gesuche</button>
+                  <button class="newsCard__menuItem" type="button" data-news-filter="download">Download</button>
+                </div>
               </div>
             </div>
 

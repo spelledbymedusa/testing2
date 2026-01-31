@@ -727,6 +727,80 @@ body{
 .newsCard__itemText{margin:6px 0 0;color:var(--text);font-size:13px;line-height:1.5}
 
 /* =========================================================
+   List header cards + drawers
+   ========================================================= */
+.listcardShell{
+  display:grid;
+  gap:12px;
+  margin-bottom:12px;
+}
+.listcard{
+  border:var(--borderWidth) solid var(--border);
+  background:var(--surfaceLight);
+  border-radius:var(--radius);
+  padding:16px;
+  display:grid;
+  gap:12px;
+}
+.listcard__header{
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr) 44px;
+  align-items:center;
+  gap:12px;
+}
+.listcard__title{
+  margin:0;
+  font-size:20px;
+  font-weight:600;
+  text-align:center;
+}
+.listcard__subtitle{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  text-align:center;
+}
+.listcard__control{
+  width:44px;
+  height:44px;
+}
+.listcard__search{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.listcard__drawer{
+  border:var(--borderWidth) solid var(--border);
+  background:var(--surfaceLight);
+  border-radius:var(--radius);
+  padding:16px;
+  display:grid;
+  gap:12px;
+}
+.listcard__drawer[hidden]{
+  display:none;
+}
+.listcard__drawerTitle{
+  font-size:13px;
+  font-weight:600;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.listcard__drawerSection{
+  display:grid;
+  gap:8px;
+}
+.listcard__drawer .newsCard__menu{
+  position:static;
+  opacity:1;
+  pointer-events:auto;
+  transform:none;
+  box-shadow:none;
+  border:1px solid var(--border);
+}
+
+/* =========================================================
    Vereinsprofil
    ========================================================= */
 .profile__hero{
@@ -770,6 +844,9 @@ body{
   grid-template-columns:1fr 340px;
   gap:20px;
   align-items:start;
+}
+.vereine__layout--single{
+  grid-template-columns:1fr;
 }
 .blog__layout--single{
   grid-template-columns:1fr;

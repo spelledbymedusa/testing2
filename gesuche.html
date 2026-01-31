@@ -12,6 +12,7 @@
     <script src="./data-store.js" defer></script>
     <script src="./session.js" defer></script>
     <script src="./news-controls.js" defer></script>
+    <script src="./ui-drawers.js" defer></script>
     <script src="./gesuche-form.js" defer></script>
     <script src="./gesuche-filters.js" defer></script>
   </head>
@@ -72,10 +73,7 @@
     <section class="section section--airy">
       <div class="container">
         <div class="section__header">
-          <div>
-            <h1 class="h1" id="gesuche-title">Gesuche</h1>
-            <div class="sub" id="gesuche-subtitle">Konkrete Hilfsanfragen – lokal oder online, kurz- oder langfristig.</div>
-          </div>
+          <div></div>
           <div>
             <a class="nav__link" href="./gesuch-erstellen.html">Gesuch erstellen</a>
           </div>
@@ -89,9 +87,43 @@
           <!-- MAIN -->
           <div class="gesuche__main">
             <div class="gesuche__card newsCard" data-news-card>
-              <div class="gesuche__controls">
-                <div class="gesuche__toolbar">
+            <div class="listcardShell">
+              <div class="listcard">
+                <div class="listcard__header">
+                  <button class="newsCard__control listcard__control" type="button" aria-label="Gesuche sortieren" aria-expanded="false" data-open-sort>
+                    <span class="newsCard__controlLines" aria-hidden="true">
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                    </span>
+                  </button>
+                  <h1 class="listcard__title" id="gesuche-title">Gesuche</h1>
+                  <button class="newsCard__control listcard__control" type="button" aria-label="Gesuche filtern" aria-expanded="false" data-open-filter>
+                    <span class="newsCard__controlLines" aria-hidden="true">
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                      <span class="newsCard__controlLine"></span>
+                    </span>
+                  </button>
+                </div>
+                <p class="listcard__subtitle" id="gesuche-subtitle">Konkrete Hilfsanfragen – lokal oder online, kurz- oder langfristig.</p>
+                <div class="listcard__search">
                   <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />
+                  <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
+                </div>
+              </div>
+              <div class="listcard__drawer" data-drawer="sort" hidden>
+                <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
+                  <div class="newsCard__menuLabel">Sortieren nach</div>
+                  <div class="newsCard__menuDivider" aria-hidden="true"></div>
+                  <button class="newsCard__menuItem is-active" type="button" data-news-sort="newest">Neueste zuerst</button>
+                  <button class="newsCard__menuItem" type="button" data-news-sort="oldest">Älteste zuerst</button>
+                  <button class="newsCard__menuItem" type="button" data-news-sort="distance">Entfernung</button>
+                </div>
+              </div>
+              <div class="listcard__drawer" data-drawer="filter" hidden>
+                <div class="listcard__drawerSection">
+                  <div class="listcard__drawerTitle">Filter</div>
                   <select class="gesuche__select" aria-label="Gesuchstyp auswählen" data-gesuche-type-filter>
                     <option value="all">Alle Typen</option>
                     <option value="fsj">FSJ</option>
@@ -101,60 +133,18 @@
                     <option value="mitglied">Mitglied</option>
                     <option value="freiwillig">Freiwillig</option>
                   </select>
-                  <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
-                  <button class="gesuche__clear" type="button" data-gesuche-clear-filters>Filter zurücksetzen</button>
                 </div>
-                <div class="newsCard__controls" aria-label="Gesuche steuern">
-                  <div class="newsCard__controlGroup newsCard__controlGroup--left">
-                    <button
-                      class="newsCard__control"
-                      type="button"
-                      aria-label="Gesuche sortieren"
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      data-news-toggle="sort"
-                    >
-                      <span class="newsCard__controlLines" aria-hidden="true">
-                        <span class="newsCard__controlLine"></span>
-                        <span class="newsCard__controlLine"></span>
-                        <span class="newsCard__controlLine"></span>
-                      </span>
-                    </button>
-                    <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
-                      <div class="newsCard__menuLabel">Sortieren nach</div>
-                      <div class="newsCard__menuDivider" aria-hidden="true"></div>
-                      <button class="newsCard__menuItem is-active" type="button" data-news-sort="newest">Neueste zuerst</button>
-                      <button class="newsCard__menuItem" type="button" data-news-sort="oldest">Älteste zuerst</button>
-                      <button class="newsCard__menuItem" type="button" data-news-sort="distance">Entfernung</button>
-                    </div>
-                  </div>
-                  <h3 class="newsCard__controlsLabel">Gesuche</h3>
-                  <div class="newsCard__controlGroup newsCard__controlGroup--right">
-                    <button
-                      class="newsCard__control"
-                      type="button"
-                      aria-label="Gesuche filtern"
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      data-news-toggle="filter"
-                    >
-                      <span class="newsCard__controlLines" aria-hidden="true">
-                        <span class="newsCard__controlLine"></span>
-                        <span class="newsCard__controlLine"></span>
-                        <span class="newsCard__controlLine"></span>
-                      </span>
-                    </button>
-                    <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
-                      <div class="newsCard__menuLabel">Filtern nach</div>
-                      <div class="newsCard__menuDivider" aria-hidden="true"></div>
-                      <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
-                      <button class="newsCard__menuItem" type="button" data-news-filter="vor_ort">Vor Ort</button>
-                      <button class="newsCard__menuItem" type="button" data-news-filter="online">Online</button>
-                      <button class="newsCard__menuItem" type="button" data-news-filter="hybrid">Hybrid</button>
-                    </div>
-                  </div>
+                <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
+                  <div class="newsCard__menuLabel">Filtern nach</div>
+                  <div class="newsCard__menuDivider" aria-hidden="true"></div>
+                  <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
+                  <button class="newsCard__menuItem" type="button" data-news-filter="vor_ort">Vor Ort</button>
+                  <button class="newsCard__menuItem" type="button" data-news-filter="online">Online</button>
+                  <button class="newsCard__menuItem" type="button" data-news-filter="hybrid">Hybrid</button>
                 </div>
+                <button class="gesuche__clear" type="button" data-gesuche-clear-filters>Filter zurücksetzen</button>
               </div>
+            </div>
 
               <div class="gesuche__list" data-gesuche-list data-news-list>
                 <!-- Gesuch row 1 -->
