@@ -82,7 +82,7 @@
           </div>
         </div>
 
-        <div class="blog__layout">
+        <div class="blog__layout blog__layout--single">
           <!-- MAIN -->
           <div class="blog__main" data-news-card>
             <div class="listcardShell">
@@ -121,13 +121,49 @@
               </div>
               <div class="listcard__drawer" data-drawer="filter" hidden>
                 <div class="listcard__drawerTitle">Filter</div>
-                <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
-                  <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
-                  <button class="newsCard__menuItem" type="button" data-news-filter="artikel">Artikel</button>
-                  <button class="newsCard__menuItem" type="button" data-news-filter="weiterbildung">Weiterbildung</button>
-                  <button class="newsCard__menuItem" type="button" data-news-filter="events">Events</button>
-                  <button class="newsCard__menuItem" type="button" data-news-filter="gesuch">Gesuche</button>
-                  <button class="newsCard__menuItem" type="button" data-news-filter="download">Download</button>
+                <div class="listcard__drawerSection">
+                  <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
+                    <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="artikel">Artikel</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="weiterbildung">Weiterbildung</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="events">Events</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="gesuch">Gesuche</button>
+                    <button class="newsCard__menuItem" type="button" data-news-filter="download">Download</button>
+                  </div>
+                </div>
+                <div class="listcard__drawerSection">
+                  <details class="blog__filter" open>
+                    <summary>Format</summary>
+                    <div class="blog__filterBody">
+                      <label class="blog__chk"><input type="checkbox" /> Artikel</label>
+                      <label class="blog__chk"><input type="checkbox" /> Video</label>
+                      <label class="blog__chk"><input type="checkbox" /> Download</label>
+                      <label class="blog__chk"><input type="checkbox" /> Webinar</label>
+                    </div>
+                  </details>
+
+                  <details class="blog__filter">
+                    <summary>Thema</summary>
+                    <div class="blog__filterBody">
+                      <label class="blog__chk"><input type="checkbox" /> Community</label>
+                      <label class="blog__chk"><input type="checkbox" /> Vereinswissen</label>
+                      <label class="blog__chk"><input type="checkbox" /> Finanzierung</label>
+                      <label class="blog__chk"><input type="checkbox" /> Engagement</label>
+                    </div>
+                  </details>
+
+                  <details class="blog__filter">
+                    <summary>Ort</summary>
+                    <div class="blog__filterBody">
+                      <label class="blog__chk"><input type="checkbox" /> Vor Ort</label>
+                      <label class="blog__chk"><input type="checkbox" /> Online</label>
+                      <label class="blog__chk"><input type="checkbox" /> Bundesweit</label>
+                    </div>
+                  </details>
+                </div>
+                <div class="blog__sideActions">
+                  <button class="nav__link blog__apply" type="button">Anwenden</button>
+                  <button class="nav__link blog__reset" type="button">Zurücksetzen</button>
                 </div>
               </div>
             </div>
@@ -287,48 +323,6 @@
             </div>
           </div>
 
-          <!-- SIDEBAR -->
-          <aside class="blog__sidebar">
-            <div class="blog__sideTitle">Filter</div>
-            <details class="blog__filterPanel">
-              <summary>Filter anzeigen</summary>
-              <div class="blog__filterPanelBody">
-                <details class="blog__filter" open>
-                  <summary>Format</summary>
-                  <div class="blog__filterBody">
-                    <label class="blog__chk"><input type="checkbox" /> Artikel</label>
-                    <label class="blog__chk"><input type="checkbox" /> Video</label>
-                    <label class="blog__chk"><input type="checkbox" /> Download</label>
-                    <label class="blog__chk"><input type="checkbox" /> Webinar</label>
-                  </div>
-                </details>
-
-                <details class="blog__filter">
-                  <summary>Thema</summary>
-                  <div class="blog__filterBody">
-                    <label class="blog__chk"><input type="checkbox" /> Community</label>
-                    <label class="blog__chk"><input type="checkbox" /> Vereinswissen</label>
-                    <label class="blog__chk"><input type="checkbox" /> Finanzierung</label>
-                    <label class="blog__chk"><input type="checkbox" /> Engagement</label>
-                  </div>
-                </details>
-
-                <details class="blog__filter">
-                  <summary>Ort</summary>
-                  <div class="blog__filterBody">
-                    <label class="blog__chk"><input type="checkbox" /> Vor Ort</label>
-                    <label class="blog__chk"><input type="checkbox" /> Online</label>
-                    <label class="blog__chk"><input type="checkbox" /> Bundesweit</label>
-                  </div>
-                </details>
-
-                <div class="blog__sideActions">
-                  <button class="nav__link blog__apply" type="button">Anwenden</button>
-                  <button class="nav__link blog__reset" type="button">Zurücksetzen</button>
-                </div>
-              </div>
-            </details>
-          </aside>
         </div>
       </div>
     </section>

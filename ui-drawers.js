@@ -25,6 +25,27 @@
     const sortDrawer = shell.querySelector('[data-drawer="sort"]');
     const filterDrawer = shell.querySelector('[data-drawer="filter"]');
 
+    const positionDrawer = (drawer, button) => {
+      if (!drawer || !button) {
+        return;
+      }
+      const shellRect = shell.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
+      const drawerRect = drawer.getBoundingClientRect();
+      const gap = 8;
+      const maxLeft = shellRect.width - drawerRect.width - gap;
+      const minLeft = gap;
+      let left = buttonRect.right - shellRect.left - drawerRect.width;
+      if (maxLeft < minLeft) {
+        left = minLeft;
+      } else {
+        left = Math.min(Math.max(left, minLeft), maxLeft);
+      }
+      const top = buttonRect.bottom - shellRect.top + gap;
+      drawer.style.left = `${left}px`;
+      drawer.style.top = `${top}px`;
+    };
+
     const openDrawer = (drawer, button) => {
       if (!drawer || !button) {
         return;
@@ -33,6 +54,7 @@
       closeShell(shell);
       if (!isOpen) {
         drawer.hidden = false;
+        positionDrawer(drawer, button);
         button.setAttribute("aria-expanded", "true");
       }
     };
