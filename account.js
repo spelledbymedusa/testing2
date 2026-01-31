@@ -9,14 +9,17 @@
   const emailField = document.querySelector("[data-account-email]");
   const locationField = document.querySelector("[data-account-location]");
   const statusField = document.querySelector("[data-account-status]");
+  const descriptionField = document.querySelector("[data-account-description]");
   const gesucheContainer = document.querySelector("[data-account-gesuche]");
   const postsContainer = document.querySelector("[data-account-posts]");
   const savedContainer = document.querySelector("[data-account-saved]");
   const editButton = document.querySelector("[data-account-edit]");
   const contactForm = document.querySelector("[data-account-contact-form]");
+  const settingsPanel = document.querySelector("[data-account-settings-panel]");
   const contactHint = document.querySelector("[data-account-contact-hint]");
   const contactFields = {
     verein: document.querySelector("[data-account-contact='verein']"),
+    description: document.querySelector("[data-account-contact='description']"),
     address: document.querySelector("[data-account-contact='address']"),
     contactPerson: document.querySelector("[data-account-contact='contactPerson']"),
     email: document.querySelector("[data-account-contact='email']"),
@@ -70,6 +73,7 @@
       return;
     }
     if (contactFields.verein) contactFields.verein.value = profile.vereinName || "";
+    if (contactFields.description) contactFields.description.value = profile.description || "";
     if (contactFields.address) contactFields.address.value = profile.address || "";
     if (contactFields.contactPerson) contactFields.contactPerson.value = profile.contactPerson || "";
     if (contactFields.email) contactFields.email.value = profile.email || "";
@@ -94,10 +98,14 @@
     if (statusField) {
       statusField.textContent = isLoggedIn ? "Aktiv" : "Unverifiziert";
     }
+    if (descriptionField) {
+      descriptionField.textContent = profile.description || "Keine Beschreibung hinterlegt.";
+    }
   };
 
   const getProfileFromForm = () => ({
     vereinName: contactFields.verein?.value.trim() || "",
+    description: contactFields.description?.value.trim() || "",
     address: contactFields.address?.value.trim() || "",
     contactPerson: contactFields.contactPerson?.value.trim() || "",
     email: contactFields.email?.value.trim() || "",
@@ -111,7 +119,7 @@
   if (contactForm) {
     if (!isLoggedIn) {
       setContactHint("Bitte einloggen, um Kontaktdaten zu pflegen.", "warning");
-      contactForm.querySelectorAll("input").forEach((input) => {
+      contactForm.querySelectorAll("input, textarea").forEach((input) => {
         input.disabled = true;
       });
       if (editButton) {
@@ -122,6 +130,7 @@
       const existingProfile = store.getOrgProfile(userId);
       const defaultProfile = existingProfile || {
         vereinName: session?.name || "Verein",
+        description: "",
         address: "Musterstraße 12, 10115 Berlin",
         contactPerson: "",
         email: session?.email || "kontakt@verein.de",
@@ -160,6 +169,9 @@
 
   if (editButton && contactForm) {
     editButton.addEventListener("click", () => {
+      if (settingsPanel && settingsPanel instanceof HTMLDetailsElement) {
+        settingsPanel.open = true;
+      }
       contactForm.scrollIntoView({ behavior: "smooth", block: "start" });
       contactFields.verein?.focus();
     });
