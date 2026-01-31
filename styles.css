@@ -1224,25 +1224,24 @@ body{
    ========================================================= */
 .auth__layout{
   display:grid;
-  grid-template-columns:1fr 420px;
-  gap:14px;
-  align-items:start;
+  grid-template-columns:1fr;
+  gap:24px;
+  justify-items:center;
 }
-.auth__info{padding:16px}
-.auth__infoTitle{margin-bottom:10px}
-.auth__list{margin:0;padding-left:18px;line-height:1.6}
-.auth__hint{margin-top:12px;font-size:13px}
-
-.auth__card{padding:16px}
+.auth__card{
+  padding:20px;
+  width:100%;
+  max-width:520px;
+}
 .auth__choiceIntro{
-  font-size:13px;
+  font-size:14px;
   color:var(--muted);
-  margin-bottom:12px;
+  margin-bottom:16px;
 }
 .auth__choice{
   display:grid;
-  gap:12px;
-  margin-bottom:14px;
+  gap:14px;
+  margin-bottom:18px;
 }
 .auth__choiceCard{
   border:var(--borderWidth) solid var(--border);
@@ -1250,7 +1249,7 @@ body{
   border-radius:16px;
   padding:14px;
   display:flex;
-  gap:12px;
+  gap:14px;
   align-items:flex-start;
   text-align:left;
   cursor:pointer;
@@ -1276,22 +1275,24 @@ body{
 }
 .auth__choiceTitle{
   font-weight:700;
+  font-size:16px;
 }
 .auth__choiceText{
-  font-size:13px;
+  font-size:14px;
   color:var(--muted);
   line-height:1.5;
 }
 .auth__formHeader{
-  font-weight:650;
-  margin-bottom:6px;
+  font-weight:700;
+  font-size:18px;
+  margin-bottom:10px;
 }
 .auth__form{display:grid;gap:10px}
 .auth__label{display:grid;gap:6px;font-size:13px;color:var(--muted)}
 .auth__submit,
 .auth__altBtn{
   border-radius:12px;
-  padding:11px 14px;
+  padding:12px 16px;
   cursor:pointer;
   min-height:44px;
 }
@@ -1312,7 +1313,7 @@ body{
   color:var(--text);
   font-weight:650;
 }
-.auth__divider{height:1px;background:var(--border);margin:14px 0}
+.auth__divider{height:1px;background:var(--border);margin:18px 0}
 .auth__alt{display:grid;gap:10px}
 .auth__altBtn{
   border:var(--borderWidth) solid var(--border);

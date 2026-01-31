@@ -10,6 +10,7 @@
   const sections = Array.from(card.querySelectorAll(".auth__section"));
   const switchLinks = Array.from(card.querySelectorAll("[data-switch-to]"));
   const message = card.querySelector("[data-auth-message]");
+  const appleAlt = card.querySelector("[data-auth-alt=\"apple\"]");
 
   const store = window.EHNStore;
 
@@ -47,14 +48,18 @@
         header.textContent = `${roleLabel} – ${modeLabel}`;
       }
     }
+
+    if (appleAlt) {
+      appleAlt.hidden = currentRole === "org";
+    }
   };
 
   const render = () => {
     sections.forEach((section) => {
-      const matches =
-        section.getAttribute("data-role") === currentRole &&
-        section.getAttribute("data-mode") === currentMode;
-      section.hidden = !matches;
+      const role = section.getAttribute("data-role");
+      const roleMatches = role === "any" || role === currentRole;
+      const modeMatches = section.getAttribute("data-mode") === currentMode;
+      section.hidden = !(roleMatches && modeMatches);
     });
     updateChoiceUI();
   };
