@@ -17,6 +17,7 @@
   const editButton = document.querySelector("[data-account-edit]");
   const contactForm = document.querySelector("[data-account-contact-form]");
   const settingsPanel = document.querySelector("[data-account-settings-panel]");
+  const settingsToggle = document.querySelector("[data-account-settings-toggle]");
   const contactHint = document.querySelector("[data-account-contact-hint]");
   const contactFields = {
     verein: document.querySelector("[data-account-contact='verein']"),
@@ -217,6 +218,14 @@
         settingsPanel.open = true;
       }
       contactForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      contactFields.verein?.focus();
+    });
+  }
+
+  if (settingsToggle && settingsPanel && settingsPanel instanceof HTMLDetailsElement) {
+    settingsToggle.addEventListener("click", () => {
+      settingsPanel.open = true;
+      settingsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
       contactFields.verein?.focus();
     });
   }
