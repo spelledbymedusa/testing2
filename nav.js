@@ -16,8 +16,9 @@
   const mobileMenu = document.querySelector("[data-mobile-menu]");
   const toggleButton = document.querySelector("[data-nav-toggle]");
   const menuContainer = document.getElementById("mobileMenu");
+  const nav = document.querySelector(".nav");
 
-  if (!desktopNav || !mobileMenu || !toggleButton || !menuContainer) {
+  if (!desktopNav || !mobileMenu || !toggleButton || !menuContainer || !nav) {
     return;
   }
 
@@ -37,6 +38,21 @@
     NAV.filter((item) => item.group === "primary").forEach((item) => {
       desktopNav.appendChild(createLink(item, "nav__link"));
     });
+  };
+
+  const renderAccountLink = () => {
+    const accountItem = NAV.find((item) => item.group === "account");
+    if (!accountItem) {
+      return;
+    }
+    let accountContainer = nav.querySelector(".nav__account");
+    if (!accountContainer) {
+      accountContainer = document.createElement("div");
+      accountContainer.className = "nav__account";
+      nav.insertBefore(accountContainer, nav.querySelector(".nav__menu"));
+    }
+    accountContainer.innerHTML = "";
+    accountContainer.appendChild(createLink(accountItem, "nav__link"));
   };
 
   const renderMobileLinks = (items, includeDivider) => {
@@ -77,8 +93,9 @@
 
   const renderNav = () => {
     renderDesktopLinks();
+    renderAccountLink();
     const isDesktop = window.innerWidth >= DESKTOP_BREAKPOINT;
-    const items = isDesktop ? NAV.filter((item) => item.group !== "primary") : NAV;
+    const items = isDesktop ? NAV.filter((item) => item.group === "secondary") : NAV;
     renderMobileLinks(items, !isDesktop);
     closeMenu();
     document.dispatchEvent(new CustomEvent("nav:rendered"));
