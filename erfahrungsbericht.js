@@ -1,15 +1,14 @@
 (() => {
-  const reports = window.HELP_REPORTS || {};
-  const buckets = window.HELP_BUCKETS || [];
+  const articles = window.ARTICLES || [];
   const params = new URLSearchParams(window.location.search);
-  const topic = params.get("topic");
+  const slug = params.get("slug");
 
   const hero = document.getElementById("article-hero");
   const body = document.getElementById("article-body");
   const ctaSection = document.getElementById("article-cta-section");
   const fallback = document.getElementById("article-fallback");
 
-  const report = topic ? reports[topic] : null;
+  const report = slug ? articles.find((article) => article.slug === slug) : null;
 
   if (!report) {
     hero?.setAttribute("hidden", "true");
@@ -25,7 +24,7 @@
   const cta = document.getElementById("article-cta");
 
   if (title) title.textContent = report.title;
-  if (intro) intro.textContent = report.intro;
+  if (intro) intro.textContent = report.shortIntro;
 
   if (sectionsWrapper) {
     sectionsWrapper.innerHTML = "";
@@ -35,24 +34,19 @@
 
       const heading = document.createElement("h2");
       heading.className = "h3";
-      heading.textContent = section.title;
-
-      const text = document.createElement("p");
-      text.textContent = section.text;
+      heading.textContent = section.heading;
 
       block.appendChild(heading);
-      block.appendChild(text);
+      section.paragraphs.forEach((paragraph) => {
+        const text = document.createElement("p");
+        text.textContent = paragraph;
+        block.appendChild(text);
+      });
       sectionsWrapper.appendChild(block);
     });
   }
 
-  const allOptions = buckets.flatMap((bucket) =>
-    bucket.subOptions.map((option) => ({ ...option, bucketId: bucket.id }))
-  );
-  const optionMatch = allOptions.find((option) => option.reportId === topic || option.id === topic);
-
-  if (cta && optionMatch?.filters) {
-    const query = new URLSearchParams(optionMatch.filters).toString();
-    cta.href = `./gesuche.html?${query}`;
+  if (cta && report.gesucheQuery) {
+    cta.href = `./gesuche.html?${report.gesucheQuery}`;
   }
 })();
