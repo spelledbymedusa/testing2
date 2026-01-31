@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ehrenamtsnetz • Login</title>
+    <title>Ehrenamtsnetz • Registrieren</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./theme.js" defer></script>
     <script src="./nav.js" defer></script>
@@ -70,22 +70,20 @@
       </div>
     </header>
 
-
     <section class="section">
       <div class="container">
         <div class="section__header">
           <div>
-            <h1 class="h1">Zugang</h1>
+            <h1 class="h1">Registrieren</h1>
             <div class="sub">
-              Anmelden oder registrieren – für Privatpersonen oder Vereine/Organisationen.
+              Wähle deinen Account-Typ und erstelle deinen Zugang.
             </div>
           </div>
         </div>
 
         <div class="auth__layout">
-          <!-- Left info -->
           <div class="auth__info">
-            <div class="auth__infoTitle">Warum ein Account?</div>
+            <div class="auth__infoTitle">Was du bekommst</div>
             <ul class="auth__list">
               <li>Gesuche erstellen und verwalten</li>
               <li>Profil & Kontaktinfos pflegen</li>
@@ -98,20 +96,54 @@
             </div>
           </div>
 
-          <!-- Right form card -->
-          <div class="auth__card" id="authCard" data-auth-default-mode="login">
+          <div class="auth__card" id="authCard" data-auth-default-mode="signup">
             <div class="auth__choiceIntro">
-              Melde dich mit deiner E-Mail-Adresse an – egal ob Privatperson oder Verein.
+              Bist du als Privatperson oder für einen Verein unterwegs?
+            </div>
+            <div class="auth__choice" aria-label="Account-Typ auswählen">
+              <button class="auth__choiceCard auth__choiceCard--active" type="button" data-choice-role="person" data-choice-mode="signup" aria-pressed="true">
+                <span class="auth__choiceIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z"/>
+                    <path d="M4 20.5c0-3.59 3.582-6.5 8-6.5s8 2.91 8 6.5v.5H4v-.5z"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="auth__choiceTitle">Privatperson</span>
+                  <span class="auth__choiceText">Wenig Angaben, schnell startklar.</span>
+                </span>
+              </button>
+              <button class="auth__choiceCard" type="button" data-choice-role="org" data-choice-mode="signup" aria-pressed="false">
+                <span class="auth__choiceIcon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 21h18v-2H3v2z"/>
+                    <path d="M7 19V5h10v14H7z"/>
+                    <path d="M9 7h2v2H9V7zm0 4h2v2H9v-2zm0 4h2v2H9v-2zm4-8h2v2h-2V7zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
+                    <path d="M5 19V9h2v10H5zm12 0V9h2v10h-2z"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="auth__choiceTitle">Verein/Organisation</span>
+                  <span class="auth__choiceText">Mehr Details für Ansprechpartner & Organisation.</span>
+                </span>
+              </button>
             </div>
 
-            <div class="auth__formHeader" data-auth-header>Anmelden</div>
-
+            <div class="auth__formHeader" data-auth-header>Privatperson – Registrieren</div>
             <div class="auth__notice" data-auth-message role="status" aria-live="polite"></div>
 
-            <!-- Forms (role + mode controlled) -->
             <form class="auth__form" autocomplete="on">
-              <!-- LOGIN -->
-              <div class="auth__section" data-role="any" data-mode="login">
+              <div class="auth__section" data-role="person" data-mode="signup">
+                <label class="auth__label">
+                  Vorname
+                  <input class="auth__input" type="text" placeholder="Max" autocomplete="given-name" data-auth-field="firstName" />
+                </label>
+
+                <label class="auth__label">
+                  Nachname
+                  <input class="auth__input" type="text" placeholder="Mustermann" autocomplete="family-name" data-auth-field="lastName" />
+                </label>
+
                 <label class="auth__label">
                   E-Mail
                   <input class="auth__input" type="email" placeholder="name@email.de" autocomplete="email" data-auth-field="email" />
@@ -119,22 +151,66 @@
 
                 <label class="auth__label">
                   Passwort
-                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="current-password" data-auth-field="password" />
+                  <input class="auth__input" type="password" placeholder="Mind. 8 Zeichen" autocomplete="new-password" data-auth-field="password" />
                 </label>
 
-                <div class="auth__row">
-                  <label class="auth__chk">
-                    <input type="checkbox" />
-                    Angemeldet bleiben
-                  </label>
+                <label class="auth__label">
+                  Passwort wiederholen
+                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="new-password" data-auth-field="confirm" />
+                </label>
 
-                  <a class="auth__link" href="./login.html">Passwort vergessen?</a>
-                </div>
+                <label class="auth__chk">
+                  <input type="checkbox" data-auth-field="terms" />
+                  Ich akzeptiere Datenschutz & Nutzungsbedingungen
+                </label>
 
-                <button class="auth__submit" type="button" data-auth-action="login">Anmelden</button>
+                <button class="auth__submit" type="button" data-auth-action="signup">Registrieren</button>
 
                 <div class="auth__small">
-                  Noch kein Account? <a class="auth__link" href="./register.html">Registrieren</a>
+                  Schon registriert? <a class="auth__link" href="./login.html">Anmelden</a>
+                </div>
+              </div>
+
+              <div class="auth__section" data-role="org" data-mode="signup" hidden>
+                <label class="auth__label">
+                  Vereinsname / Organisation
+                  <input class="auth__input" type="text" placeholder="z. B. Sportverein Musterstadt" autocomplete="organization" data-auth-field="orgName" />
+                </label>
+
+                <label class="auth__label">
+                  Ansprechpartner*in
+                  <input class="auth__input" type="text" placeholder="Vor- und Nachname" autocomplete="name" data-auth-field="contactName" />
+                </label>
+
+                <label class="auth__label">
+                  Vereins-E-Mail
+                  <input class="auth__input" type="email" placeholder="verein@email.de" autocomplete="email" data-auth-field="email" />
+                </label>
+
+                <label class="auth__label">
+                  Telefon (optional)
+                  <input class="auth__input" type="tel" placeholder="+49 ..." autocomplete="tel" data-auth-field="phone" />
+                </label>
+
+                <label class="auth__label">
+                  Passwort
+                  <input class="auth__input" type="password" placeholder="Mind. 8 Zeichen" autocomplete="new-password" data-auth-field="password" />
+                </label>
+
+                <label class="auth__label">
+                  Passwort wiederholen
+                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="new-password" data-auth-field="confirm" />
+                </label>
+
+                <label class="auth__chk">
+                  <input type="checkbox" data-auth-field="terms" />
+                  Ich akzeptiere Datenschutz & Nutzungsbedingungen
+                </label>
+
+                <button class="auth__submit" type="button" data-auth-action="signup">Registrieren</button>
+
+                <div class="auth__small">
+                  Schon registriert? <a class="auth__link" href="./login.html">Anmelden</a>
                 </div>
               </div>
             </form>
@@ -159,7 +235,5 @@
         <div>Impressum • Kontakt • Datenschutz</div>
       </div>
     </footer>
-
-    
   </body>
 </html>
