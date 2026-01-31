@@ -1722,6 +1722,24 @@ body{
   .choices{grid-template-columns:1fr}
   .section{padding:22px 0}
   .h1{font-size:28px}
+  .vereine__toolbar,
+  .gesuche__toolbar,
+  .blog__toolbar{
+    flex-wrap:wrap;
+    align-items:stretch;
+  }
+  .vereine__search,
+  .gesuche__search,
+  .blog__search,
+  .auth__input,
+  .gesuche__select{
+    min-width:0;
+    width:100%;
+  }
+  .listcard__search{
+    flex-direction:column;
+    align-items:stretch;
+  }
   .account__kv{grid-template-columns:1fr}
   .account__setting{flex-direction:column;align-items:flex-start}
   .newsCard__controls{
