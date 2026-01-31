@@ -5,18 +5,24 @@
   }
 
   const message = document.querySelector("[data-account-message]");
-  const nameField = document.querySelector("[data-account-name]");
+  const nameFields = document.querySelectorAll("[data-account-name]");
   const emailField = document.querySelector("[data-account-email]");
-  const locationField = document.querySelector("[data-account-location]");
+  const locationFields = document.querySelectorAll("[data-account-location]");
   const statusField = document.querySelector("[data-account-status]");
+  const descriptionField = document.querySelector("[data-account-description]");
+  const avatarImage = document.querySelector("[data-account-avatar]");
   const gesucheContainer = document.querySelector("[data-account-gesuche]");
   const postsContainer = document.querySelector("[data-account-posts]");
   const savedContainer = document.querySelector("[data-account-saved]");
   const editButton = document.querySelector("[data-account-edit]");
   const contactForm = document.querySelector("[data-account-contact-form]");
+  const settingsPanel = document.querySelector("[data-account-settings-panel]");
+  const settingsToggle = document.querySelector("[data-account-settings-toggle]");
   const contactHint = document.querySelector("[data-account-contact-hint]");
   const contactFields = {
     verein: document.querySelector("[data-account-contact='verein']"),
+    avatar: document.querySelector("[data-account-contact='avatar']"),
+    description: document.querySelector("[data-account-contact='description']"),
     address: document.querySelector("[data-account-contact='address']"),
     contactPerson: document.querySelector("[data-account-contact='contactPerson']"),
     email: document.querySelector("[data-account-contact='email']"),
@@ -44,17 +50,28 @@
     setMessage(`Angemeldet als ${session.name || session.email}.`, "success");
   }
 
-  if (nameField && session?.name) {
-    nameField.textContent = session.name;
+  if (nameFields.length && session?.name) {
+    nameFields.forEach((field) => {
+      field.textContent = session.name;
+    });
   }
   if (emailField && session?.email) {
     emailField.textContent = session.email;
   }
-  if (locationField) {
-    locationField.textContent = session?.role === "org" ? "Berlin" : "Deutschland";
+  if (locationFields.length) {
+    locationFields.forEach((field) => {
+      field.textContent = session?.role === "org" ? "Berlin" : "Deutschland";
+    });
   }
   if (statusField) {
     statusField.textContent = isLoggedIn ? "Aktiv" : "Unverifiziert";
+  }
+
+  const DEFAULT_AVATAR =
+    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'><rect width='96' height='96' rx='48' fill='%23e5e7eb'/><circle cx='48' cy='36' r='16' fill='%2394a3b8'/><path d='M20 78c6-14 18-22 28-22s22 8 28 22' fill='%2394a3b8'/></svg>";
+  let avatarData = "";
+  if (avatarImage) {
+    avatarImage.src = DEFAULT_AVATAR;
   }
 
   const setContactHint = (text, tone = "info") => {
@@ -70,6 +87,8 @@
       return;
     }
     if (contactFields.verein) contactFields.verein.value = profile.vereinName || "";
+    avatarData = profile.avatar || "";
+    if (contactFields.description) contactFields.description.value = profile.description || "";
     if (contactFields.address) contactFields.address.value = profile.address || "";
     if (contactFields.contactPerson) contactFields.contactPerson.value = profile.contactPerson || "";
     if (contactFields.email) contactFields.email.value = profile.email || "";
@@ -82,22 +101,34 @@
     if (!profile) {
       return;
     }
-    if (nameField && profile.vereinName) {
-      nameField.textContent = profile.vereinName;
+    if (nameFields.length && profile.vereinName) {
+      nameFields.forEach((field) => {
+        field.textContent = profile.vereinName;
+      });
     }
     if (emailField && profile.email) {
       emailField.textContent = profile.email;
     }
-    if (locationField) {
-      locationField.textContent = profile.address || (session?.role === "org" ? "Berlin" : "Deutschland");
+    if (locationFields.length) {
+      locationFields.forEach((field) => {
+        field.textContent = profile.address || (session?.role === "org" ? "Berlin" : "Deutschland");
+      });
     }
     if (statusField) {
       statusField.textContent = isLoggedIn ? "Aktiv" : "Unverifiziert";
+    }
+    if (descriptionField) {
+      descriptionField.textContent = profile.description || "Keine Beschreibung hinterlegt.";
+    }
+    if (avatarImage) {
+      avatarImage.src = profile.avatar || DEFAULT_AVATAR;
     }
   };
 
   const getProfileFromForm = () => ({
     vereinName: contactFields.verein?.value.trim() || "",
+    avatar: avatarData,
+    description: contactFields.description?.value.trim() || "",
     address: contactFields.address?.value.trim() || "",
     contactPerson: contactFields.contactPerson?.value.trim() || "",
     email: contactFields.email?.value.trim() || "",
@@ -111,7 +142,7 @@
   if (contactForm) {
     if (!isLoggedIn) {
       setContactHint("Bitte einloggen, um Kontaktdaten zu pflegen.", "warning");
-      contactForm.querySelectorAll("input").forEach((input) => {
+      contactForm.querySelectorAll("input, textarea").forEach((input) => {
         input.disabled = true;
       });
       if (editButton) {
@@ -122,6 +153,8 @@
       const existingProfile = store.getOrgProfile(userId);
       const defaultProfile = existingProfile || {
         vereinName: session?.name || "Verein",
+        avatar: "",
+        description: "",
         address: "Musterstraße 12, 10115 Berlin",
         contactPerson: "",
         email: session?.email || "kontakt@verein.de",
@@ -134,6 +167,27 @@
       applyProfileToForm(defaultProfile);
       applyProfileToSummary(defaultProfile);
       setContactHint("Mindestens E-Mail oder Telefon muss sichtbar sein.", "info");
+
+      if (contactFields.avatar) {
+        contactFields.avatar.addEventListener("change", (event) => {
+          const file = event.target.files?.[0];
+          if (!file) {
+            avatarData = "";
+            if (avatarImage) {
+              avatarImage.src = DEFAULT_AVATAR;
+            }
+            return;
+          }
+          const reader = new FileReader();
+          reader.addEventListener("load", () => {
+            avatarData = typeof reader.result === "string" ? reader.result : "";
+            if (avatarImage) {
+              avatarImage.src = avatarData || DEFAULT_AVATAR;
+            }
+          });
+          reader.readAsDataURL(file);
+        });
+      }
 
       contactForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -160,7 +214,18 @@
 
   if (editButton && contactForm) {
     editButton.addEventListener("click", () => {
+      if (settingsPanel && settingsPanel instanceof HTMLDetailsElement) {
+        settingsPanel.open = true;
+      }
       contactForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      contactFields.verein?.focus();
+    });
+  }
+
+  if (settingsToggle && settingsPanel && settingsPanel instanceof HTMLDetailsElement) {
+    settingsToggle.addEventListener("click", () => {
+      settingsPanel.open = true;
+      settingsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
       contactFields.verein?.focus();
     });
   }
