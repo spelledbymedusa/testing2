@@ -772,6 +772,10 @@ body{
   width:44px;
   height:44px;
 }
+.listcard__topRow{
+  display:grid;
+  gap:8px;
+}
 .listcard__search{
   display:flex;
   gap:10px;
