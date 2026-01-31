@@ -84,6 +84,15 @@
         <div class="account__grid">
           <div class="account__panel">
             <div class="account__panelTitle">Profilstatus</div>
+            <div class="account__profile">
+              <div class="account__avatar">
+                <img data-account-avatar alt="Profilbild des Vereins" />
+              </div>
+              <div class="account__profileInfo">
+                <div class="account__profileName" data-account-name>Verein XY (Demo)</div>
+                <div class="account__profileMeta" data-account-location>Berlin</div>
+              </div>
+            </div>
             <div class="account__kv">
               <div class="account__k">Verein</div>
               <div class="account__v" data-account-name>Verein XY (Demo)</div>
@@ -128,7 +137,14 @@
           <details class="account__panel account__panel--compact account__panel--collapsible">
             <summary class="account__panelSummary">
               <span>Merkliste</span>
-              <span class="account__panelSummaryHint">Aufklappen</span>
+              <span class="account__panelSummaryActions">
+                <span class="account__panelSummaryHint">Mehr anzeigen</span>
+                <span class="account__panelSummaryArrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                    <path d="M6.7 9.7a1 1 0 0 1 1.4 0L12 13.6l3.9-3.9a1 1 0 1 1 1.4 1.4l-4.6 4.6a1 1 0 0 1-1.4 0l-4.6-4.6a1 1 0 0 1 0-1.4z"/>
+                  </svg>
+                </span>
+              </span>
             </summary>
             <div class="account__panelBody">
               <div class="account__cards account__cards--mini" data-account-saved></div>
@@ -152,6 +168,11 @@
                 <label class="account__label">
                   Verein *
                   <input class="account__input" type="text" data-account-contact="verein" required />
+                </label>
+                <label class="account__label">
+                  Profilbild
+                  <input class="account__input account__fileInput" type="file" accept="image/*" data-account-contact="avatar" />
+                  <span class="account__helper">PNG/JPG empfohlen, wird im Profil angezeigt.</span>
                 </label>
                 <label class="account__label">
                   Vereinsbeschreibung

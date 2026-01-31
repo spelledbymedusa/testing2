@@ -1611,7 +1611,37 @@ body{
   font-weight:650;
 }
 .account__panelSummary::-webkit-details-marker{display:none}
-.account__panelSummaryHint{color:var(--muted);font-size:12px}
+.account__panelSummaryActions{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-left:auto;
+}
+.account__panelSummaryHint{
+  color:var(--muted);
+  font-size:12px;
+  opacity:0;
+  transform:translateY(-2px);
+  transition:opacity .2s ease, transform .2s ease;
+}
+.account__panelSummary:hover .account__panelSummaryHint,
+.account__panelSummary:focus-visible .account__panelSummaryHint{
+  opacity:1;
+  transform:translateY(0);
+}
+.account__panelSummaryArrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--surfaceLight);
+  transition:transform .2s ease;
+}
+.account__panelSummaryArrow svg{width:16px;height:16px}
+details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rotate(180deg)}
 .account__panelSummaryIcon{
   display:inline-flex;
   align-items:center;
@@ -1626,6 +1656,29 @@ body{
 .account__panelBody{margin-top:16px;display:grid;gap:16px}
 .account__panelTitle{margin-bottom:12px}
 .account__panelNote{font-size:12px;color:var(--muted);margin-bottom:12px}
+.account__profile{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+  padding:10px;
+  border-radius:12px;
+  background:var(--surfaceLight);
+  border:var(--innerBorderWidth) solid var(--border);
+}
+.account__avatar{
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  overflow:hidden;
+  border:var(--innerBorderWidth) solid var(--border);
+  background:var(--panel);
+  flex-shrink:0;
+}
+.account__avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.account__profileInfo{display:grid;gap:4px}
+.account__profileName{font-weight:700}
+.account__profileMeta{font-size:12px;color:var(--muted)}
 .account__form{display:grid;gap:12px}
 .account__label{
   display:grid;
@@ -1643,6 +1696,8 @@ body{
   font:inherit;
 }
 .account__textarea{resize:vertical;min-height:96px}
+.account__fileInput{padding:8px 10px}
+.account__helper{font-size:12px;color:var(--muted)}
 .account__formRow{
   display:flex;
   gap:12px;
