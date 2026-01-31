@@ -32,7 +32,7 @@
     bucket.subOptions.forEach((option) => {
       const card = document.createElement("a");
       card.className = "helfen__choiceCard helfen__choiceCard--sub";
-      card.href = `./erfahrungsbericht.html?topic=${encodeURIComponent(option.reportId)}`;
+      card.href = `./erfahrungsbericht.html?slug=${encodeURIComponent(option.slug)}`;
       card.setAttribute("role", "listitem");
 
       const title = document.createElement("span");
@@ -59,10 +59,6 @@
       button.classList.toggle("helfen__choiceCard--active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
     });
-
-    if (choiceSection) {
-      choiceSection.hidden = true;
-    }
 
     level2Section.hidden = false;
     renderSubOptions(bucketMap.get(activeFilter));
