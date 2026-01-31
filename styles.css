@@ -742,6 +742,14 @@ body{
   display:grid;
   gap:12px;
 }
+.listcard__inner{
+  border:var(--innerBorderWidth) solid var(--border);
+  border-radius:calc(var(--radius) - 6px);
+  padding:12px;
+  display:grid;
+  gap:10px;
+  background:var(--surfaceLight);
+}
 .listcard__header{
   display:grid;
   grid-template-columns:44px minmax(0,1fr) 44px;
@@ -772,6 +780,27 @@ body{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
+  order:-1;
+}
+.listcard__search + .listcard__inner{
+  margin-top:4px;
+}
+.listcard__inner{
+  order:0;
+}
+.listcard__actions{
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+}
+.listcard__createLink{
+  font-size:13px;
+  color:var(--muted);
+  text-decoration:none;
+}
+.listcard__createLink:hover{
+  color:var(--text);
+  text-decoration:underline;
 }
 .listcard__actions{
   display:flex;

@@ -77,44 +77,42 @@
 
     <section class="section section--airy">
       <div class="container">
-        <div class="gesuche__activeFilters">
-          <div class="gesuche__tags" id="gesuche-filters"></div>
-          <div class="sub gesuche__filterSubtitle" id="gesuche-filter-subtitle">Gefiltert nach: Alle Gesuche</div>
-        </div>
-
         <div class="gesuche__layout gesuche__layout--single">
           <!-- MAIN -->
           <div class="gesuche__main">
             <div class="gesuche__card newsCard" data-news-card>
             <div class="listcardShell">
               <div class="listcard">
-                <div class="listcard__header">
-                  <button class="newsCard__control listcard__control" type="button" aria-label="Gesuche sortieren" aria-expanded="false" data-open-sort>
-                    <span class="newsCard__controlLines" aria-hidden="true">
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                    </span>
-                  </button>
-                  <h1 class="listcard__title" id="gesuche-title">Gesuche</h1>
-                  <button class="newsCard__control listcard__control" type="button" aria-label="Gesuche filtern" aria-expanded="false" data-open-filter>
-                    <span class="newsCard__controlLines" aria-hidden="true">
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                    </span>
-                  </button>
+                <div class="listcard__search">
+                  <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />
+                  <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
                 </div>
-                <div class="listcard__topRow">
-                  <div class="listcard__search">
-                    <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />
-                    <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
+                <div class="listcard__inner">
+                  <div class="listcard__header">
+                    <button class="newsCard__control listcard__control" type="button" aria-label="Gesuche sortieren" aria-expanded="false" data-open-sort>
+                      <span class="newsCard__controlLines" aria-hidden="true">
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                      </span>
+                    </button>
+                    <h1 class="listcard__title" id="gesuche-title">Gesuche</h1>
+                    <button class="newsCard__control listcard__control" type="button" aria-label="Gesuche filtern" aria-expanded="false" data-open-filter>
+                      <span class="newsCard__controlLines" aria-hidden="true">
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                      </span>
+                    </button>
                   </div>
                   <div class="listcard__actions">
                     <a class="listcard__createLink" href="./gesuch-erstellen.html" data-auth-only hidden>+ Gesuch erstellen</a>
                   </div>
                 </div>
-                <p class="listcard__subtitle" id="gesuche-subtitle">Konkrete Hilfsanfragen – lokal oder online, kurz- oder langfristig.</p>
+                <div class="gesuche__activeFilters">
+                  <div class="gesuche__tags" id="gesuche-filters"></div>
+                  <div class="sub gesuche__filterSubtitle" id="gesuche-filter-subtitle">Gefiltert nach: Alle Gesuche</div>
+                </div>
               </div>
               <div class="listcard__drawer" data-drawer="sort" hidden>
                 <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">

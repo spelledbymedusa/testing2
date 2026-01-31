@@ -80,35 +80,32 @@
           <div class="blog__main" data-news-card>
             <div class="listcardShell">
               <div class="listcard">
-                <div class="listcard__header">
-                  <button class="newsCard__control listcard__control" type="button" aria-label="Einblicke sortieren" aria-expanded="false" data-open-sort>
-                    <span class="newsCard__controlLines" aria-hidden="true">
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                    </span>
-                  </button>
-                  <h1 class="listcard__title">Einblicke</h1>
-                  <button class="newsCard__control listcard__control" type="button" aria-label="Einblicke filtern" aria-expanded="false" data-open-filter>
-                    <span class="newsCard__controlLines" aria-hidden="true">
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                      <span class="newsCard__controlLine"></span>
-                    </span>
-                  </button>
+                <div class="listcard__search">
+                  <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" data-blog-search />
+                  <button class="nav__link blog__searchBtn" type="button" data-blog-search-btn>Suchen</button>
                 </div>
-                <div class="listcard__topRow">
-                  <div class="listcard__search">
-                    <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" data-blog-search />
-                    <button class="nav__link blog__searchBtn" type="button" data-blog-search-btn>Suchen</button>
+                <div class="listcard__inner">
+                  <div class="listcard__header">
+                    <button class="newsCard__control listcard__control" type="button" aria-label="Einblicke sortieren" aria-expanded="false" data-open-sort>
+                      <span class="newsCard__controlLines" aria-hidden="true">
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                      </span>
+                    </button>
+                    <h1 class="listcard__title">Einblicke</h1>
+                    <button class="newsCard__control listcard__control" type="button" aria-label="Einblicke filtern" aria-expanded="false" data-open-filter>
+                      <span class="newsCard__controlLines" aria-hidden="true">
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                        <span class="newsCard__controlLine"></span>
+                      </span>
+                    </button>
                   </div>
                   <div class="listcard__actions">
                     <a class="listcard__createLink" href="./einblick-erstellen.html" data-auth-only hidden>+ Einblick teilen</a>
                   </div>
                 </div>
-                <p class="listcard__subtitle">
-                  Artikel, Videos und Weiterbildungen für dein Engagement – gebündelt in einem Feed.
-                </p>
               </div>
               <div class="listcard__drawer" data-drawer="sort" hidden>
                 <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
