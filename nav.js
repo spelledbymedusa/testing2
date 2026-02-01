@@ -3,7 +3,6 @@
 
   const NAV = [
     { href: "./index.html", label: "Home", group: "primary" },
-    { href: "./helfen.html", label: "Helfen", group: "primary" },
     { href: "./blog.html", label: "Einblicke", group: "primary" },
     { href: "./gesuche.html", label: "Gesuche", group: "primary" },
     { href: "./vereine.html", label: "Vereine", group: "primary" },
