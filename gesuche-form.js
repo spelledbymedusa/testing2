@@ -179,10 +179,23 @@
     });
   };
 
+  const prioritizeModeTags = (tags = []) => {
+    const modeTags = [];
+    const otherTags = [];
+    tags.forEach((tag) => {
+      if (resolveModeKey(tag)) {
+        modeTags.push(tag);
+      } else {
+        otherTags.push(tag);
+      }
+    });
+    return [...modeTags, ...otherTags];
+  };
+
   const createTagElements = (tags) => {
     const wrapper = document.createElement("div");
     wrapper.className = "gesuche__tags";
-    tags.forEach((tag) => {
+    prioritizeModeTags(tags).forEach((tag) => {
       const span = document.createElement("span");
       span.className = "gesuche__tag";
       span.textContent = getTagLabel(tag);
