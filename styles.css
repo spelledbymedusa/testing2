@@ -2020,19 +2020,21 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
   .account__kv{grid-template-columns:1fr}
   .account__setting{flex-direction:column;align-items:flex-start}
   .newsCard__controls{
-    flex-wrap:wrap;
-    justify-content:flex-end;
+    display:grid;
+    grid-template-columns:44px minmax(0,1fr) 44px;
     align-items:center;
+    justify-content:space-between;
+    gap:12px;
   }
   .newsCard__controlGroup{
-    width:auto;
-    justify-content:flex-end;
+    width:44px;
+    justify-content:center;
   }
   .newsCard__controlsLabel{
-    order:-1;
-    width:100%;
+    order:0;
+    width:auto;
     white-space:normal;
-    text-align:left;
+    text-align:center;
   }
   .newsCard__item{grid-template-columns:1fr}
   .newsCard__thumb{height:120px}
