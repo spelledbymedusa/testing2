@@ -440,4 +440,124 @@ window.ARTICLES = [
     ],
     gesucheQuery: "path=firmen&type=jobs",
   },
+  {
+    slug: "naturschutz-stadtgruen",
+    title: "Stadtgrün retten",
+    shortIntro: "Wie eine Initiative aus der Nachbarschaft ein bedrohtes Grünprojekt gerettet hat.",
+    sections: [
+      {
+        heading: "Ausgangspunkt",
+        paragraphs: [
+          "Eine kleine Grünfläche sollte bebaut werden. Das Team hat lokale Verbündete gefunden und ein eigenes Konzept erarbeitet.",
+        ],
+      },
+      {
+        heading: "Was geholfen hat",
+        paragraphs: [
+          "Offene Gespräche mit der Stadt, ein klarer Plan und kontinuierliche Präsenz vor Ort.",
+        ],
+      },
+    ],
+    gesucheQuery: "path=vorort&role=umwelt",
+  },
+  {
+    slug: "inklusion-studium",
+    title: "Assistenz im Studium",
+    shortIntro: "Einblicke in die Organisation von Assistenz und Barrierefreiheit an der Hochschule.",
+    sections: [
+      {
+        heading: "Was gebraucht wurde",
+        paragraphs: [
+          "Zeit für die Koordination von Assistenzkräften, gute Kommunikation mit Lehrenden und klare Absprachen.",
+        ],
+      },
+      {
+        heading: "Ergebnis",
+        paragraphs: [
+          "Die Lernwege wurden flexibler, und das Semester konnte planbar abgeschlossen werden.",
+        ],
+      },
+    ],
+    gesucheQuery: "path=alltag&role=begleitung",
+  },
+  {
+    slug: "lgbtq-jugendzentrum",
+    title: "Queeres Jugendzentrum",
+    shortIntro: "Ein Schutzraum, der Beratung, Freizeit und Selbsthilfe unter einem Dach vereint.",
+    sections: [
+      {
+        heading: "Warum es wichtig ist",
+        paragraphs: [
+          "Jugendliche brauchen sichere Orte, an denen sie sich ohne Druck ausprobieren und stärken können.",
+        ],
+      },
+      {
+        heading: "Wie geholfen wird",
+        paragraphs: [
+          "Freiwillige moderieren Gruppen, begleiten Events und sorgen für eine wertschätzende Atmosphäre.",
+        ],
+      },
+    ],
+    gesucheQuery: "path=vorort&role=community",
+  },
+  {
+    slug: "vegan-vereinskuche",
+    title: "Veganes Kochen im Verein",
+    shortIntro: "Der Küchenalltag wurde Schritt für Schritt pflanzlich – ohne Mehraufwand.",
+    sections: [
+      {
+        heading: "Die Umstellung",
+        paragraphs: [
+          "Rezepte wurden getestet, Lieferanten verglichen und die Freiwilligen geschult.",
+        ],
+      },
+      {
+        heading: "Was geblieben ist",
+        paragraphs: [
+          "Mehr Auswahl, weniger Kosten und ein positives Feedback von Gästen und Team.",
+        ],
+      },
+    ],
+    gesucheQuery: "path=alltag&role=kochen",
+  },
+  {
+    slug: "bildung-lernpatenschaft",
+    title: "Lernpatenschaften",
+    shortIntro: "Wöchentliche Unterstützung beim Lernen – kontinuierlich und auf Augenhöhe.",
+    sections: [
+      {
+        heading: "Der Ablauf",
+        paragraphs: [
+          "Feste Termine, klare Lernziele und viel Motivation im Tandem.",
+        ],
+      },
+      {
+        heading: "Die Wirkung",
+        paragraphs: [
+          "Mehr Selbstvertrauen und spürbare Fortschritte in kurzer Zeit.",
+        ],
+      },
+    ],
+    gesucheQuery: "path=alltag&role=lernen",
+  },
+  {
+    slug: "gesundheit-besuchsdienst",
+    title: "Besuchsdienste",
+    shortIntro: "Wie kurze Besuche gegen Einsamkeit wirken – besonders im Alter.",
+    sections: [
+      {
+        heading: "Die Begegnung",
+        paragraphs: [
+          "Regelmäßige Besuche schaffen Vertrauen, Gesprächsräume und neue Routinen.",
+        ],
+      },
+      {
+        heading: "Was Freiwillige mitnehmen",
+        paragraphs: [
+          "Dankbarkeit, neue Perspektiven und echte Verbindung.",
+        ],
+      },
+    ],
+    gesucheQuery: "path=alltag&role=begleiten",
+  },
 ];
