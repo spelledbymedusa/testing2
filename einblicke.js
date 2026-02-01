@@ -173,7 +173,7 @@
       });
 
       if (choiceSection) {
-        choiceSection.hidden = false;
+        choiceSection.hidden = true;
       }
       level2Section.hidden = false;
       renderSubOptions(bucket);
