@@ -75,7 +75,7 @@
       <div class="container">
         <div class="section__header">
           <div>
-            <a class="nav__link" href="./gesuche.html">← Zurück zu Gesuchen</a>
+            <a class="btn btn-link" href="./gesuche.html">← Zurück zu Gesuchen</a>
             <h1 class="h1">Gesuch erstellen</h1>
             <div class="sub">Teile eine konkrete Anfrage und finde Unterstützung.</div>
           </div>
@@ -85,19 +85,19 @@
           <div class="entryForm__grid">
             <label class="entryForm__label">
               Titel *
-              <input class="entryForm__input" type="text" placeholder="z. B. Begleitung zum Arzt" data-gesuche-field="title" required />
+              <input class="entryForm__input input" type="text" placeholder="z. B. Begleitung zum Arzt" data-gesuche-field="title" required />
             </label>
             <label class="entryForm__label">
               Ort *
-              <input class="entryForm__input" type="text" placeholder="z. B. Berlin" data-gesuche-field="location" required />
+              <input class="entryForm__input input" type="text" placeholder="z. B. Berlin" data-gesuche-field="location" required />
             </label>
             <label class="entryForm__label">
               Aufwand *
-              <input class="entryForm__input" type="text" placeholder="z. B. 2–3 Std/Woche" data-gesuche-field="effort" required />
+              <input class="entryForm__input input" type="text" placeholder="z. B. 2–3 Std/Woche" data-gesuche-field="effort" required />
             </label>
             <label class="entryForm__label">
               Modus *
-              <select class="entryForm__select" data-gesuche-field="mode" required>
+              <select class="entryForm__select select" data-gesuche-field="mode" required>
                 <option value="vor_ort">Vor Ort</option>
                 <option value="online">Online</option>
               </select>
@@ -105,28 +105,28 @@
           </div>
           <label class="entryForm__label">
             Kurzbeschreibung *
-            <textarea class="entryForm__textarea" placeholder="Kurzbeschreibung des Gesuchs" data-gesuche-field="summary" required></textarea>
+            <textarea class="entryForm__textarea textarea" placeholder="Kurzbeschreibung des Gesuchs" data-gesuche-field="summary" required></textarea>
           </label>
           <label class="entryForm__label">
             Ausführliche Beschreibung (optional)
             <textarea
-              class="entryForm__textarea"
+              class="entryForm__textarea textarea"
               placeholder="Mehr Details zum Gesuch, Anforderungen oder Ablauf"
               data-gesuche-field="details"
             ></textarea>
           </label>
           <label class="entryForm__label">
             Tags (kommagetrennt)
-            <input class="entryForm__input" type="text" placeholder="z. B. Ältere, Begleitung" data-gesuche-field="tags" />
+            <input class="entryForm__input input" type="text" placeholder="z. B. Ältere, Begleitung" data-gesuche-field="tags" />
           </label>
           <label class="entryForm__label">
             Bild (optional)
-            <input class="entryForm__input" type="file" accept="image/*" data-gesuche-field="image" />
+            <input class="entryForm__input input" type="file" accept="image/*" data-gesuche-field="image" />
             <span class="entryForm__hint">Max. 1,5 MB. Das Bild wird lokal gespeichert.</span>
           </label>
           <div class="entryForm__preview" data-gesuche-preview>Bildvorschau</div>
           <div class="entryForm__actions">
-            <button class="nav__link" type="submit">Gesuch speichern</button>
+            <button class="btn btn-primary" type="submit">Gesuch speichern</button>
             <div class="entryForm__message" data-gesuche-message></div>
           </div>
         </form>
@@ -135,7 +135,15 @@
 
     <footer class="footer">
       <div class="container footer__inner">
-        <div>Impressum • Kontakt • Datenschutz</div>
+        <div class="footer__brand">
+          <div class="footer__name">Ehrenamtsnetz</div>
+          <div>Gemeinsam Engagement sichtbar machen – lokal, verlässlich, wirkungsvoll.</div>
+        </div>
+        <div class="footer__links">
+          <a class="footer__link" href="./index.html#impressum">Impressum</a>
+          <a class="footer__link" href="./index.html#kontakt">Kontakt</a>
+          <a class="footer__link" href="./index.html#datenschutz">Datenschutz</a>
+        </div>
       </div>
     </footer>
   </body>

@@ -74,7 +74,7 @@
       <div class="container">
         <div class="section__header">
           <div>
-            <a class="nav__link" href="./blog.html">← Zurück zu Einblicken</a>
+            <a class="btn btn-link" href="./blog.html">← Zurück zu Einblicken</a>
             <h1 class="h1">Einblick erstellen</h1>
             <div class="sub">Neuen Einblick teilen (Artikel, Event, Download, Gesuch).</div>
           </div>
@@ -84,11 +84,11 @@
           <div class="entryForm__grid">
             <label class="entryForm__label">
               Titel *
-              <input class="entryForm__input" type="text" placeholder="Titel des Beitrags" data-blog-field="title" required />
+              <input class="entryForm__input input" type="text" placeholder="Titel des Beitrags" data-blog-field="title" required />
             </label>
             <label class="entryForm__label">
               Format *
-              <select class="entryForm__select" data-blog-field="type" required>
+              <select class="entryForm__select select" data-blog-field="type" required>
                 <option value="artikel">Artikel</option>
                 <option value="weiterbildung">Weiterbildung</option>
                 <option value="events">Event</option>
@@ -98,29 +98,29 @@
             </label>
             <label class="entryForm__label">
               Datum
-              <input class="entryForm__input" type="date" data-blog-field="date" />
+              <input class="entryForm__input input" type="date" data-blog-field="date" />
             </label>
             <label class="entryForm__label">
               Ort / Format
-              <input class="entryForm__input" type="text" placeholder="z. B. Berlin • Online" data-blog-field="meta" />
+              <input class="entryForm__input input" type="text" placeholder="z. B. Berlin • Online" data-blog-field="meta" />
             </label>
           </div>
           <label class="entryForm__label">
             Kurzbeschreibung *
-            <textarea class="entryForm__textarea" placeholder="Teasertext für den Feed" data-blog-field="summary" required></textarea>
+            <textarea class="entryForm__textarea textarea" placeholder="Teasertext für den Feed" data-blog-field="summary" required></textarea>
           </label>
           <label class="entryForm__label">
             Tags (kommagetrennt)
-            <input class="entryForm__input" type="text" placeholder="z. B. Community, Online" data-blog-field="tags" />
+            <input class="entryForm__input input" type="text" placeholder="z. B. Community, Online" data-blog-field="tags" />
           </label>
           <label class="entryForm__label">
             Bild (optional)
-            <input class="entryForm__input" type="file" accept="image/*" data-blog-field="image" />
+            <input class="entryForm__input input" type="file" accept="image/*" data-blog-field="image" />
             <span class="entryForm__hint">Max. 1,5 MB. Das Bild wird lokal gespeichert.</span>
           </label>
           <div class="entryForm__preview" data-blog-preview>Bildvorschau</div>
           <div class="entryForm__actions">
-            <button class="nav__link" type="submit">Beitrag speichern</button>
+            <button class="btn btn-primary" type="submit">Beitrag speichern</button>
             <div class="entryForm__message" data-blog-message></div>
           </div>
         </form>
@@ -129,7 +129,15 @@
 
     <footer class="footer">
       <div class="container footer__inner">
-        <div>Impressum • Kontakt • Datenschutz</div>
+        <div class="footer__brand">
+          <div class="footer__name">Ehrenamtsnetz</div>
+          <div>Gemeinsam Engagement sichtbar machen – lokal, verlässlich, wirkungsvoll.</div>
+        </div>
+        <div class="footer__links">
+          <a class="footer__link" href="./index.html#impressum">Impressum</a>
+          <a class="footer__link" href="./index.html#kontakt">Kontakt</a>
+          <a class="footer__link" href="./index.html#datenschutz">Datenschutz</a>
+        </div>
       </div>
     </footer>
   </body>
