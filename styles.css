@@ -221,6 +221,10 @@ h3,.h3{font-size:22px;letter-spacing:-.01em;line-height:1.3;font-weight:650}
   color:var(--muted);
 }
 
+.auth__small{
+  margin-top:8px;
+}
+
 /* Common “title” weights */
 .choice__title,
 .vereine__cardTitle,
