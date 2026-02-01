@@ -84,8 +84,8 @@
             <div class="listcardShell">
               <div class="listcard">
                 <div class="listcard__search">
-                  <input class="gesuche__search" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />
-                  <button class="nav__link gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
+                  <input class="gesuche__search input" placeholder="Suche nach Thema, Ort, Stichwort…" data-gesuche-search />
+                  <button class="btn btn-ghost gesuche__searchBtn" type="button" data-gesuche-search-btn>Suchen</button>
                 </div>
                 <div class="listcard__inner">
                   <div class="listcard__header">
@@ -180,8 +180,8 @@
                 </details>
 
                 <div class="gesuche__sideActions">
-                  <button class="nav__link gesuche__apply" type="button">Anwenden</button>
-                  <button class="nav__link gesuche__reset gesuche__clear" type="button" data-gesuche-clear-filters>
+                  <button class="btn btn-primary gesuche__apply" type="button">Anwenden</button>
+                  <button class="btn btn-ghost gesuche__reset gesuche__clear" type="button" data-gesuche-clear-filters>
                     Filter zurücksetzen
                   </button>
                 </div>
@@ -223,7 +223,7 @@
                   </div>
 
                   <div class="gesuche__right">
-                    <button class="nav__link gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
+                    <button class="btn btn-ghost btn-sm gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
                       <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
                       </svg>
@@ -273,7 +273,7 @@
                   </div>
 
                   <div class="gesuche__right">
-                    <button class="nav__link gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
+                    <button class="btn btn-ghost btn-sm gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
                       <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
                       </svg>
@@ -321,7 +321,7 @@
                   </div>
 
                   <div class="gesuche__right">
-                    <button class="nav__link gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
+                    <button class="btn btn-ghost btn-sm gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
                       <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
                       </svg>
@@ -366,7 +366,7 @@
                     </div>
                   </div>
                   <div class="gesuche__right">
-                    <button class="nav__link gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
+                    <button class="btn btn-ghost btn-sm gesuche__save" type="button" aria-pressed="false" aria-label="Merken">
                       <svg class="gesuche__saveIcon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M7 3h10a2 2 0 0 1 2 2v16l-7-4-7 4V5a2 2 0 0 1 2-2z" />
                       </svg>
@@ -377,7 +377,7 @@
               </div>
 
               <div class="gesuche__more">
-                <button class="nav__link gesuche__moreBtn" type="button">Weitere…</button>
+                <button class="btn btn-ghost gesuche__moreBtn" type="button">Weitere…</button>
               </div>
             </div>
           </div>
@@ -413,7 +413,15 @@
 
     <footer class="footer">
       <div class="container footer__inner">
-        <div>Impressum • Kontakt • Datenschutz</div>
+        <div class="footer__brand">
+          <div class="footer__name">Ehrenamtsnetz</div>
+          <div>Gemeinsam Engagement sichtbar machen – lokal, verlässlich, wirkungsvoll.</div>
+        </div>
+        <div class="footer__links">
+          <a class="footer__link" href="./index.html#impressum">Impressum</a>
+          <a class="footer__link" href="./index.html#kontakt">Kontakt</a>
+          <a class="footer__link" href="./index.html#datenschutz">Datenschutz</a>
+        </div>
       </div>
     </footer>
 
