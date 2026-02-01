@@ -357,7 +357,8 @@
       detailPhone.hidden = !phoneVisible;
     }
     if (detailNote) {
-      detailNote.textContent = "Adresse ist immer sichtbar. Mindestens eine Kontaktoption bleibt freigegeben.";
+      detailNote.textContent = "";
+      detailNote.hidden = true;
     }
 
     detail.hidden = false;
