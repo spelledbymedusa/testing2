@@ -224,9 +224,11 @@
 
   if (settingsToggle && settingsPanel && settingsPanel instanceof HTMLDetailsElement) {
     settingsToggle.addEventListener("click", () => {
-      settingsPanel.open = true;
-      settingsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
-      contactFields.verein?.focus();
+      const shouldOpen = !settingsPanel.open;
+      settingsPanel.open = shouldOpen;
+      if (shouldOpen) {
+        contactFields.verein?.focus();
+      }
     });
   }
 
