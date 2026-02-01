@@ -74,7 +74,7 @@
     <section class="section">
       <div class="container">
         <div class="auth__layout">
-          <div class="auth__intro">
+          <div class="auth__intro stack">
             <h1 class="h1">Zugang</h1>
             <div class="sub">
               Anmelden oder registrieren.
@@ -93,12 +93,12 @@
               <div class="auth__section" data-role="any" data-mode="login">
                 <label class="auth__label">
                   E-Mail
-                  <input class="auth__input" type="email" placeholder="name@email.de" autocomplete="email" data-auth-field="email" />
+                  <input class="auth__input input" type="email" placeholder="name@email.de" autocomplete="email" data-auth-field="email" />
                 </label>
 
                 <label class="auth__label">
                   Passwort
-                  <input class="auth__input" type="password" placeholder="••••••••" autocomplete="current-password" data-auth-field="password" />
+                  <input class="auth__input input" type="password" placeholder="••••••••" autocomplete="current-password" data-auth-field="password" />
                 </label>
 
                 <div class="auth__row">
@@ -110,7 +110,7 @@
                   <a class="auth__link" href="./login.html">Passwort vergessen?</a>
                 </div>
 
-                <button class="auth__submit" type="button" data-auth-action="login">Anmelden</button>
+                <button class="auth__submit btn btn-primary" type="button" data-auth-action="login">Anmelden</button>
 
                 <div class="auth__small">
                   Noch kein Account? <a class="auth__link" href="./register.html">Registrieren</a>
@@ -121,21 +121,29 @@
             <div class="auth__divider"></div>
 
             <div class="auth__alt">
-              <button class="auth__altBtn" type="button">Mit Google fortfahren</button>
-              <button class="auth__altBtn" type="button">Mit Apple fortfahren</button>
+              <button class="auth__altBtn btn" type="button">Mit Google fortfahren</button>
+              <button class="auth__altBtn btn" type="button">Mit Apple fortfahren</button>
             </div>
           </div>
         </div>
 
         <div class="auth__next">
-          <a class="nav__link auth__fakeNext" href="./account.html">Weiter zum Account (Demo)</a>
+          <a class="btn btn-ghost btn-sm auth__fakeNext" href="./account.html">Weiter zum Account (Demo)</a>
         </div>
       </div>
     </section>
 
     <footer class="footer">
       <div class="container footer__inner">
-        <div>Impressum • Kontakt • Datenschutz</div>
+        <div class="footer__brand">
+          <div class="footer__name">Ehrenamtsnetz</div>
+          <div>Gemeinsam Engagement sichtbar machen – lokal, verlässlich, wirkungsvoll.</div>
+        </div>
+        <div class="footer__links">
+          <a class="footer__link" href="./index.html#impressum">Impressum</a>
+          <a class="footer__link" href="./index.html#kontakt">Kontakt</a>
+          <a class="footer__link" href="./index.html#datenschutz">Datenschutz</a>
+        </div>
       </div>
     </footer>
 
