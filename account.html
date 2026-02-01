@@ -84,6 +84,79 @@
             </svg>
           </button>
         </div>
+        <details class="account__panel account__panel--collapsible account__panel--settings" data-account-settings-panel>
+          <summary class="account__panelSummary account__panelSummary--hidden">
+            Kontakt &amp; Einstellungen
+          </summary>
+          <div class="account__panelBody">
+            <form class="account__form" data-account-contact-form>
+              <label class="account__label">
+                Verein *
+                <input class="account__input" type="text" data-account-contact="verein" required />
+              </label>
+              <label class="account__label">
+                Profilbild
+                <input class="account__input account__fileInput" type="file" accept="image/*" data-account-contact="avatar" />
+                <span class="account__helper">PNG/JPG empfohlen, wird im Profil angezeigt.</span>
+              </label>
+              <label class="account__label">
+                Vereinsbeschreibung
+                <textarea class="account__input account__textarea" rows="3" data-account-contact="description"></textarea>
+              </label>
+              <label class="account__label">
+                Adresse (sichtbar) *
+                <input class="account__input" type="text" data-account-contact="address" required />
+              </label>
+              <label class="account__label">
+                Ansprechpartner (optional)
+                <input class="account__input" type="text" data-account-contact="contactPerson" />
+              </label>
+              <div class="account__formRow">
+                <label class="account__label">
+                  E-Mail *
+                  <input class="account__input" type="email" data-account-contact="email" required />
+                </label>
+                <label class="account__toggle">
+                  <span>Sichtbar</span>
+                  <input type="checkbox" data-account-visibility="email" />
+                </label>
+              </div>
+              <div class="account__formRow">
+                <label class="account__label">
+                  Telefon
+                  <input class="account__input" type="tel" data-account-contact="phone" />
+                </label>
+                <label class="account__toggle">
+                  <span>Sichtbar</span>
+                  <input type="checkbox" data-account-visibility="phone" />
+                </label>
+              </div>
+              <div class="account__panelActions">
+                <button class="account__btnPrimary" type="submit">Kontakt speichern</button>
+                <div class="account__hint" data-account-contact-hint></div>
+              </div>
+            </form>
+
+            <div class="account__settings">
+              <label class="account__setting">
+                <span>Benachrichtigungen</span>
+                <input type="checkbox" />
+              </label>
+              <label class="account__setting">
+                <span>Öffentliches Profil</span>
+                <input type="checkbox" checked />
+              </label>
+              <label class="account__setting">
+                <span>Datenschutz: Kontakt verbergen</span>
+                <input type="checkbox" />
+              </label>
+            </div>
+
+            <div class="account__panelActions">
+              <a class="account__linkSmall" href="./login.html" data-auth-logout>Abmelden</a>
+            </div>
+          </div>
+        </details>
         <div class="auth__notice" data-account-message role="status" aria-live="polite"></div>
 
         <div class="account__grid">
@@ -162,79 +235,6 @@
           </div>
         </div>
 
-        <details class="account__panel account__panel--collapsible account__panel--settings" data-account-settings-panel>
-          <summary class="account__panelSummary account__panelSummary--hidden">
-            Kontakt &amp; Einstellungen
-          </summary>
-          <div class="account__panelBody">
-            <form class="account__form" data-account-contact-form>
-              <label class="account__label">
-                Verein *
-                <input class="account__input" type="text" data-account-contact="verein" required />
-              </label>
-              <label class="account__label">
-                Profilbild
-                <input class="account__input account__fileInput" type="file" accept="image/*" data-account-contact="avatar" />
-                <span class="account__helper">PNG/JPG empfohlen, wird im Profil angezeigt.</span>
-              </label>
-              <label class="account__label">
-                Vereinsbeschreibung
-                <textarea class="account__input account__textarea" rows="3" data-account-contact="description"></textarea>
-              </label>
-              <label class="account__label">
-                Adresse (sichtbar) *
-                <input class="account__input" type="text" data-account-contact="address" required />
-              </label>
-              <label class="account__label">
-                Ansprechpartner (optional)
-                <input class="account__input" type="text" data-account-contact="contactPerson" />
-              </label>
-              <div class="account__formRow">
-                <label class="account__label">
-                  E-Mail *
-                  <input class="account__input" type="email" data-account-contact="email" required />
-                </label>
-                <label class="account__toggle">
-                  <span>Sichtbar</span>
-                  <input type="checkbox" data-account-visibility="email" />
-                </label>
-              </div>
-              <div class="account__formRow">
-                <label class="account__label">
-                  Telefon
-                  <input class="account__input" type="tel" data-account-contact="phone" />
-                </label>
-                <label class="account__toggle">
-                  <span>Sichtbar</span>
-                  <input type="checkbox" data-account-visibility="phone" />
-                </label>
-              </div>
-              <div class="account__panelActions">
-                <button class="account__btnPrimary" type="submit">Kontakt speichern</button>
-                <div class="account__hint" data-account-contact-hint></div>
-              </div>
-            </form>
-
-            <div class="account__settings">
-              <label class="account__setting">
-                <span>Benachrichtigungen</span>
-                <input type="checkbox" />
-              </label>
-              <label class="account__setting">
-                <span>Öffentliches Profil</span>
-                <input type="checkbox" checked />
-              </label>
-              <label class="account__setting">
-                <span>Datenschutz: Kontakt verbergen</span>
-                <input type="checkbox" />
-              </label>
-            </div>
-
-            <div class="account__panelActions">
-              <a class="account__linkSmall" href="./login.html" data-auth-logout>Abmelden</a>
-            </div>
-          </div>
-        </details>
       </div>
     </section>
 
