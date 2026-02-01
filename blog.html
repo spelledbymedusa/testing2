@@ -10,9 +10,10 @@
     <script src="./nav-active.js" defer></script>
     <script src="./data-store.js" defer></script>
     <script src="./session.js" defer></script>
-    <script src="./news-controls.js" defer></script>
-    <script src="./ui-drawers.js" defer></script>
-    <script src="./blog-form.js" defer></script>
+    <script src="./helfen-data.js" defer></script>
+    <script src="./helfen.js" defer></script>
+    <script src="./einblicke-data.js" defer></script>
+    <script src="./einblicke.js" defer></script>
   </head>
 
   <body>
@@ -75,249 +76,135 @@
 
     <section class="section section--airy">
       <div class="container">
-        <div class="blog__layout blog__layout--single">
-          <!-- MAIN -->
-          <div class="blog__main" data-news-card>
-            <div class="listcardShell">
-              <div class="listcard">
-                <div class="listcard__search">
-                  <input class="blog__search" placeholder="Suche nach Beitrag, Thema, Format oder Ort…" data-blog-search />
-                  <button class="nav__link blog__searchBtn" type="button" data-blog-search-btn>Suchen</button>
-                </div>
-                <div class="listcard__inner">
-                  <div class="listcard__header">
-                    <button class="newsCard__control listcard__control" type="button" aria-label="Einblicke sortieren" aria-expanded="false" data-open-sort>
-                      <span class="newsCard__controlLines" aria-hidden="true">
-                        <span class="newsCard__controlLine"></span>
-                        <span class="newsCard__controlLine"></span>
-                        <span class="newsCard__controlLine"></span>
-                      </span>
-                    </button>
-                    <h1 class="listcard__title">Einblicke</h1>
-                    <button class="newsCard__control listcard__control" type="button" aria-label="Einblicke filtern" aria-expanded="false" data-open-filter>
-                      <span class="newsCard__controlLines" aria-hidden="true">
-                        <span class="newsCard__controlLine"></span>
-                        <span class="newsCard__controlLine"></span>
-                        <span class="newsCard__controlLine"></span>
-                      </span>
-                    </button>
-                  </div>
-                  <div class="listcard__actions">
-                    <a class="listcard__createLink" href="./einblick-erstellen.html" data-auth-only hidden>+ Einblick teilen</a>
-                  </div>
-                </div>
-              </div>
-              <div class="listcard__drawer" data-drawer="sort" hidden>
-                <div class="newsCard__menu" data-news-menu="sort" role="menu" aria-label="Sortierung">
-                  <button class="newsCard__menuItem is-active" type="button" data-news-sort="curated">Empfohlen</button>
-                  <button class="newsCard__menuItem" type="button" data-news-sort="chronological">Älteste zuerst</button>
-                  <button class="newsCard__menuItem" type="button" data-news-sort="newest">Neueste zuerst</button>
-                </div>
-              </div>
-              <div class="listcard__drawer" data-drawer="filter" hidden>
-                <div class="listcard__drawerTitle">Filter</div>
-                <div class="listcard__drawerSection">
-                  <div class="newsCard__menu" data-news-menu="filter" role="menu" aria-label="Filter">
-                    <button class="newsCard__menuItem is-active" type="button" data-news-filter="all">Alle</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="artikel">Artikel</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="weiterbildung">Weiterbildung</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="events">Events</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="gesuch">Gesuche</button>
-                    <button class="newsCard__menuItem" type="button" data-news-filter="download">Download</button>
-                  </div>
-                </div>
-                <div class="listcard__drawerSection">
-                  <details class="blog__filter" open>
-                    <summary>Format</summary>
-                    <div class="blog__filterBody">
-                      <label class="blog__chk"><input type="checkbox" /> Artikel</label>
-                      <label class="blog__chk"><input type="checkbox" /> Video</label>
-                      <label class="blog__chk"><input type="checkbox" /> Download</label>
-                      <label class="blog__chk"><input type="checkbox" /> Webinar</label>
-                    </div>
-                  </details>
-
-                  <details class="blog__filter">
-                    <summary>Thema</summary>
-                    <div class="blog__filterBody">
-                      <label class="blog__chk"><input type="checkbox" /> Community</label>
-                      <label class="blog__chk"><input type="checkbox" /> Vereinswissen</label>
-                      <label class="blog__chk"><input type="checkbox" /> Finanzierung</label>
-                      <label class="blog__chk"><input type="checkbox" /> Engagement</label>
-                    </div>
-                  </details>
-
-                  <details class="blog__filter">
-                    <summary>Ort</summary>
-                    <div class="blog__filterBody">
-                      <label class="blog__chk"><input type="checkbox" /> Vor Ort</label>
-                      <label class="blog__chk"><input type="checkbox" /> Online</label>
-                      <label class="blog__chk"><input type="checkbox" /> Bundesweit</label>
-                    </div>
-                  </details>
-                </div>
-                <div class="blog__sideActions">
-                  <button class="nav__link blog__apply" type="button">Anwenden</button>
-                  <button class="nav__link blog__reset" type="button">Zurücksetzen</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="blog__list" data-news-list>
-              <article class="blog__post newsCard__item" data-news-type="events" data-news-date="2024-06-10">
-                <div class="blog__img" aria-hidden="true"></div>
-                <div class="blog__body">
-                  <div class="blog__metaRow">
-                    <div class="blog__meta">Berlin</div>
-                    <div class="blog__date">Heute</div>
-                  </div>
-                  <div class="blog__title">Anstehendes Fest: so kannst du unterstützen</div>
-                  <div class="blog__text">
-                    Kurzer Teasertext: Was passiert, warum ist es wichtig, wer kann mitmachen?
-                  </div>
-                  <div class="blog__footer">
-                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
-                    <div class="blog__tags">
-                      <span class="blog__tag">Artikel</span>
-                      <span class="blog__tag">Vor Ort</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="blog__post newsCard__item" data-news-type="weiterbildung" data-news-date="2024-06-09">
-                <div class="blog__img" aria-hidden="true"></div>
-                <div class="blog__body">
-                  <div class="blog__metaRow">
-                    <div class="blog__meta">Online • 90 Min</div>
-                    <div class="blog__date">Heute</div>
-                  </div>
-                  <div class="blog__title">Einführung ins Ehrenamt: Start ohne Überforderung</div>
-                  <div class="blog__text">
-                    Für alle, die neu starten: Rollen, Erwartungen, Zeitbudget und wie man ein passendes Engagement findet.
-                  </div>
-                  <div class="blog__footer">
-                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
-                    <div class="blog__tags">
-                      <span class="blog__tag">Einsteiger</span>
-                      <span class="blog__tag">Online</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="blog__post newsCard__item" data-news-type="artikel" data-news-date="2024-06-03">
-                <div class="blog__img" aria-hidden="true"></div>
-                <div class="blog__body">
-                  <div class="blog__metaRow">
-                    <div class="blog__meta">Hamburg</div>
-                    <div class="blog__date">Letzte Woche</div>
-                  </div>
-                  <div class="blog__title">Neue Kooperationen im Netzwerk: Hafenherzen</div>
-                  <div class="blog__text">
-                    Teaser: kurzer Überblick und CTA, wie man den Verein findet / unterstützt.
-                  </div>
-                  <div class="blog__footer">
-                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
-                    <div class="blog__tags">
-                      <span class="blog__tag">Community</span>
-                      <span class="blog__tag">Netzwerk</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="blog__post newsCard__item" data-news-type="artikel" data-news-date="2024-05-27">
-                <div class="blog__img" aria-hidden="true"></div>
-                <div class="blog__body">
-                  <div class="blog__metaRow">
-                    <div class="blog__meta">Vor Ort • 2–3 Std</div>
-                    <div class="blog__date">Nächste Woche</div>
-                  </div>
-                  <div class="blog__title">Kommunikation im Verein: Klar, freundlich, wirksam</div>
-                  <div class="blog__text">
-                    Praktische Tools für Gespräche, Konfliktprävention, Feedback und Team-Abstimmungen im Ehrenamt.
-                  </div>
-                  <div class="blog__footer">
-                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
-                    <div class="blog__tags">
-                      <span class="blog__tag">Team</span>
-                      <span class="blog__tag">Vor Ort</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="blog__post newsCard__item" data-news-type="download" data-news-date="2024-05-30">
-                <div class="blog__img" aria-hidden="true"></div>
-                <div class="blog__body">
-                  <div class="blog__metaRow">
-                    <div class="blog__meta">Download • 15 Min</div>
-                    <div class="blog__date">Vor 3 Tagen</div>
-                  </div>
-                  <div class="blog__title">Fördermittel &amp; Spenden: Basics für kleine Vereine</div>
-                  <div class="blog__text">
-                    Übersicht: Spendenquittungen, Förderlogik, typische Fehler und wie man Anträge verständlich strukturiert.
-                  </div>
-                  <div class="blog__footer">
-                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
-                    <div class="blog__tags">
-                      <span class="blog__tag">Finanzen</span>
-                      <span class="blog__tag">Download</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="blog__post newsCard__item" data-news-type="gesuch" data-news-date="2024-06-07">
-                <div class="blog__img" aria-hidden="true"></div>
-                <div class="blog__body">
-                  <div class="blog__metaRow">
-                    <div class="blog__meta">Leipzig</div>
-                    <div class="blog__date">Neu</div>
-                  </div>
-                  <div class="blog__title">Begleitung für Senior:innen am Wochenende</div>
-                  <div class="blog__text">
-                    Kurzinfo zum Gesuch mit direktem Link zur Detailseite für Interessierte.
-                  </div>
-                  <div class="blog__footer">
-                    <a class="nav__link blog__read" href="./gesuche.html">Zum Gesuch</a>
-                    <div class="blog__tags">
-                      <span class="blog__tag">Gesuch</span>
-                      <span class="blog__tag">Vor Ort</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="blog__post newsCard__item" data-news-type="download" data-news-date="2024-05-23">
-                <div class="blog__img" aria-hidden="true"></div>
-                <div class="blog__body">
-                  <div class="blog__metaRow">
-                    <div class="blog__meta">Download • 15 Min</div>
-                    <div class="blog__date">Vor 3 Tagen</div>
-                  </div>
-                  <div class="blog__title">Fördermittel &amp; Spenden: Basics für kleine Vereine</div>
-                  <div class="blog__text">
-                    Übersicht: Spendenquittungen, Förderlogik, typische Fehler und wie man Anträge verständlich strukturiert.
-                  </div>
-                  <div class="blog__footer">
-                    <a class="nav__link blog__read" href="./blog-post.html">Lesen</a>
-                    <div class="blog__tags">
-                      <span class="blog__tag">Finanzen</span>
-                      <span class="blog__tag">Download</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-            </div>
-
-            <div class="blog__more">
-              <button class="nav__link blog__moreBtn" type="button">Weitere…</button>
+        <div class="section__header">
+          <div>
+            <h1 class="h1">Einblicke</h1>
+            <div class="sub">
+              Alles an einem Ort: Wege ins Ehrenamt, persönliche Erfahrungsberichte und kuratierte Themenartikel.
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section section--airy" data-choice-section>
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Helfen entdecken</h2>
+            <div class="sub">Wähle deinen Weg ins Ehrenamt und öffne passende Erfahrungsberichte.</div>
+            <div class="sub">Die gleichen Auswahlkarten wie auf „Hilfe entdecken“ – direkt hier in den Einblicken.</div>
+          </div>
+        </div>
+        <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
+          <button class="helfen__choiceCard" type="button" data-choice-filter="vor_ort" role="listitem">
+            <img class="helfen__choiceImage" src="./assets/helfenpics/teamwork.jpg" alt="Menschen, die gemeinsam vor Ort helfen" loading="lazy" />
+            <span class="helfen__choiceTitle">Helfen vor Ort</span>
+            <span class="helfen__choiceText">Präsenz, Teamwork, direkte Wirkung in deiner Umgebung.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-choice-filter="online" role="listitem">
+            <img class="helfen__choiceImage" src="./assets/helfenpics/home%20office.jpg" alt="Online Hilfe im Homeoffice" loading="lazy" />
+            <span class="helfen__choiceTitle">Helfen Online</span>
+            <span class="helfen__choiceText">Remote begleiten, Wissen teilen, Abläufe digital stärken.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-choice-filter="alltag" role="listitem">
+            <img class="helfen__choiceImage" src="./assets/helfenpics/Werkstatt.jpg" alt="Alltagshilfe mit Werkzeugen" loading="lazy" />
+            <span class="helfen__choiceTitle">Im Alltag</span>
+            <span class="helfen__choiceText">Kleine, konkrete Hilfen – schnell organisiert, sofort spürbar.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-choice-filter="spenden" role="listitem">
+            <img class="helfen__choiceImage" src="./assets/helfenpics/Klassenzimmer.jpg" alt="Gemeinschaft unterstützen" loading="lazy" />
+            <span class="helfen__choiceTitle">Geld / Spenden</span>
+            <span class="helfen__choiceText">Deinen Willen gezielt einsetzen und Wirkung strategisch verstärken.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-choice-filter="reichweite" role="listitem">
+            <img class="helfen__choiceImage" src="./assets/helfenpics/HundHigh5.jpg" alt="Engagement mit Teams" loading="lazy" />
+            <span class="helfen__choiceTitle">Verbreitung / Firmen</span>
+            <span class="helfen__choiceText">Reichweite, Ressourcen und Kooperationen bündeln – gemeinsam mehr bewegen.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--airy helfen__insights" data-level2-section hidden>
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Echte Einblicke auswählen</h2>
+            <div class="sub">Wähle einen Erfahrungsbericht – die Artikel öffnen sich auf einer gemeinsamen Vorlage.</div>
+          </div>
+          <div>
+            <button class="nav__link" type="button" data-choice-back>← Zurück zur Auswahl</button>
+          </div>
+        </div>
+        <div class="helfen__insightGroup">
+          <div class="helfen__sectionHeader">
+            <div>
+              <div class="helfen__sectionTitle" data-suboptions-title></div>
+              <div class="helfen__sectionText" data-suboptions-text></div>
+            </div>
+          </div>
+          <div class="helfen__choiceGrid helfen__choiceGrid--sub" data-suboptions-grid role="list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--airy" data-einblicke-choice-section>
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Einblicke nach Themen</h2>
+            <div class="sub">Entdecke Themenbereiche von Naturschutz bis LGBTQ+ – mit Erfahrungsberichten und externen Artikeln.</div>
+          </div>
+        </div>
+        <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
+          <button class="helfen__choiceCard" type="button" data-einblicke-filter="naturschutz" role="listitem" aria-pressed="false">
+            <span class="helfen__choiceTitle">Naturschutz</span>
+            <span class="helfen__choiceText">Lebensräume schützen, Artenvielfalt sichern, lokal handeln.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-einblicke-filter="inklusion" role="listitem" aria-pressed="false">
+            <span class="helfen__choiceTitle">Leben mit Behinderung</span>
+            <span class="helfen__choiceText">Barrierefreiheit, Teilhabe und gelebte Selbstbestimmung.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-einblicke-filter="lgbtq" role="listitem" aria-pressed="false">
+            <span class="helfen__choiceTitle">LGBTQ+</span>
+            <span class="helfen__choiceText">Sichere Räume, Beratungsangebote und Community-Stories.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-einblicke-filter="vegan" role="listitem" aria-pressed="false">
+            <span class="helfen__choiceTitle">Veganismus</span>
+            <span class="helfen__choiceText">Ernährung, Klimawirkung und alltagstaugliche Tipps.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-einblicke-filter="bildung" role="listitem" aria-pressed="false">
+            <span class="helfen__choiceTitle">Bildung & Teilhabe</span>
+            <span class="helfen__choiceText">Lernchancen öffnen und Wissen teilen.</span>
+          </button>
+          <button class="helfen__choiceCard" type="button" data-einblicke-filter="gesundheit" role="listitem" aria-pressed="false">
+            <span class="helfen__choiceTitle">Gesundheit & Pflege</span>
+            <span class="helfen__choiceText">Begleitung, Prävention und Unterstützung im Alltag.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--airy helfen__insights" data-einblicke-level2-section hidden>
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <h2 class="h2">Passende Einblicke öffnen</h2>
+            <div class="sub">Wähle eine Kategorie oder einen externen Artikel – wir zeigen dir den passenden Einstieg.</div>
+          </div>
+          <div>
+            <button class="nav__link" type="button" data-einblicke-back>← Zurück zur Themenauswahl</button>
+          </div>
+        </div>
+        <div class="helfen__insightGroup">
+          <div class="helfen__sectionHeader">
+            <div>
+              <div class="helfen__sectionTitle" data-einblicke-title></div>
+              <div class="helfen__sectionText" data-einblicke-text></div>
+            </div>
+          </div>
+          <div class="helfen__choiceGrid helfen__choiceGrid--sub" data-einblicke-grid role="list"></div>
         </div>
       </div>
     </section>
