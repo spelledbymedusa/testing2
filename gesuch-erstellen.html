@@ -97,10 +97,16 @@
             </label>
             <label class="entryForm__label">
               Modus *
-              <select class="entryForm__select select" data-gesuche-field="mode" required>
-                <option value="vor_ort">Vor Ort</option>
-                <option value="online">Online</option>
-              </select>
+              <div class="entryForm__choices">
+                <label class="entryForm__choice">
+                  <input type="checkbox" value="vor_ort" data-gesuche-field="mode" required />
+                  Vor Ort
+                </label>
+                <label class="entryForm__choice">
+                  <input type="checkbox" value="online" data-gesuche-field="mode" />
+                  Online
+                </label>
+              </div>
             </label>
           </div>
           <label class="entryForm__label">

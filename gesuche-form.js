@@ -26,6 +26,7 @@
   let searchTerm = "";
 
   const getField = (key) => form?.querySelector(`[data-gesuche-field="${key}"]`);
+  const getFields = (key) => Array.from(form?.querySelectorAll(`[data-gesuche-field="${key}"]`) || []);
   const message = form?.querySelector("[data-gesuche-message]");
   const preview = form?.querySelector("[data-gesuche-preview]");
   const createWrapper = document.querySelector("[data-gesuche-collapsible]");
@@ -91,6 +92,9 @@
   };
 
   const normalizeModeKey = (value) => {
+    if (Array.isArray(value)) {
+      return value.length ? normalizeModeKey(value[0]) : "vor_ort";
+    }
     const resolved = resolveModeKey(value);
     if (resolved) {
       return resolved;
@@ -104,6 +108,15 @@
 
   const getModeLabel = (value) => modeLabels[normalizeModeKey(value)] || modeLabels.vor_ort;
 
+  const normalizeModeKeys = (values) => {
+    if (!values) {
+      return [];
+    }
+    const list = Array.isArray(values) ? values : [values];
+    const normalized = list.map((value) => normalizeModeKey(value)).filter(Boolean);
+    return Array.from(new Set(normalized));
+  };
+
   const getTagLabel = (tag) => {
     const modeKey = resolveModeKey(tag);
     return modeKey ? modeLabels[modeKey] : tag;
@@ -114,6 +127,11 @@
       .split(",")
       .map((tag) => tag.trim())
       .filter(Boolean);
+
+  const mergeTags = (primary = [], secondary = []) => {
+    const merged = [...primary, ...secondary];
+    return Array.from(new Set(merged));
+  };
 
   const knownTypes = ["fsj", "pflegestelle", "urlaub", "aushilfe", "mitglied", "freiwillig"];
 
@@ -192,14 +210,48 @@
     return [...modeTags, ...otherTags];
   };
 
+  const createModeTagElement = (modeKey) => {
+    const label = modeLabels[modeKey] || modeLabels.vor_ort;
+    const span = document.createElement("span");
+    span.className = "gesuche__tag tag--icon";
+    span.setAttribute("aria-label", label);
+    span.setAttribute("title", label);
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("aria-hidden", "true");
+    const pathData =
+      modeKey === "online"
+        ? [
+            "M12 18.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z",
+            "M4.93 12.93a10 10 0 0 1 14.14 0 1 1 0 0 0 1.41-1.41 12 12 0 0 0-16.96 0 1 1 0 0 0 1.41 1.41z",
+            "M8.46 16.46a5 5 0 0 1 7.07 0 1 1 0 1 0 1.41-1.41 7 7 0 0 0-9.89 0 1 1 0 1 0 1.41 1.41z",
+          ]
+        : ["M12 2a6 6 0 0 0-6 6c0 4.5 6 12 6 12s6-7.5 6-12a6 6 0 0 0-6-6zm0 9a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"];
+    pathData.forEach((data) => {
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", data);
+      svg.appendChild(path);
+    });
+    const srOnly = document.createElement("span");
+    srOnly.className = "sr-only";
+    srOnly.textContent = label;
+    span.append(svg, srOnly);
+    return span;
+  };
+
   const createTagElements = (tags) => {
     const wrapper = document.createElement("div");
     wrapper.className = "gesuche__tags";
     prioritizeModeTags(tags).forEach((tag) => {
-      const span = document.createElement("span");
-      span.className = "gesuche__tag";
-      span.textContent = getTagLabel(tag);
-      wrapper.appendChild(span);
+      const modeKey = resolveModeKey(tag);
+      if (modeKey) {
+        wrapper.appendChild(createModeTagElement(modeKey));
+      } else {
+        const span = document.createElement("span");
+        span.className = "gesuche__tag";
+        span.textContent = getTagLabel(tag);
+        wrapper.appendChild(span);
+      }
     });
     return wrapper;
   };
@@ -213,7 +265,8 @@
     row.dataset.newsDistance = "0";
     row.tabIndex = 0;
 
-    const modeKey = normalizeModeKey(gesuch.mode);
+    const modeKeys = normalizeModeKeys(gesuch.mode);
+    const modeKey = modeKeys[0] || "vor_ort";
     row.dataset.newsType = modeKey;
     const resolvedType = resolveTypeFromTags(gesuch.tags);
     if (resolvedType) {
@@ -238,13 +291,14 @@
 
     const meta = document.createElement("div");
     meta.className = "gesuche__meta";
-    meta.textContent = `${gesuch.location} • ${gesuch.effort} • ${getModeLabel(gesuch.mode)}`;
+    meta.textContent = `${gesuch.location} • ${gesuch.effort}`;
 
     const text = document.createElement("div");
     text.className = "gesuche__text";
     text.textContent = gesuch.summary;
 
-    const tags = createTagElements(gesuch.tags);
+    const combinedTags = mergeTags(modeKeys, gesuch.tags || []);
+    const tags = createTagElements(combinedTags);
 
     left.append(title, meta, tags, text);
 
@@ -317,7 +371,7 @@
 
     const title = gesuch?.title || row.querySelector(".gesuche__title")?.textContent || "Gesuch";
     const meta = gesuch
-      ? `${gesuch.location} • ${gesuch.effort} • ${getModeLabel(gesuch.mode)}`
+      ? `${gesuch.location} • ${gesuch.effort}`
       : row.querySelector(".gesuche__meta")?.textContent || "";
     const summary = gesuch?.summary || row.querySelector(".gesuche__text")?.textContent || "";
     const description = gesuch?.details || "";
@@ -404,7 +458,13 @@
         const metaParts = metaText.split("•").map((part) => part.trim()).filter(Boolean);
         const location = metaParts[0] || "Ort";
         const effort = metaParts[1] || "Flexibel";
-        const mode = normalizeModeKey(metaParts[metaParts.length - 1] || "Vor Ort");
+        const tagValues = Array.from(row.querySelectorAll(".gesuche__tag")).map((tag) => {
+          const modeKey = resolveModeKey(tag.textContent);
+          return modeKey ? modeKey : tag.textContent;
+        });
+        const modeKeys = tagValues.map((tag) => resolveModeKey(tag)).filter(Boolean);
+        const modeFallback = normalizeModeKey(row.dataset.newsType || "vor_ort");
+        const mode = modeKeys.length > 1 ? modeKeys : modeKeys[0] || modeFallback;
         return {
           id: row.dataset.gesuchId,
           title: row.querySelector(".gesuche__title")?.textContent || "Gesuch",
@@ -412,10 +472,7 @@
           effort,
           mode,
           summary: row.querySelector(".gesuche__text")?.textContent || "",
-          tags: Array.from(row.querySelectorAll(".gesuche__tag")).map((tag) => {
-            const modeKey = resolveModeKey(tag.textContent);
-            return modeKey ? modeKey : tag.textContent;
-          }),
+          tags: tagValues,
           imageData: null,
           ownerId: null,
           createdAt: new Date().toISOString(),
@@ -544,8 +601,9 @@
       const title = getField("title").value.trim();
       const location = getField("location").value.trim();
       const effort = getField("effort").value.trim();
-      const mode = getField("mode").value;
-      const modeLabel = getModeLabel(mode);
+      const modeSelections = getFields("mode")
+        .filter((field) => field.checked)
+        .map((field) => field.value);
       const summary = getField("summary").value.trim();
       const details = getField("details")?.value.trim() || "";
       const tags = parseTags(getField("tags").value || "");
@@ -553,6 +611,11 @@
 
       if (!title || !location || !effort || !summary) {
         setMessage("Bitte alle Pflichtfelder ausfüllen.", "error");
+        return;
+      }
+
+      if (!modeSelections.length) {
+        setMessage("Bitte mindestens einen Modus auswählen.", "error");
         return;
       }
 
@@ -567,6 +630,8 @@
       }
 
       const saveGesuch = (imageData) => {
+        const mode = modeSelections.length > 1 ? modeSelections : modeSelections[0];
+        const combinedTags = mergeTags(modeSelections, tags);
         const gesuch = store.saveGesuch({
           id: store.createId("gesuch"),
           title,
@@ -575,7 +640,7 @@
           mode,
           summary,
           details,
-          tags: tags.length ? tags : [modeLabel],
+          tags: combinedTags,
           imageData,
           ownerId: session?.userId || null,
           ownerName: session?.name || session?.email || "Verein",
