@@ -14,10 +14,13 @@
   const gesucheContainer = document.querySelector("[data-account-gesuche]");
   const postsContainer = document.querySelector("[data-account-posts]");
   const savedContainer = document.querySelector("[data-account-saved]");
-  const editButton = document.querySelector("[data-account-edit]");
+  const verifyButton = document.querySelector("[data-account-verify]");
+  const verifiedBadge = document.querySelector("[data-account-verified]");
   const contactForm = document.querySelector("[data-account-contact-form]");
   const settingsPanel = document.querySelector("[data-account-settings-panel]");
   const settingsToggle = document.querySelector("[data-account-settings-toggle]");
+  const settingsBack = document.querySelector("[data-account-settings-back]");
+  const profileView = document.querySelector("[data-account-profile-view]");
   const contactHint = document.querySelector("[data-account-contact-hint]");
   const contactFields = {
     verein: document.querySelector("[data-account-contact='verein']"),
@@ -43,11 +46,18 @@
     message.textContent = text;
     message.className = `auth__notice auth__notice--${tone}`;
   };
+  const clearMessage = () => {
+    if (!message) {
+      return;
+    }
+    message.textContent = "";
+    message.className = "auth__notice";
+  };
 
   if (!isLoggedIn) {
     setMessage("Du bist aktuell nicht eingeloggt. Logge dich ein, um deine Daten zu sehen.", "error");
   } else {
-    setMessage(`Angemeldet als ${session.name || session.email}.`, "success");
+    clearMessage();
   }
 
   if (nameFields.length && session?.name) {
@@ -63,9 +73,32 @@
       field.textContent = session?.role === "org" ? "Berlin" : "Deutschland";
     });
   }
-  if (statusField) {
-    statusField.textContent = isLoggedIn ? "Aktiv" : "Unverifiziert";
-  }
+  const updateVerificationUI = (verified) => {
+    if (statusField) {
+      statusField.textContent = verified ? "Verifiziert" : "Unverifiziert";
+    }
+    if (verifyButton) {
+      verifyButton.hidden = verified;
+    }
+    if (verifiedBadge) {
+      verifiedBadge.hidden = !verified;
+    }
+  };
+
+  const setSettingsOpen = (open) => {
+    if (settingsPanel) {
+      settingsPanel.hidden = !open;
+    }
+    if (profileView) {
+      profileView.hidden = open;
+    }
+    if (settingsToggle) {
+      settingsToggle.setAttribute("aria-expanded", String(open));
+    }
+    if (open) {
+      contactFields.verein?.focus();
+    }
+  };
 
   const DEFAULT_AVATAR =
     "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'><rect width='96' height='96' rx='48' fill='%23e5e7eb'/><circle cx='48' cy='36' r='16' fill='%2394a3b8'/><path d='M20 78c6-14 18-22 28-22s22 8 28 22' fill='%2394a3b8'/></svg>";
@@ -114,9 +147,7 @@
         field.textContent = profile.address || (session?.role === "org" ? "Berlin" : "Deutschland");
       });
     }
-    if (statusField) {
-      statusField.textContent = isLoggedIn ? "Aktiv" : "Unverifiziert";
-    }
+    updateVerificationUI(Boolean(profile.verified));
     if (descriptionField) {
       descriptionField.textContent = profile.description || "Keine Beschreibung hinterlegt.";
     }
@@ -145,9 +176,6 @@
       contactForm.querySelectorAll("input, textarea").forEach((input) => {
         input.disabled = true;
       });
-      if (editButton) {
-        editButton.disabled = true;
-      }
     } else {
       const userId = session.userId;
       const existingProfile = store.getOrgProfile(userId);
@@ -160,6 +188,7 @@
         email: session?.email || "kontakt@verein.de",
         phone: "+49 30 1234567",
         visibility: { email: true, phone: false },
+        verified: false,
       };
       if (!existingProfile) {
         store.setOrgProfile(userId, defaultProfile);
@@ -192,6 +221,8 @@
       contactForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const profile = getProfileFromForm();
+        const storedProfile = store.getOrgProfile(userId);
+        profile.verified = Boolean(storedProfile?.verified);
 
         if (!profile.vereinName || !profile.address || !profile.email) {
           setContactHint("Bitte Verein, Adresse und E-Mail ausfüllen.", "error");
@@ -208,27 +239,35 @@
         store.setOrgProfile(userId, profile);
         applyProfileToSummary(profile);
         setContactHint("Kontakt gespeichert und sichtbar für Gesuche.", "success");
+        setSettingsOpen(false);
       });
     }
   }
 
-  if (editButton && contactForm) {
-    editButton.addEventListener("click", () => {
-      if (settingsPanel && settingsPanel instanceof HTMLDetailsElement) {
-        settingsPanel.open = true;
+  if (verifyButton && isLoggedIn) {
+    verifyButton.addEventListener("click", () => {
+      const userId = session.userId;
+      const existingProfile = store.getOrgProfile(userId);
+      if (!existingProfile) {
+        return;
       }
-      contactForm.scrollIntoView({ behavior: "smooth", block: "start" });
-      contactFields.verein?.focus();
+      const updatedProfile = { ...existingProfile, verified: true };
+      store.setOrgProfile(userId, updatedProfile);
+      applyProfileToSummary(updatedProfile);
+      setContactHint("Verifizierung gestartet. Status aktualisiert.", "success");
     });
   }
 
-  if (settingsToggle && settingsPanel && settingsPanel instanceof HTMLDetailsElement) {
+  if (settingsToggle) {
     settingsToggle.addEventListener("click", () => {
-      const shouldOpen = !settingsPanel.open;
-      settingsPanel.open = shouldOpen;
-      if (shouldOpen) {
-        contactFields.verein?.focus();
-      }
+      const shouldOpen = settingsPanel ? settingsPanel.hidden : true;
+      setSettingsOpen(shouldOpen);
+    });
+  }
+
+  if (settingsBack) {
+    settingsBack.addEventListener("click", () => {
+      setSettingsOpen(false);
     });
   }
 
