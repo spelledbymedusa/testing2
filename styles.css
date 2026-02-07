@@ -7,12 +7,15 @@
   --surfaceMid:#fbf5ea;
   --surfaceLight:#fdf8f0;
   --panel:var(--surface);
+  --inputSurface:var(--surfaceLight);
   --border:rgba(47,95,59,.18);
   --borderWidth:1px;
   --innerBorderWidth:1px;
   --inputBorder:rgba(47,95,59,.22);
   --text:#2b2a24;
   --muted:#4c574a;
+  --placeholder:rgba(43,42,36,.55);
+  --inputShadow:0 6px 16px rgba(15,23,42,.08);
 
   --accent:#2f5f3b;
   --accentDark:#1b3a26;
@@ -46,10 +49,13 @@
   --surfaceMid:#1b1f1b;
   --surfaceLight:#202520;
   --panel:#1b201b;
+  --inputSurface:var(--surfaceLight);
   --border:rgba(255,255,255,.12);
   --inputBorder:rgba(154,211,154,.34);
   --text:#f3f4ee;
   --muted:#c0b9ab;
+  --placeholder:rgba(243,244,238,.6);
+  --inputShadow:0 8px 18px rgba(0,0,0,.45);
 
   --accent:#9ad39a;
   --accentDark:#0c120d;
@@ -170,14 +176,16 @@ h3,.h3{font-size:22px;letter-spacing:-.01em;line-height:1.3;font-weight:650}
   padding:12px 14px;
   border-radius:var(--radius-sm);
   border:1px solid var(--inputBorder);
-  background:var(--panel);
+  background:var(--inputSurface);
   color:var(--text);
   min-height:44px;
   font:inherit;
+  font-weight:500;
+  box-shadow:var(--inputShadow);
 }
 .textarea{min-height:120px;resize:vertical}
 .input::placeholder,
-.textarea::placeholder{color:var(--muted)}
+.textarea::placeholder{color:var(--placeholder)}
 
 .badge{
   border-radius:999px;
@@ -1141,19 +1149,23 @@ h3,.h3{font-size:22px;letter-spacing:-.01em;line-height:1.3;font-weight:650}
   padding:11px 12px;
   border-radius:12px;
   border:1px solid var(--inputBorder);
-  background:var(--panel);
+  background:var(--inputSurface);
   color:var(--text);
+  font-weight:500;
   outline:none;
   min-height:44px;
+  box-shadow:var(--inputShadow);
 }
 .gesuche__select{
   min-width:170px;
   padding:10px 12px;
   border-radius:12px;
   border:1px solid var(--inputBorder);
-  background:var(--panel);
+  background:var(--inputSurface);
   color:var(--text);
   min-height:44px;
+  font-weight:500;
+  box-shadow:var(--inputShadow);
 }
 .gesuche__clear{
   border:none;
@@ -1170,7 +1182,7 @@ h3,.h3{font-size:22px;letter-spacing:-.01em;line-height:1.3;font-weight:650}
 .vereine__search::placeholder,
 .gesuche__search::placeholder,
 .blog__search::placeholder,
-.auth__input::placeholder{color:var(--muted)}
+.auth__input::placeholder{color:var(--placeholder)}
 
 /* Sidebar container */
 .vereine__sidebar,
@@ -1568,10 +1580,12 @@ h3,.h3{font-size:22px;letter-spacing:-.01em;line-height:1.3;font-weight:650}
   padding:11px 12px;
   border-radius:12px;
   border:1px solid var(--inputBorder);
-  background:var(--panel);
+  background:var(--inputSurface);
   color:var(--text);
   min-height:44px;
   font:inherit;
+  font-weight:500;
+  box-shadow:var(--inputShadow);
 }
 .entryForm__input[type="file"]{
   padding:8px 12px;
@@ -1602,6 +1616,8 @@ h3,.h3{font-size:22px;letter-spacing:-.01em;line-height:1.3;font-weight:650}
   min-height:110px;
   resize:vertical;
 }
+.entryForm__input::placeholder,
+.entryForm__textarea::placeholder{color:var(--placeholder)}
 .entryForm__hint{
   font-size:12px;
   color:var(--muted);
@@ -1922,11 +1938,15 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
   padding:11px 12px;
   border-radius:12px;
   border:1px solid var(--inputBorder);
-  background:var(--panel);
+  background:var(--inputSurface);
   color:var(--text);
   min-height:44px;
   font:inherit;
+  font-weight:500;
+  box-shadow:var(--inputShadow);
 }
+.account__input::placeholder,
+.account__textarea::placeholder{color:var(--placeholder)}
 .account__textarea{resize:vertical;min-height:96px}
 .account__fileInput{padding:8px 10px}
 .account__helper{font-size:12px;color:var(--muted)}
