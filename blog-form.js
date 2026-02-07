@@ -164,7 +164,7 @@
 
     const read = document.createElement("a");
     read.className = "nav__link blog__read";
-    read.href = "./blog.html";
+    read.href = "./einblicke.html";
     read.textContent = "Lesen";
 
     const tags = createTagElements(post.tags);
