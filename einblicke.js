@@ -203,7 +203,7 @@
           const badge = document.createElement("span");
           badge.className = "helfen__badge";
           badge.textContent = option.badge;
-          card.appendChild(badge);
+          content.appendChild(badge);
         }
 
         suboptionsGrid.appendChild(card);
