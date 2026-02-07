@@ -2218,6 +2218,28 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
   *{transition:none !important; animation:none !important;}
 }
 /* ===== Helfen page ===== */
+.einblicke__choiceColumns{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:32px;
+}
+.einblicke__choiceColumn{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.einblicke__choiceColumn + .einblicke__choiceColumn{
+  border-left:1px solid var(--border);
+  padding-left:32px;
+}
+.einblicke__choiceColumn--inactive{
+  display:none;
+}
+.einblicke__choiceColumn--active{
+  max-width:980px;
+  margin:0 auto;
+  width:100%;
+}
 .helfen__choiceGrid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -2419,6 +2441,16 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
   line-height:1.6;
 }
 .helfen__choiceGrid--primary{margin-top:20px}
+
+@media (max-width: 960px){
+  .einblicke__choiceColumns{
+    grid-template-columns:1fr;
+  }
+  .einblicke__choiceColumn + .einblicke__choiceColumn{
+    border-left:0;
+    padding-left:0;
+  }
+}
 .helfen__insights{background:rgba(17,24,39,.02)}
 .helfen__insightGroup{margin-top:20px;display:grid;gap:12px}
 .helfen__insightTitle{font-weight:750}
