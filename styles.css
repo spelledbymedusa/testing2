@@ -2242,12 +2242,12 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
 }
 .helfen__choiceGrid{
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:1fr;
   gap:16px;
   margin-top:18px;
 }
 .helfen__choiceGrid--sub{
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:1fr;
   margin-top:12px;
 }
 .helfen__choiceCard{
@@ -2255,13 +2255,14 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
   background:var(--surfaceMid);
   color:var(--text);
   border-radius:var(--radius);
-  padding:16px;
+  padding:14px;
   min-height:110px;
   display:grid;
-  gap:8px;
+  grid-template-columns:96px 1fr;
+  gap:16px;
   text-align:left;
   cursor:pointer;
-  align-content:start;
+  align-items:center;
   text-decoration:none;
   font:inherit;
   width:100%;
@@ -2269,13 +2270,35 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
   transition:transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
   box-shadow:0 1px 0 rgba(15,23,42,.06);
 }
+.helfen__choiceContent{
+  display:grid;
+  gap:6px;
+}
+.helfen__choiceMedia{
+  border-radius:14px;
+  background:var(--surfaceLight);
+  width:96px;
+  height:96px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.helfen__choiceMedia--placeholder{
+  background:linear-gradient(135deg, rgba(47,95,59,.14), rgba(47,95,59,.04));
+  border:1px solid rgba(47,95,59,.18);
+  color:var(--accentDark);
+  font-weight:700;
+  font-size:22px;
+}
+.helfen__choiceMedia--placeholder::after{
+  content:attr(data-letter);
+}
 .helfen__choiceImage{
   border:0;
-  border-radius:12px;
-  background:var(--surfaceLight);
   width:100%;
-  height:96px;
-  object-fit:contain;
+  height:100%;
+  object-fit:cover;
   display:block;
 }
 .helfen__choiceCard:hover{
@@ -2286,7 +2309,12 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
 .helfen__choiceCard--sub{
   min-height:100px;
   position:relative;
-  padding-right:42px;
+  padding-right:46px;
+  grid-template-columns:80px 1fr;
+}
+.helfen__choiceCard--sub .helfen__choiceMedia{
+  width:80px;
+  height:80px;
 }
 .helfen__choiceCard--sub::after{
   content:"→";
@@ -2303,6 +2331,11 @@ details[open] > .account__panelSummary .account__panelSummaryArrow{transform:rot
 }
 .helfen__choiceTitle{font-weight:750}
 .helfen__choiceText{color:var(--muted);font-size:13px;line-height:1.5}
+.helfen__choiceMore{
+  color:var(--accentDark);
+  font-size:12px;
+  font-weight:600;
+}
 .helfen__choiceCard--active{
   background:var(--accentSoft);
 }
