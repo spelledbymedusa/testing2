@@ -71,6 +71,14 @@
         card.href = `./erfahrungsbericht.html?slug=${encodeURIComponent(option.slug)}`;
         card.setAttribute("role", "listitem");
 
+        const media = document.createElement("span");
+        media.className = "helfen__choiceMedia helfen__choiceMedia--placeholder";
+        media.setAttribute("aria-hidden", "true");
+        media.dataset.letter = option.title?.trim()?.charAt(0) || "";
+
+        const content = document.createElement("span");
+        content.className = "helfen__choiceContent";
+
         const title = document.createElement("span");
         title.className = "helfen__choiceTitle";
         title.textContent = option.title;
@@ -79,8 +87,12 @@
         text.className = "helfen__choiceText";
         text.textContent = option.description;
 
-        card.appendChild(title);
-        card.appendChild(text);
+        const more = document.createElement("span");
+        more.className = "helfen__choiceMore";
+        more.textContent = "Mehr…";
+
+        content.append(title, text, more);
+        card.append(media, content);
         suboptionsGrid.appendChild(card);
       });
     };
@@ -164,6 +176,14 @@
           card.rel = "noreferrer";
         }
 
+        const media = document.createElement("span");
+        media.className = "helfen__choiceMedia helfen__choiceMedia--placeholder";
+        media.setAttribute("aria-hidden", "true");
+        media.dataset.letter = option.title?.trim()?.charAt(0) || "";
+
+        const content = document.createElement("span");
+        content.className = "helfen__choiceContent";
+
         const title = document.createElement("span");
         title.className = "helfen__choiceTitle";
         title.textContent = option.title;
@@ -172,14 +192,18 @@
         text.className = "helfen__choiceText";
         text.textContent = option.description;
 
-        card.appendChild(title);
-        card.appendChild(text);
+        const more = document.createElement("span");
+        more.className = "helfen__choiceMore";
+        more.textContent = "Mehr…";
+
+        content.append(title, text, more);
+        card.append(media, content);
 
         if (option.badge) {
           const badge = document.createElement("span");
           badge.className = "helfen__badge";
           badge.textContent = option.badge;
-          card.appendChild(badge);
+          content.appendChild(badge);
         }
 
         suboptionsGrid.appendChild(card);
