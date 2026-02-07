@@ -84,115 +84,117 @@
 
     <section class="section section--airy">
       <div class="container">
-        <div class="section__header">
-          <div>
-            <h2 class="h2">Helfen entdecken</h2>
-          </div>
-        </div>
-        <div data-choice-section>
-          <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
-            <button class="helfen__choiceCard" type="button" data-choice-filter="vor_ort" role="listitem">
-              <img class="helfen__choiceImage" src="./assets/helfenpics/teamwork.jpg" alt="Menschen, die gemeinsam vor Ort helfen" loading="lazy" />
-              <span class="helfen__choiceTitle">Helfen vor Ort</span>
-              <span class="helfen__choiceText">Präsenz, Teamwork, direkte Wirkung in deiner Umgebung.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-choice-filter="online" role="listitem">
-              <img class="helfen__choiceImage" src="./assets/helfenpics/home%20office.jpg" alt="Online Hilfe im Homeoffice" loading="lazy" />
-              <span class="helfen__choiceTitle">Helfen Online</span>
-              <span class="helfen__choiceText">Remote begleiten, Wissen teilen, Abläufe digital stärken.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-choice-filter="alltag" role="listitem">
-              <img class="helfen__choiceImage" src="./assets/helfenpics/Werkstatt.jpg" alt="Alltagshilfe mit Werkzeugen" loading="lazy" />
-              <span class="helfen__choiceTitle">Im Alltag</span>
-              <span class="helfen__choiceText">Kleine, konkrete Hilfen – schnell organisiert, sofort spürbar.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-choice-filter="spenden" role="listitem">
-              <img class="helfen__choiceImage" src="./assets/helfenpics/Klassenzimmer.jpg" alt="Gemeinschaft unterstützen" loading="lazy" />
-              <span class="helfen__choiceTitle">Geld / Spenden</span>
-              <span class="helfen__choiceText">Deinen Willen gezielt einsetzen und Wirkung strategisch verstärken.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-choice-filter="reichweite" role="listitem">
-              <img class="helfen__choiceImage" src="./assets/helfenpics/HundHigh5.jpg" alt="Engagement mit Teams" loading="lazy" />
-              <span class="helfen__choiceTitle">Verbreitung / Firmen</span>
-              <span class="helfen__choiceText">Reichweite, Ressourcen und Kooperationen bündeln – gemeinsam mehr bewegen.</span>
-            </button>
-          </div>
-        </div>
-        <div class="helfen__insights" data-level2-section hidden>
-          <div class="section__header">
-            <div>
-              <h2 class="h2">Echte Einblicke auswählen</h2>
-            </div>
-            <div>
-              <button class="btn btn-link" type="button" data-choice-back>← Zurück zur Auswahl</button>
-            </div>
-          </div>
-          <div class="helfen__insightGroup">
-            <div class="helfen__sectionHeader">
+        <div class="einblicke__choiceColumns">
+          <div class="einblicke__choiceColumn" data-einblicke-column="help">
+            <div class="section__header">
               <div>
-                <div class="helfen__sectionTitle" data-suboptions-title></div>
-                <div class="helfen__sectionText" data-suboptions-text></div>
+                <h2 class="h2">Helfen entdecken</h2>
               </div>
             </div>
-            <div class="helfen__choiceGrid helfen__choiceGrid--sub" data-suboptions-grid role="list"></div>
+            <div data-choice-section>
+              <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
+                <button class="helfen__choiceCard" type="button" data-choice-filter="vor_ort" role="listitem">
+                  <img class="helfen__choiceImage" src="./assets/helfenpics/teamwork.jpg" alt="Menschen, die gemeinsam vor Ort helfen" loading="lazy" />
+                  <span class="helfen__choiceTitle">Helfen vor Ort</span>
+                  <span class="helfen__choiceText">Präsenz, Teamwork, direkte Wirkung in deiner Umgebung.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-choice-filter="online" role="listitem">
+                  <img class="helfen__choiceImage" src="./assets/helfenpics/home%20office.jpg" alt="Online Hilfe im Homeoffice" loading="lazy" />
+                  <span class="helfen__choiceTitle">Helfen Online</span>
+                  <span class="helfen__choiceText">Remote begleiten, Wissen teilen, Abläufe digital stärken.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-choice-filter="alltag" role="listitem">
+                  <img class="helfen__choiceImage" src="./assets/helfenpics/Werkstatt.jpg" alt="Alltagshilfe mit Werkzeugen" loading="lazy" />
+                  <span class="helfen__choiceTitle">Im Alltag</span>
+                  <span class="helfen__choiceText">Kleine, konkrete Hilfen – schnell organisiert, sofort spürbar.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-choice-filter="spenden" role="listitem">
+                  <img class="helfen__choiceImage" src="./assets/helfenpics/Klassenzimmer.jpg" alt="Gemeinschaft unterstützen" loading="lazy" />
+                  <span class="helfen__choiceTitle">Geld / Spenden</span>
+                  <span class="helfen__choiceText">Deinen Willen gezielt einsetzen und Wirkung strategisch verstärken.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-choice-filter="reichweite" role="listitem">
+                  <img class="helfen__choiceImage" src="./assets/helfenpics/HundHigh5.jpg" alt="Engagement mit Teams" loading="lazy" />
+                  <span class="helfen__choiceTitle">Verbreitung / Firmen</span>
+                  <span class="helfen__choiceText">Reichweite, Ressourcen und Kooperationen bündeln – gemeinsam mehr bewegen.</span>
+                </button>
+              </div>
+            </div>
+            <div class="helfen__insights" data-level2-section hidden>
+              <div class="section__header">
+                <div>
+                  <h2 class="h2">Echte Einblicke auswählen</h2>
+                </div>
+                <div>
+                  <button class="btn btn-link" type="button" data-choice-back>← Zurück zur Auswahl</button>
+                </div>
+              </div>
+              <div class="helfen__insightGroup">
+                <div class="helfen__sectionHeader">
+                  <div>
+                    <div class="helfen__sectionTitle" data-suboptions-title></div>
+                    <div class="helfen__sectionText" data-suboptions-text></div>
+                  </div>
+                </div>
+                <div class="helfen__choiceGrid helfen__choiceGrid--sub" data-suboptions-grid role="list"></div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section--airy">
-      <div class="container">
-        <div class="section__header">
-          <div>
-            <h2 class="h2">Einblicke nach Themen</h2>
-            <div class="sub">Entdecke Themenbereiche von Naturschutz bis LGBTQ+ – mit Erfahrungsberichten und externen Artikeln.</div>
-          </div>
-        </div>
-        <div data-einblicke-choice-section>
-          <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
-            <button class="helfen__choiceCard" type="button" data-einblicke-filter="naturschutz" role="listitem" aria-pressed="false">
-              <span class="helfen__choiceTitle">Naturschutz</span>
-              <span class="helfen__choiceText">Lebensräume schützen, Artenvielfalt sichern, lokal handeln.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-einblicke-filter="inklusion" role="listitem" aria-pressed="false">
-              <span class="helfen__choiceTitle">Leben mit Behinderung</span>
-              <span class="helfen__choiceText">Barrierefreiheit, Teilhabe und gelebte Selbstbestimmung.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-einblicke-filter="lgbtq" role="listitem" aria-pressed="false">
-              <span class="helfen__choiceTitle">LGBTQ+</span>
-              <span class="helfen__choiceText">Sichere Räume, Beratungsangebote und Community-Stories.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-einblicke-filter="vegan" role="listitem" aria-pressed="false">
-              <span class="helfen__choiceTitle">Veganismus</span>
-              <span class="helfen__choiceText">Ernährung, Klimawirkung und alltagstaugliche Tipps.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-einblicke-filter="bildung" role="listitem" aria-pressed="false">
-              <span class="helfen__choiceTitle">Bildung & Teilhabe</span>
-              <span class="helfen__choiceText">Lernchancen öffnen und Wissen teilen.</span>
-            </button>
-            <button class="helfen__choiceCard" type="button" data-einblicke-filter="gesundheit" role="listitem" aria-pressed="false">
-              <span class="helfen__choiceTitle">Gesundheit & Pflege</span>
-              <span class="helfen__choiceText">Begleitung, Prävention und Unterstützung im Alltag.</span>
-            </button>
-          </div>
-        </div>
-        <div class="helfen__insights" data-einblicke-level2-section hidden>
-          <div class="section__header">
-            <div>
-              <h2 class="h2">Passende Einblicke öffnen</h2>
-            </div>
-            <div>
-              <button class="btn btn-link" type="button" data-einblicke-back>← Zurück zur Themenauswahl</button>
-            </div>
-          </div>
-          <div class="helfen__insightGroup">
-            <div class="helfen__sectionHeader">
+          <div class="einblicke__choiceColumn" data-einblicke-column="topics">
+            <div class="section__header">
               <div>
-                <div class="helfen__sectionTitle" data-einblicke-title></div>
-                <div class="helfen__sectionText" data-einblicke-text></div>
+                <h2 class="h2">Einblicke nach Themen</h2>
+                <div class="sub">Entdecke Themenbereiche von Naturschutz bis LGBTQ+ – mit Erfahrungsberichten und externen Artikeln.</div>
               </div>
             </div>
-            <div class="helfen__choiceGrid helfen__choiceGrid--sub" data-einblicke-grid role="list"></div>
+            <div data-einblicke-choice-section>
+              <div class="helfen__choiceGrid helfen__choiceGrid--primary" role="list">
+                <button class="helfen__choiceCard" type="button" data-einblicke-filter="naturschutz" role="listitem" aria-pressed="false">
+                  <span class="helfen__choiceTitle">Naturschutz</span>
+                  <span class="helfen__choiceText">Lebensräume schützen, Artenvielfalt sichern, lokal handeln.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-einblicke-filter="inklusion" role="listitem" aria-pressed="false">
+                  <span class="helfen__choiceTitle">Leben mit Behinderung</span>
+                  <span class="helfen__choiceText">Barrierefreiheit, Teilhabe und gelebte Selbstbestimmung.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-einblicke-filter="lgbtq" role="listitem" aria-pressed="false">
+                  <span class="helfen__choiceTitle">LGBTQ+</span>
+                  <span class="helfen__choiceText">Sichere Räume, Beratungsangebote und Community-Stories.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-einblicke-filter="vegan" role="listitem" aria-pressed="false">
+                  <span class="helfen__choiceTitle">Veganismus</span>
+                  <span class="helfen__choiceText">Ernährung, Klimawirkung und alltagstaugliche Tipps.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-einblicke-filter="bildung" role="listitem" aria-pressed="false">
+                  <span class="helfen__choiceTitle">Bildung & Teilhabe</span>
+                  <span class="helfen__choiceText">Lernchancen öffnen und Wissen teilen.</span>
+                </button>
+                <button class="helfen__choiceCard" type="button" data-einblicke-filter="gesundheit" role="listitem" aria-pressed="false">
+                  <span class="helfen__choiceTitle">Gesundheit & Pflege</span>
+                  <span class="helfen__choiceText">Begleitung, Prävention und Unterstützung im Alltag.</span>
+                </button>
+              </div>
+            </div>
+            <div class="helfen__insights" data-einblicke-level2-section hidden>
+              <div class="section__header">
+                <div>
+                  <h2 class="h2">Passende Einblicke öffnen</h2>
+                </div>
+                <div>
+                  <button class="btn btn-link" type="button" data-einblicke-back>← Zurück zur Themenauswahl</button>
+                </div>
+              </div>
+              <div class="helfen__insightGroup">
+                <div class="helfen__sectionHeader">
+                  <div>
+                    <div class="helfen__sectionTitle" data-einblicke-title></div>
+                    <div class="helfen__sectionText" data-einblicke-text></div>
+                  </div>
+                </div>
+                <div class="helfen__choiceGrid helfen__choiceGrid--sub" data-einblicke-grid role="list"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

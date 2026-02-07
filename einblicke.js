@@ -1,7 +1,41 @@
 (() => {
+  const helpColumn = document.querySelector('[data-einblicke-column="help"]');
+  const topicsColumn = document.querySelector('[data-einblicke-column="topics"]');
+  const helpChoiceSection = document.querySelector("[data-choice-section]");
+  const topicsChoiceSection = document.querySelector("[data-einblicke-choice-section]");
+
+  const hideAllChoiceSections = () => {
+    if (helpChoiceSection) {
+      helpChoiceSection.hidden = true;
+    }
+    if (topicsChoiceSection) {
+      topicsChoiceSection.hidden = true;
+    }
+  };
+
+  const showAllChoiceSections = () => {
+    if (helpChoiceSection) {
+      helpChoiceSection.hidden = false;
+    }
+    if (topicsChoiceSection) {
+      topicsChoiceSection.hidden = false;
+    }
+  };
+
+  const setLevel2Layout = (activeColumn) => {
+    if (!helpColumn || !topicsColumn) {
+      return;
+    }
+
+    const isActive = Boolean(activeColumn);
+    [helpColumn, topicsColumn].forEach((column) => {
+      column.classList.toggle("einblicke__choiceColumn--active", isActive && column === activeColumn);
+      column.classList.toggle("einblicke__choiceColumn--inactive", isActive && column !== activeColumn);
+    });
+  };
+
   const setupHelpChoices = () => {
     const choiceButtons = Array.from(document.querySelectorAll("[data-choice-filter]"));
-    const choiceSection = document.querySelector("[data-choice-section]");
     const level2Section = document.querySelector("[data-level2-section]");
     const backButton = document.querySelector("[data-choice-back]");
     const suboptionsTitle = document.querySelector("[data-suboptions-title]");
@@ -62,18 +96,16 @@
         button.setAttribute("aria-pressed", String(isActive));
       });
 
-      if (choiceSection) {
-        choiceSection.hidden = true;
-      }
+      hideAllChoiceSections();
       level2Section.hidden = false;
+      setLevel2Layout(helpColumn);
       renderSubOptions(bucketMap.get(activeFilter));
     };
 
     const resetChoices = () => {
-      if (choiceSection) {
-        choiceSection.hidden = false;
-      }
+      showAllChoiceSections();
       level2Section.hidden = true;
+      setLevel2Layout(null);
       choiceButtons.forEach((button) => {
         button.classList.remove("helfen__choiceCard--active");
         button.setAttribute("aria-pressed", "false");
@@ -93,7 +125,6 @@
 
   const setupEinblickeChoices = () => {
     const choiceButtons = Array.from(document.querySelectorAll("[data-einblicke-filter]"));
-    const choiceSection = document.querySelector("[data-einblicke-choice-section]");
     const level2Section = document.querySelector("[data-einblicke-level2-section]");
     const backButton = document.querySelector("[data-einblicke-back]");
     const suboptionsTitle = document.querySelector("[data-einblicke-title]");
@@ -172,18 +203,16 @@
         button.setAttribute("aria-pressed", String(isActive));
       });
 
-      if (choiceSection) {
-        choiceSection.hidden = true;
-      }
+      hideAllChoiceSections();
       level2Section.hidden = false;
+      setLevel2Layout(topicsColumn);
       renderSubOptions(bucket);
     };
 
     const resetChoices = () => {
-      if (choiceSection) {
-        choiceSection.hidden = false;
-      }
+      showAllChoiceSections();
       level2Section.hidden = true;
+      setLevel2Layout(null);
       choiceButtons.forEach((button) => {
         button.classList.remove("helfen__choiceCard--active");
         button.setAttribute("aria-pressed", "false");
